@@ -44,9 +44,10 @@
             // 
             // txtProceso
             // 
+            this.txtProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProceso.Location = new System.Drawing.Point(230, 103);
             this.txtProceso.Name = "txtProceso";
-            this.txtProceso.Size = new System.Drawing.Size(100, 20);
+            this.txtProceso.Size = new System.Drawing.Size(100, 26);
             this.txtProceso.TabIndex = 1;
             // 
             // FrmImportarArticulo

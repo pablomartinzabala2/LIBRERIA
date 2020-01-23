@@ -77,6 +77,7 @@
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
+            this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
             // 
             // label1
             // 
@@ -98,7 +99,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(55, 144);
+            this.label8.Location = new System.Drawing.Point(61, 133);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 17);
             this.label8.TabIndex = 16;
@@ -106,7 +107,7 @@
             // 
             // txt_CodigoBarra
             // 
-            this.txt_CodigoBarra.Location = new System.Drawing.Point(158, 141);
+            this.txt_CodigoBarra.Location = new System.Drawing.Point(158, 133);
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
@@ -129,7 +130,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(42, 78);
+            this.label6.Location = new System.Drawing.Point(55, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 5;
@@ -138,7 +139,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(42, 46);
+            this.label4.Location = new System.Drawing.Point(55, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 3;

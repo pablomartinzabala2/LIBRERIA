@@ -240,7 +240,7 @@ namespace SistemaFact
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cArticulo art = new cArticulo();
-                DataTable trdo = art.GetArticulo("", CodigoBarra);
+                DataTable trdo = art.GetArticulo("", CodigoBarra,"");
                 if (trdo.Rows.Count >0)
                     if (trdo.Rows[0]["CodArticulo"].ToString ()!="")
                     {
@@ -250,6 +250,21 @@ namespace SistemaFact
                         txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                     }
             }
+        }
+
+        private void txt_Codigo_TextChanged(object sender, EventArgs e)
+        {
+            string Codigo = txt_Codigo.Text;
+            cArticulo art = new cArticulo();
+            DataTable trdo = art.GetArticulo("", "", Codigo);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["CodArticulo"].ToString() != "")
+                {
+                    txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                    txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                    txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                }
         }
     }
 }

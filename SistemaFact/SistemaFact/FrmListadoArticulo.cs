@@ -25,7 +25,7 @@ namespace SistemaFact
         private void CargarGrilla(string Nombre,string CodigoBarra)
         {
             cArticulo art = new Clases.cArticulo();
-            DataTable trdo = art.GetArticulo(Nombre,CodigoBarra);
+            DataTable trdo = art.GetArticulo(Nombre,CodigoBarra,"");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[1].Width = 270; 

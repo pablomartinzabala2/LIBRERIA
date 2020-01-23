@@ -40,7 +40,7 @@ namespace SistemaFact.Clases
             cDb.Grabar(sql);
         }
 
-        public DataTable GetArticulo(string Nombre,string CodigoBarra)
+        public DataTable GetArticulo(string Nombre,string CodigoBarra,string Codigo)
         {
             string sql = "select a.Codigo,a.CodigoBarra, a.CodArticulo,a.Nombre";
             
@@ -53,12 +53,18 @@ namespace SistemaFact.Clases
             {
                 sql = sql + " where a.CodigoBarra =" + "'" + CodigoBarra +"'";
             }
+
+            if (Codigo != "")
+            {
+                sql = sql + " where a.Codigo =" + "'" + Codigo + "'";
+            }
+
             return cDb.GetDatatable(sql);
         }
 
-        public void InsertarArticulo(string Codigo,string CodigoBarra,string Nombre)
+        public void InsertarArticulo(string Codigo,string CodigoBarra,string Nombre,Double? Costo)
         {
-            string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra)";
+            string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra,Costo)";
             sql = sql + " Values(" + "'" + Nombre + "'";
             if (Codigo != null)
                 sql = sql + "," + "'" + Codigo + "'";
@@ -70,10 +76,51 @@ namespace SistemaFact.Clases
             else
                 sql = sql + ",null";
 
+            if (Costo != null)
+                sql = sql + "," + Costo.ToString().Replace(",", ".");
+            else
+                sql = sql + ",null";
+
             sql = sql + ")";
-            cDb.Grabar(sql);
+            //verifico si existe
+            Int32 CodArticulo = Existe(Codigo, CodigoBarra);
+            if (CodArticulo == 0)
+                cDb.Grabar(sql);
+            else
+                ModificarArticulo(CodArticulo, Costo);
         }
 
+        public Int32  Existe(string Codigo,string CodigoBarra)
+        {
+            Int32 CodArticulo = 0;
+            string sql = "select CodArticulo";
+            sql = sql + " from Articulo";
+            if (CodigoBarra !="")
+            {
+                sql = sql + " where CodigoBarra=" + "'" + CodigoBarra + "'";
+            }
+            else
+            {
+                if (Codigo !="")
+                    sql = sql + " where Codigo=" + "'" + Codigo + "'";
+            }
+            DataTable trdo = cDb.GetDatatable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["CodArticulo"].ToString() != "")
+                    CodArticulo = Convert.ToInt32(trdo.Rows[0]["CodArticulo"].ToString());
+            return CodArticulo;
+        }
 
+        public void ModificarArticulo(Int32 CodArticulo, Double? Costo)
+        {
+            string sql = "Update Articulo ";
+            if (Costo != null)
+                sql = sql + " set Costo=" + Costo.ToString().Replace(",", ".");
+            else
+                sql = sql + " set Costo=null";
+
+            sql = sql + " where CodArticulo=" + CodArticulo.ToString();
+            cDb.Grabar(sql);
+        }
     }
 }

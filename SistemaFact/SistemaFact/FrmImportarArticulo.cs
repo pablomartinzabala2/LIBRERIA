@@ -74,6 +74,7 @@ namespace SistemaFact
             string Codigobarra = null;
             Double? Precio = null;
             string Nombre = "";
+            Double? Costo = null;
             cArticulo Articulo = new Clases.cArticulo();
             for (rCnt = 2; rCnt <= rw; rCnt++)
             {
@@ -96,14 +97,19 @@ namespace SistemaFact
                             break;
                         case 3:
                            Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            break;
+                        case 6:
+                            if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
+                                Costo  = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
+                            else
+                                Costo = null;
                             break;       
                     }
-                    Articulo.InsertarArticulo(Codigo.ToString(), Codigobarra, Nombre);
+                   
                     // str = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                     // MessageBox.Show(str);
-
-
                 }
+                Articulo.InsertarArticulo(Codigo.ToString(), Codigobarra, Nombre, Costo);
             }
             string msj = "Filas recorridos " + rCnt.ToString();
             MessageBox.Show(msj);
