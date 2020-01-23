@@ -127,6 +127,12 @@
     <Compile Include="FrmColor.Designer.cs">
       <DependentUpon>FrmColor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompra.Designer.cs">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfigurarImpresora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,6 +194,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmColor.resx">
       <DependentUpon>FrmColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompra.resx">
+      <DependentUpon>FrmCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfigurarImpresora.resx">
       <DependentUpon>FrmConfigurarImpresora.cs</DependentUpon>

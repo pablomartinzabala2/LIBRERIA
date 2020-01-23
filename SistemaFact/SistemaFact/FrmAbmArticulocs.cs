@@ -266,5 +266,10 @@ namespace SistemaFact
                     txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 }
         }
+
+        private void txt_Stock_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

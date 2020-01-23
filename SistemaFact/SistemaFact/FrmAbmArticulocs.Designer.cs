@@ -119,12 +119,13 @@
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.Size = new System.Drawing.Size(132, 23);
             this.txt_Stock.TabIndex = 11;
+            this.txt_Stock.TextChanged += new System.EventHandler(this.txt_Stock_TextChanged);
             // 
             // txt_Nombre
             // 
             this.txt_Nombre.Location = new System.Drawing.Point(158, 46);
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(348, 23);
+            this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
             this.txt_Nombre.TabIndex = 9;
             // 
             // label6
