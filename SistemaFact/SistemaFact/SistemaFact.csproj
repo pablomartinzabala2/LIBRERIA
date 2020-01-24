@@ -299,6 +299,8 @@
     <Content Include="Iconos\add.ico" />
     <Content Include="Iconos\cancel.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />
+    <Content Include="Iconos\Folder.ico" />
+    <Content Include="Iconos\FOLDER100.ico" />
     <Content Include="Iconos\page_add.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

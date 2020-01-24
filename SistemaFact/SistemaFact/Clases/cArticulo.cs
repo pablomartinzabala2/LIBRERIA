@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
 namespace SistemaFact.Clases
 {
     public class cArticulo
@@ -42,7 +43,7 @@ namespace SistemaFact.Clases
 
         public DataTable GetArticulo(string Nombre,string CodigoBarra,string Codigo)
         {
-            string sql = "select a.Codigo,a.CodigoBarra, a.CodArticulo,a.Nombre";
+            string sql = "select a.Codigo,a.CodigoBarra,a.stock, a.CodArticulo,a.Nombre";
             
             sql = sql + " from articulo a";
             if (Nombre !="")
@@ -121,6 +122,26 @@ namespace SistemaFact.Clases
 
             sql = sql + " where CodArticulo=" + CodArticulo.ToString();
             cDb.Grabar(sql);
+        }
+
+        public Int32 GetStock(Int32 CodArticulo)
+        {
+            Int32 Stock = 0;
+            string sql = "select stock from Articulo where";
+            sql = sql + " CodArticulo=" + CodArticulo.ToString();
+            DataTable trdo = cDb.GetDatatable(sql);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["Stock"].ToString() != "")
+                    Stock = Convert.ToInt32(trdo.Rows[0]["Stock"].ToString());
+            return Stock;
+        }
+
+        public void ActualizarStock (SqlConnection con, SqlTransaction Transaccion,
+            Int32 CodArticulo,Int32 Cantidad)
+        {
+            string sql = "Update Articulo set Stock = isnull(stock,0) + " + Cantidad.ToString();
+            sql = sql + " where CodArticulo =" + CodArticulo.ToString ();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
     }
 }

@@ -29,6 +29,10 @@ namespace SistemaFact
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
+            if (txt_Codigo.Text.Length <3)
+            {
+                return;
+            }
             string Codigo = txt_Codigo.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);
@@ -39,12 +43,13 @@ namespace SistemaFact
                     txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                     txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                     txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                    txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 }
         }
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
-            if (txt_CodigoBarra.Text != "")
+            if (txt_CodigoBarra.Text.Length >7)
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cArticulo art = new cArticulo();
@@ -98,6 +103,7 @@ namespace SistemaFact
             tbCompra = fun.AgregarFilas(tbCompra, Val);
             Grilla.DataSource = tbCompra;
             CalcularTotal();
+            LimpiarArticulo();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -134,7 +140,11 @@ namespace SistemaFact
             {
                 Int32 CodCompra = GrabarCompra(con, Transaccion);
                 GrabarDetalleCompra(con, Transaccion, CodCompra);
+                Transaccion.Commit();
+                con.Close();
                 Mensaje("Datos grabados Correctamente");
+                LimpiarGrilla();
+                
             }
             catch (Exception exa)
             {
@@ -161,16 +171,42 @@ namespace SistemaFact
             Double Descueneto = 0;
             Double Subtotal = 0;
             cDetalleCompra detalle = new cDetalleCompra();
+            cArticulo art = new cArticulo();
             //string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             for (int i=0;i< tbCompra.Rows.Count;i++)
             {
                 CodArticulo = Convert.ToInt32(tbCompra.Rows[i]["CodArticulo"].ToString());
                 Cantidad = Convert.ToInt32(tbCompra.Rows[i]["Cantidad"].ToString());
+                art.ActualizarStock(con, Transaccion, CodArticulo, Cantidad);
                 Costo = fun.ToDouble(tbCompra.Rows[i]["Precio"].ToString());
                 Descueneto = fun.ToDouble(tbCompra.Rows[i]["Descuento"].ToString());
                 Subtotal = fun.ToDouble (tbCompra.Rows[i]["Subtotal"].ToString());
                 detalle.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
             }
+        }
+
+        private void LimpiarArticulo()
+        {
+            txtCodigo.Text = "";
+            txt_Codigo.Text = "";
+            txt_CodigoBarra.Text = "";
+            txt_Nombre.Text = "";
+            txtCantidad.Text = "";
+            txt_Stock.Text = "";
+            txtPrecio.Text = "";
+            
+        }
+
+        private void LimpiarGrilla()
+        {
+            tbCompra.Clear();
+            Grilla.DataSource = tbCompra;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarArticulo();
+            LimpiarGrilla();
         }
     }
 }

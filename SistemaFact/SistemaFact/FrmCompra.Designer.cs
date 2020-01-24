@@ -49,12 +49,18 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnCancelar);
+            this.Grupo.Controls.Add(this.txtDescuento);
+            this.Grupo.Controls.Add(this.label7);
             this.Grupo.Controls.Add(this.btnGrabar);
             this.Grupo.Controls.Add(this.txtTotal);
             this.Grupo.Controls.Add(this.label5);
@@ -78,7 +84,7 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(689, 411);
+            this.Grupo.Size = new System.Drawing.Size(726, 411);
             this.Grupo.TabIndex = 19;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
@@ -86,7 +92,7 @@
             // 
             // txt_Codigo
             // 
-            this.txt_Codigo.Location = new System.Drawing.Point(121, 33);
+            this.txt_Codigo.Location = new System.Drawing.Point(108, 33);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
@@ -128,22 +134,22 @@
             // 
             // txt_Stock
             // 
-            this.txt_Stock.Location = new System.Drawing.Point(121, 91);
+            this.txt_Stock.Location = new System.Drawing.Point(108, 91);
             this.txt_Stock.Name = "txt_Stock";
-            this.txt_Stock.Size = new System.Drawing.Size(132, 23);
+            this.txt_Stock.Size = new System.Drawing.Size(74, 23);
             this.txt_Stock.TabIndex = 11;
             // 
             // txt_Nombre
             // 
             this.txt_Nombre.Location = new System.Drawing.Point(108, 62);
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
+            this.txt_Nombre.Size = new System.Drawing.Size(505, 23);
             this.txt_Nombre.TabIndex = 9;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 94);
+            this.label6.Location = new System.Drawing.Point(24, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 5;
@@ -169,7 +175,7 @@
             // button1
             // 
             this.button1.Image = global::SistemaFact.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(550, 86);
+            this.button1.Location = new System.Drawing.Point(629, 86);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 51;
@@ -178,15 +184,15 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(347, 91);
+            this.txtCantidad.Location = new System.Drawing.Point(249, 91);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(65, 23);
+            this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(259, 94);
+            this.label2.Location = new System.Drawing.Point(188, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 17);
             this.label2.TabIndex = 52;
@@ -194,15 +200,15 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(467, 91);
+            this.txtPrecio.Location = new System.Drawing.Point(383, 91);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(69, 23);
+            this.txtPrecio.Size = new System.Drawing.Size(79, 23);
             this.txtPrecio.TabIndex = 55;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(407, 91);
+            this.label3.Location = new System.Drawing.Point(335, 94);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 54;
@@ -218,13 +224,13 @@
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(644, 223);
+            this.Grilla.Size = new System.Drawing.Size(688, 223);
             this.Grilla.TabIndex = 56;
             // 
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(596, 85);
+            this.btnEliminar.Location = new System.Drawing.Point(675, 86);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
@@ -233,7 +239,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(602, 349);
+            this.txtTotal.Location = new System.Drawing.Point(646, 349);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 56;
@@ -241,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(556, 349);
+            this.label5.Location = new System.Drawing.Point(600, 349);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 58;
@@ -249,7 +255,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(608, 378);
+            this.btnGrabar.Location = new System.Drawing.Point(640, 378);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 59;
@@ -257,14 +263,40 @@
             this.btnGrabar.UseVisualStyleBackColor = true;
             this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(459, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 17);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Descuento";
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(541, 91);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(82, 23);
+            this.txtDescuento.TabIndex = 61;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(559, 378);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 62;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 429);
+            this.ClientSize = new System.Drawing.Size(742, 429);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmCompra";
-            this.Text = "FrmCompra";
+            this.Text = "Compra de artículos";
             this.Load += new System.EventHandler(this.FrmCompra_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
@@ -296,5 +328,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
