@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFact.Clases;
+using System.Data.SqlClient;
 namespace SistemaFact
 {
     public partial class FrmCompra : FormBase
@@ -96,6 +97,7 @@ namespace SistemaFact
             Val = Val + ";" + SubTotal;
             tbCompra = fun.AgregarFilas(tbCompra, Val);
             Grilla.DataSource = tbCompra;
+            CalcularTotal();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -108,6 +110,67 @@ namespace SistemaFact
             string Codigo = Grilla.CurrentRow.Cells[0].Value.ToString();
             tbCompra = fun.EliminarFila(tbCompra , "CodArticulo", Codigo);
             Grilla.DataSource = tbCompra;
+            CalcularTotal();
+        }
+
+        private void Grupo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CalcularTotal()
+        {
+           double Total = fun.TotalizarColumna(tbCompra, "Subtotal");
+            txtTotal.Text = Total.ToString();
+        }
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            SqlTransaction Transaccion;
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            con.Open();
+            Transaccion = con.BeginTransaction();
+            try
+            {
+                Int32 CodCompra = GrabarCompra(con, Transaccion);
+                GrabarDetalleCompra(con, Transaccion, CodCompra);
+                Mensaje("Datos grabados Correctamente");
+            }
+            catch (Exception exa)
+            {
+                Transaccion.Rollback();
+                con.Close();
+                Mensaje("Hubo un error en el proceso de grabacion");
+                Mensaje(exa.Message);
+                
+            }
+        }
+
+        public Int32 GrabarCompra(SqlConnection con, SqlTransaction Transaccion)
+        {
+            DateTime Fecha = DateTime.Now;
+            cCompra compra = new Clases.cCompra();
+            return compra.GrabarCompra(con, Transaccion, Fecha);
+        }
+
+        public void GrabarDetalleCompra(SqlConnection con, SqlTransaction Transaccion,Int32 CodCompra)
+        {
+            Int32 CodArticulo = 0;
+            int Cantidad = 0;
+            Double Costo = 0;
+            Double Descueneto = 0;
+            Double Subtotal = 0;
+            cDetalleCompra detalle = new cDetalleCompra();
+            //string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
+            for (int i=0;i< tbCompra.Rows.Count;i++)
+            {
+                CodArticulo = Convert.ToInt32(tbCompra.Rows[i]["CodArticulo"].ToString());
+                Cantidad = Convert.ToInt32(tbCompra.Rows[i]["Cantidad"].ToString());
+                Costo = fun.ToDouble(tbCompra.Rows[i]["Precio"].ToString());
+                Descueneto = fun.ToDouble(tbCompra.Rows[i]["Descuento"].ToString());
+                Subtotal = fun.ToDouble (tbCompra.Rows[i]["Subtotal"].ToString());
+                detalle.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
+            }
         }
     }
 }

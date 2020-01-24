@@ -64,8 +64,10 @@
   <ItemGroup>
     <Compile Include="Clases\cArticulo.cs" />
     <Compile Include="Clases\cCodigoBarra.cs" />
+    <Compile Include="Clases\cCompra.cs" />
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cDb.cs" />
+    <Compile Include="Clases\cDetalleCompra.cs" />
     <Compile Include="Clases\cFunciones.cs" />
     <Compile Include="Clases\cImpresora.cs" />
     <Compile Include="Clases\cRuta.cs" />
