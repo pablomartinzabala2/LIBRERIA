@@ -43,7 +43,7 @@ namespace SistemaFact.Clases
 
         public DataTable GetArticulo(string Nombre,string CodigoBarra,string Codigo)
         {
-            string sql = "select a.Codigo,a.CodigoBarra,a.stock, a.CodArticulo,a.Nombre";
+            string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
             
             sql = sql + " from articulo a";
             if (Nombre !="")

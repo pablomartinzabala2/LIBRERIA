@@ -25,6 +25,7 @@ namespace SistemaFact
             fun = new Clases.cFunciones();
             string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             tbCompra = fun.CrearTabla(Col);
+            BuscarCompra(6);
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
@@ -94,6 +95,8 @@ namespace SistemaFact
             Int32  Cantidad =Convert.ToInt32 (txtCantidad.Text);
             Double Precio = fun.ToDouble(txtPrecio.Text);
             Double Descuento = 0;
+            if (txtDescuento.Text != "")
+                Descuento = fun.ToDouble(txtDescuento.Text);
             Double SubTotal = Cantidad * Precio  - Descuento;
             string Val = Codigo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString();
@@ -160,7 +163,8 @@ namespace SistemaFact
         {
             DateTime Fecha = DateTime.Now;
             cCompra compra = new Clases.cCompra();
-            return compra.GrabarCompra(con, Transaccion, Fecha);
+            Double Total = fun.ToDouble(txtTotal.Text);
+            return compra.GrabarCompra(con, Transaccion, Fecha,Total);
         }
 
         public void GrabarDetalleCompra(SqlConnection con, SqlTransaction Transaccion,Int32 CodCompra)
@@ -207,6 +211,32 @@ namespace SistemaFact
         {
             LimpiarArticulo();
             LimpiarGrilla();
+        }
+
+        private void BuscarCompra(Int32 CodCompra)
+        {
+            cDetalleCompra det = new cDetalleCompra();
+            DataTable trdo = det.GetDetallexId(CodCompra);
+            string Val = "";
+            // string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
+           if (trdo.Rows.Count >0)
+            {
+                string CodArt = trdo.Rows[0]["CodArticulo"].ToString();
+                string Nombre = trdo.Rows[0]["Nombre"].ToString();
+                string Cantidad = trdo.Rows[0]["Cantidad"].ToString();
+                string Precio = trdo.Rows[0]["Costo"].ToString();
+                string Descuento = trdo.Rows[0]["Descuento"].ToString();
+                string Subtotal = trdo.Rows[0]["Subtotal"].ToString();
+
+                Val = CodArt + ";" + Nombre;
+                Val = Val + ";" + Cantidad.ToString();
+                Val = Val + ";" + Precio.ToString();
+                Val = Val + ";" + Descuento.ToString();
+                Val = Val + ";" + Subtotal.ToString();
+                tbCompra = fun.AgregarFilas(tbCompra, Val);
+                Grilla.DataSource = tbCompra;
+                CalcularTotal();
+            }
         }
     }
 }

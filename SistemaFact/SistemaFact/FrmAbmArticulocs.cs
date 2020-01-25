@@ -236,7 +236,7 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
-            if (txt_CodigoBarra.Text !="")
+            if (txt_CodigoBarra.Text.Length  >5)
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cArticulo art = new cArticulo();
@@ -254,6 +254,10 @@ namespace SistemaFact
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
+            if(txt_Codigo.Text.Length <4)
+            {
+                return;
+            }
             string Codigo = txt_Codigo.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);

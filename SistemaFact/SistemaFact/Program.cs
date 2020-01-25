@@ -18,8 +18,8 @@ namespace SistemaFact
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new FrmIngreso());
             //   Application.Run(new FrmVerReporteBarra());
-               Application.Run(new FrmCompra());
-           //    Application.Run(new Principal ());
+      //         Application.Run(new FrmCompra());
+               Application.Run(new Principal ());
           //  Application.Run(new FrmImportarArticulo());
             
         }

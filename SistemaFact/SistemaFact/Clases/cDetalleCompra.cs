@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 namespace SistemaFact.Clases
 {
     public  class cDetalleCompra
@@ -24,5 +25,15 @@ namespace SistemaFact.Clases
             sql = sql + ")";
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public DataTable GetDetallexId(Int32 CodCompra)
+        {
+            string sql = "select d.*,a.Nombre ";
+            sql = sql + " from DetalleCompra d,Articulo a";
+            sql = sql + " where d.CodArticulo = a.CodArticulo";
+            sql = sql + " and CodCompra=" + CodCompra.ToString();
+            return cDb.GetDatatable(sql);
+        }
+        
     }
 }

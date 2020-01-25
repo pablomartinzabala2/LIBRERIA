@@ -9,11 +9,12 @@ namespace SistemaFact.Clases
 {
    public  class cCompra
     {
-        public Int32 GrabarCompra(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha)
+        public Int32 GrabarCompra(SqlConnection con, SqlTransaction Transaccion,DateTime Fecha,Double Total)
         {
-            string sql = "insert into Compra(Fecha";
+            string sql = "insert into Compra(Fecha,Total";
             sql = sql + ")";
             sql = sql + " values(" + "'" + Fecha.ToShortDateString() + "'";
+            sql = sql + "," + Total.ToString().Replace(",", ".");
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }

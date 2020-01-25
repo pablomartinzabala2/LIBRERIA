@@ -62,12 +62,12 @@ namespace SistemaFact.Clases
             Combo.SelectedIndex = 0;
         }
 
-        public double ToDouble(string Nro)
+        public Double ToDouble(string Nro)
         {
             if (Nro == "")
                 return 0;
-            Nro = Nro.Replace(".", "");
-            Nro = Nro.Replace(",", ".");
+        //    Nro = Nro.Replace(".", "");
+        //    Nro = Nro.Replace(",", ".");
             return Convert.ToDouble(Nro);
         }
 

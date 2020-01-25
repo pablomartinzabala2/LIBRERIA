@@ -28,7 +28,7 @@ namespace SistemaFact
             DataTable trdo = art.GetArticulo(Nombre,CodigoBarra,"");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
-            Grilla.Columns[1].Width = 270; 
+            Grilla.Columns[3].Width = 270; 
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
