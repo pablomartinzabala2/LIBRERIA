@@ -25,27 +25,46 @@ namespace SistemaFact
             fun = new Clases.cFunciones();
             string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             tbCompra = fun.CrearTabla(Col);
-            BuscarCompra(6);
+           // BuscarCompra(6);
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
             if (txt_Codigo.Text.Length <3)
             {
+                txt_Nombre.Text = "";
+                txt_CodigoBarra.Text = "";
+               // txt_Codigo.Text = "";
+                txt_Stock.Text = "";
                 return;
             }
             string Codigo = txt_Codigo.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);
             if (trdo.Rows.Count > 0)
+            {
                 if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                 {
                     txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                     txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                     txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
-                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                    // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                     txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 }
+                else
+                {
+                    txt_Nombre.Text = "";
+                    txt_CodigoBarra.Text = "";
+                    txt_Stock.Text = "";
+                }
+            }
+            else
+            {
+                txt_Nombre.Text = "";
+                txt_CodigoBarra.Text = "";
+                txt_Stock.Text = "";
+            }
+
         }
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
@@ -220,7 +239,8 @@ namespace SistemaFact
             string Val = "";
             // string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
            if (trdo.Rows.Count >0)
-            {
+            {      
+
                 string CodArt = trdo.Rows[0]["CodArticulo"].ToString();
                 string Nombre = trdo.Rows[0]["Nombre"].ToString();
                 string Cantidad = trdo.Rows[0]["Cantidad"].ToString();

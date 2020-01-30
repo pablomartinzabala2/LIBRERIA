@@ -149,5 +149,11 @@ namespace SistemaFact
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void listadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoCompra frm = new FrmListadoCompra();
+            frm.Show();
+        }
     }
 }

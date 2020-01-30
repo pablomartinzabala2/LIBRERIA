@@ -64,16 +64,16 @@
             this.Grupo.Controls.Add(this.label6);
             this.Grupo.Controls.Add(this.label4);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(13, 55);
+            this.Grupo.Location = new System.Drawing.Point(5, 42);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(646, 465);
+            this.Grupo.Size = new System.Drawing.Size(619, 323);
             this.Grupo.TabIndex = 18;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             // 
             // txt_Codigo
             // 
-            this.txt_Codigo.Location = new System.Drawing.Point(158, 104);
+            this.txt_Codigo.Location = new System.Drawing.Point(120, 89);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
@@ -82,7 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 104);
+            this.label1.Location = new System.Drawing.Point(17, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 24;
@@ -99,7 +99,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(61, 133);
+            this.label8.Location = new System.Drawing.Point(23, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 17);
             this.label8.TabIndex = 16;
@@ -107,7 +107,7 @@
             // 
             // txt_CodigoBarra
             // 
-            this.txt_CodigoBarra.Location = new System.Drawing.Point(158, 133);
+            this.txt_CodigoBarra.Location = new System.Drawing.Point(120, 118);
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
@@ -115,7 +115,7 @@
             // 
             // txt_Stock
             // 
-            this.txt_Stock.Location = new System.Drawing.Point(158, 75);
+            this.txt_Stock.Location = new System.Drawing.Point(120, 60);
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.Size = new System.Drawing.Size(132, 23);
             this.txt_Stock.TabIndex = 11;
@@ -123,7 +123,7 @@
             // 
             // txt_Nombre
             // 
-            this.txt_Nombre.Location = new System.Drawing.Point(158, 46);
+            this.txt_Nombre.Location = new System.Drawing.Point(120, 31);
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
             this.txt_Nombre.TabIndex = 9;
@@ -131,7 +131,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(55, 78);
+            this.label6.Location = new System.Drawing.Point(17, 63);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(82, 17);
             this.label6.TabIndex = 5;
@@ -140,7 +140,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 46);
+            this.label4.Location = new System.Drawing.Point(17, 31);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 17);
             this.label4.TabIndex = 3;
@@ -160,7 +160,7 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(671, 39);
+            this.BarraBotones.Size = new System.Drawing.Size(636, 39);
             this.BarraBotones.TabIndex = 17;
             this.BarraBotones.Text = "toolStrip1";
             this.BarraBotones.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.BarraBotones_ItemClicked);
@@ -253,7 +253,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 524);
+            this.ClientSize = new System.Drawing.Size(636, 376);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
             this.Name = "FrmAbmArticulocs";

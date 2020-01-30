@@ -126,7 +126,7 @@ namespace SistemaFact
         {
             Principal.OpcionesdeBusqueda = "Nombre;CodigoBarra";
             Principal.TablaPrincipal = "Articulo";
-            Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Precio";
+            Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Costo";
             Principal.ColumnasVisibles = "0;1;1";
             Principal.ColumnasAncho = "0;390;190";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
