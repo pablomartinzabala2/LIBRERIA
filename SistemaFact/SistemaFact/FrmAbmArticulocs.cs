@@ -263,14 +263,14 @@ namespace SistemaFact
                     }
                 }
                 else
-                {
+                {/*
                     txtCodigo.Text = "";
                     txt_Nombre.Text = "";
                     txt_Stock.Text = "";
                     txt_Costo.Text = "";
                     txt_PrecioEfectivo.Text = "";
                     txt_PrecioTarjeta.Text = "";
-                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                    txt_Codigo.Text = "";*/
                 }
                     
             }
@@ -306,14 +306,14 @@ namespace SistemaFact
                 }
             }
             else
-            {
+            {/*
                 txt_Nombre.Text = "";
                 txt_CodigoBarra.Text = "";
                 txt_Stock.Text = "";
                 txtCodigo.Text = "";
                 txt_Costo.Text = "";
                 txt_PrecioEfectivo.Text = "";
-                txt_PrecioTarjeta.Text = "";
+                txt_PrecioTarjeta.Text = "";*/
             }
             if (txt_Costo.Text != "")
                 txt_Costo.Text = txt_Costo.Text.Replace(",", ".");
