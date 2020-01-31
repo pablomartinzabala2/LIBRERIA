@@ -12,8 +12,8 @@ namespace SistemaFact.Clases
         {
             //home DESKTOP-QKECIIE
             string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=LIBRERIA;Integrated Security=True";
-            //schol
-         //   string cadena = "Data Source=SECRETARIA-2\\SQLEXPRESS;Initial Catalog=FACTURACION;Integrated Security=True";
+            //NTBK\SQLEXPRESS
+          //   string cadena = "Data Source=NTBK\\SQLEXPRESS;Initial Catalog=LIBRERIA;Integrated Security=True";
             return cadena;
         }
     }

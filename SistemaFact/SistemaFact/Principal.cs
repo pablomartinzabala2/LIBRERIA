@@ -48,7 +48,7 @@ namespace SistemaFact
 
         private void OpenFile(object sender, EventArgs e)
         {
-            FrmAbmTipoPrenda childForm = new FrmAbmTipoPrenda();
+            FrmImportarArticulo  childForm = new FrmImportarArticulo();
             childForm.MdiParent = this;
             //childForm.Text = "Window " + childFormNumber++;
             childForm.Show();

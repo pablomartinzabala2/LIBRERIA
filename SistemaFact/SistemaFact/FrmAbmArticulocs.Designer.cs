@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmArticulocs));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txt_Costo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -48,12 +50,23 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.txt_PrecioEfectivo = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_PrecioTarjeta = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.Grupo.Controls.Add(this.label5);
+            this.Grupo.Controls.Add(this.txt_PrecioTarjeta);
+            this.Grupo.Controls.Add(this.label3);
+            this.Grupo.Controls.Add(this.txt_PrecioEfectivo);
+            this.Grupo.Controls.Add(this.txt_Costo);
+            this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.txt_Codigo);
             this.Grupo.Controls.Add(this.label1);
             this.Grupo.Controls.Add(this.txtCodigo);
@@ -70,6 +83,22 @@
             this.Grupo.TabIndex = 18;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
+            // 
+            // txt_Costo
+            // 
+            this.txt_Costo.Location = new System.Drawing.Point(120, 147);
+            this.txt_Costo.Name = "txt_Costo";
+            this.txt_Costo.Size = new System.Drawing.Size(132, 23);
+            this.txt_Costo.TabIndex = 27;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 147);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Costo";
             // 
             // txt_Codigo
             // 
@@ -99,7 +128,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 118);
+            this.label8.Location = new System.Drawing.Point(17, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(91, 17);
             this.label8.TabIndex = 16;
@@ -249,6 +278,40 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // txt_PrecioEfectivo
+            // 
+            this.txt_PrecioEfectivo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txt_PrecioEfectivo.Location = new System.Drawing.Point(120, 176);
+            this.txt_PrecioEfectivo.Name = "txt_PrecioEfectivo";
+            this.txt_PrecioEfectivo.Size = new System.Drawing.Size(132, 23);
+            this.txt_PrecioEfectivo.TabIndex = 28;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 17);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Efectivo";
+            // 
+            // txt_PrecioTarjeta
+            // 
+            this.txt_PrecioTarjeta.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txt_PrecioTarjeta.Location = new System.Drawing.Point(120, 205);
+            this.txt_PrecioTarjeta.Name = "txt_PrecioTarjeta";
+            this.txt_PrecioTarjeta.Size = new System.Drawing.Size(132, 23);
+            this.txt_PrecioTarjeta.TabIndex = 30;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(17, 211);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 17);
+            this.label5.TabIndex = 31;
+            this.label5.Text = "Tarjeta";
+            // 
             // FrmAbmArticulocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -289,5 +352,11 @@
         private System.Windows.Forms.GroupBox Grupo;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txt_Costo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txt_PrecioTarjeta;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_PrecioEfectivo;
     }
 }

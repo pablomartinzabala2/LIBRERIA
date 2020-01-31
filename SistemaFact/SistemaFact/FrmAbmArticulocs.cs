@@ -124,7 +124,7 @@ namespace SistemaFact
 
         private void btnAbrir_Click(object sender, EventArgs e)
         {
-            Principal.OpcionesdeBusqueda = "Nombre;CodigoBarra";
+            Principal.OpcionesdeBusqueda = "Codigo;Nombre;CodigoBarra";
             Principal.TablaPrincipal = "Articulo";
             Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Costo";
             Principal.ColumnasVisibles = "0;1;1";
@@ -171,7 +171,14 @@ namespace SistemaFact
                 txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
                 cFunciones fun = new Clases.cFunciones();
                 fun.CargarControles(this, "Articulo","CodArticulo", txtCodigo.Text);
-               
+                if (txt_Costo.Text != "")
+                    txt_Costo.Text = txt_Costo.Text.Replace(",", ".");
+                if (txt_PrecioEfectivo.Text != "")
+                    txt_PrecioEfectivo.Text = txt_PrecioEfectivo.Text.Replace(",", ".");
+                if (txt_PrecioTarjeta.Text != "")
+                    txt_PrecioTarjeta.Text = txt_PrecioTarjeta.Text.Replace(",", ".");
+                 
+
             }
 
         }
@@ -242,14 +249,37 @@ namespace SistemaFact
                 cArticulo art = new cArticulo();
                 DataTable trdo = art.GetArticulo("", CodigoBarra,"");
                 if (trdo.Rows.Count >0)
-                    if (trdo.Rows[0]["CodArticulo"].ToString ()!="")
+                {
+                    if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                     {
                         txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                         txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                         txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                         txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
+                        txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
                     }
+                }
+                else
+                {
+                    txtCodigo.Text = "";
+                    txt_Nombre.Text = "";
+                    txt_Stock.Text = "";
+                    txt_Costo.Text = "";
+                    txt_PrecioEfectivo.Text = "";
+                    txt_PrecioTarjeta.Text = "";
+                    txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                }
+                    
             }
+            if (txt_Costo.Text != "")
+                txt_Costo.Text = txt_Costo.Text.Replace(",", ".");
+            if (txt_PrecioEfectivo.Text != "")
+                txt_PrecioEfectivo.Text = txt_PrecioEfectivo.Text.Replace(",", ".");
+            if (txt_PrecioTarjeta.Text != "")
+                txt_PrecioTarjeta.Text = txt_PrecioTarjeta.Text.Replace(",", ".");
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
@@ -262,13 +292,36 @@ namespace SistemaFact
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);
             if (trdo.Rows.Count > 0)
+            {
                 if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                 {
                     txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                     txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                     txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                     txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                    txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                    txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
+                    txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                    txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
                 }
+            }
+            else
+            {
+                txt_Nombre.Text = "";
+                txt_CodigoBarra.Text = "";
+                txt_Stock.Text = "";
+                txtCodigo.Text = "";
+                txt_Costo.Text = "";
+                txt_PrecioEfectivo.Text = "";
+                txt_PrecioTarjeta.Text = "";
+            }
+            if (txt_Costo.Text != "")
+                txt_Costo.Text = txt_Costo.Text.Replace(",", ".");
+            if (txt_PrecioEfectivo.Text != "")
+                txt_PrecioEfectivo.Text = txt_PrecioEfectivo.Text.Replace(",", ".");
+            if (txt_PrecioTarjeta.Text != "")
+                txt_PrecioTarjeta.Text = txt_PrecioTarjeta.Text.Replace(",", ".");
+
         }
 
         private void txt_Stock_TextChanged(object sender, EventArgs e)

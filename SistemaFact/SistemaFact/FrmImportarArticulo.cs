@@ -44,8 +44,10 @@ namespace SistemaFact
         private void button1_Click(object sender, EventArgs e)
         {
             button1.Enabled = false;
+            button1.Text = "Procesando";
             Leer();
             button1.Enabled = true;
+            button1.Text = "Procesado";
            // LeerVariosArchivosExcel();
         }
 
@@ -62,6 +64,7 @@ namespace SistemaFact
             int rw = 0;
             int cl = 0;
 
+           //  string Ruta = "C:\\SISTEMA\\LISTA.xlsx";
             string Ruta = "D:\\AG\\LISTA.xlsx";
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Open(Ruta , 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
@@ -103,7 +106,8 @@ namespace SistemaFact
                                 Costo  = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             else
                                 Costo = null;
-                            break;       
+                            break;
+                                   
                     }
                    
                     // str = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;

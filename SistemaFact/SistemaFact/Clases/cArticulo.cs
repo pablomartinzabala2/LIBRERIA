@@ -44,7 +44,7 @@ namespace SistemaFact.Clases
         public DataTable GetArticulo(string Nombre,string CodigoBarra,string Codigo)
         {
             string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
-            
+            sql = sql + ",Costo,PrecioEfectivo,PrecioTarjeta";
             sql = sql + " from articulo a";
             if (Nombre !="")
             {
@@ -64,8 +64,15 @@ namespace SistemaFact.Clases
         }
 
         public void InsertarArticulo(string Codigo,string CodigoBarra,string Nombre,Double? Costo)
-        {
-            string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra,Costo)";
+        {  
+            Double? PrecioEfectivo = null;
+            Double? PrecioTarjeta = null;
+            if (Costo !=null)
+            {
+                PrecioEfectivo = Costo + Costo * 0.5;
+                PrecioTarjeta = Costo + Costo * 0.7;
+            }
+            string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra,Costo,PrecioEfectivo,PrecioTarjeta)";
             sql = sql + " Values(" + "'" + Nombre + "'";
             if (Codigo != null)
                 sql = sql + "," + "'" + Codigo + "'";
@@ -82,13 +89,23 @@ namespace SistemaFact.Clases
             else
                 sql = sql + ",null";
 
+            if (PrecioEfectivo  != null)
+                sql = sql + "," + PrecioEfectivo.ToString().Replace(",", ".");
+            else
+                sql = sql + ",null";
+             
+            if (PrecioTarjeta != null)
+                sql = sql + "," + PrecioTarjeta.ToString().Replace(",", ".");
+            else
+                sql = sql + ",null";
+
             sql = sql + ")";
             //verifico si existe
             Int32 CodArticulo = Existe(Codigo, CodigoBarra);
             if (CodArticulo == 0)
                 cDb.Grabar(sql);
             else
-                ModificarArticulo(CodArticulo, Costo);
+                ModificarArticulo(CodArticulo, Costo, PrecioEfectivo, PrecioTarjeta);
         }
 
         public Int32  Existe(string Codigo,string CodigoBarra)
@@ -112,13 +129,23 @@ namespace SistemaFact.Clases
             return CodArticulo;
         }
 
-        public void ModificarArticulo(Int32 CodArticulo, Double? Costo)
+        public void ModificarArticulo(Int32 CodArticulo, Double? Costo, Double? PrecioEfectivo, Double? PrecioTarjeta)
         {
             string sql = "Update Articulo ";
             if (Costo != null)
                 sql = sql + " set Costo=" + Costo.ToString().Replace(",", ".");
             else
                 sql = sql + " set Costo=null";
+
+            if (PrecioEfectivo != null)
+                sql = sql + " , PrecioEfectivo=" + PrecioEfectivo.ToString().Replace(",", ".");
+            else
+                sql = sql + " , PrecioEfectivo=null";
+
+            if (PrecioTarjeta != null)
+                sql = sql + " , PrecioTarjeta=" + PrecioTarjeta.ToString().Replace(",", ".");
+            else
+                sql = sql + " , PrecioTarjeta=null";
 
             sql = sql + " where CodArticulo=" + CodArticulo.ToString();
             cDb.Grabar(sql);
