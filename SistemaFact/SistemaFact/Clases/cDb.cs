@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+
 namespace SistemaFact.Clases
 {
     public static class cDb
@@ -50,6 +51,36 @@ namespace SistemaFact.Clases
             comand.Transaction = Transaccion;
             comand.CommandText = Sql;
             comand.ExecuteNonQuery();
+        }
+
+        public static Int32 ExecuteScalar(string Sql, string Campo)
+        {/*
+            string Dato = "";
+            DataTable trdo = SqlHelper.ExecuteDataset(cConexion.Cadenacon(), CommandType.Text, sql).Tables[0];
+            if (trdo.Rows.Count > 0)
+            {
+                Dato = trdo.Rows[0][Campo].ToString();
+            }
+            return Dato;*/
+            //
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            Sql = Sql + "select SCOPE_IDENTITY()";
+            SqlCommand comand = new SqlCommand();
+            comand.Connection = con;
+            
+            comand.CommandText = Sql;
+            return Convert.ToInt32(comand.ExecuteScalar());
+        }
+
+        public static Int32 EjecutarEscalar(string Sql)
+        {
+            Sql = Sql + "select SCOPE_IDENTITY()";
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            SqlCommand comand = new SqlCommand();
+            comand.Connection = con;
+            comand.CommandText = Sql;
+            return Convert.ToInt32(comand.ExecuteScalar());
+            
         }
     }
         

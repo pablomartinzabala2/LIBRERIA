@@ -155,5 +155,11 @@ namespace SistemaFact
             FrmListadoCompra frm = new FrmListadoCompra();
             frm.Show();
         }
+
+        private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmVenta frm = new SistemaFact.FrmVenta();
+            frm.Show();
+        }
     }
 }

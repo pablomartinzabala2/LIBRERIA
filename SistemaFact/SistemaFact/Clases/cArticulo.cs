@@ -170,5 +170,12 @@ namespace SistemaFact.Clases
             sql = sql + " where CodArticulo =" + CodArticulo.ToString ();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public DataTable GetArticuloxCodArt(Int32 CodArt)
+        {
+            string sql = "select * from Articulo where CodArticulo=" + CodArt.ToString();
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }

@@ -66,7 +66,8 @@ namespace SistemaFact
             Grupo.Enabled = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LimpiarGenerico(this);
-            
+            txtPorEfectivo.Text = "70";
+            txtPorTarjeta.Text = "100";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -100,10 +101,8 @@ namespace SistemaFact
             }
                 
             Mensaje("Datos grabados correctamente");
-            
-            
-          
-
+            txtPorEfectivo.Text = "";
+            txtPorTarjeta.Text = "";
             Botonera(1);
             fun.LimpiarGenerico(this);
             
@@ -327,6 +326,53 @@ namespace SistemaFact
         private void txt_Stock_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAplicarEfectivo_Click(object sender, EventArgs e)
+        { 
+            if (txt_Costo.Text == "")
+            {
+                Mensaje("Debe ingresar un Costo");
+                return;
+            }
+            if (txtPorEfectivo.Text =="")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }
+            Double Costo = Convert.ToDouble(txt_Costo.Text);
+            Double Por = Convert.ToDouble(txtPorEfectivo.Text);
+            Double Efectivo = Costo + Costo * (Por / 100);
+            txt_PrecioEfectivo.Text = Efectivo.ToString();
+        }
+
+        private void btnAplicarTarjeta_Click(object sender, EventArgs e)
+        {
+
+            if (txt_Costo.Text == "")
+            {
+                Mensaje("Debe ingresar un Costo");
+                return;
+            }  
+            if (txtPorTarjeta.Text == "")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }  
+            Double Costo = Convert.ToDouble(txt_Costo.Text);
+            Double Por = Convert.ToDouble(txtPorTarjeta.Text);
+            Double Efectivo = Costo + Costo * (Por / 100);
+            txt_PrecioTarjeta.Text = Efectivo.ToString();
         }
     }
 }
