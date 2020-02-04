@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaFact.Clases;
+using System.Data.SqlClient;
+
 namespace SistemaFact
 {
     public partial class FrmVenta : FormBase
@@ -27,13 +29,18 @@ namespace SistemaFact
 
         public void Inicializar()
         {
-            txtFechaAltaOrden.Text = DateTime.Now.ToShortDateString();  
+            txtFechaAltaOrden.Text = DateTime.Now.ToShortDateString();
             fun.LlenarCombo(cmbTipoDoc, "TipoDocumento", "Nombre", "CodTipoDoc");
+            fun.LlenarCombo(CmbTarjeta , "Tarjeta", "Nombre", "CodTarjeta");
             if (cmbTipoDoc.Items.Count > 0)
                 cmbTipoDoc.SelectedIndex = 1;
             string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
-            tbVenta = fun.CrearTabla (Col);
+            tbVenta = fun.CrearTabla(Col);
             CargarTipoOperacion();
+            lblTarjeta.Visible = false;
+            lblCupon.Visible = false;
+            CmbTarjeta.Visible = false;
+            txtCupon.Visible = false;
         }
 
         private void CargarTipoOperacion()
@@ -48,7 +55,7 @@ namespace SistemaFact
             tb = fun.AgregarFilas(tb, Val);
             Val = "3;Tarjeta Débito";
             tb = fun.AgregarFilas(tb, Val);
-            fun.LlenarComboDatatable(CmbTipoOperacion,tb, "Nombre", "Codigo");
+            fun.LlenarComboDatatable(CmbTipoOperacion, tb, "Nombre", "Codigo");
             CmbTipoOperacion.SelectedIndex = 1;
         }
 
@@ -86,22 +93,22 @@ namespace SistemaFact
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-                
 
-               
+
+
             }
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
-            if (txt_Codigo.Text.Length <3)
+            if (txt_Codigo.Text.Length < 3)
             {
                 return;
             }
             string Codigo = txt_Codigo.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);
-            if (trdo.Rows.Count >0)
+            if (trdo.Rows.Count > 0)
             {
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
@@ -109,7 +116,7 @@ namespace SistemaFact
                 // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-              //  if (txtPrecio.Text != "")
+                //  if (txtPrecio.Text != "")
                 //    txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
             }
         }
@@ -141,7 +148,7 @@ namespace SistemaFact
                 switch (Principal.NombreTablaSecundario)
                 {
                     case "Articulo":
-                        BuscarArticuloxCodigo(Convert.ToInt32 (Principal.CodigoPrincipalAbm));
+                        BuscarArticuloxCodigo(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                         break;
                 }
             }
@@ -151,8 +158,8 @@ namespace SistemaFact
         {
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticuloxCodArt(CodArt);
-            if (trdo.Rows.Count >0)
-            {  
+            if (trdo.Rows.Count > 0)
+            {
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
@@ -166,18 +173,18 @@ namespace SistemaFact
 
         private void Agregar()
         {
-            if (txtCodigo.Text =="")
+            if (txtCodigo.Text == "")
             {
                 Mensaje("Debe ingresar un articulo");
                 return;
             }
-            if (txtCantidad.Text =="")
+            if (txtCantidad.Text == "")
             {
                 Mensaje("Debe ingresar una cantidad");
                 return;
             }
 
-            if (txtPrecio.Text =="")
+            if (txtPrecio.Text == "")
             {
                 Mensaje("Debe ingresar un precio");
                 return;
@@ -189,7 +196,7 @@ namespace SistemaFact
             Double Subtotal = Precio * Cantidad;
             string Nombre = txt_Nombre.Text;
 
-            if (fun.Buscar(tbVenta,"CodArticulo",CodArticulo.ToString ()) == true)
+            if (fun.Buscar(tbVenta, "CodArticulo", CodArticulo.ToString()) == true)
             {
                 Mensaje("Ya se ha ingresado el articulo");
                 return;
@@ -200,10 +207,19 @@ namespace SistemaFact
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Subtotal.ToString();
             tbVenta = fun.AgregarFilas(tbVenta, Val);
-            Grilla.DataSource = tbVenta; 
-            
-            
-            
+            Grilla.DataSource = tbVenta;
+            Grilla.Columns[0].Visible = false;
+            Grilla.Columns[1].Width = 330;
+            Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
+            txtTotal.Text = Total.ToString();
+            txtCodigo.Text = "";
+            txt_Codigo.Text = "";
+            txt_CodigoBarra.Text = "";
+            txtNombre.Text = "";
+            txt_Stock.Text = "";
+            txtPrecio.Text = "";
+            txtCantidad.Text = "";
+            txt_Nombre.Text = "";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -213,7 +229,7 @@ namespace SistemaFact
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (Grilla.CurrentRow ==null)
+            if (Grilla.CurrentRow == null)
             {
                 Mensaje("Debe seleccionar una fila");
                 return;
@@ -221,6 +237,8 @@ namespace SistemaFact
             string Codigo = Grilla.CurrentRow.Cells[0].Value.ToString();
             tbVenta = fun.EliminarFila(tbVenta, "CodArticulo", Codigo);
             Grilla.DataSource = tbVenta;
+            Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
+            txtTotal.Text = Total.ToString();
         }
 
         private void button2_KeyPress(object sender, KeyPressEventArgs e)
@@ -230,10 +248,121 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar==13)
+            if (e.KeyChar == 13)
             {
                 Agregar();
             }
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Grabar()
+        {
+            SqlTransaction Transaccion;
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            con.Open();
+            Transaccion = con.BeginTransaction();
+            DateTime Fecha = Convert.ToDateTime(txtFechaAltaOrden.Text);
+            Int32? CodCliente = null;
+            Double ImporteEfectivo = 0;
+            Double ImporteTarjeta = 0;
+            cCliente cli = new cCliente();
+            Int32 CodVenta = 0;
+            Int32? CodTarjeta = null;
+            ImporteEfectivo = Convert.ToDouble(txtTotal.Text);
+            Int32 CodArticulo = 0;
+            Double Precio = 0;
+            Int32 Cantidad = 0;
+            Double Subtotal = 0;
+            // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            cVenta venta = new cVenta();
+            try
+            {
+                CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
+                    Fecha, ImporteEfectivo,ImporteTarjeta
+                    , CodTarjeta, CodCliente);
+                for (int i = 0; i < tbVenta.Rows.Count ; i++)
+                {
+                    CodArticulo = Convert.ToInt32(tbVenta.Rows[i]["CodArticulo"].ToString());
+                    Precio = Convert.ToDouble(tbVenta.Rows[i]["Precio"].ToString());
+                    Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"].ToString());
+                    Subtotal = Convert.ToDouble(tbVenta.Rows[i]["Subtotal"].ToString());
+                    venta.InsertarDetalleVenta(con, Transaccion, CodVenta, Cantidad, Precio, CodArticulo, Subtotal);
+                    
+                }
+                Transaccion.Commit();
+                con.Close();
+                Mensaje("Datos grabados correctamente");
+                Limpiar();
+            }
+            catch (Exception exa)
+            {
+                Transaccion.Rollback();
+                con.Close();
+                Mensaje("Hubo un error en el proceso de grabacion");
+                Mensaje(exa.Message);
+
+            }
+}
+
+        private void btnGrabar_Click(object sender, EventArgs e)
+        {
+            Grabar();
+        }
+
+        private void Limpiar()
+        {
+            txtCodigo.Text = "";
+            txt_Codigo.Text = "";
+            txt_CodigoBarra.Text = "";
+            txtNombre.Text = "";
+            txt_Stock.Text = "";
+            txtPrecio.Text = "";
+            txtCantidad.Text = "";
+            txt_Nombre.Text = "";
+            txtTotal.Text = "";
+            tbVenta.Rows.Clear();
+            Grilla.DataSource = tbVenta;
+            txtTotal.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtNroDocumento.Text = "";
+        }
+
+        private void CmbTipoOperacion_Resize(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CmbTipoOperacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbTipoOperacion.SelectedIndex >0)
+            {
+                int Indice = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+                switch (Indice)
+                {
+                    case 1:
+                        lblCupon.Visible = false;
+                        lblTarjeta.Visible = false;
+                        CmbTarjeta.Visible = false;
+                        txtCupon.Visible = false;
+                        break;
+                    case 2:
+                        lblCupon.Visible = true;
+                        lblTarjeta.Visible = true;
+                        CmbTarjeta.Visible = true;
+                        txtCupon.Visible = true;
+                        break;
+                }
+            }
+        }
+
+        private void lblCupon_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

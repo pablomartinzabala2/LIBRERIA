@@ -70,6 +70,10 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
+            this.lblTarjeta = new System.Windows.Forms.Label();
+            this.lblCupon = new System.Windows.Forms.Label();
+            this.txtCupon = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
@@ -78,6 +82,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtCupon);
+            this.groupBox1.Controls.Add(this.lblCupon);
+            this.groupBox1.Controls.Add(this.lblTarjeta);
+            this.groupBox1.Controls.Add(this.CmbTarjeta);
             this.groupBox1.Controls.Add(this.btnBuscarArticulo);
             this.groupBox1.Controls.Add(this.btnCancelar);
             this.groupBox1.Controls.Add(this.btnGrabar);
@@ -103,7 +111,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 213);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(727, 375);
+            this.groupBox1.Size = new System.Drawing.Size(710, 375);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
@@ -111,7 +119,7 @@
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(629, 52);
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(555, 30);
             this.btnBuscarArticulo.Name = "btnBuscarArticulo";
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
@@ -120,7 +128,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(537, 332);
+            this.btnCancelar.Location = new System.Drawing.Point(548, 346);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 62;
@@ -129,16 +137,17 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(629, 332);
+            this.btnGrabar.Location = new System.Drawing.Point(629, 346);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 59;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(646, 303);
+            this.txtTotal.Location = new System.Drawing.Point(629, 317);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 56;
@@ -146,7 +155,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(600, 309);
+            this.label1.Location = new System.Drawing.Point(583, 317);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 17);
             this.label1.TabIndex = 58;
@@ -155,7 +164,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(675, 86);
+            this.btnEliminar.Location = new System.Drawing.Point(555, 91);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
@@ -165,14 +174,14 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(9, 120);
+            this.Grilla.Location = new System.Drawing.Point(13, 145);
             this.Grilla.Name = "Grilla";
             this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(688, 177);
+            this.Grilla.Size = new System.Drawing.Size(688, 166);
             this.Grilla.TabIndex = 56;
             // 
             // txtPrecio
@@ -211,7 +220,7 @@
             // button2
             // 
             this.button2.Image = global::SistemaFact.Properties.Resources.add;
-            this.button2.Location = new System.Drawing.Point(629, 86);
+            this.button2.Location = new System.Drawing.Point(507, 91);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(40, 28);
             this.button2.TabIndex = 51;
@@ -364,7 +373,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(329, 23);
+            this.label12.Location = new System.Drawing.Point(346, 23);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 17);
             this.label12.TabIndex = 81;
@@ -372,10 +381,10 @@
             // 
             // txtFechaAltaOrden
             // 
-            this.txtFechaAltaOrden.Location = new System.Drawing.Point(381, 23);
+            this.txtFechaAltaOrden.Location = new System.Drawing.Point(399, 23);
             this.txtFechaAltaOrden.Mask = "00/00/0000";
             this.txtFechaAltaOrden.Name = "txtFechaAltaOrden";
-            this.txtFechaAltaOrden.Size = new System.Drawing.Size(91, 23);
+            this.txtFechaAltaOrden.Size = new System.Drawing.Size(73, 23);
             this.txtFechaAltaOrden.TabIndex = 80;
             this.txtFechaAltaOrden.ValidatingType = typeof(System.DateTime);
             // 
@@ -422,6 +431,7 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(380, 23);
             this.txtApellido.TabIndex = 1;
+            this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
             // 
             // txtCodCliente
             // 
@@ -468,6 +478,8 @@
             this.CmbTipoOperacion.Name = "CmbTipoOperacion";
             this.CmbTipoOperacion.Size = new System.Drawing.Size(492, 24);
             this.CmbTipoOperacion.TabIndex = 83;
+            this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
+            this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);
             // 
             // label7
             // 
@@ -478,11 +490,46 @@
             this.label7.TabIndex = 84;
             this.label7.Text = "Seleccione tipo de operación";
             // 
+            // CmbTarjeta
+            // 
+            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTarjeta.FormattingEnabled = true;
+            this.CmbTarjeta.Location = new System.Drawing.Point(139, 317);
+            this.CmbTarjeta.Name = "CmbTarjeta";
+            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
+            this.CmbTarjeta.TabIndex = 83;
+            // 
+            // lblTarjeta
+            // 
+            this.lblTarjeta.AutoSize = true;
+            this.lblTarjeta.Location = new System.Drawing.Point(80, 317);
+            this.lblTarjeta.Name = "lblTarjeta";
+            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
+            this.lblTarjeta.TabIndex = 84;
+            this.lblTarjeta.Text = "Tarjeta";
+            // 
+            // lblCupon
+            // 
+            this.lblCupon.AutoSize = true;
+            this.lblCupon.Location = new System.Drawing.Point(323, 317);
+            this.lblCupon.Name = "lblCupon";
+            this.lblCupon.Size = new System.Drawing.Size(49, 17);
+            this.lblCupon.TabIndex = 85;
+            this.lblCupon.Text = "Cupon";
+            this.lblCupon.Click += new System.EventHandler(this.lblCupon_Click);
+            // 
+            // txtCupon
+            // 
+            this.txtCupon.Location = new System.Drawing.Point(378, 318);
+            this.txtCupon.Name = "txtCupon";
+            this.txtCupon.Size = new System.Drawing.Size(136, 23);
+            this.txtCupon.TabIndex = 86;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 600);
+            this.ClientSize = new System.Drawing.Size(735, 600);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Grupo);
@@ -543,5 +590,9 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox CmbTipoOperacion;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtCupon;
+        private System.Windows.Forms.Label lblCupon;
+        private System.Windows.Forms.Label lblTarjeta;
+        private System.Windows.Forms.ComboBox CmbTarjeta;
     }
 }
