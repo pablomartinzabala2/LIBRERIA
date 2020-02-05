@@ -161,5 +161,11 @@ namespace SistemaFact
             FrmVenta frm = new SistemaFact.FrmVenta();
             frm.Show();
         }
+
+        private void consultarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoVentas frm = new FrmListadoVentas();
+            frm.Show();
+        }
     }
 }

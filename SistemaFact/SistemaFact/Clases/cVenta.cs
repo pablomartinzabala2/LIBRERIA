@@ -10,9 +10,9 @@ namespace SistemaFact.Clases
     public class cVenta
     {
         public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion, double Total, DateTime Fecha,
-            double ImporteEfectivo, double ImporteTarjeta, Int32? CodTarjeta,Int32? CodCliente)
+            double ImporteEfectivo, double ImporteTarjeta, Int32? CodTarjeta,Int32? CodCliente,string cupon)
         {
-            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCorte)";
+            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCorte,cupon)";
             sql = sql + " values (" + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + ImporteEfectivo.ToString().Replace(",", ".");
@@ -26,7 +26,7 @@ namespace SistemaFact.Clases
                 sql = sql + "," + CodCliente.ToString();
             else
                 sql = sql + ",null";
-
+            sql = sql + "," + "'" + cupon + "'";
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
@@ -46,8 +46,10 @@ namespace SistemaFact.Clases
 
         public DataTable GetVentasxFecha(DateTime FechaDesde, DateTime FechaHasta)
         {
-            string sql = "select CodVenta,Fecha,ImporteEfectivo,ImporteTarjeta, Total";
-            sql = sql + " from Venta ";
+            string sql = "select v.CodVenta,v.Fecha,v.ImporteEfectivo,v.ImporteTarjeta";
+            sql = sql + ",(select t.Nombre from Tarjeta t where t.CodTarjeta = v.CodTarjeta) as Tarjeta";
+            sql = sql + ", v.Total";
+            sql = sql + " from Venta v ";
             sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
             return cDb.GetDatatable(sql);

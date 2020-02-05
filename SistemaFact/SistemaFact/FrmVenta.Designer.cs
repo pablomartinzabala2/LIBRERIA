@@ -174,14 +174,14 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(13, 145);
+            this.Grilla.Location = new System.Drawing.Point(6, 125);
             this.Grilla.Name = "Grilla";
             this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(688, 166);
+            this.Grilla.Size = new System.Drawing.Size(688, 186);
             this.Grilla.TabIndex = 56;
             // 
             // txtPrecio
@@ -276,6 +276,7 @@
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
+            this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
             // 
             // txt_Stock
             // 

@@ -19,13 +19,13 @@ namespace SistemaFact
 
         private void FrmListadoArticulo_Load(object sender, EventArgs e)
         {
-            CargarGrilla("","");
+            CargarGrilla("", "", "");
         }
 
-        private void CargarGrilla(string Nombre,string CodigoBarra)
+        private void CargarGrilla(string Nombre,string CodigoBarra,string Codigo)
         {
             cArticulo art = new Clases.cArticulo();
-            DataTable trdo = art.GetArticulo(Nombre,CodigoBarra,"");
+            DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo );
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[3].Width = 270; 
@@ -34,7 +34,7 @@ namespace SistemaFact
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
             string nombre = txtDescripcion.Text;
-            CargarGrilla(nombre,"");
+            CargarGrilla(nombre, "", "");
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -57,8 +57,18 @@ namespace SistemaFact
             string Codigo = textBox1.Text;
             if (Codigo.Length >4)
             {
-                CargarGrilla("", Codigo);
+                CargarGrilla("", Codigo, "");
             } 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            CargarGrilla("", "", txtCodigo.Text);
         }
     }
 }

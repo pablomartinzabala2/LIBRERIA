@@ -101,6 +101,7 @@ namespace SistemaFact
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
         {
+            int Operacion = 0;
             if (txt_Codigo.Text.Length < 3)
             {
                 return;
@@ -115,9 +116,12 @@ namespace SistemaFact
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                //  if (txtPrecio.Text != "")
-                //    txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
+                if (Operacion == 1)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                if (Operacion == 2)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                if (Operacion == 3)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
             }
         }
 
@@ -215,7 +219,6 @@ namespace SistemaFact
             txtCodigo.Text = "";
             txt_Codigo.Text = "";
             txt_CodigoBarra.Text = "";
-            txtNombre.Text = "";
             txt_Stock.Text = "";
             txtPrecio.Text = "";
             txtCantidad.Text = "";
@@ -261,6 +264,7 @@ namespace SistemaFact
 
         private void Grabar()
         {
+            int TipoOp = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
             SqlTransaction Transaccion;
             SqlConnection con = new SqlConnection(cConexion.GetConexion());
             con.Open();
@@ -272,18 +276,36 @@ namespace SistemaFact
             cCliente cli = new cCliente();
             Int32 CodVenta = 0;
             Int32? CodTarjeta = null;
-            ImporteEfectivo = Convert.ToDouble(txtTotal.Text);
+            if (TipoOp == 2)
+            {
+                ImporteTarjeta = Convert.ToDouble(txtTotal.Text);
+                CodTarjeta = Convert.ToInt32(CmbTarjeta.SelectedValue);
+            }
+                
+            if (TipoOp == 1)
+                ImporteEfectivo = Convert.ToDouble(txtTotal.Text);
+            if (TipoOp == 3)
+                ImporteEfectivo = Convert.ToDouble(txtTotal.Text);
+
             Int32 CodArticulo = 0;
             Double Precio = 0;
             Int32 Cantidad = 0;
             Double Subtotal = 0;
+            string Cupon = txtCupon.Text;
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cVenta venta = new cVenta();
             try
-            {
-                CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
-                    Fecha, ImporteEfectivo,ImporteTarjeta
-                    , CodTarjeta, CodCliente);
+            { 
+                if (txtNroDocumento.Text !="" && txtApellido.Text !="")
+                {
+                if (txtCodCliente.Text == "")
+                    CodCliente = GrabarCliente(con, Transaccion);
+                else
+                    ModificarCliente(con, Transaccion);
+                }
+            CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
+                Fecha, ImporteEfectivo, ImporteTarjeta
+                , CodTarjeta, CodCliente, Cupon);
                 for (int i = 0; i < tbVenta.Rows.Count ; i++)
                 {
                     CodArticulo = Convert.ToInt32(tbVenta.Rows[i]["CodArticulo"].ToString());
@@ -310,7 +332,33 @@ namespace SistemaFact
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            if (Validar() ==true)
             Grabar();
+        }
+
+        public bool Validar()
+        {
+            int TipoOperacion = 0;
+            if (CmbTipoOperacion.SelectedIndex ==0)
+            {
+                Mensaje("Seleccione un tipo de operacion");
+                return false;
+            }
+            if (Grilla.Rows.Count <1)
+            {
+                Mensaje("Debe ingresar artíclos para continuar");
+                return false;
+            }
+            TipoOperacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+            if (TipoOperacion ==2)
+            {
+                if (CmbTarjeta.SelectedIndex  <1)
+                {
+                    Mensaje("Debe seleccionar una tarjeta de crédito para continuar");
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void Limpiar()
@@ -330,6 +378,7 @@ namespace SistemaFact
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
+            txtCupon.Text = "";
         }
 
         private void CmbTipoOperacion_Resize(object sender, EventArgs e)
@@ -363,6 +412,62 @@ namespace SistemaFact
         private void lblCupon_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
+        {
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+
+            string Codigo = txt_CodigoBarra.Text;
+            cArticulo art = new cArticulo();
+            DataTable trdo = art.GetArticulo("", Codigo , "");
+            if (trdo.Rows.Count > 0)
+            {
+                txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                if (Operacion ==1)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                if (Operacion == 2)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                if (Operacion == 3)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                //  if (txtPrecio.Text != "")
+                //    txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
+            }
+        }
+
+        public Int32 GrabarCliente(SqlConnection con, SqlTransaction Transaccion)
+        {
+            string Ape = txtApellido.Text;
+            string Nom = txtNombre.Text;
+            string NroDoc = txtNroDocumento.Text;
+            Int32 CodTipoDoc = 1;
+            if (cmbTipoDoc.SelectedIndex > 0)
+                CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue); 
+            string Telefono = txtTelefono.Text;
+            cCliente cli = new Clases.cCliente();
+           Int32 CodCli= cli.InsertarClienteTran(con, Transaccion, Ape, Nom, Telefono, CodTipoDoc , NroDoc);
+            return CodCli;
+        }
+
+        public void ModificarCliente(SqlConnection con, SqlTransaction Transaccion)
+        {
+            string Ape = txtApellido.Text;
+            string Nom = txtNombre.Text;
+            string NroDoc = txtNroDocumento.Text;
+            Int32 CodCli = Convert.ToInt32(txtCodCliente.Text);
+            Int32 CodTipoDoc = 1;
+            if (cmbTipoDoc.SelectedIndex > 0)
+                CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue);
+            string Telefono = txtTelefono.Text;
+            cCliente cli = new Clases.cCliente();
+            cli.ModificarClienteTran(con, Transaccion, CodCli, Ape,
+                Nom , Telefono, CodTipoDoc, NroDoc);
         }
     }
 }
