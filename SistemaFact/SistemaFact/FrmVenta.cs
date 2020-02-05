@@ -13,9 +13,11 @@ using System.Data.SqlClient;
 namespace SistemaFact
 {
     public partial class FrmVenta : FormBase
-    {
+    {  //AREA PASAR EL EXCEL DE ENERO CON LA COLUMNA J
+        //PARA ACTUALIZAR EL COSTO
         cFunciones fun;
         DataTable tbVenta;
+        Boolean Valida = false;
         public FrmVenta()
         {
             InitializeComponent();
@@ -25,6 +27,12 @@ namespace SistemaFact
         {
             fun = new Clases.cFunciones();
             Inicializar();
+            if (Principal.CodigoPrincipalAbm != null)
+                if (Principal.CodigoPrincipalAbm !="")
+                {
+                    Int32 CodVenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                    BuscarVenta(CodVenta);
+                }
         }
 
         public void Inicializar()
@@ -41,6 +49,7 @@ namespace SistemaFact
             lblCupon.Visible = false;
             CmbTarjeta.Visible = false;
             txtCupon.Visible = false;
+            txt_CodigoBarra.Focus();
         }
 
         private void CargarTipoOperacion()
@@ -224,6 +233,8 @@ namespace SistemaFact
             txtPrecio.Text = "";
             txtCantidad.Text = "";
             txt_Nombre.Text = "";
+            Valida = false;
+            txt_CodigoBarra.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -252,10 +263,18 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
+            if (Valida ==true)
             {
-                Agregar();
+                if (e.KeyChar == 13)
+                {
+                    Agregar();
+                }
             }
+            else
+            {
+                Valida = true ;
+            }
+            
         }
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
@@ -400,6 +419,7 @@ namespace SistemaFact
                         lblTarjeta.Visible = false;
                         CmbTarjeta.Visible = false;
                         txtCupon.Visible = false;
+                        txt_CodigoBarra.Focus();
                         break;
                     case 2:
                         lblCupon.Visible = true;
@@ -441,8 +461,7 @@ namespace SistemaFact
                     txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                //  if (txtPrecio.Text != "")
-                //    txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
+                txtCantidad.Focus();
             }
         }
 
@@ -473,6 +492,64 @@ namespace SistemaFact
             cCliente cli = new Clases.cCliente();
             cli.ModificarClienteTran(con, Transaccion, CodCli, Ape,
                 Nom , Telefono, CodTipoDoc, NroDoc);
+        }
+
+        private void BuscarVenta(Int32 CodVenta)
+        {   //string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            cVenta ven = new cVenta();
+            DataTable trdo = ven.GetVentaxCodigo(CodVenta);
+            string CodArticulo = "";
+            string Nombre = "";
+            string Precio = "";
+            string Cantidad = "";
+            string Subtotal = "";
+            string Val = "";
+            if (trdo.Rows.Count >0)
+            {
+                if (trdo.Rows[0]["CodTarjeta"].ToString ()!="")
+                {
+                    CmbTarjeta.SelectedValue = trdo.Rows[0]["CodTarjeta"].ToString();
+                    txtCupon.Text = trdo.Rows[0]["Cupon"].ToString();
+                    CmbTarjeta.Visible = true;
+                    txtCupon.Visible = true;
+                }
+                if (trdo.Rows[0]["CodCliente"].ToString() != "")
+                {
+                    Int32 CodCli = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
+                    BuscarCliente(CodCli);
+                }
+                    for (int i = 0; i < trdo.Rows.Count ; i++)
+                {
+                    CodArticulo = trdo.Rows[i]["CodArticulo"].ToString();
+                    Nombre = trdo.Rows[i]["Nombre"].ToString();
+                    Precio = trdo.Rows[i]["Precio"].ToString();
+                    Cantidad = trdo.Rows[i]["Cantidad"].ToString();
+                    Subtotal = trdo.Rows[i]["Subtotal"].ToString();
+                    Val = CodArticulo + ";" + Nombre;
+                    Val = Val + ";" + Precio + ";" + Cantidad;
+                    Val = Val + ";" + Subtotal;
+                    tbVenta = fun.AgregarFilas(tbVenta, Val);
+                }
+                Grilla.DataSource = tbVenta;
+                Grilla.Columns[0].Visible = false;
+                Grilla.Columns[1].Width = 330;
+                Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
+                txtTotal.Text = Total.ToString();
+                btnGrabar.Enabled = false;
+                btnCancelar.Enabled = false;
+            }
+        }
+        
+        private void BuscarCliente(Int32 CodCliente)
+        {
+            cCliente cli = new Clases.cCliente();
+            DataTable trdo = cli.GetClientexCodigo(CodCliente);
+            if (trdo.Rows.Count >0)
+            {
+                txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
+                txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
+            }
         }
     }
 }

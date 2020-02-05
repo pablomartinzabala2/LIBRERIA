@@ -45,5 +45,22 @@ namespace SistemaFact
             Grilla.Columns[3].HeaderText = "Tarjeta";
             Grilla.Columns[4].HeaderText = "Desc. Tarjeta";
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarVenta(Convert.ToDateTime(txtFechaDesde.Text), Convert.ToDateTime(txtFechaHasta.Text));
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            Principal.CodigoPrincipalAbm = Grilla.CurrentRow.Cells[0].Value.ToString();
+            FrmVenta frm = new FrmVenta();
+            frm.ShowDialog();
+        }
     }
 }

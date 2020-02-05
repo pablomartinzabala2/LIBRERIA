@@ -12,7 +12,7 @@ namespace SistemaFact.Clases
         public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion, double Total, DateTime Fecha,
             double ImporteEfectivo, double ImporteTarjeta, Int32? CodTarjeta,Int32? CodCliente,string cupon)
         {
-            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCorte,cupon)";
+            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCliente,cupon)";
             sql = sql + " values (" + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + ImporteEfectivo.ToString().Replace(",", ".");
@@ -52,15 +52,16 @@ namespace SistemaFact.Clases
             sql = sql + " from Venta v ";
             sql = sql + " where Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " order by v.CodVenta desc";
             return cDb.GetDatatable(sql);
         }
 
         public DataTable GetVentaxCodigo(Int32 CodVenta)
         {
             string sql = " select *";
-            sql = sql + " from Venta v,DetalleVenta d,Producto p";
+            sql = sql + " from Venta v,DetalleVenta d,Articulo a";
             sql = sql + " where v.CodVenta = d.CodVenta";
-            sql = sql + " and d.CodProducto=p.CodProducto";
+            sql = sql + " and d.CodArticulo=a.CodArticulo";
             sql = sql + " and v.CodVenta =" + CodVenta.ToString();
             return cDb.GetDatatable(sql);
         }

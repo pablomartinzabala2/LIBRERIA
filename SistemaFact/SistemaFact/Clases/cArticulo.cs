@@ -199,6 +199,8 @@ namespace SistemaFact.Clases
                 sql = sql + " where a.Codigo =" + "'" + Codigo + "'";
             }
 
+            sql = sql + " order by a.Nombre";
+
             return cDb.GetDatatable(sql);
         }
 

@@ -158,6 +158,7 @@ namespace SistemaFact
 
         private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Principal.CodigoPrincipalAbm = null;
             FrmVenta frm = new SistemaFact.FrmVenta();
             frm.Show();
         }
@@ -166,6 +167,11 @@ namespace SistemaFact
         {
             FrmListadoVentas frm = new FrmListadoVentas();
             frm.Show();
+        }
+
+        private void helpToolStripButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

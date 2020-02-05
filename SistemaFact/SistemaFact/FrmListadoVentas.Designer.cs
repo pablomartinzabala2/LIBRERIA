@@ -113,6 +113,7 @@
             this.button1.Size = new System.Drawing.Size(31, 26);
             this.button1.TabIndex = 80;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBuscar
             // 
@@ -122,6 +123,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(31, 26);
             this.btnBuscar.TabIndex = 79;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
