@@ -181,7 +181,9 @@ namespace SistemaFact.Clases
         public DataTable GetDetalleArticulo(string Nombre, string CodigoBarra, string Codigo)
         {
             string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
-            sql = sql + ",Costo,PrecioTarjeta,PrecioEfectivo";
+            sql = sql + ",Costo,PrecioTarjeta,";
+            sql = sql + "(PrecioEfectivo - 0.10*PrecioEfectivo) as Descuento ";
+            sql = sql + ",PrecioEfectivo";
             sql = sql + " from articulo a";
             if (Nombre != "")
             {
@@ -198,6 +200,14 @@ namespace SistemaFact.Clases
             }
 
             return cDb.GetDatatable(sql);
+        }
+
+        public void ActualizarStockResta(SqlConnection con, SqlTransaction Transaccion,Int32 CodArticulo,int Cantidad)
+        {
+            string sql = " update articulo ";
+            sql = sql + " set Stock = isnull(Stock,0) - " + Cantidad.ToString();
+            sql = sql + " where CodArticulo=" + CodArticulo.ToString ();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
     }
 }

@@ -28,7 +28,9 @@ namespace SistemaFact
             DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo );
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
-            Grilla.Columns[3].Width = 270; 
+            Grilla.Columns[3].Width = 310;
+            Grilla.Columns[6].HeaderText = "Tarjeta";
+            Grilla.Columns[8].HeaderText = "Efectivo/Deb";
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)

@@ -193,6 +193,7 @@ namespace SistemaFact
             Double Costo = 0;
             Double Descueneto = 0;
             Double Subtotal = 0;
+            cArticulo objArt = new cArticulo();
             cDetalleCompra detalle = new cDetalleCompra();
             cArticulo art = new cArticulo();
             //string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
@@ -205,6 +206,7 @@ namespace SistemaFact
                 Descueneto = fun.ToDouble(tbCompra.Rows[i]["Descuento"].ToString());
                 Subtotal = fun.ToDouble (tbCompra.Rows[i]["Subtotal"].ToString());
                 detalle.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
+               
             }
         }
 

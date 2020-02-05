@@ -106,6 +106,7 @@ namespace SistemaFact
             {
                 return;
             }
+            Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
             string Codigo = txt_Codigo.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", "", Codigo);
@@ -291,6 +292,7 @@ namespace SistemaFact
             Double Precio = 0;
             Int32 Cantidad = 0;
             Double Subtotal = 0;
+            cArticulo objArt = new Clases.cArticulo();
             string Cupon = txtCupon.Text;
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cVenta venta = new cVenta();
@@ -313,7 +315,7 @@ namespace SistemaFact
                     Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"].ToString());
                     Subtotal = Convert.ToDouble(tbVenta.Rows[i]["Subtotal"].ToString());
                     venta.InsertarDetalleVenta(con, Transaccion, CodVenta, Cantidad, Precio, CodArticulo, Subtotal);
-                    
+                    objArt.ActualizarStockResta(con, Transaccion, CodArticulo, Cantidad);
                 }
                 Transaccion.Commit();
                 con.Close();
@@ -419,7 +421,10 @@ namespace SistemaFact
             int Operacion = 0;
             if (CmbTipoOperacion.SelectedIndex > 0)
                 Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
-
+            if (txt_CodigoBarra.Text.Length < 5)
+            {
+                return;
+            }
             string Codigo = txt_CodigoBarra.Text;
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticulo("", Codigo , "");
