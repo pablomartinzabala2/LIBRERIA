@@ -50,6 +50,8 @@ namespace SistemaFact
             CmbTarjeta.Visible = false;
             txtCupon.Visible = false;
             txt_CodigoBarra.Focus();
+            txtDescuento.Visible = false;
+            chkDescuento.Visible = false;
         }
 
         private void CargarTipoOperacion()
@@ -142,6 +144,11 @@ namespace SistemaFact
 
         private void btnBuscarArticulo_Click(object sender, EventArgs e)
         {
+            if (CmbTipoOperacion.SelectedIndex <1)
+            {
+                Mensaje("Debe seleccionar un tipo de operación");
+                return;
+            }
             Principal.OpcionesdeBusqueda = "Codigo;Nombre;CodigoBarra";
             Principal.TablaPrincipal = "Articulo";
             Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Costo";
@@ -170,18 +177,31 @@ namespace SistemaFact
 
         private void BuscarArticuloxCodigo(Int32 CodArt)
         {
+            int Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
             cArticulo art = new cArticulo();
             DataTable trdo = art.GetArticuloxCodArt(CodArt);
             if (trdo.Rows.Count > 0)
-            {
+            {  
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                if (txtPrecio.Text != "")
-                    txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
+                //  if (txtPrecio.Text != "")
+                //      txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
+                if (Operacion == 1)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                if (Operacion == 2)
+                {
+                    txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                    Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                    Precio = Precio - 0.10 * Precio;
+                    txtDescuento.Text = Precio.ToString();
+                }
+                    
+                if (Operacion == 3)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
             }
         }
 
@@ -203,10 +223,18 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un precio");
                 return;
             }
+            Boolean Des = false;
+            if (chkDescuento.Visible == true)
+                if (chkDescuento.Checked == true)
+                    Des = true;
             //string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             Int32 CodArticulo = Convert.ToInt32(txtCodigo.Text);
             int Cantidad = Convert.ToInt32(txtCantidad.Text);
-            Double Precio = Convert.ToDouble(txtPrecio.Text);
+            Double Precio = 0;
+            if (Des ==false)
+                Precio = Convert.ToDouble(txtPrecio.Text);
+            if (Des ==true)
+                Precio = Convert.ToDouble(txtDescuento.Text);
             Double Subtotal = Precio * Cantidad;
             string Nombre = txt_Nombre.Text;
 
@@ -400,6 +428,9 @@ namespace SistemaFact
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
             txtCupon.Text = "";
+            txtCodCliente.Text = "";
+            txtDescuento.Text = "";
+            chkDescuento.Checked = false;
         }
 
         private void CmbTipoOperacion_Resize(object sender, EventArgs e)
@@ -409,6 +440,8 @@ namespace SistemaFact
 
         private void CmbTipoOperacion_SelectedIndexChanged(object sender, EventArgs e)
         {
+            chkDescuento.Visible = false ;
+            txtDescuento.Visible = false ;
             if (CmbTipoOperacion.SelectedIndex >0)
             {
                 int Indice = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
@@ -426,6 +459,8 @@ namespace SistemaFact
                         lblTarjeta.Visible = true;
                         CmbTarjeta.Visible = true;
                         txtCupon.Visible = true;
+                        chkDescuento.Visible = true;
+                        txtDescuento.Visible = true;
                         break;
                 }
             }
@@ -458,7 +493,13 @@ namespace SistemaFact
                 if (Operacion ==1)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                 if (Operacion == 2)
+                {
                     txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                    Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                    Precio = Precio - 0.10 * Precio;
+                    txtDescuento.Text = Precio.ToString();
+                }
+                    
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                 txtCantidad.Focus();
@@ -550,6 +591,11 @@ namespace SistemaFact
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtNroDocumento.Text = trdo.Rows[0]["NroDocumento"].ToString();
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

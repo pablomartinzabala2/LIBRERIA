@@ -30,15 +30,24 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkDescuento = new System.Windows.Forms.CheckBox();
+            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.txtCupon = new System.Windows.Forms.TextBox();
+            this.lblCupon = new System.Windows.Forms.Label();
+            this.lblTarjeta = new System.Windows.Forms.Label();
+            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
+            this.btnBuscarArticulo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,10 +60,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.Grupo = new System.Windows.Forms.GroupBox();
             this.chkSinCliente = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFechaAltaOrden = new System.Windows.Forms.MaskedTextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -63,17 +74,8 @@
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
-            this.lblTarjeta = new System.Windows.Forms.Label();
-            this.lblCupon = new System.Windows.Forms.Label();
-            this.txtCupon = new System.Windows.Forms.TextBox();
-            this.btnBuscarArticulo = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
+            this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
@@ -82,6 +84,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkDescuento);
+            this.groupBox1.Controls.Add(this.txtDescuento);
             this.groupBox1.Controls.Add(this.txtCupon);
             this.groupBox1.Controls.Add(this.lblCupon);
             this.groupBox1.Controls.Add(this.lblTarjeta);
@@ -116,6 +120,68 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
+            // chkDescuento
+            // 
+            this.chkDescuento.AutoSize = true;
+            this.chkDescuento.Location = new System.Drawing.Point(463, 94);
+            this.chkDescuento.Name = "chkDescuento";
+            this.chkDescuento.Size = new System.Drawing.Size(59, 21);
+            this.chkDescuento.TabIndex = 89;
+            this.chkDescuento.Text = "Desc";
+            this.chkDescuento.UseVisualStyleBackColor = true;
+            // 
+            // txtDescuento
+            // 
+            this.txtDescuento.Location = new System.Drawing.Point(519, 94);
+            this.txtDescuento.Name = "txtDescuento";
+            this.txtDescuento.Size = new System.Drawing.Size(79, 23);
+            this.txtDescuento.TabIndex = 88;
+            // 
+            // txtCupon
+            // 
+            this.txtCupon.Location = new System.Drawing.Point(378, 318);
+            this.txtCupon.Name = "txtCupon";
+            this.txtCupon.Size = new System.Drawing.Size(136, 23);
+            this.txtCupon.TabIndex = 86;
+            // 
+            // lblCupon
+            // 
+            this.lblCupon.AutoSize = true;
+            this.lblCupon.Location = new System.Drawing.Point(323, 317);
+            this.lblCupon.Name = "lblCupon";
+            this.lblCupon.Size = new System.Drawing.Size(49, 17);
+            this.lblCupon.TabIndex = 85;
+            this.lblCupon.Text = "Cupon";
+            this.lblCupon.Click += new System.EventHandler(this.lblCupon_Click);
+            // 
+            // lblTarjeta
+            // 
+            this.lblTarjeta.AutoSize = true;
+            this.lblTarjeta.Location = new System.Drawing.Point(80, 317);
+            this.lblTarjeta.Name = "lblTarjeta";
+            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
+            this.lblTarjeta.TabIndex = 84;
+            this.lblTarjeta.Text = "Tarjeta";
+            // 
+            // CmbTarjeta
+            // 
+            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTarjeta.FormattingEnabled = true;
+            this.CmbTarjeta.Location = new System.Drawing.Point(139, 317);
+            this.CmbTarjeta.Name = "CmbTarjeta";
+            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
+            this.CmbTarjeta.TabIndex = 83;
+            // 
+            // btnBuscarArticulo
+            // 
+            this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(555, 30);
+            this.btnBuscarArticulo.Name = "btnBuscarArticulo";
+            this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
+            this.btnBuscarArticulo.TabIndex = 63;
+            this.btnBuscarArticulo.UseVisualStyleBackColor = true;
+            this.btnBuscarArticulo.Click += new System.EventHandler(this.btnBuscarArticulo_Click);
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Location = new System.Drawing.Point(548, 346);
@@ -124,6 +190,7 @@
             this.btnCancelar.TabIndex = 62;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGrabar
             // 
@@ -151,6 +218,16 @@
             this.label1.TabIndex = 58;
             this.label1.Text = "Total";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
+            this.btnEliminar.Location = new System.Drawing.Point(661, 94);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
+            this.btnEliminar.TabIndex = 57;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -166,7 +243,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(383, 91);
+            this.txtPrecio.Location = new System.Drawing.Point(378, 94);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(79, 23);
             this.txtPrecio.TabIndex = 55;
@@ -174,7 +251,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(335, 94);
+            this.label2.Location = new System.Drawing.Point(324, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 54;
@@ -182,7 +259,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(249, 91);
+            this.txtCantidad.Location = new System.Drawing.Point(237, 91);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
@@ -191,11 +268,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(188, 94);
+            this.label4.Location = new System.Drawing.Point(173, 91);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 52;
             this.label4.Text = "Cantidad";
+            // 
+            // button2
+            // 
+            this.button2.Image = global::SistemaFact.Properties.Resources.add;
+            this.button2.Location = new System.Drawing.Point(613, 94);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(40, 28);
+            this.button2.TabIndex = 51;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.button2_KeyPress);
             // 
             // button3
             // 
@@ -313,6 +401,16 @@
             this.chkSinCliente.Text = "Sin registrar cliente";
             this.chkSinCliente.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(479, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 25);
+            this.button1.TabIndex = 84;
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // txtNroDocumento
             // 
             this.txtNroDocumento.Location = new System.Drawing.Point(92, 23);
@@ -347,6 +445,16 @@
             this.txtFechaAltaOrden.Size = new System.Drawing.Size(73, 23);
             this.txtFechaAltaOrden.TabIndex = 80;
             this.txtFechaAltaOrden.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(479, 23);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(40, 25);
+            this.btnBuscar.TabIndex = 45;
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -420,6 +528,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de Operación";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(191, 17);
+            this.label7.TabIndex = 84;
+            this.label7.Text = "Seleccione tipo de operación";
+            // 
             // CmbTipoOperacion
             // 
             this.CmbTipoOperacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -430,101 +547,6 @@
             this.CmbTipoOperacion.TabIndex = 83;
             this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
             this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(191, 17);
-            this.label7.TabIndex = 84;
-            this.label7.Text = "Seleccione tipo de operación";
-            // 
-            // CmbTarjeta
-            // 
-            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTarjeta.FormattingEnabled = true;
-            this.CmbTarjeta.Location = new System.Drawing.Point(139, 317);
-            this.CmbTarjeta.Name = "CmbTarjeta";
-            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
-            this.CmbTarjeta.TabIndex = 83;
-            // 
-            // lblTarjeta
-            // 
-            this.lblTarjeta.AutoSize = true;
-            this.lblTarjeta.Location = new System.Drawing.Point(80, 317);
-            this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
-            this.lblTarjeta.TabIndex = 84;
-            this.lblTarjeta.Text = "Tarjeta";
-            // 
-            // lblCupon
-            // 
-            this.lblCupon.AutoSize = true;
-            this.lblCupon.Location = new System.Drawing.Point(323, 317);
-            this.lblCupon.Name = "lblCupon";
-            this.lblCupon.Size = new System.Drawing.Size(49, 17);
-            this.lblCupon.TabIndex = 85;
-            this.lblCupon.Text = "Cupon";
-            this.lblCupon.Click += new System.EventHandler(this.lblCupon_Click);
-            // 
-            // txtCupon
-            // 
-            this.txtCupon.Location = new System.Drawing.Point(378, 318);
-            this.txtCupon.Name = "txtCupon";
-            this.txtCupon.Size = new System.Drawing.Size(136, 23);
-            this.txtCupon.TabIndex = 86;
-            // 
-            // btnBuscarArticulo
-            // 
-            this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(555, 30);
-            this.btnBuscarArticulo.Name = "btnBuscarArticulo";
-            this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
-            this.btnBuscarArticulo.TabIndex = 63;
-            this.btnBuscarArticulo.UseVisualStyleBackColor = true;
-            this.btnBuscarArticulo.Click += new System.EventHandler(this.btnBuscarArticulo_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(555, 91);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(40, 28);
-            this.btnEliminar.TabIndex = 57;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // button2
-            // 
-            this.button2.Image = global::SistemaFact.Properties.Resources.add;
-            this.button2.Location = new System.Drawing.Point(507, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 28);
-            this.button2.TabIndex = 51;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            this.button2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.button2_KeyPress);
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(479, 76);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 25);
-            this.button1.TabIndex = 84;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(479, 23);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(40, 25);
-            this.btnBuscar.TabIndex = 45;
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // FrmVenta
             // 
@@ -595,5 +617,7 @@
         private System.Windows.Forms.Label lblCupon;
         private System.Windows.Forms.Label lblTarjeta;
         private System.Windows.Forms.ComboBox CmbTarjeta;
+        private System.Windows.Forms.CheckBox chkDescuento;
+        private System.Windows.Forms.TextBox txtDescuento;
     }
 }

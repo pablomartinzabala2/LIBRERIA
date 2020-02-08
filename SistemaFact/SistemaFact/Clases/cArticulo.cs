@@ -69,8 +69,8 @@ namespace SistemaFact.Clases
             Double? PrecioTarjeta = null;
             if (Costo !=null)
             {
-                PrecioEfectivo = Costo + Costo * 0.5;
-                PrecioTarjeta = Costo + Costo * 0.7;
+                PrecioEfectivo = Costo + Costo * 0.7;
+                PrecioTarjeta = Costo + Costo * 1.0;
             }
             string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra,Costo,PrecioEfectivo,PrecioTarjeta)";
             sql = sql + " Values(" + "'" + Nombre + "'";

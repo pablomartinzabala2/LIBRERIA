@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmArticulocs));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnAplicarEfectivo = new System.Windows.Forms.Button();
+            this.btnAplicarTarjeta = new System.Windows.Forms.Button();
+            this.txtPorTarjeta = new System.Windows.Forms.TextBox();
+            this.txtPorEfectivo = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_PrecioTarjeta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,12 +60,6 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPorEfectivo = new System.Windows.Forms.TextBox();
-            this.txtPorTarjeta = new System.Windows.Forms.TextBox();
-            this.btnAplicarTarjeta = new System.Windows.Forms.Button();
-            this.btnAplicarEfectivo = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -96,10 +96,66 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             // 
+            // btnAplicarEfectivo
+            // 
+            this.btnAplicarEfectivo.Image = global::SistemaFact.Properties.Resources.add;
+            this.btnAplicarEfectivo.Location = new System.Drawing.Point(384, 170);
+            this.btnAplicarEfectivo.Name = "btnAplicarEfectivo";
+            this.btnAplicarEfectivo.Size = new System.Drawing.Size(40, 28);
+            this.btnAplicarEfectivo.TabIndex = 53;
+            this.btnAplicarEfectivo.UseVisualStyleBackColor = true;
+            this.btnAplicarEfectivo.Click += new System.EventHandler(this.btnAplicarEfectivo_Click);
+            // 
+            // btnAplicarTarjeta
+            // 
+            this.btnAplicarTarjeta.Image = global::SistemaFact.Properties.Resources.add;
+            this.btnAplicarTarjeta.Location = new System.Drawing.Point(384, 205);
+            this.btnAplicarTarjeta.Name = "btnAplicarTarjeta";
+            this.btnAplicarTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnAplicarTarjeta.TabIndex = 52;
+            this.btnAplicarTarjeta.UseVisualStyleBackColor = true;
+            this.btnAplicarTarjeta.Click += new System.EventHandler(this.btnAplicarTarjeta_Click);
+            // 
+            // txtPorTarjeta
+            // 
+            this.txtPorTarjeta.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txtPorTarjeta.Location = new System.Drawing.Point(331, 205);
+            this.txtPorTarjeta.Name = "txtPorTarjeta";
+            this.txtPorTarjeta.Size = new System.Drawing.Size(47, 23);
+            this.txtPorTarjeta.TabIndex = 35;
+            // 
+            // txtPorEfectivo
+            // 
+            this.txtPorEfectivo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txtPorEfectivo.Location = new System.Drawing.Point(331, 176);
+            this.txtPorEfectivo.Name = "txtPorEfectivo";
+            this.txtPorEfectivo.Size = new System.Drawing.Size(47, 23);
+            this.txtPorEfectivo.TabIndex = 34;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(258, 179);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(67, 17);
+            this.label9.TabIndex = 33;
+            this.label9.Text = "Aplicar %";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(258, 205);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 17);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Aplicar %";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(17, 211);
+            this.label5.Location = new System.Drawing.Point(22, 208);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 17);
             this.label5.TabIndex = 31;
@@ -116,7 +172,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 176);
+            this.label3.Location = new System.Drawing.Point(17, 176);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 29;
@@ -247,7 +303,7 @@
             this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(36, 36);
-            this.btnNuevo.Text = "toolStripButton1";
+            this.btnNuevo.Text = "nuevo";
             this.btnNuevo.ToolTipText = "Nuevo";
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -323,62 +379,6 @@
             this.btnSalir.Size = new System.Drawing.Size(36, 36);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(258, 205);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(67, 17);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Aplicar %";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(258, 179);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 17);
-            this.label9.TabIndex = 33;
-            this.label9.Text = "Aplicar %";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // txtPorEfectivo
-            // 
-            this.txtPorEfectivo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.txtPorEfectivo.Location = new System.Drawing.Point(331, 176);
-            this.txtPorEfectivo.Name = "txtPorEfectivo";
-            this.txtPorEfectivo.Size = new System.Drawing.Size(47, 23);
-            this.txtPorEfectivo.TabIndex = 34;
-            // 
-            // txtPorTarjeta
-            // 
-            this.txtPorTarjeta.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.txtPorTarjeta.Location = new System.Drawing.Point(331, 205);
-            this.txtPorTarjeta.Name = "txtPorTarjeta";
-            this.txtPorTarjeta.Size = new System.Drawing.Size(47, 23);
-            this.txtPorTarjeta.TabIndex = 35;
-            // 
-            // btnAplicarTarjeta
-            // 
-            this.btnAplicarTarjeta.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAplicarTarjeta.Location = new System.Drawing.Point(384, 205);
-            this.btnAplicarTarjeta.Name = "btnAplicarTarjeta";
-            this.btnAplicarTarjeta.Size = new System.Drawing.Size(40, 28);
-            this.btnAplicarTarjeta.TabIndex = 52;
-            this.btnAplicarTarjeta.UseVisualStyleBackColor = true;
-            this.btnAplicarTarjeta.Click += new System.EventHandler(this.btnAplicarTarjeta_Click);
-            // 
-            // btnAplicarEfectivo
-            // 
-            this.btnAplicarEfectivo.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAplicarEfectivo.Location = new System.Drawing.Point(384, 170);
-            this.btnAplicarEfectivo.Name = "btnAplicarEfectivo";
-            this.btnAplicarEfectivo.Size = new System.Drawing.Size(40, 28);
-            this.btnAplicarEfectivo.TabIndex = 53;
-            this.btnAplicarEfectivo.UseVisualStyleBackColor = true;
-            this.btnAplicarEfectivo.Click += new System.EventHandler(this.btnAplicarEfectivo_Click);
             // 
             // FrmAbmArticulocs
             // 

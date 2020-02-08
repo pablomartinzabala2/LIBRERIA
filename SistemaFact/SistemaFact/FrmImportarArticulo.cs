@@ -65,7 +65,7 @@ namespace SistemaFact
             int cl = 0;
 
              string Ruta = "C:\\SISTEMA\\LISTA.xlsx";
-           // string Ruta = "D:\\AG\\LISTA.xlsx";
+          //  string Ruta = "D:\\AG\\LISTA.xlsx";
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Open(Ruta , 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
@@ -101,7 +101,7 @@ namespace SistemaFact
                         case 3:
                            Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
-                        case 6:
+                        case 10:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
                                 Costo  = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             else
