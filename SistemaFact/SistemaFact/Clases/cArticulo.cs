@@ -182,7 +182,7 @@ namespace SistemaFact.Clases
         {
             string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
             sql = sql + ",Costo,PrecioTarjeta,";
-            sql = sql + "(PrecioEfectivo - 0.10*PrecioEfectivo) as Descuento ";
+            sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
             sql = sql + ",PrecioEfectivo";
             sql = sql + " from articulo a";
             if (Nombre != "")

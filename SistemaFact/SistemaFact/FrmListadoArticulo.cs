@@ -24,8 +24,12 @@ namespace SistemaFact
 
         private void CargarGrilla(string Nombre,string CodigoBarra,string Codigo)
         {
+            cFunciones fun = new cFunciones();
             cArticulo art = new Clases.cArticulo();
             DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo );
+            trdo = fun.TablaaMiles(trdo, "PrecioEfectivo");
+            trdo = fun.TablaaMiles(trdo, "PrecioTarjeta");
+            trdo = fun.TablaaMiles(trdo, "Descuento");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
             Grilla.Columns[3].Width = 310;
