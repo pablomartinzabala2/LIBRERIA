@@ -76,6 +76,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
+            this.btnPresupuesto = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
@@ -84,6 +85,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnPresupuesto);
             this.groupBox1.Controls.Add(this.chkDescuento);
             this.groupBox1.Controls.Add(this.txtDescuento);
             this.groupBox1.Controls.Add(this.txtCupon);
@@ -548,6 +550,16 @@
             this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
             this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);
             // 
+            // btnPresupuesto
+            // 
+            this.btnPresupuesto.Location = new System.Drawing.Point(467, 346);
+            this.btnPresupuesto.Name = "btnPresupuesto";
+            this.btnPresupuesto.Size = new System.Drawing.Size(75, 23);
+            this.btnPresupuesto.TabIndex = 90;
+            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.UseVisualStyleBackColor = true;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,5 +631,6 @@
         private System.Windows.Forms.ComboBox CmbTarjeta;
         private System.Windows.Forms.CheckBox chkDescuento;
         private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.Button btnPresupuesto;
     }
 }

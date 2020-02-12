@@ -25,6 +25,9 @@ namespace SistemaFact
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
+            Principal.CodigoSenia = "8";
+            FrmVerReporte frm = new FrmVerReporte();
+            frm.Show();
             fun = new Clases.cFunciones();
             Inicializar();
             if (Principal.CodigoPrincipalAbm != null)
@@ -134,6 +137,19 @@ namespace SistemaFact
                     txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+            }
+            if (txtPrecio.Text !="")
+            {
+                Double Precio = Convert.ToDouble(txtPrecio.Text);
+                Precio = Math.Round(Precio, 0);
+                txtPrecio.Text = Precio.ToString();
+            }
+            
+            if (txtDescuento.Text != "")
+            {
+                Double Precio = Convert.ToDouble(txtDescuento.Text);
+                Precio = Math.Round(Precio, 0);
+                txtDescuento.Text = Precio.ToString();
             }
         }
 
@@ -350,7 +366,11 @@ namespace SistemaFact
                 if (txtCodCliente.Text == "")
                     CodCliente = GrabarCliente(con, Transaccion);
                 else
-                    ModificarCliente(con, Transaccion);
+                    {
+                        ModificarCliente(con, Transaccion);
+                        CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                    }
+                    
                 }
             CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
                 Fecha, ImporteEfectivo, ImporteTarjeta
@@ -596,6 +616,79 @@ namespace SistemaFact
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void btnPresupuesto_Click(object sender, EventArgs e)
+        {
+            GrabarPresupuesto();
+        }
+
+        private void GrabarPresupuesto()
+        {
+            
+            SqlTransaction Transaccion;
+            SqlConnection con = new SqlConnection(cConexion.GetConexion());
+            con.Open();
+            Transaccion = con.BeginTransaction();
+            DateTime Fecha = Convert.ToDateTime(txtFechaAltaOrden.Text);
+            Int32? CodCliente = null;
+           
+            cCliente cli = new cCliente();
+            Int32 CodPresupuesto = 0;
+            Int32 CodArticulo = 0;
+            Double Precio = 0;
+            Int32 Cantidad = 0;
+            Double Subtotal = 0;
+            Double Total = 0;
+            if (txtTotal.Text != "")
+                Total = Convert.ToDouble(txtTotal.Text);
+            cArticulo objArt = new Clases.cArticulo();
+            string Cupon = txtCupon.Text;
+            // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            cPresupuesto pre = new cPresupuesto();
+            try
+            {
+                if (txtNroDocumento.Text != "" && txtApellido.Text != "")
+                {
+                    if (txtCodCliente.Text == "")
+                        CodCliente = GrabarCliente(con, Transaccion);
+                    else
+                    {
+                        ModificarCliente(con, Transaccion);
+                        CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                    }
+                        
+                }
+                CodPresupuesto  = pre.InsertarPresupuesto (con, Transaccion, Total ,
+                    Fecha 
+                    , CodCliente);
+                Principal.CodigoSenia = CodPresupuesto.ToString();
+                for (int i = 0; i < tbVenta.Rows.Count; i++)
+                {
+                    CodArticulo = Convert.ToInt32(tbVenta.Rows[i]["CodArticulo"].ToString());
+                    Precio = Convert.ToDouble(tbVenta.Rows[i]["Precio"].ToString());
+                    Cantidad = Convert.ToInt32(tbVenta.Rows[i]["Cantidad"].ToString());
+                    Subtotal = Convert.ToDouble(tbVenta.Rows[i]["Subtotal"].ToString());
+                    pre.InsertarDetalle(con, Transaccion, CodPresupuesto, Cantidad, Precio, CodArticulo, Subtotal);
+                    
+                }
+                Transaccion.Commit();
+                con.Close();
+                Mensaje("Datos grabados correctamente");
+                Limpiar();
+                FrmVerReporte frm = new FrmVerReporte();
+                frm.Show();
+                // this.GetJugadorxCodigoTableAdapter.Fill(this.DataSet1.GetJugadorxCodigo, Codigo); 
+                
+            }
+            catch (Exception exa)
+            {
+                Transaccion.Rollback();
+                con.Close();
+                Mensaje("Hubo un error en el proceso de grabacion");
+                Mensaje(exa.Message);
+
+            }
         }
     }
 }

@@ -20,8 +20,8 @@ namespace SistemaFact
             //   Application.Run(new FrmVerReporteBarra());
       //         Application.Run(new FrmCompra());
                Application.Run(new Principal ());
-          //  Application.Run(new FrmImportarArticulo());
-            
+            //  Application.Run(new FrmVerReporte());
+
         }
     }
 }

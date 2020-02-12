@@ -58,9 +58,9 @@ namespace SistemaFact
             Excel.Worksheet xlWorkSheet;
             Excel.Range range;
 
-            string str;
-            int rCnt;
-            int cCnt;
+            string str="";
+            int rCnt=0;
+            int cCnt=0;
             int rw = 0;
             int cl = 0;
 

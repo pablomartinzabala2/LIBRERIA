@@ -32,5 +32,15 @@ namespace SistemaFact.Properties {
                 return ((string)(this["FACTURACIONConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QKECIIE;Initial Catalog=LIBRERIA;Integrated Security=True")]
+        public string LIBRERIAConnectionString {
+            get {
+                return ((string)(this["LIBRERIAConnectionString"]));
+            }
+        }
     }
 }
