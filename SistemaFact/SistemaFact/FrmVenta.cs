@@ -25,9 +25,9 @@ namespace SistemaFact
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-            Principal.CodigoSenia = "8";
-            FrmVerReporte frm = new FrmVerReporte();
-            frm.Show();
+           // insert into cliente(apellido, nombre, clientenulo)
+          //values('', '', 1)
+            Principal.CodigoSenia = "1";
             fun = new Clases.cFunciones();
             Inicializar();
             if (Principal.CodigoPrincipalAbm != null)
@@ -218,6 +218,19 @@ namespace SistemaFact
                     
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+            }
+            if (txtPrecio.Text != "")
+            {
+                Double Precio = Convert.ToDouble(txtPrecio.Text);
+                Precio = Math.Round(Precio, 0);
+                txtPrecio.Text = Precio.ToString();
+            }
+
+            if (txtDescuento.Text != "")
+            {
+                Double Precio = Convert.ToDouble(txtDescuento.Text);
+                Precio = Math.Round(Precio, 0);
+                txtDescuento.Text = Precio.ToString();
             }
         }
 
@@ -659,6 +672,11 @@ namespace SistemaFact
                     }
                         
                 }
+                if (chkSinCliente.Checked==true)
+                {
+                    //cCliente cli = new Clases.cCliente();
+                    CodCliente = cli.GetCodClienteNulo();
+                }
                 CodPresupuesto  = pre.InsertarPresupuesto (con, Transaccion, Total ,
                     Fecha 
                     , CodCliente);
@@ -676,7 +694,7 @@ namespace SistemaFact
                 con.Close();
                 Mensaje("Datos grabados correctamente");
                 Limpiar();
-                FrmVerReporte frm = new FrmVerReporte();
+                FrmReporte frm = new SistemaFact.FrmReporte();
                 frm.Show();
                 // this.GetJugadorxCodigoTableAdapter.Fill(this.DataSet1.GetJugadorxCodigo, Codigo); 
                 

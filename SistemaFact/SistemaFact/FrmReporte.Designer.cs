@@ -1,6 +1,6 @@
 ﻿namespace SistemaFact
 {
-    partial class FrmVerReporte
+    partial class FrmReporte
     {
         /// <summary>
         /// Required designer variable.
@@ -30,23 +30,27 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet3 = new SistemaFact.DataSet3();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataTable1TableAdapter = new SistemaFact.DataSet3TableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // DataSet3
+            // 
+            this.DataSet3.DataSetName = "DataSet3";
+            this.DataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DataTable1BindingSource
             // 
             this.DataTable1BindingSource.DataMember = "DataTable1";
             this.DataTable1BindingSource.DataSource = this.DataSet3;
             // 
-            // DataSet3
+            // DataTable1TableAdapter
             // 
-            this.DataSet3.DataSetName = "DataSet3";
-            this.DataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DataTable1TableAdapter.ClearBeforeFill = true;
             // 
             // reportViewer1
             // 
@@ -56,24 +60,20 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaFact.ReportePresupuesto.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(779, 479);
+            this.reportViewer1.Size = new System.Drawing.Size(796, 483);
             this.reportViewer1.TabIndex = 0;
             // 
-            // DataTable1TableAdapter
-            // 
-            this.DataTable1TableAdapter.ClearBeforeFill = true;
-            // 
-            // FrmVerReporte
+            // FrmReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 520);
+            this.ClientSize = new System.Drawing.Size(820, 534);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FrmVerReporte";
-            this.Text = "FrmVerReporte";
-            this.Load += new System.EventHandler(this.FrmVerReporte_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            this.Name = "FrmReporte";
+            this.Text = "FrmReporte";
+            this.Load += new System.EventHandler(this.FrmReporte_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

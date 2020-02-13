@@ -34,7 +34,7 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodigoBarra = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.Grupo.Controls.Add(this.txtCodigo);
             this.Grupo.Controls.Add(this.label4);
             this.Grupo.Controls.Add(this.label3);
-            this.Grupo.Controls.Add(this.textBox1);
+            this.Grupo.Controls.Add(this.txtCodigoBarra);
             this.Grupo.Controls.Add(this.label2);
             this.Grupo.Controls.Add(this.txtDescripcion);
             this.Grupo.Controls.Add(this.label1);
@@ -79,6 +79,7 @@
             this.txtCodigo.Size = new System.Drawing.Size(175, 23);
             this.txtCodigo.TabIndex = 61;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
             // 
             // label4
             // 
@@ -101,13 +102,14 @@
             this.label3.Text = "Listado de Artículos";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // txtCodigoBarra
             // 
-            this.textBox1.Location = new System.Drawing.Point(335, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 23);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtCodigoBarra.Location = new System.Drawing.Point(335, 15);
+            this.txtCodigoBarra.Name = "txtCodigoBarra";
+            this.txtCodigoBarra.Size = new System.Drawing.Size(175, 23);
+            this.txtCodigoBarra.TabIndex = 4;
+            this.txtCodigoBarra.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtCodigoBarra.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigoBarra_KeyDown);
             // 
             // label2
             // 
@@ -120,11 +122,14 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.CausesValidation = false;
             this.txtDescripcion.Location = new System.Drawing.Point(80, 15);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(175, 23);
             this.txtDescripcion.TabIndex = 2;
             this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
+            this.txtDescripcion.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescripcion_KeyDown);
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescripcion_KeyPress);
             // 
             // label1
             // 
@@ -158,6 +163,8 @@
             this.Name = "FrmListadoArticulo";
             this.Text = "Listado de artículos";
             this.Load += new System.EventHandler(this.FrmListadoArticulo_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmListadoArticulo_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmListadoArticulo_KeyPress);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
@@ -170,7 +177,7 @@
         private System.Windows.Forms.GroupBox Grupo;
         private System.Windows.Forms.DataGridView Grilla;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCodigoBarra;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label3;

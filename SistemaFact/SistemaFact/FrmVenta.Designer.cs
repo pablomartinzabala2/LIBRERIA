@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnPresupuesto = new System.Windows.Forms.Button();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtCupon = new System.Windows.Forms.TextBox();
@@ -48,7 +52,6 @@
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.txt_Codigo = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -73,15 +76,43 @@
             this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
-            this.btnPresupuesto = new System.Windows.Forms.Button();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.CmbTipoOperacion);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(21, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(701, 48);
+            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Tipo de Operación";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 22);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(191, 17);
+            this.label7.TabIndex = 84;
+            this.label7.Text = "Seleccione tipo de operación";
+            // 
+            // CmbTipoOperacion
+            // 
+            this.CmbTipoOperacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoOperacion.FormattingEnabled = true;
+            this.CmbTipoOperacion.Location = new System.Drawing.Point(203, 18);
+            this.CmbTipoOperacion.Name = "CmbTipoOperacion";
+            this.CmbTipoOperacion.Size = new System.Drawing.Size(492, 24);
+            this.CmbTipoOperacion.TabIndex = 83;
+            this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
+            this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);
             // 
             // groupBox1
             // 
@@ -104,7 +135,6 @@
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.txt_Codigo);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtCodigo);
@@ -121,6 +151,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
+            // 
+            // btnPresupuesto
+            // 
+            this.btnPresupuesto.Location = new System.Drawing.Point(467, 346);
+            this.btnPresupuesto.Name = "btnPresupuesto";
+            this.btnPresupuesto.Size = new System.Drawing.Size(75, 23);
+            this.btnPresupuesto.TabIndex = 90;
+            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.UseVisualStyleBackColor = true;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
             // chkDescuento
             // 
@@ -287,14 +327,6 @@
             this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.button2_KeyPress);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(318, 59);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 28);
-            this.button3.TabIndex = 50;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // txt_Codigo
             // 
             this.txt_Codigo.Location = new System.Drawing.Point(93, 33);
@@ -396,6 +428,8 @@
             // chkSinCliente
             // 
             this.chkSinCliente.AutoSize = true;
+            this.chkSinCliente.Checked = true;
+            this.chkSinCliente.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkSinCliente.Location = new System.Drawing.Point(233, 112);
             this.chkSinCliente.Name = "chkSinCliente";
             this.chkSinCliente.Size = new System.Drawing.Size(149, 21);
@@ -518,48 +552,6 @@
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.CmbTipoOperacion);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(21, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(701, 48);
-            this.groupBox2.TabIndex = 21;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Tipo de Operación";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 22);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(191, 17);
-            this.label7.TabIndex = 84;
-            this.label7.Text = "Seleccione tipo de operación";
-            // 
-            // CmbTipoOperacion
-            // 
-            this.CmbTipoOperacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTipoOperacion.FormattingEnabled = true;
-            this.CmbTipoOperacion.Location = new System.Drawing.Point(203, 18);
-            this.CmbTipoOperacion.Name = "CmbTipoOperacion";
-            this.CmbTipoOperacion.Size = new System.Drawing.Size(492, 24);
-            this.CmbTipoOperacion.TabIndex = 83;
-            this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
-            this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);
-            // 
-            // btnPresupuesto
-            // 
-            this.btnPresupuesto.Location = new System.Drawing.Point(467, 346);
-            this.btnPresupuesto.Name = "btnPresupuesto";
-            this.btnPresupuesto.Size = new System.Drawing.Size(75, 23);
-            this.btnPresupuesto.TabIndex = 90;
-            this.btnPresupuesto.Text = "Presupuesto";
-            this.btnPresupuesto.UseVisualStyleBackColor = true;
-            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
-            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,13 +563,13 @@
             this.Name = "FrmVenta";
             this.Text = "Venta de Artíulo";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -611,7 +603,6 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtCodigo;

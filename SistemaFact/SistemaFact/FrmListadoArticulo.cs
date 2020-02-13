@@ -32,13 +32,20 @@ namespace SistemaFact
             trdo = fun.TablaaMiles(trdo, "Descuento");
             Grilla.DataSource = trdo;
             Grilla.Columns[0].Visible = false;
-            Grilla.Columns[3].Width = 310;
+            Grilla.Columns[5].Visible = false;
+            Grilla.Columns[3].Width = 410;
             Grilla.Columns[6].HeaderText = "Tarjeta";
             Grilla.Columns[8].HeaderText = "Efectivo/Deb";
+
+            DataGridViewCellStyle style = new DataGridViewCellStyle();
+            style.Font = new Font(Grilla.Font, FontStyle.Bold);
+            Grilla.Columns[8].DefaultCellStyle = style;
+            //Grilla.Rows[8].DefaultCellStyle = style;
         }
 
         private void txtDescripcion_TextChanged(object sender, EventArgs e)
         {
+            
             string nombre = txtDescripcion.Text;
             CargarGrilla(nombre, "", "");
         }
@@ -60,7 +67,7 @@ namespace SistemaFact
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string Codigo = textBox1.Text;
+            string Codigo = txtCodigoBarra.Text;
             if (Codigo.Length >4)
             {
                 CargarGrilla("", Codigo, "");
@@ -75,6 +82,52 @@ namespace SistemaFact
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
             CargarGrilla("", "", txtCodigo.Text);
+        }
+
+        private void txtDescripcion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string tecla = e.KeyChar.ToString();
+        }
+
+        private void FrmListadoArticulo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void FrmListadoArticulo_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void txtDescripcion_KeyDown(object sender, KeyEventArgs e)
+        {
+           // string xx = e.KeyData.ToString();
+            if (e.KeyData== Keys.Delete)
+            {
+                txtCodigo.Text = "";
+                txtDescripcion.Text = "";
+                txtCodigoBarra.Text = "";
+            }
+        }
+
+        private void txtCodigoBarra_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                txtCodigo.Text = "";
+                txtDescripcion.Text = "";
+                txtCodigoBarra.Text = "";
+            }
+        }
+
+        private void txtCodigo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Delete)
+            {
+                txtCodigo.Text = "";
+                txtDescripcion.Text = "";
+                txtCodigoBarra.Text = "";
+            }
         }
     }
 }

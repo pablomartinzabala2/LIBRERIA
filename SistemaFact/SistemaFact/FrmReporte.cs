@@ -10,19 +10,18 @@ using System.Windows.Forms;
 
 namespace SistemaFact
 {
-    public partial class FrmVerReporte : FormBase
+    public partial class FrmReporte : FormBase 
     {
-        public FrmVerReporte()
+        public FrmReporte()
         {
             InitializeComponent();
         }
 
-        private void FrmVerReporte_Load(object sender, EventArgs e)
+        private void FrmReporte_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DataSet3.DataTable1' table. You can move, or remove it, as needed.
-            // this.GetJugadorxCodigoTableAdapter.Fill(this.DataSet1.GetJugadorxCodigo, Codigo); 
-            Int32 Codigo = Convert.ToInt32(Principal.CodigoSenia);
-            this.DataTable1TableAdapter.Fill(this.DataSet3.DataTable1,Codigo );
+            int Codigo = Convert.ToInt32(Principal.CodigoSenia);
+            this.DataTable1TableAdapter.Fill(this.DataSet3.DataTable1, Codigo);
 
             this.reportViewer1.RefreshReport();
         }
