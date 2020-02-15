@@ -52,6 +52,9 @@ and p.CodPresupuesto = @p
               <Mapping SourceColumn="Costo" DataSetColumn="Costo" />
               <Mapping SourceColumn="PrecioEfectivo" DataSetColumn="PrecioEfectivo" />
               <Mapping SourceColumn="PrecioTarjeta" DataSetColumn="PrecioTarjeta" />
+              <Mapping SourceColumn="Descuento" DataSetColumn="Descuento" />
+              <Mapping SourceColumn="PorDescuento" DataSetColumn="PorDescuento" />
+              <Mapping SourceColumn="TotalConDescuento" DataSetColumn="TotalConDescuento" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -63,7 +66,7 @@ and p.CodPresupuesto = @p
   <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet3" msprop:Generator_UserDSName="DataSet3">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CodPresupuesto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnCodPresupuesto" msprop:Generator_ColumnPropNameInRow="CodPresupuesto" msprop:Generator_ColumnPropNameInTable="CodPresupuestoColumn" msprop:Generator_UserColumnName="CodPresupuesto" type="xs:int" />
@@ -132,6 +135,9 @@ and p.CodPresupuesto = @p
               <xs:element name="Costo" msprop:Generator_ColumnVarNameInTable="columnCosto" msprop:Generator_ColumnPropNameInRow="Costo" msprop:Generator_ColumnPropNameInTable="CostoColumn" msprop:Generator_UserColumnName="Costo" type="xs:decimal" minOccurs="0" />
               <xs:element name="PrecioEfectivo" msprop:Generator_ColumnVarNameInTable="columnPrecioEfectivo" msprop:Generator_ColumnPropNameInRow="PrecioEfectivo" msprop:Generator_ColumnPropNameInTable="PrecioEfectivoColumn" msprop:Generator_UserColumnName="PrecioEfectivo" type="xs:decimal" minOccurs="0" />
               <xs:element name="PrecioTarjeta" msprop:Generator_ColumnVarNameInTable="columnPrecioTarjeta" msprop:Generator_ColumnPropNameInRow="PrecioTarjeta" msprop:Generator_ColumnPropNameInTable="PrecioTarjetaColumn" msprop:Generator_UserColumnName="PrecioTarjeta" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Descuento" msprop:Generator_ColumnVarNameInTable="columnDescuento" msprop:Generator_ColumnPropNameInRow="Descuento" msprop:Generator_ColumnPropNameInTable="DescuentoColumn" msprop:Generator_UserColumnName="Descuento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="PorDescuento" msprop:Generator_ColumnVarNameInTable="columnPorDescuento" msprop:Generator_ColumnPropNameInRow="PorDescuento" msprop:Generator_ColumnPropNameInTable="PorDescuentoColumn" msprop:Generator_UserColumnName="PorDescuento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TotalConDescuento" msprop:Generator_ColumnVarNameInTable="columnTotalConDescuento" msprop:Generator_ColumnPropNameInRow="TotalConDescuento" msprop:Generator_ColumnPropNameInTable="TotalConDescuentoColumn" msprop:Generator_UserColumnName="TotalConDescuento" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -327,6 +327,12 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnPrecioTarjeta;
             
+            private global::System.Data.DataColumn columnDescuento;
+            
+            private global::System.Data.DataColumn columnPorDescuento;
+            
+            private global::System.Data.DataColumn columnTotalConDescuento;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -554,6 +560,30 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DescuentoColumn {
+                get {
+                    return this.columnDescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PorDescuentoColumn {
+                get {
+                    return this.columnPorDescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn TotalConDescuentoColumn {
+                get {
+                    return this.columnTotalConDescuento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -610,7 +640,10 @@ namespace SistemaFact {
                         int Stock, 
                         decimal Costo, 
                         decimal PrecioEfectivo, 
-                        decimal PrecioTarjeta) {
+                        decimal PrecioTarjeta, 
+                        decimal Descuento, 
+                        decimal PorDescuento, 
+                        decimal TotalConDescuento) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -636,7 +669,10 @@ namespace SistemaFact {
                         Stock,
                         Costo,
                         PrecioEfectivo,
-                        PrecioTarjeta};
+                        PrecioTarjeta,
+                        Descuento,
+                        PorDescuento,
+                        TotalConDescuento};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -694,6 +730,9 @@ namespace SistemaFact {
                 this.columnCosto = base.Columns["Costo"];
                 this.columnPrecioEfectivo = base.Columns["PrecioEfectivo"];
                 this.columnPrecioTarjeta = base.Columns["PrecioTarjeta"];
+                this.columnDescuento = base.Columns["Descuento"];
+                this.columnPorDescuento = base.Columns["PorDescuento"];
+                this.columnTotalConDescuento = base.Columns["TotalConDescuento"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -747,6 +786,12 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnPrecioEfectivo);
                 this.columnPrecioTarjeta = new global::System.Data.DataColumn("PrecioTarjeta", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecioTarjeta);
+                this.columnDescuento = new global::System.Data.DataColumn("Descuento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescuento);
+                this.columnPorDescuento = new global::System.Data.DataColumn("PorDescuento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPorDescuento);
+                this.columnTotalConDescuento = new global::System.Data.DataColumn("TotalConDescuento", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalConDescuento);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodPresupuesto,
                                 this.columnCodPresupuesto1,
@@ -1274,6 +1319,54 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Descuento {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.DescuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Descuento\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DescuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal PorDescuento {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.PorDescuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PorDescuento\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.PorDescuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal TotalConDescuento {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDataTable1.TotalConDescuentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalConDescuento\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.TotalConDescuentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
                 return this.IsNull(this.tableDataTable1.TotalColumn);
             }
@@ -1487,6 +1580,42 @@ namespace SistemaFact {
             public void SetPrecioTarjetaNull() {
                 this[this.tableDataTable1.PrecioTarjetaColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDescuentoNull() {
+                return this.IsNull(this.tableDataTable1.DescuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDescuentoNull() {
+                this[this.tableDataTable1.DescuentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPorDescuentoNull() {
+                return this.IsNull(this.tableDataTable1.PorDescuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPorDescuentoNull() {
+                this[this.tableDataTable1.PorDescuentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTotalConDescuentoNull() {
+                return this.IsNull(this.tableDataTable1.TotalConDescuentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTotalConDescuentoNull() {
+                this[this.tableDataTable1.TotalConDescuentoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1672,6 +1801,9 @@ namespace SistemaFact.DataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("Costo", "Costo");
             tableMapping.ColumnMappings.Add("PrecioEfectivo", "PrecioEfectivo");
             tableMapping.ColumnMappings.Add("PrecioTarjeta", "PrecioTarjeta");
+            tableMapping.ColumnMappings.Add("Descuento", "Descuento");
+            tableMapping.ColumnMappings.Add("PorDescuento", "PorDescuento");
+            tableMapping.ColumnMappings.Add("TotalConDescuento", "TotalConDescuento");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

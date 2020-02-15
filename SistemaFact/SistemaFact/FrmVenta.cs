@@ -373,6 +373,19 @@ namespace SistemaFact
             Double Precio = 0;
             Int32 Cantidad = 0;
             Double Subtotal = 0;
+            Double Descuento = 0;
+            Double PorDescuento = 0;  
+            Double TotalConDescuento = 0;
+
+            if (txtPordescuento.Text != "")
+                PorDescuento = Convert.ToDouble(txtPordescuento.Text);
+
+            if (txtTotalDescuento.Text != "")
+                Descuento = Convert.ToDouble(txtTotalDescuento.Text);
+             
+            if (txtTotalConDescuento.Text != "")
+                TotalConDescuento = Convert.ToDouble(txtTotalConDescuento.Text);
+
             cArticulo objArt = new Clases.cArticulo();
             string Cupon = txtCupon.Text;
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
@@ -390,9 +403,9 @@ namespace SistemaFact
                     }
                     
                 }
-            CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
-                Fecha, ImporteEfectivo, ImporteTarjeta
-                , CodTarjeta, CodCliente, Cupon);
+                CodVenta = venta.InsertarVenta(con, Transaccion, ImporteEfectivo,
+                    Fecha, ImporteEfectivo, ImporteTarjeta
+                    , CodTarjeta, CodCliente, Cupon, Descuento, PorDescuento,TotalConDescuento );
                 for (int i = 0; i < tbVenta.Rows.Count ; i++)
                 {
                     CodArticulo = Convert.ToInt32(tbVenta.Rows[i]["CodArticulo"].ToString());
@@ -469,6 +482,9 @@ namespace SistemaFact
             txtCodCliente.Text = "";
             txtDescuento.Text = "";
             chkDescuento.Checked = false;
+            txtTotalConDescuento.Text = "";
+            txtPordescuento.Text = "";
+            txtTotalDescuento.Text = "";
         }
 
         private void CmbTipoOperacion_Resize(object sender, EventArgs e)
@@ -692,6 +708,18 @@ namespace SistemaFact
                 Total = Convert.ToDouble(txtTotal.Text);
             cArticulo objArt = new Clases.cArticulo();
             string Cupon = txtCupon.Text;
+            Double Descuento = 0;
+            Double PorDescuento = 0;
+            Double TotalConDescuento = 0;
+
+            if (txtPordescuento.Text != "")
+                PorDescuento = Convert.ToDouble(txtPordescuento.Text);
+
+            if (txtTotalDescuento.Text != "")
+                Descuento = Convert.ToDouble(txtTotalDescuento.Text);
+
+            if (txtTotalConDescuento.Text != "")
+                TotalConDescuento = Convert.ToDouble(txtTotalConDescuento.Text);
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cPresupuesto pre = new cPresupuesto();
             try
@@ -720,9 +748,9 @@ namespace SistemaFact
                     //cCliente cli = new Clases.cCliente();
                     CodCliente = cli.GetCodClienteNulo();
                 }
-                CodPresupuesto  = pre.InsertarPresupuesto (con, Transaccion, Total ,
-                    Fecha 
-                    , CodCliente);
+                CodPresupuesto = pre.InsertarPresupuesto(con, Transaccion, Total,
+                    Fecha
+                    , CodCliente, Descuento, PorDescuento, TotalConDescuento);
                 Principal.CodigoSenia = CodPresupuesto.ToString();
                 for (int i = 0; i < tbVenta.Rows.Count; i++)
                 {
