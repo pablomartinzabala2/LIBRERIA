@@ -10,9 +10,11 @@ namespace SistemaFact.Clases
     public class cVenta
     {
         public Int32 InsertarVenta(SqlConnection con, SqlTransaction Transaccion, double Total, DateTime Fecha,
-            double ImporteEfectivo, double ImporteTarjeta, Int32? CodTarjeta,Int32? CodCliente,string cupon)
+            double ImporteEfectivo, double ImporteTarjeta, Int32? CodTarjeta,Int32? CodCliente,
+            string cupon,Double Descuento,Double PorDescuento, Double TotalConDescuento)
         {
-            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCliente,cupon)";
+            string sql = " insert into Venta(Total,Fecha,ImporteEfectivo,ImporteTarjeta,CodTarjeta,CodCliente,cupon";
+            sql = sql + ",Descuento,PorDescuento,TotalConDescuento)";
             sql = sql + " values (" + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             sql = sql + "," + ImporteEfectivo.ToString().Replace(",", ".");
@@ -26,7 +28,10 @@ namespace SistemaFact.Clases
                 sql = sql + "," + CodCliente.ToString();
             else
                 sql = sql + ",null";
-            sql = sql + "," + "'" + cupon + "'";
+            sql = sql + "," + "'" + cupon + "'";    
+            sql = sql + "," + Descuento.ToString().Replace(",", ".");
+            sql = sql + "," + PorDescuento.ToString().Replace(",", ".");
+            sql = sql + "," + TotalConDescuento.ToString().Replace(",", ".");
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }

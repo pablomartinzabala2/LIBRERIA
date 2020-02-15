@@ -123,6 +123,7 @@
             this.txtPorTarjeta.Name = "txtPorTarjeta";
             this.txtPorTarjeta.Size = new System.Drawing.Size(47, 23);
             this.txtPorTarjeta.TabIndex = 35;
+            this.txtPorTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorTarjeta_KeyPress);
             // 
             // txtPorEfectivo
             // 
@@ -131,6 +132,7 @@
             this.txtPorEfectivo.Name = "txtPorEfectivo";
             this.txtPorEfectivo.Size = new System.Drawing.Size(47, 23);
             this.txtPorEfectivo.TabIndex = 34;
+            this.txtPorEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorEfectivo_KeyPress);
             // 
             // label9
             // 

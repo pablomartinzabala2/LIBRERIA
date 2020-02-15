@@ -175,6 +175,7 @@ namespace SistemaFact
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
+            txtCantidad.Focus();
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -218,20 +219,22 @@ namespace SistemaFact
                     
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-            }
-            if (txtPrecio.Text != "")
-            {
-                Double Precio = Convert.ToDouble(txtPrecio.Text);
-                Precio = Math.Round(Precio, 0);
-                txtPrecio.Text = Precio.ToString();
-            }
+                if (txtPrecio.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtPrecio.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtPrecio.Text = Precio.ToString();
+                }
 
-            if (txtDescuento.Text != "")
-            {
-                Double Precio = Convert.ToDouble(txtDescuento.Text);
-                Precio = Math.Round(Precio, 0);
-                txtDescuento.Text = Precio.ToString();
+                if (txtDescuento.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtDescuento.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtDescuento.Text = Precio.ToString();
+                }
+                txtCantidad.Focus();
             }
+           
         }
 
         private void Agregar()
@@ -283,6 +286,7 @@ namespace SistemaFact
             Grilla.Columns[1].Width = 330;
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
+            txtTotalConDescuento.Text = Total.ToString();
             txtCodigo.Text = "";
             txt_Codigo.Text = "";
             txt_CodigoBarra.Text = "";
@@ -311,6 +315,7 @@ namespace SistemaFact
             Grilla.DataSource = tbVenta;
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
+            txtTotalConDescuento.Text = Total.ToString();
         }
 
         private void button2_KeyPress(object sender, KeyPressEventArgs e)
@@ -535,8 +540,24 @@ namespace SistemaFact
                     
                 if (Operacion == 3)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                if (txtPrecio.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtPrecio.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtPrecio.Text = Precio.ToString();
+                }
+
+                if (txtDescuento.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtDescuento.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtDescuento.Text = Precio.ToString();
+                }
+
                 txtCantidad.Focus();
             }
+           
         }
 
         public Int32 GrabarCliente(SqlConnection con, SqlTransaction Transaccion)
@@ -633,6 +654,20 @@ namespace SistemaFact
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
+            if (txtApellido.Text == "")
+            {
+
+                if (chkSinCliente.Checked == false)
+                {
+                    Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
+                    return;
+                }
+            }
+            if (tbVenta.Rows.Count <1)
+            {
+                Mensaje("Debe ingresar artículos para continaur");
+                return;
+            }
             GrabarPresupuesto();
         }
 
@@ -672,6 +707,14 @@ namespace SistemaFact
                     }
                         
                 }
+                else
+                {
+                    if (chkSinCliente.Checked==false)
+                    {
+                        Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
+                        return;
+                    }
+                }
                 if (chkSinCliente.Checked==true)
                 {
                     //cCliente cli = new Clases.cCliente();
@@ -706,6 +749,56 @@ namespace SistemaFact
                 Mensaje("Hubo un error en el proceso de grabacion");
                 Mensaje(exa.Message);
 
+            }
+        }
+
+        private void txtPordescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (tbVenta.Rows.Count <1)
+                {
+                    Mensaje("Debe ingresar artículos");
+                    return;
+                }
+                if (txtPordescuento.Text =="")
+                {
+                    Mensaje("Debe ingresar un porcentaje de descueneto para continuar");
+                    return;
+                }
+                Double Total = Convert.ToDouble(txtTotal.Text);
+                Double Por = Convert.ToDouble(txtPordescuento.Text);
+                Double Des = Total * Por / 100;
+                Des = Math.Round(Des, 0);
+                txtTotalDescuento.Text = Des.ToString();
+                Double TotalConDescuento = Total - Des;
+                txtTotalConDescuento.Text = TotalConDescuento.ToString();
+            }
+        }
+
+        private void txtTotalDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (tbVenta.Rows.Count < 1)
+                {
+                    Mensaje("Debe ingresar artículos");
+                    return;
+                }
+                if (txtTotalDescuento.Text == "")
+                {
+                    Mensaje("Debe ingresar descueneto para continuar");
+                    return;
+                }
+                Double Total = Convert.ToDouble(txtTotal.Text);
+                Double Por = 0;
+                Double Des = Convert.ToDouble(txtTotalDescuento.Text);
+                Des = Math.Round(Des, 0);
+                Por = Des * 100 / Total;
+                Por = Math.Round(Por, 0);
+                txtPordescuento.Text = Por.ToString(); 
+                Double TotalConDescuento = Total - Des;
+                txtTotalConDescuento.Text = TotalConDescuento.ToString();
             }
         }
     }

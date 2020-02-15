@@ -51,7 +51,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -358,7 +357,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Total.Value)</Value>
+                              <Value>=math.Round ( Sum(Fields!Total.Value),0)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -413,7 +412,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Verde Manzana</Value>
+                <Value>Verde Manzzana</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                 </Style>

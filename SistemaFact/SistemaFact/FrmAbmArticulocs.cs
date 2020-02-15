@@ -361,13 +361,19 @@ namespace SistemaFact
         }
 
         private void btnAplicarEfectivo_Click(object sender, EventArgs e)
-        { 
+        {
+            CalcularEfectivo();
+           // txt_PrecioEfectivo.Text = (Math.Round(Efectivo, 0)).ToString();
+        }
+
+        private void CalcularEfectivo()
+        {
             if (txt_Costo.Text == "")
             {
                 Mensaje("Debe ingresar un Costo");
                 return;
             }
-            if (txtPorEfectivo.Text =="")
+            if (txtPorEfectivo.Text == "")
             {
                 Mensaje("Debe ingresar un porcentaje");
                 return;
@@ -377,28 +383,45 @@ namespace SistemaFact
             Double Efectivo = Costo + Costo * (Por / 100);
             Efectivo = Math.Round(Efectivo, 0);
             txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
-           // txt_PrecioEfectivo.Text = (Math.Round(Efectivo, 0)).ToString();
         }
-
         private void btnAplicarTarjeta_Click(object sender, EventArgs e)
         {
+            calculartarjeta();
 
+        }
+
+        private void calculartarjeta()
+        {
             if (txt_Costo.Text == "")
             {
                 Mensaje("Debe ingresar un Costo");
                 return;
-            }  
+            }
             if (txtPorTarjeta.Text == "")
             {
                 Mensaje("Debe ingresar un porcentaje");
                 return;
-            }  
-             
+            }
+
             Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
             Double Por = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
             Double Tarjeta = Costo + Costo * (Por / 100);
             Tarjeta = Math.Round(Tarjeta, 0);
             txt_PrecioTarjeta.Text = Math.Round(Tarjeta, 0).ToString();
+        }
+
+        private void txtPorEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                CalcularEfectivo();
+            }
+        }
+
+        private void txtPorTarjeta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+                calculartarjeta();
         }
     }
 }
