@@ -283,7 +283,7 @@ namespace SistemaFact
             tbVenta = fun.AgregarFilas(tbVenta, Val);
             Grilla.DataSource = tbVenta;
             Grilla.Columns[0].Visible = false;
-            Grilla.Columns[1].Width = 330;
+            Grilla.Columns[1].Width = 370;
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
             txtTotalConDescuento.Text = Total.ToString();
@@ -485,6 +485,7 @@ namespace SistemaFact
             txtTotalConDescuento.Text = "";
             txtPordescuento.Text = "";
             txtTotalDescuento.Text = "";
+            txtCuit.Text = "";
         }
 
         private void CmbTipoOperacion_Resize(object sender, EventArgs e)
@@ -582,11 +583,12 @@ namespace SistemaFact
             string Nom = txtNombre.Text;
             string NroDoc = txtNroDocumento.Text;
             Int32 CodTipoDoc = 1;
+            string Cuit = txtCuit.Text;
             if (cmbTipoDoc.SelectedIndex > 0)
                 CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue); 
             string Telefono = txtTelefono.Text;
             cCliente cli = new Clases.cCliente();
-           Int32 CodCli= cli.InsertarClienteTran(con, Transaccion, Ape, Nom, Telefono, CodTipoDoc , NroDoc);
+           Int32 CodCli= cli.InsertarClienteTran(con, Transaccion, Ape, Nom, Telefono, CodTipoDoc , NroDoc,Cuit);
             return CodCli;
         }
 
@@ -600,9 +602,10 @@ namespace SistemaFact
             if (cmbTipoDoc.SelectedIndex > 0)
                 CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue);
             string Telefono = txtTelefono.Text;
+            string Cuit = txtCuit.Text;
             cCliente cli = new Clases.cCliente();
             cli.ModificarClienteTran(con, Transaccion, CodCli, Ape,
-                Nom , Telefono, CodTipoDoc, NroDoc);
+                Nom , Telefono, CodTipoDoc, NroDoc,Cuit);
         }
 
         private void BuscarVenta(Int32 CodVenta)
@@ -720,34 +723,39 @@ namespace SistemaFact
 
             if (txtTotalConDescuento.Text != "")
                 TotalConDescuento = Convert.ToDouble(txtTotalConDescuento.Text);
+            if (chkSinCliente.Checked == true)
+            {
+                //cCliente cli = new Clases.cCliente();
+                CodCliente = cli.GetCodClienteNulo();
+            }
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cPresupuesto pre = new cPresupuesto();
             try
             {
-                if (txtNroDocumento.Text != "" && txtApellido.Text != "")
+                if(chkSinCliente.Checked==false)
                 {
-                    if (txtCodCliente.Text == "")
-                        CodCliente = GrabarCliente(con, Transaccion);
+                    if (txtNroDocumento.Text != "" && txtApellido.Text != "")
+                    {
+                        if (txtCodCliente.Text == "")
+                            CodCliente = GrabarCliente(con, Transaccion);
+                        else
+                        {
+                            ModificarCliente(con, Transaccion);
+                            CodCliente = Convert.ToInt32(txtCodCliente.Text);
+                        }
+
+                    }
                     else
                     {
-                        ModificarCliente(con, Transaccion);
-                        CodCliente = Convert.ToInt32(txtCodCliente.Text);
-                    }
-                        
-                }
-                else
-                {
-                    if (chkSinCliente.Checked==false)
-                    {
-                        Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
-                        return;
+                        if (chkSinCliente.Checked == false)
+                        {
+                            Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
+                            return;
+                        }
                     }
                 }
-                if (chkSinCliente.Checked==true)
-                {
-                    //cCliente cli = new Clases.cCliente();
-                    CodCliente = cli.GetCodClienteNulo();
-                }
+                
+                
                 CodPresupuesto = pre.InsertarPresupuesto(con, Transaccion, Total,
                     Fecha
                     , CodCliente, Descuento, PorDescuento, TotalConDescuento);
@@ -827,6 +835,32 @@ namespace SistemaFact
                 txtPordescuento.Text = Por.ToString(); 
                 Double TotalConDescuento = Total - Des;
                 txtTotalConDescuento.Text = TotalConDescuento.ToString();
+            }
+        }
+
+        private void txtCuit_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtNombre_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtCuit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtNombre.Focus();
+            }
+        }
+
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtApellido.Focus();
             }
         }
     }

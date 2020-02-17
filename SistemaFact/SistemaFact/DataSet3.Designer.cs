@@ -333,6 +333,8 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnTotalConDescuento;
             
+            private global::System.Data.DataColumn columnCuit;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -584,6 +586,14 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CuitColumn {
+                get {
+                    return this.columnCuit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -643,7 +653,8 @@ namespace SistemaFact {
                         decimal PrecioTarjeta, 
                         decimal Descuento, 
                         decimal PorDescuento, 
-                        decimal TotalConDescuento) {
+                        decimal TotalConDescuento, 
+                        string Cuit) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -672,7 +683,8 @@ namespace SistemaFact {
                         PrecioTarjeta,
                         Descuento,
                         PorDescuento,
-                        TotalConDescuento};
+                        TotalConDescuento,
+                        Cuit};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -733,6 +745,7 @@ namespace SistemaFact {
                 this.columnDescuento = base.Columns["Descuento"];
                 this.columnPorDescuento = base.Columns["PorDescuento"];
                 this.columnTotalConDescuento = base.Columns["TotalConDescuento"];
+                this.columnCuit = base.Columns["Cuit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -792,6 +805,8 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnPorDescuento);
                 this.columnTotalConDescuento = new global::System.Data.DataColumn("TotalConDescuento", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalConDescuento);
+                this.columnCuit = new global::System.Data.DataColumn("Cuit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCuit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodPresupuesto,
                                 this.columnCodPresupuesto1,
@@ -823,6 +838,7 @@ namespace SistemaFact {
                 this.columnCodigo.MaxLength = 150;
                 this.columnCodigoBarra.MaxLength = 150;
                 this.columnNombre1.MaxLength = 400;
+                this.columnCuit.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1367,6 +1383,22 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Cuit {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.CuitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cuit\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.CuitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
                 return this.IsNull(this.tableDataTable1.TotalColumn);
             }
@@ -1616,6 +1648,18 @@ namespace SistemaFact {
             public void SetTotalConDescuentoNull() {
                 this[this.tableDataTable1.TotalConDescuentoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCuitNull() {
+                return this.IsNull(this.tableDataTable1.CuitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCuitNull() {
+                this[this.tableDataTable1.CuitColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1804,6 +1848,7 @@ namespace SistemaFact.DataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("Descuento", "Descuento");
             tableMapping.ColumnMappings.Add("PorDescuento", "PorDescuento");
             tableMapping.ColumnMappings.Add("TotalConDescuento", "TotalConDescuento");
+            tableMapping.ColumnMappings.Add("Cuit", "Cuit");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

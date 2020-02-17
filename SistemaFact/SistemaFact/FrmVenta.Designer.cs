@@ -68,6 +68,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtCuit = new System.Windows.Forms.TextBox();
             this.chkSinCliente = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
@@ -156,7 +158,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 213);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(779, 370);
+            this.groupBox1.Size = new System.Drawing.Size(751, 370);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
@@ -462,6 +464,8 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.label15);
+            this.Grupo.Controls.Add(this.txtCuit);
             this.Grupo.Controls.Add(this.chkSinCliente);
             this.Grupo.Controls.Add(this.button1);
             this.Grupo.Controls.Add(this.txtNroDocumento);
@@ -479,10 +483,28 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 57);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(710, 150);
+            this.Grupo.Size = new System.Drawing.Size(738, 150);
             this.Grupo.TabIndex = 17;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del cliente";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(299, 28);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(32, 17);
+            this.label15.TabIndex = 87;
+            this.label15.Text = "Cuit";
+            // 
+            // txtCuit
+            // 
+            this.txtCuit.Location = new System.Drawing.Point(337, 20);
+            this.txtCuit.Name = "txtCuit";
+            this.txtCuit.Size = new System.Drawing.Size(175, 23);
+            this.txtCuit.TabIndex = 86;
+            this.txtCuit.Enter += new System.EventHandler(this.txtCuit_Enter);
+            this.txtCuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuit_KeyPress);
             // 
             // chkSinCliente
             // 
@@ -526,7 +548,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(346, 23);
+            this.label12.Location = new System.Drawing.Point(518, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 17);
             this.label12.TabIndex = 81;
@@ -534,7 +556,7 @@
             // 
             // txtFechaAltaOrden
             // 
-            this.txtFechaAltaOrden.Location = new System.Drawing.Point(399, 23);
+            this.txtFechaAltaOrden.Location = new System.Drawing.Point(571, 20);
             this.txtFechaAltaOrden.Mask = "00/00/0000";
             this.txtFechaAltaOrden.Name = "txtFechaAltaOrden";
             this.txtFechaAltaOrden.Size = new System.Drawing.Size(73, 23);
@@ -544,7 +566,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(479, 23);
+            this.btnBuscar.Location = new System.Drawing.Point(661, 20);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 25);
             this.btnBuscar.TabIndex = 45;
@@ -601,6 +623,8 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(380, 23);
             this.txtNombre.TabIndex = 2;
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
             // Nombre
             // 
@@ -615,7 +639,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(837, 637);
+            this.ClientSize = new System.Drawing.Size(760, 637);
             this.Controls.Add(this.btnPresupuesto);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -691,5 +715,7 @@
         private System.Windows.Forms.TextBox txtPordescuento;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtCuit;
     }
 }

@@ -15,10 +15,10 @@ namespace SistemaFact.Clases
             return cDb.GetDatatable(sql);
         }
 
-        public Int32 InsertarClienteTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, int? CodTipoDoc, string NroDocumento)
+        public Int32 InsertarClienteTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit)
         {
             string sql = "Insert into Cliente";
-            sql = sql + "(Nombre,Apellido,Telefono,CodTipoDoc,NroDocumento)";
+            sql = sql + "(Nombre,Apellido,Telefono,CodTipoDoc,NroDocumento,Cuit)";
             sql = sql + " values (";
             sql = sql + "'" + Nombre + "'";
             sql = sql + "," + "'" + Apellido + "'";
@@ -29,11 +29,12 @@ namespace SistemaFact.Clases
             else
                 sql = sql + ",null";
             sql = sql + "," + "'" + NroDocumento + "'";
+            sql = sql + "," + "'" + Cuit + "'";
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void ModificarClienteTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodCliente, string Apellido, string Nombre,  string Telefono, int? CodTipoDoc, string NroDocumento)
+        public void ModificarClienteTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodCliente, string Apellido, string Nombre,  string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit)
         {
             string sql = "Update Cliente ";
             sql = sql + "set Nombre =" + "'" + Nombre + "'";
@@ -45,6 +46,7 @@ namespace SistemaFact.Clases
             else
                 sql = sql + ",CodTipoDoc =null";
             sql = sql + ",NroDocumento=" + "'" + NroDocumento + "'";
+            sql = sql + ",Cuit=" + "'" + Cuit + "'";
             sql = sql + " where CodCliente =" + CodCliente.ToString();
 
 

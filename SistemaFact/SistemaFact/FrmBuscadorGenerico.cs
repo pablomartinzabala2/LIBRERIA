@@ -80,6 +80,11 @@ namespace SistemaFact
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        private void Buscar()
+        {
             int Filtro = 0;
             if (Combo.SelectedIndex > 0)
             {
@@ -133,6 +138,14 @@ namespace SistemaFact
             }
 
             this.Close();
+        }
+
+        private void txtBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Buscar();
+            }
         }
     }
 }
