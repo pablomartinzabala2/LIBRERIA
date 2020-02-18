@@ -18,6 +18,7 @@ namespace SistemaFact
         cFunciones fun;
         DataTable tbVenta;
         Boolean Valida = false;
+        int Indice = 0;
         public FrmVenta()
         {
             InitializeComponent();
@@ -45,7 +46,7 @@ namespace SistemaFact
             fun.LlenarCombo(CmbTarjeta , "Tarjeta", "Nombre", "CodTarjeta");
             if (cmbTipoDoc.Items.Count > 0)
                 cmbTipoDoc.SelectedIndex = 1;
-            string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal;Indice";
             tbVenta = fun.CrearTabla(Col);
             CargarTipoOperacion();
             lblTarjeta.Visible = false;
@@ -167,9 +168,9 @@ namespace SistemaFact
             }
             Principal.OpcionesdeBusqueda = "Codigo;Nombre;CodigoBarra";
             Principal.TablaPrincipal = "Articulo";
-            Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;Costo";
-            Principal.ColumnasVisibles = "0;1;1";
-            Principal.ColumnasAncho = "0;390;190";
+            Principal.OpcionesColumnasGrilla = "CodArticulo;Nombre;PrecioEfectivo;PrecioTarjeta";
+            Principal.ColumnasVisibles = "0;1;1;1";
+            Principal.ColumnasAncho = "0;390;95;95";
             Principal.NombreTablaSecundario = "Articulo";
             Principal.CampoIdSecundarioGenerado = "";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
@@ -280,9 +281,15 @@ namespace SistemaFact
             Val = Val + ";" + Precio.ToString();
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Subtotal.ToString();
+            Val = Val + ";" + Indice.ToString();
             tbVenta = fun.AgregarFilas(tbVenta, Val);
+            Indice = Indice + 1;
+            //Grilla.Sort(Grilla.Columns[3]), ListSortDirection.Ascending)
+            if (tbVenta.Rows.Count >1)
+              Grilla.Sort(Grilla.Columns[5], ListSortDirection.Descending );
             Grilla.DataSource = tbVenta;
             Grilla.Columns[0].Visible = false;
+            Grilla.Columns[5].Visible = false;
             Grilla.Columns[1].Width = 370;
             Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
             txtTotal.Text = Total.ToString();
@@ -296,6 +303,7 @@ namespace SistemaFact
             txt_Nombre.Text = "";
             Valida = false;
             txt_CodigoBarra.Focus();
+
         }
 
         private void button2_Click(object sender, EventArgs e)

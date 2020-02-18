@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>11.67871cm</Width>
+              <Width>9.17871cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -300,7 +300,7 @@
         <Top>5.28849cm</Top>
         <Left>0.46249cm</Left>
         <Height>1.2cm</Height>
-        <Width>19.17871cm</Width>
+        <Width>16.67871cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -397,8 +397,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>7.05768cm</Top>
-        <Left>14.40068cm</Left>
+        <Top>7.16351cm</Top>
+        <Left>11.58318cm</Left>
         <Height>0.6cm</Height>
         <Width>5cm</Width>
         <ZIndex>1</ZIndex>
@@ -506,7 +506,7 @@
         <Top>2.66912cm</Top>
         <Left>0.63182cm</Left>
         <Height>0cm</Height>
-        <Width>18.76886cm</Width>
+        <Width>16.50938cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -530,7 +530,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
         <Top>7.9399cm</Top>
-        <Left>14.25957cm</Left>
+        <Left>11.58318cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>6</ZIndex>
@@ -559,8 +559,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>7.83407cm</Top>
-        <Left>16.90068cm</Left>
+        <Top>7.86934cm</Top>
+        <Left>14.08318cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>7</ZIndex>
@@ -590,8 +590,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>8.61046cm</Top>
-        <Left>14.25957cm</Left>
+        <Top>8.68101cm</Top>
+        <Left>11.58318cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>8</ZIndex>
@@ -620,8 +620,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>8.61046cm</Top>
-        <Left>17.1412cm</Left>
+        <Top>8.68101cm</Top>
+        <Left>14.25957cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>9</ZIndex>
