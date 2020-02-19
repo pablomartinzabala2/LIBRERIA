@@ -130,6 +130,12 @@
     <Compile Include="FrmAbmColores.Designer.cs">
       <DependentUpon>FrmAbmColores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmTarjeta.Designer.cs">
+      <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTipoPrenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmColores.resx">
       <DependentUpon>FrmAbmColores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmTarjeta.resx">
+      <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTipoPrenda.resx">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>

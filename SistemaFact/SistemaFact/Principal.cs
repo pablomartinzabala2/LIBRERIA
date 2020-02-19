@@ -179,5 +179,11 @@ namespace SistemaFact
             FrmBackUp frm = new SistemaFact.FrmBackUp();
             frm.Show();
         }
+
+        private void tarjetasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmTarjeta frm = new SistemaFact.FrmAbmTarjeta();
+            frm.Show();
+        }
     }
 }
