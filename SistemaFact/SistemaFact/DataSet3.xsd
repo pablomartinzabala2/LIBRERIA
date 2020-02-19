@@ -56,6 +56,7 @@ and p.CodPresupuesto = @p
               <Mapping SourceColumn="PorDescuento" DataSetColumn="PorDescuento" />
               <Mapping SourceColumn="TotalConDescuento" DataSetColumn="TotalConDescuento" />
               <Mapping SourceColumn="Cuit" DataSetColumn="Cuit" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Direccion" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -143,6 +144,13 @@ and p.CodPresupuesto = @p
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Direccion" msprop:Generator_ColumnVarNameInTable="columnDireccion" msprop:Generator_ColumnPropNameInRow="Direccion" msprop:Generator_ColumnPropNameInTable="DireccionColumn" msprop:Generator_UserColumnName="Direccion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="400" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

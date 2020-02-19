@@ -108,7 +108,8 @@ namespace SistemaFact
                 txtNombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txtApellido.Text = trdo.Rows[0]["Apellido"].ToString();
                 txtTelefono.Text = trdo.Rows[0]["Telefono"].ToString();
-
+                txtCuit.Text = trdo.Rows[0]["Cuit"].ToString();
+                txtDireccion.Text = trdo.Rows[0]["Direccion"].ToString();
 
 
             }
@@ -486,6 +487,8 @@ namespace SistemaFact
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNroDocumento.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
             txtCupon.Text = "";
             txtCodCliente.Text = "";
             txtDescuento.Text = "";
@@ -595,8 +598,9 @@ namespace SistemaFact
             if (cmbTipoDoc.SelectedIndex > 0)
                 CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue); 
             string Telefono = txtTelefono.Text;
+            string Direccion = txtDireccion.Text;
             cCliente cli = new Clases.cCliente();
-           Int32 CodCli= cli.InsertarClienteTran(con, Transaccion, Ape, Nom, Telefono, CodTipoDoc , NroDoc,Cuit);
+           Int32 CodCli= cli.InsertarClienteTran(con, Transaccion, Ape, Nom, Telefono, CodTipoDoc , NroDoc,Cuit,Direccion);
             return CodCli;
         }
 
@@ -611,9 +615,10 @@ namespace SistemaFact
                 CodTipoDoc = Convert.ToInt32(cmbTipoDoc.SelectedValue);
             string Telefono = txtTelefono.Text;
             string Cuit = txtCuit.Text;
+            string Direccion = txtDireccion.Text;
             cCliente cli = new Clases.cCliente();
             cli.ModificarClienteTran(con, Transaccion, CodCli, Ape,
-                Nom , Telefono, CodTipoDoc, NroDoc,Cuit);
+                Nom , Telefono, CodTipoDoc, NroDoc,Cuit,Direccion);
         }
 
         private void BuscarVenta(Int32 CodVenta)
@@ -870,6 +875,49 @@ namespace SistemaFact
             {
                 txtApellido.Focus();
             }
+        }
+
+        private void txtCuit_TextChanged(object sender, EventArgs e)
+        {
+            int b = 0;
+            string NroDoc = txtCuit.Text;
+            if (NroDoc.Length < 3)
+                return;
+            cCliente cli = new cCliente();
+            DataTable trdo = cli.GetClientesxCuit(NroDoc);
+            if (trdo.Rows.Count > 0)
+                if (trdo.Rows[0]["CodCliente"].ToString() != "")
+                {
+                    Int32 CodCliente = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
+                    GetClientexCodigo(CodCliente);
+                    b = 1;
+                }
+            if (b == 0)
+            {
+                txtCodCliente.Text = "";
+                txtApellido.Text = "";
+                txtNombre.Text = "";
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkSinCliente_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtFechaAltaOrden_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
         }
     }
 }

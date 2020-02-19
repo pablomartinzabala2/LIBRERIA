@@ -173,5 +173,11 @@ namespace SistemaFact
         {
 
         }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            FrmBackUp frm = new SistemaFact.FrmBackUp();
+            frm.Show();
+        }
     }
 }

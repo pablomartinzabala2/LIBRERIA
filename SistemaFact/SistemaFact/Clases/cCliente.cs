@@ -15,10 +15,10 @@ namespace SistemaFact.Clases
             return cDb.GetDatatable(sql);
         }
 
-        public Int32 InsertarClienteTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit)
+        public Int32 InsertarClienteTran(SqlConnection con, SqlTransaction Transaccion, string Apellido, string Nombre, string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit,string Direccion)
         {
             string sql = "Insert into Cliente";
-            sql = sql + "(Nombre,Apellido,Telefono,CodTipoDoc,NroDocumento,Cuit)";
+            sql = sql + "(Nombre,Apellido,Telefono,CodTipoDoc,NroDocumento,Cuit,Direccion)";
             sql = sql + " values (";
             sql = sql + "'" + Nombre + "'";
             sql = sql + "," + "'" + Apellido + "'";
@@ -30,11 +30,12 @@ namespace SistemaFact.Clases
                 sql = sql + ",null";
             sql = sql + "," + "'" + NroDocumento + "'";
             sql = sql + "," + "'" + Cuit + "'";
+            sql = sql + "," + "'" + Direccion + "'";
             sql = sql + ")";
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
-        public void ModificarClienteTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodCliente, string Apellido, string Nombre,  string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit)
+        public void ModificarClienteTran(SqlConnection con, SqlTransaction Transaccion, Int32 CodCliente, string Apellido, string Nombre,  string Telefono, int? CodTipoDoc, string NroDocumento,string Cuit,string Direccion)
         {
             string sql = "Update Cliente ";
             sql = sql + "set Nombre =" + "'" + Nombre + "'";
@@ -47,6 +48,7 @@ namespace SistemaFact.Clases
                 sql = sql + ",CodTipoDoc =null";
             sql = sql + ",NroDocumento=" + "'" + NroDocumento + "'";
             sql = sql + ",Cuit=" + "'" + Cuit + "'";
+            sql = sql + ",Direccion=" + "'" + Direccion + "'";  
             sql = sql + " where CodCliente =" + CodCliente.ToString();
 
 
@@ -59,6 +61,12 @@ namespace SistemaFact.Clases
         public DataTable GetClientesxNroDocumento(string NroDocumento)
         {
             string sql = "select * from cliente where NroDocumento =" + "'" + NroDocumento + "'";
+            return cDb.GetDatatable(sql);
+        }
+
+        public DataTable GetClientesxCuit(string Cuit)
+        {
+            string sql = "select * from cliente where Cuit  =" + "'" + Cuit + "'";
             return cDb.GetDatatable(sql);
         }
 

@@ -335,6 +335,8 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnCuit;
             
+            private global::System.Data.DataColumn columnDireccion;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -594,6 +596,14 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DireccionColumn {
+                get {
+                    return this.columnDireccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -654,7 +664,8 @@ namespace SistemaFact {
                         decimal Descuento, 
                         decimal PorDescuento, 
                         decimal TotalConDescuento, 
-                        string Cuit) {
+                        string Cuit, 
+                        string Direccion) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -684,7 +695,8 @@ namespace SistemaFact {
                         Descuento,
                         PorDescuento,
                         TotalConDescuento,
-                        Cuit};
+                        Cuit,
+                        Direccion};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -746,6 +758,7 @@ namespace SistemaFact {
                 this.columnPorDescuento = base.Columns["PorDescuento"];
                 this.columnTotalConDescuento = base.Columns["TotalConDescuento"];
                 this.columnCuit = base.Columns["Cuit"];
+                this.columnDireccion = base.Columns["Direccion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -807,6 +820,8 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnTotalConDescuento);
                 this.columnCuit = new global::System.Data.DataColumn("Cuit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCuit);
+                this.columnDireccion = new global::System.Data.DataColumn("Direccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDireccion);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodPresupuesto,
                                 this.columnCodPresupuesto1,
@@ -839,6 +854,7 @@ namespace SistemaFact {
                 this.columnCodigoBarra.MaxLength = 150;
                 this.columnNombre1.MaxLength = 400;
                 this.columnCuit.MaxLength = 30;
+                this.columnDireccion.MaxLength = 400;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1399,6 +1415,22 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Direccion {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.DireccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Direccion\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.DireccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
                 return this.IsNull(this.tableDataTable1.TotalColumn);
             }
@@ -1660,6 +1692,18 @@ namespace SistemaFact {
             public void SetCuitNull() {
                 this[this.tableDataTable1.CuitColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDireccionNull() {
+                return this.IsNull(this.tableDataTable1.DireccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDireccionNull() {
+                this[this.tableDataTable1.DireccionColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1849,6 +1893,7 @@ namespace SistemaFact.DataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("PorDescuento", "PorDescuento");
             tableMapping.ColumnMappings.Add("TotalConDescuento", "TotalConDescuento");
             tableMapping.ColumnMappings.Add("Cuit", "Cuit");
+            tableMapping.ColumnMappings.Add("Direccion", "Direccion");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
