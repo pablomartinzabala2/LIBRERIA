@@ -327,8 +327,10 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Grilla.Enabled = false;
             this.Grilla.Location = new System.Drawing.Point(6, 125);
             this.Grilla.Name = "Grilla";
+            this.Grilla.ReadOnly = true;
             this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -336,6 +338,7 @@
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Grilla.Size = new System.Drawing.Size(732, 186);
             this.Grilla.TabIndex = 56;
+            this.Grilla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Grilla_KeyPress);
             // 
             // txtPrecio
             // 
@@ -359,6 +362,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label4
@@ -675,6 +679,7 @@
             this.Name = "FrmVenta";
             this.Text = "Venta de Artíulo";
             this.Load += new System.EventHandler(this.FrmVenta_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmVenta_KeyPress);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

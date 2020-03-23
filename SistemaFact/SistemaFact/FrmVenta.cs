@@ -207,6 +207,7 @@ namespace SistemaFact
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                txtCantidad.Text = "1";
                 //  if (txtPrecio.Text != "")
                 //      txtPrecio.Text = txtPrecio.Text.Replace(",", ".");
                 if (Operacion == 1)
@@ -304,7 +305,18 @@ namespace SistemaFact
             txt_Nombre.Text = "";
             Valida = false;
             txt_CodigoBarra.Focus();
-
+            Grilla.Refresh();
+            if (tbVenta.Rows.Count > 0)
+            {
+                for (int i=0;i<Grilla.Rows.Count -1;i++)
+                {
+                    if (i==0)
+                        Grilla.Rows[0].Selected = true;
+                    else
+                        Grilla.Rows[i].Selected = false;
+                }
+            }
+              //    
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -334,17 +346,17 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Valida ==true)
+            if (txtCodigo.Text == "")
             {
-                if (e.KeyChar == 13)
-                {
-                    Agregar();
-                }
+                Mensaje("Debe ingresar un articulo");
+                return;
             }
-            else
+            if (txtCantidad.Text == "")
             {
-                Valida = true ;
+                Mensaje("Debe ingresar una cantidad");
+                return;
             }
+            Agregar();
             
         }
 
@@ -556,6 +568,8 @@ namespace SistemaFact
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                txtCantidad.Text = "1";
+                
                 if (Operacion ==1)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                 if (Operacion == 2)
@@ -916,6 +930,21 @@ namespace SistemaFact
         }
 
         private void txtFechaAltaOrden_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Grilla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string xx = e.KeyChar.ToString();
+        }
+
+        private void FrmVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
 
         }

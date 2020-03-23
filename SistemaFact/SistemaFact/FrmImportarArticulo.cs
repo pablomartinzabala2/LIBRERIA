@@ -43,11 +43,28 @@ namespace SistemaFact
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.Enabled = false;
-            button1.Text = "Procesando";
-            Leer();
-            button1.Enabled = true;
-            button1.Text = "Procesado";
+            //
+            OpenFileDialog file = new OpenFileDialog();
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                string ruta = ""; //file.FileName;
+                ruta = file.FileName;
+                //Imagen.Image = System.Drawing.Image.FromFile(ruta);
+                //string RutaGrabar = "e:\\ARCHIVO\\" + file.SafeFileName.ToString();
+                // string RutaGrabar = cRuta.GetRuta() + "\\" + file.SafeFileName.ToString();
+                txt_Ruta.Text = ruta;
+                button1.Enabled = false;
+                button1.Text = "Procesando";
+                Leer();
+                button1.Enabled = true;
+                button1.Text = "Procesado";
+            }
+            else
+            {
+                txt_Ruta.Text = "";
+            }
+            //
+           
            // LeerVariosArchivosExcel();
         }
 
@@ -64,7 +81,8 @@ namespace SistemaFact
             int rw = 0;
             int cl = 0;
 
-             string Ruta = "C:\\SISTEMA\\LISTA.xlsx";
+            string Ruta = txt_Ruta.Text;
+           // string Ruta = "C:\\SISTEMA\\LISTA.xlsx";
           //  string Ruta = "D:\\AG\\LISTA.xlsx";
             xlApp = new Excel.Application();
             xlWorkBook = xlApp.Workbooks.Open(Ruta , 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);

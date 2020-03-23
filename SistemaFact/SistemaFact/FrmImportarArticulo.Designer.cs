@@ -30,6 +30,8 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.txtProceso = new System.Windows.Forms.TextBox();
+            this.btnAbrirImagen = new System.Windows.Forms.Button();
+            this.txt_Ruta = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -50,11 +52,30 @@
             this.txtProceso.Size = new System.Drawing.Size(100, 26);
             this.txtProceso.TabIndex = 1;
             // 
+            // btnAbrirImagen
+            // 
+            this.btnAbrirImagen.Location = new System.Drawing.Point(186, 150);
+            this.btnAbrirImagen.Name = "btnAbrirImagen";
+            this.btnAbrirImagen.Size = new System.Drawing.Size(102, 34);
+            this.btnAbrirImagen.TabIndex = 15;
+            this.btnAbrirImagen.Text = "Seleccionar";
+            this.btnAbrirImagen.UseVisualStyleBackColor = true;
+            // 
+            // txt_Ruta
+            // 
+            this.txt_Ruta.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Ruta.Location = new System.Drawing.Point(187, 154);
+            this.txt_Ruta.Name = "txt_Ruta";
+            this.txt_Ruta.Size = new System.Drawing.Size(100, 26);
+            this.txt_Ruta.TabIndex = 16;
+            // 
             // FrmImportarArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(474, 335);
+            this.Controls.Add(this.txt_Ruta);
+            this.Controls.Add(this.btnAbrirImagen);
             this.Controls.Add(this.txtProceso);
             this.Controls.Add(this.button1);
             this.Name = "FrmImportarArticulo";
@@ -69,5 +90,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtProceso;
+        private System.Windows.Forms.Button btnAbrirImagen;
+        private System.Windows.Forms.TextBox txt_Ruta;
     }
 }
