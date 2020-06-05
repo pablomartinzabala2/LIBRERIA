@@ -9,7 +9,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>14.70611cm</Width>
+              <Width>9.00334cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.5cm</Width>
@@ -297,10 +297,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>6.60577cm</Top>
-        <Left>0.63182cm</Left>
+        <Top>7.32115cm</Top>
+        <Left>0.82265cm</Left>
         <Height>1.2cm</Height>
-        <Width>21.79166cm</Width>
+        <Width>16.08889cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -314,7 +314,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>1.68379cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -397,10 +397,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>8.26912cm</Top>
-        <Left>11.75957cm</Left>
+        <Top>9.27555cm</Top>
+        <Left>12.31786cm</Left>
         <Height>0.6cm</Height>
-        <Width>5cm</Width>
+        <Width>4.18379cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -425,8 +425,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>0.38806cm</Top>
-        <Left>0.40099cm</Left>
+        <Top>0.44199cm</Top>
+        <Left>0.81452cm</Left>
         <Height>0.78521cm</Height>
         <Width>4.32972cm</Width>
         <ZIndex>2</ZIndex>
@@ -457,8 +457,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
-        <Top>0.41452cm</Top>
-        <Left>15.53782cm</Left>
+        <Top>0.33615cm</Top>
+        <Left>9.69257cm</Left>
         <Height>0.92604cm</Height>
         <Width>5.675cm</Width>
         <ZIndex>3</ZIndex>
@@ -473,10 +473,10 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>4.01092cm</Top>
-        <Left>0.26141cm</Left>
+        <Top>4.3506cm</Top>
+        <Left>0.50737cm</Left>
         <Height>0cm</Height>
-        <Width>22.43667cm</Width>
+        <Width>16.40417cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -499,8 +499,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>9.16898cm</Top>
-        <Left>11.75957cm</Left>
+        <Top>10.21069cm</Top>
+        <Left>12.31786cm</Left>
         <Height>0.6cm</Height>
         <Width>2.21031cm</Width>
         <ZIndex>5</ZIndex>
@@ -529,8 +529,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>9.20426cm</Top>
-        <Left>14.18901cm</Left>
+        <Top>10.21069cm</Top>
+        <Left>14.81786cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>6</ZIndex>
@@ -560,8 +560,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>10.19643cm</Top>
-        <Left>11.75957cm</Left>
+        <Top>11.20286cm</Top>
+        <Left>12.31786cm</Left>
         <Height>0.6cm</Height>
         <Width>1.82406cm</Width>
         <ZIndex>7</ZIndex>
@@ -590,8 +590,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>10.19643cm</Top>
-        <Left>14.25957cm</Left>
+        <Top>11.20286cm</Top>
+        <Left>14.81786cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>8</ZIndex>
@@ -621,8 +621,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>5.5637cm</Top>
-        <Left>6.26745cm</Left>
+        <Top>6.33459cm</Top>
+        <Left>6.08246cm</Left>
         <Height>0.6cm</Height>
         <Width>1.00479cm</Width>
         <ZIndex>9</ZIndex>
@@ -651,8 +651,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>5.52842cm</Top>
-        <Left>7.80676cm</Left>
+        <Top>6.33459cm</Top>
+        <Left>7.51594cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>10</ZIndex>
@@ -681,8 +681,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>4.25787cm</Top>
-        <Left>6.26745cm</Left>
+        <Top>4.76418cm</Top>
+        <Left>6.08246cm</Left>
         <Height>0.6cm</Height>
         <Width>1.65333cm</Width>
         <ZIndex>11</ZIndex>
@@ -711,8 +711,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.25787cm</Top>
-        <Left>7.80676cm</Left>
+        <Top>4.75535cm</Top>
+        <Left>7.98611cm</Left>
         <Height>0.6cm</Height>
         <Width>4.33444cm</Width>
         <ZIndex>12</ZIndex>
@@ -741,8 +741,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>4.22259cm</Top>
-        <Left>0.63182cm</Left>
+        <Top>4.75535cm</Top>
+        <Left>0.71141cm</Left>
         <Height>0.6cm</Height>
         <Width>1.46812cm</Width>
         <ZIndex>13</ZIndex>
@@ -771,41 +771,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.25787cm</Top>
-        <Left>2.50564cm</Left>
+        <Top>4.76418cm</Top>
+        <Left>2.40002cm</Left>
         <Height>0.6cm</Height>
         <Width>3.15327cm</Width>
         <ZIndex>14</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox14">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>:</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>3.15516cm</Top>
-        <Left>5.77885cm</Left>
-        <Height>0.696cm</Height>
-        <Width>1.17561cm</Width>
-        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -831,11 +801,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>2.02021cm</Top>
-        <Left>19.48893cm</Left>
+        <Top>2.09022cm</Top>
+        <Left>13.19388cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>16</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -861,11 +831,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>4.82259cm</Top>
-        <Left>0.63182cm</Left>
+        <Top>5.5582cm</Top>
+        <Left>0.79961cm</Left>
         <Height>0.6cm</Height>
         <Width>1.65333cm</Width>
-        <ZIndex>17</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -891,11 +861,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.85787cm</Top>
-        <Left>2.54092cm</Left>
+        <Top>5.5582cm</Top>
+        <Left>2.40002cm</Left>
         <Height>0.6cm</Height>
         <Width>10.68444cm</Width>
-        <ZIndex>18</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -921,11 +891,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>5.52842cm</Top>
-        <Left>0.63182cm</Left>
+        <Top>6.33459cm</Top>
+        <Left>0.76433cm</Left>
         <Height>0.6cm</Height>
         <Width>1.65333cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -951,11 +921,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>5.52842cm</Top>
-        <Left>2.54092cm</Left>
+        <Top>6.33459cm</Top>
+        <Left>2.41766cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -973,7 +943,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Tucuman 2445 Barrio Alta CórdobaCórdoba</Value>
+                <Value>Tucuman 2445 Barrio Alta Córdoba Córdoba</Value>
                 <Style>
                   <FontWeight>Bold</FontWeight>
                 </Style>
@@ -983,11 +953,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>2.60102cm</Top>
-        <Left>0.3508cm</Left>
+        <Top>2.65495cm</Top>
+        <Left>0.79961cm</Left>
         <Height>0.6cm</Height>
         <Width>7.61181cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1015,11 +985,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
-        <Top>1.20502cm</Top>
-        <Left>0.3508cm</Left>
+        <Top>1.25895cm</Top>
+        <Left>0.76433cm</Left>
         <Height>0.6cm</Height>
         <Width>5.25167cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1047,11 +1017,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox26</rd:DefaultName>
-        <Top>3.21866cm</Top>
-        <Left>0.40099cm</Left>
+        <Top>3.24613cm</Top>
+        <Left>0.81453cm</Left>
         <Height>0.6cm</Height>
-        <Width>5.20147cm</Width>
-        <ZIndex>23</ZIndex>
+        <Width>7.10647cm</Width>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1079,11 +1049,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
-        <Top>1.14681cm</Top>
-        <Left>15.53782cm</Left>
+        <Top>1.29747cm</Top>
+        <Left>9.74984cm</Left>
         <Height>0.6cm</Height>
         <Width>4.39208cm</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1111,11 +1081,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>2.02021cm</Top>
-        <Left>15.53782cm</Left>
+        <Top>2.03004cm</Top>
+        <Left>9.69257cm</Left>
         <Height>0.6cm</Height>
         <Width>3.31611cm</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1143,11 +1113,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
-        <Top>2.8021cm</Top>
-        <Left>15.53782cm</Left>
+        <Top>2.65318cm</Top>
+        <Left>9.74984cm</Left>
         <Height>0.6cm</Height>
         <Width>3.33375cm</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1175,11 +1145,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
-        <Top>3.29627cm</Top>
-        <Left>15.53782cm</Left>
+        <Top>3.28846cm</Top>
+        <Left>9.74984cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.88566cm</Width>
-        <ZIndex>27</ZIndex>
+        <Width>6.62388cm</Width>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1207,11 +1177,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
-        <Top>2.00102cm</Top>
-        <Left>0.33863cm</Left>
+        <Top>2.05495cm</Top>
+        <Left>0.75216cm</Left>
         <Height>0.6cm</Height>
         <Width>5.82481cm</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1223,11 +1193,11 @@
         </Style>
       </Textbox>
       <Line Name="Line3">
-        <Top>0.17639cm</Top>
-        <Left>0.28787cm</Left>
+        <Top>0.23032cm</Top>
+        <Left>0.381cm</Left>
         <Height>0cm</Height>
-        <Width>22.41021cm</Width>
-        <ZIndex>29</ZIndex>
+        <Width>16.40417cm</Width>
+        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1235,9 +1205,21 @@
         </Style>
       </Line>
       <Line Name="Line5">
-        <Top>0.17639cm</Top>
-        <Left>22.69807cm</Left>
-        <Height>3.79144cm</Height>
+        <Top>0.23032cm</Top>
+        <Left>16.82517cm</Left>
+        <Height>4.11675cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line6">
+        <Top>0.23032cm</Top>
+        <Left>0.39927cm</Left>
+        <Height>4.15203cm</Height>
         <Width>0cm</Width>
         <ZIndex>30</ZIndex>
         <Style>
@@ -1246,10 +1228,10 @@
           </Border>
         </Style>
       </Line>
-      <Line Name="Line6">
-        <Top>0.25577cm</Top>
-        <Left>0.26141cm</Left>
-        <Height>3.71988cm</Height>
+      <Line Name="Line7">
+        <Top>0.23032cm</Top>
+        <Left>9.01524cm</Left>
+        <Height>4.10894cm</Height>
         <Width>0cm</Width>
         <ZIndex>31</ZIndex>
         <Style>
@@ -1258,10 +1240,10 @@
           </Border>
         </Style>
       </Line>
-      <Line Name="Line7">
-        <Top>0.17639cm</Top>
-        <Left>11.58318cm</Left>
-        <Height>3.79144cm</Height>
+      <Line Name="Line2">
+        <Top>0.23032cm</Top>
+        <Left>7.59037cm</Left>
+        <Height>0.96579cm</Height>
         <Width>0cm</Width>
         <ZIndex>32</ZIndex>
         <Style>
@@ -1270,11 +1252,55 @@
           </Border>
         </Style>
       </Line>
+      <Line Name="Line4">
+        <Top>1.1961cm</Top>
+        <Left>7.55862cm</Left>
+        <Height>0cm</Height>
+        <Width>1.45605cm</Width>
+        <ZIndex>33</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>x</Value>
+                <Style>
+                  <FontSize>22pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.23032cm</Top>
+        <Left>7.98611cm</Left>
+        <Height>0.7894cm</Height>
+        <Width>0.78924cm</Width>
+        <ZIndex>34</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>29cm</Height>
+    <Height>29.05393cm</Height>
     <Style />
   </Body>
-  <Width>23cm</Width>
+  <Width>17.31786cm</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

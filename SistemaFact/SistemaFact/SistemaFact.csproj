@@ -393,6 +393,8 @@
   <ItemGroup>
     <Content Include="Iconos\add.ico" />
     <Content Include="Iconos\cancel.ico" />
+    <Content Include="Iconos\Logo.jpg" />
+    <Content Include="Iconos\Logo2.jpg" />
     <Content Include="Iconos\zoom.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />
     <Content Include="Iconos\Folder.ico" />
