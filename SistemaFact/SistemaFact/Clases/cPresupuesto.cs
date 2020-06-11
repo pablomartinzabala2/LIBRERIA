@@ -30,6 +30,13 @@ namespace SistemaFact.Clases
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);
         }
 
+        public void ActualizarNroPresupuesto(SqlConnection con, SqlTransaction Transaccion,Int32 CodPresupuesto,string NroPresupuesto)
+        {
+            string sql = "update Presupuesto ";
+            sql = sql + " set NroPresupuesto=" + "'" + NroPresupuesto + "'";
+            sql = sql + " where CodPresupuesto=" + CodPresupuesto.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
         public void InsertarDetalle(SqlConnection con, SqlTransaction Transaccion, Int32 CodPresupuesto, double Cantidad, Double Precio,
            Int32 CodArticulo, double Subtotal)
         {

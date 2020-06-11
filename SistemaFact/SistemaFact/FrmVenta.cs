@@ -346,18 +346,20 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtCodigo.Text == "")
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                Mensaje("Debe ingresar un articulo");
-                return;
-            }
-            if (txtCantidad.Text == "")
-            {
-                Mensaje("Debe ingresar una cantidad");
-                return;
-            }
-            Agregar();
-            
+                if (txtCodigo.Text == "")
+                {
+                    Mensaje("Debe ingresar un articulo");
+                    return;
+                }
+                if (txtCantidad.Text == "")
+                {
+                    Mensaje("Debe ingresar una cantidad");
+                    return;
+                }
+                Agregar();
+            } 
         }
 
         private void txtApellido_TextChanged(object sender, EventArgs e)
@@ -787,6 +789,8 @@ namespace SistemaFact
                     Fecha
                     , CodCliente, Descuento, PorDescuento, TotalConDescuento);
                 Principal.CodigoSenia = CodPresupuesto.ToString();
+                string NroPresupuesto = GetNroPresupueto(CodPresupuesto.ToString());
+                pre.ActualizarNroPresupuesto(con, Transaccion, CodPresupuesto, NroPresupuesto);
                 for (int i = 0; i < tbVenta.Rows.Count; i++)
                 {
                     CodArticulo = Convert.ToInt32(tbVenta.Rows[i]["CodArticulo"].ToString());
@@ -813,6 +817,25 @@ namespace SistemaFact
                 Mensaje(exa.Message);
 
             }
+        }
+
+        public string GetNroPresupueto(string CodPresupuesto)
+        {
+            string Numero = "";
+            int Can = CodPresupuesto.Length;
+            switch (Can)
+            {
+                case 1:
+                    Numero = "000" + CodPresupuesto.ToString();
+                    break;
+                case 2:
+                    Numero = "00" + CodPresupuesto.ToString();
+                    break;
+                case 3:
+                    Numero = "0" + CodPresupuesto.ToString();
+                    break;
+            }
+            return Numero;
         }
 
         private void txtPordescuento_KeyPress(object sender, KeyPressEventArgs e)
