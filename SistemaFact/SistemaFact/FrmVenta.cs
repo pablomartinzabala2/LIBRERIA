@@ -599,7 +599,7 @@ namespace SistemaFact
                     txtDescuento.Text = Precio.ToString();
                 }
 
-                txtCantidad.Focus();
+               // txtCantidad.Focus();
             }
            
         }
@@ -789,7 +789,7 @@ namespace SistemaFact
                     Fecha
                     , CodCliente, Descuento, PorDescuento, TotalConDescuento);
                 Principal.CodigoSenia = CodPresupuesto.ToString();
-                string NroPresupuesto = GetNroPresupueto(CodPresupuesto.ToString());
+                string NroPresupuesto ="0001-"+ GetNroPresupueto(CodPresupuesto.ToString());
                 pre.ActualizarNroPresupuesto(con, Transaccion, CodPresupuesto, NroPresupuesto);
                 for (int i = 0; i < tbVenta.Rows.Count; i++)
                 {

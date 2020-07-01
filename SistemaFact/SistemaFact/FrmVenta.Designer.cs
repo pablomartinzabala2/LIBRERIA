@@ -75,7 +75,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.txtCuit = new System.Windows.Forms.TextBox();
             this.chkSinCliente = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -327,7 +326,6 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Enabled = false;
             this.Grilla.Location = new System.Drawing.Point(6, 125);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
@@ -496,7 +494,6 @@
             this.Grupo.Controls.Add(this.label15);
             this.Grupo.Controls.Add(this.txtCuit);
             this.Grupo.Controls.Add(this.chkSinCliente);
-            this.Grupo.Controls.Add(this.button1);
             this.Grupo.Controls.Add(this.txtNroDocumento);
             this.Grupo.Controls.Add(this.cmbTipoDoc);
             this.Grupo.Controls.Add(this.btnBuscar);
@@ -564,16 +561,6 @@
             this.chkSinCliente.Text = "Sin registrar cliente";
             this.chkSinCliente.UseVisualStyleBackColor = true;
             this.chkSinCliente.CheckedChanged += new System.EventHandler(this.chkSinCliente_CheckedChanged);
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(479, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 25);
-            this.button1.TabIndex = 84;
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // txtNroDocumento
             // 
@@ -695,7 +682,6 @@
 
         private System.Windows.Forms.GroupBox Grupo;
         private System.Windows.Forms.CheckBox chkSinCliente;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.Label label12;

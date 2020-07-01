@@ -61,14 +61,14 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Margin = new System.Windows.Forms.Padding(1);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(704, 638);
+            this.reportViewer1.Size = new System.Drawing.Size(775, 638);
             this.reportViewer1.TabIndex = 0;
             // 
             // FrmReporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 638);
+            this.ClientSize = new System.Drawing.Size(773, 638);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmReporte";
             this.Text = "FrmReporte";
