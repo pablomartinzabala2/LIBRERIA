@@ -180,7 +180,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 213);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 370);
+            this.groupBox1.Size = new System.Drawing.Size(751, 383);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
@@ -188,7 +188,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(615, 347);
+            this.label14.Location = new System.Drawing.Point(610, 350);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 17);
             this.label14.TabIndex = 95;
@@ -196,7 +196,7 @@
             // 
             // txtTotalConDescuento
             // 
-            this.txtTotalConDescuento.Location = new System.Drawing.Point(681, 347);
+            this.txtTotalConDescuento.Location = new System.Drawing.Point(669, 347);
             this.txtTotalConDescuento.Name = "txtTotalConDescuento";
             this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 23);
             this.txtTotalConDescuento.TabIndex = 94;
@@ -299,7 +299,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(681, 317);
+            this.txtTotal.Location = new System.Drawing.Point(669, 318);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 56;
@@ -307,7 +307,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(615, 320);
+            this.label1.Location = new System.Drawing.Point(604, 323);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 58;
@@ -601,7 +601,7 @@
             // txtTelefono
             // 
             this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtTelefono.Location = new System.Drawing.Point(434, 83);
+            this.txtTelefono.Location = new System.Drawing.Point(434, 78);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(123, 23);
             this.txtTelefono.TabIndex = 2;

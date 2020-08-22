@@ -204,7 +204,7 @@ namespace SistemaFact
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+               // txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                 txtCantidad.Text = "1";
@@ -553,6 +553,7 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
+            int b = 0;
             int Operacion = 0;
             if (CmbTipoOperacion.SelectedIndex > 0)
                 Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
@@ -565,6 +566,7 @@ namespace SistemaFact
             DataTable trdo = art.GetArticulo("", Codigo , "");
             if (trdo.Rows.Count > 0)
             {
+                b = 1;
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
@@ -599,7 +601,8 @@ namespace SistemaFact
                     txtDescuento.Text = Precio.ToString();
                 }
 
-               // txtCantidad.Focus();
+                if (b == 1)
+                    Agregar();
             }
            
         }
