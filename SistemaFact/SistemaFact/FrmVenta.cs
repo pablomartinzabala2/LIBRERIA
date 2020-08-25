@@ -18,6 +18,7 @@ namespace SistemaFact
         cFunciones fun;
         DataTable tbVenta;
         Boolean Valida = false;
+        Boolean Cargando = true;
         int Indice = 0;
         public FrmVenta()
         {
@@ -31,12 +32,14 @@ namespace SistemaFact
             Principal.CodigoSenia = "1";
             fun = new Clases.cFunciones();
             Inicializar();
+            LlenarComboArticulo();
             if (Principal.CodigoPrincipalAbm != null)
                 if (Principal.CodigoPrincipalAbm !="")
                 {
                     Int32 CodVenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
                     BuscarVenta(CodVenta);
                 }
+            Cargando = false;
         }
 
         public void Inicializar()
@@ -568,7 +571,7 @@ namespace SistemaFact
             {
                 b = 1;
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
-                txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txt_Nombre.SelectedValue  = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
@@ -602,7 +605,11 @@ namespace SistemaFact
                 }
 
                 if (b == 1)
-                    Agregar();
+                {
+                   // txtCantidad.Focus();
+                    
+                }
+                    
             }
            
         }
@@ -973,6 +980,81 @@ namespace SistemaFact
         private void FrmVenta_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void txt_Nombre_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void LlenarComboArticulo()
+        {
+            cFunciones fun = new cFunciones();
+            cArticulo art = new cArticulo();
+            DataTable trdo = art.GetTodosArticulos();
+            txt_Nombre.DataSource = trdo;
+            txt_Nombre.ValueMember = "CodArticulo";
+            txt_Nombre.DisplayMember = "Nombre";
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            foreach (DataRow r in trdo.Rows)
+            {
+                coleccion.Add(r["Nombre"].ToString());
+            }
+            txt_Nombre.AutoCompleteCustomSource = coleccion;
+            txt_Nombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_Nombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_Nombre.SelectedIndex = -1;
+
+        }
+
+        private void txt_Nombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+            if (Cargando ==false )
+            {
+                if(txt_Nombre.SelectedIndex >0)
+                {
+                    Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                    cArticulo art = new Clases.cArticulo();
+                    DataTable trdo = art.GetArticuloxCodArt(CodArt);
+                    if (trdo.Rows.Count >0)
+                    {
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        if (Operacion == 1)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        if (Operacion == 2)
+                        {
+                            txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                            Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                            Precio = Precio - 0.10 * Precio;
+                            txtDescuento.Text = Precio.ToString();
+                        }
+
+                        if (Operacion == 3)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                        if (txtPrecio.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtPrecio.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtPrecio.Text = Precio.ToString();
+                        }
+
+                        if (txtDescuento.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtDescuento.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtDescuento.Text = Precio.ToString();
+                        }
+                    }
+                }
+            }
         }
     }
 }

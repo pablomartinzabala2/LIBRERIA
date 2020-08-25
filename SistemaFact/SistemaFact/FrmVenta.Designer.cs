@@ -35,6 +35,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtFechaAltaOrden = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
             this.txtPordescuento = new System.Windows.Forms.TextBox();
@@ -63,7 +64,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_CodigoBarra = new System.Windows.Forms.TextBox();
             this.txt_Stock = new System.Windows.Forms.TextBox();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnPresupuesto = new System.Windows.Forms.Button();
@@ -146,6 +146,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtTotalConDescuento);
             this.groupBox1.Controls.Add(this.txtPordescuento);
@@ -174,7 +175,6 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txt_CodigoBarra);
             this.groupBox1.Controls.Add(this.txt_Stock);
-            this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,6 +184,16 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.FormattingEnabled = true;
+            this.txt_Nombre.Location = new System.Drawing.Point(93, 62);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(502, 24);
+            this.txt_Nombre.TabIndex = 96;
+            this.txt_Nombre.SelectedIndexChanged += new System.EventHandler(this.txt_Nombre_SelectedIndexChanged);
+            this.txt_Nombre.TextChanged += new System.EventHandler(this.txt_Nombre_TextChanged);
             // 
             // label14
             // 
@@ -432,13 +442,6 @@
             this.txt_Stock.Size = new System.Drawing.Size(74, 23);
             this.txt_Stock.TabIndex = 11;
             // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(93, 62);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(505, 23);
-            this.txt_Nombre.TabIndex = 9;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -582,12 +585,13 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(661, 20);
+            this.btnBuscar.Location = new System.Drawing.Point(615, 21);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 25);
             this.btnBuscar.TabIndex = 45;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Visible = false;
             // 
             // label5
             // 
@@ -712,7 +716,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_CodigoBarra;
         private System.Windows.Forms.TextBox txt_Stock;
-        private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnBuscarArticulo;
@@ -736,5 +739,6 @@
         private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox txt_Nombre;
     }
 }

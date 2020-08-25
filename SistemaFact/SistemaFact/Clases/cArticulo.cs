@@ -211,5 +211,16 @@ namespace SistemaFact.Clases
             sql = sql + " where CodArticulo=" + CodArticulo.ToString ();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public DataTable GetTodosArticulos()
+        {
+            string sql = "select a.CodArticulo,a.Nombre ";
+            sql = sql + ",Costo,PrecioTarjeta,";
+            sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
+            sql = sql + ",PrecioEfectivo";
+            sql = sql + " from articulo a";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }
