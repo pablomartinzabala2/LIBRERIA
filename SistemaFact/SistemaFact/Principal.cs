@@ -12,6 +12,7 @@ namespace SistemaFact
 {
     public partial class Principal : Form
     {
+        public static int CantidadArticulo;
         private int childFormNumber = 0;
         //nombre del campo id
         public static string CampoIdSecundario;

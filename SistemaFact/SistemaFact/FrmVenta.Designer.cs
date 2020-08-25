@@ -85,6 +85,7 @@
             this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
+            this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -146,6 +147,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnLimpiarArticulo);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.txtTotalConDescuento);
@@ -300,7 +302,7 @@
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
-            this.btnBuscarArticulo.Location = new System.Drawing.Point(555, 30);
+            this.btnBuscarArticulo.Location = new System.Drawing.Point(495, 27);
             this.btnBuscarArticulo.Name = "btnBuscarArticulo";
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
@@ -371,6 +373,7 @@
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.Enter += new System.EventHandler(this.txtCantidad_Enter);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label4
@@ -412,7 +415,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(495, 30);
+            this.txtCodigo.Location = new System.Drawing.Point(669, 30);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(41, 23);
             this.txtCodigo.TabIndex = 23;
@@ -434,6 +437,7 @@
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 1;
             this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
+            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
             // 
             // txt_Stock
             // 
@@ -591,7 +595,7 @@
             this.btnBuscar.TabIndex = 45;
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Visible = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label5
             // 
@@ -655,6 +659,16 @@
             this.Nombre.Size = new System.Drawing.Size(53, 17);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
+            // 
+            // btnLimpiarArticulo
+            // 
+            this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
+            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 25);
+            this.btnLimpiarArticulo.Name = "btnLimpiarArticulo";
+            this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
+            this.btnLimpiarArticulo.TabIndex = 97;
+            this.btnLimpiarArticulo.UseVisualStyleBackColor = true;
+            this.btnLimpiarArticulo.Click += new System.EventHandler(this.btnLimpiarArticulo_Click);
             // 
             // FrmVenta
             // 
@@ -740,5 +754,6 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox txt_Nombre;
+        private System.Windows.Forms.Button btnLimpiarArticulo;
     }
 }

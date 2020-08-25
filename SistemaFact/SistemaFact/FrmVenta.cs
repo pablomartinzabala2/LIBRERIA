@@ -19,6 +19,7 @@ namespace SistemaFact
         DataTable tbVenta;
         Boolean Valida = false;
         Boolean Cargando = true;
+        Boolean PuedeAgregar = false;
         int Indice = 0;
         public FrmVenta()
         {
@@ -193,6 +194,10 @@ namespace SistemaFact
                     case "Articulo":
                         BuscarArticuloxCodigo(Convert.ToInt32(Principal.CodigoPrincipalAbm));
                         break;
+                    case "Cantidad":
+                        txtCantidad.Text = Principal.CantidadArticulo.ToString();
+                        txtCantidad.Focus();
+                        break;
                 }
             }
         }
@@ -349,6 +354,15 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (txtCantidad.Text =="")
+            {
+                return;
+            }
+            if (PuedeAgregar ==false )
+            {
+                PuedeAgregar = true;
+                return;
+            }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 if (txtCodigo.Text == "")
@@ -575,7 +589,7 @@ namespace SistemaFact
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                txtCantidad.Text = "1";
+                
                 
                 if (Operacion ==1)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
@@ -606,8 +620,15 @@ namespace SistemaFact
 
                 if (b == 1)
                 {
-                   // txtCantidad.Focus();
-                    
+                    PuedeAgregar = false;
+                    txtCantidad.Focus();
+                    txtCantidad.Text = "1";
+                    /*
+                    Principal.NombreTablaSecundario = "Cantidad";
+                    FrmCantidad form = new FrmCantidad();
+                    form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+                    form.ShowDialog();
+                    */
                 }
                     
             }
@@ -1055,6 +1076,31 @@ namespace SistemaFact
                     }
                 }
             }
+        }
+
+        private void txtCantidad_Enter(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            txtCantidad.Focus();
+        }
+
+        private void txt_CodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void btnLimpiarArticulo_Click(object sender, EventArgs e)
+        {
+            txt_CodigoBarra.Text = "";
+            txt_Nombre.Text = "";
+            txtCantidad.Text = "";
+            txtPrecio.Text = "";
+            txt_Stock.Text = "";
+            txt_CodigoBarra.Focus();
         }
     }
 }
