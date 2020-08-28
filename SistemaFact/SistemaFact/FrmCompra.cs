@@ -15,6 +15,7 @@ namespace SistemaFact
     {
         cFunciones fun;
         DataTable tbCompra;
+        Boolean PuedeAgregar;
         public FrmCompra()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace SistemaFact
             fun = new Clases.cFunciones();
             string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             tbCompra = fun.CrearTabla(Col);
+            LlenarComboArticulo();
            // BuscarCompra(6);
         }
 
@@ -69,6 +71,7 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
+            int b = 0;
             if (txt_CodigoBarra.Text.Length >7)
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
@@ -77,46 +80,59 @@ namespace SistemaFact
                 if (trdo.Rows.Count > 0)
                     if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                     {
+                        b = 1;
                         txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
-                        txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_Nombre.SelectedValue = txtCodigo.Text;
                         txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                         txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                     }
+                if (b==1)
+                {
+                    PuedeAgregar = false;
+                    txtCantidad.Text = "1";
+                    txtCantidad.Focus();
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(txtCodigo.Text =="")
+            Agregar();
+        }
+
+        private void Agregar()
+        {
+            if (txtCodigo.Text == "")
             {
                 Mensaje("Debe ingresar un articulo");
                 return;
             }
-            if (txtCantidad.Text =="")
+            if (txtCantidad.Text == "")
             {
                 Mensaje("Debe ingresar una cantidad");
                 return;
             }
 
-            if (txtPrecio.Text  == "")
+            if (txtPrecio.Text == "")
             {
                 Mensaje("Debe ingresar un precio");
                 return;
             }
 
             string Codigo = txtCodigo.Text;
-            if (fun.Buscar(tbCompra ,"CodArticulo",Codigo)==true)
+            if (fun.Buscar(tbCompra, "CodArticulo", Codigo) == true)
             {
                 Mensaje("Ya se ha ingresado el articulo");
                 return;
             }
             string Nombre = txt_Nombre.Text;
-            Int32  Cantidad =Convert.ToInt32 (txtCantidad.Text);
+            Int32 Cantidad = Convert.ToInt32(txtCantidad.Text);
             Double Precio = fun.ToDouble(txtPrecio.Text);
             Double Descuento = 0;
             if (txtDescuento.Text != "")
                 Descuento = fun.ToDouble(txtDescuento.Text);
-            Double SubTotal = Cantidad * Precio  - Descuento;
+            Double SubTotal = Cantidad * Precio - Descuento;
             string Val = Codigo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Precio.ToString();
@@ -126,6 +142,7 @@ namespace SistemaFact
             Grilla.DataSource = tbCompra;
             CalcularTotal();
             LimpiarArticulo();
+            fun.AnchoColumnas(Grilla, "0;40;15;15;15;15");
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -215,7 +232,7 @@ namespace SistemaFact
             txtCodigo.Text = "";
             txt_Codigo.Text = "";
             txt_CodigoBarra.Text = "";
-            txt_Nombre.Text = "";
+            txt_Nombre.SelectedIndex = -1;
             txtCantidad.Text = "";
             txt_Stock.Text = "";
             txtPrecio.Text = "";
@@ -258,6 +275,85 @@ namespace SistemaFact
                 tbCompra = fun.AgregarFilas(tbCompra, Val);
                 Grilla.DataSource = tbCompra;
                 CalcularTotal();
+            }
+        }
+
+        private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
+        {  
+            if (PuedeAgregar == false)
+            {
+                PuedeAgregar = true;
+                return;
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+            }
+                
+        }
+
+        private void LlenarComboArticulo()
+        {
+            cFunciones fun = new cFunciones();
+            cArticulo art = new cArticulo();
+            DataTable trdo = art.GetTodosArticulos();
+            txt_Nombre.DataSource = trdo;
+            txt_Nombre.ValueMember = "CodArticulo";
+            txt_Nombre.DisplayMember = "Nombre";
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            foreach (DataRow r in trdo.Rows)
+            {
+                coleccion.Add(r["Nombre"].ToString());
+            }
+            txt_Nombre.AutoCompleteCustomSource = coleccion;
+            txt_Nombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txt_Nombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txt_Nombre.SelectedIndex = -1;
+
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Nombre_RightToLeftChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txt_Nombre_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int b = 0;
+            if (txt_Nombre.SelectedIndex > 0)
+            {
+                Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                cArticulo art = new Clases.cArticulo();
+                DataTable trdo = art.GetArticuloxCodArt(CodArt);
+                if (trdo.Rows.Count > 0)
+                    if (trdo.Rows[0]["CodArticulo"].ToString() != "")
+                    {
+                        b = 1;
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        txt_Nombre.SelectedValue = txtCodigo.Text;
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                    }
+                if (b == 1)
+                {
+                    PuedeAgregar = false;
+                    txtCantidad.Text = "1";
+                    txtCantidad.Focus();
+                }
             }
         }
     }
