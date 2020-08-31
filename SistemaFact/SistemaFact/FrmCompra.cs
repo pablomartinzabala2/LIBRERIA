@@ -27,7 +27,9 @@ namespace SistemaFact
             string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             tbCompra = fun.CrearTabla(Col);
             LlenarComboArticulo();
-           // BuscarCompra(6);
+            // (2x +4)/10 =4 
+            
+
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
