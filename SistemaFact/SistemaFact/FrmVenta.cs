@@ -360,6 +360,10 @@ namespace SistemaFact
             }
             if (PuedeAgregar ==false )
             {
+                if (txtCodigo.Text !="")
+                {
+                    txt_Nombre.SelectedValue = txtCodigo.Text;
+                }
                 PuedeAgregar = true;
                 return;
             }
@@ -587,7 +591,7 @@ namespace SistemaFact
                 txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_Nombre.SelectedValue  = trdo.Rows[0]["CodArticulo"].ToString();
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
-                // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                 
                 
