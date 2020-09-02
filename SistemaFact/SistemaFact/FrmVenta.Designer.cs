@@ -35,6 +35,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtFechaAltaOrden = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
@@ -85,7 +86,6 @@
             this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
-            this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -187,6 +187,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
+            // btnLimpiarArticulo
+            // 
+            this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
+            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 25);
+            this.btnLimpiarArticulo.Name = "btnLimpiarArticulo";
+            this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
+            this.btnLimpiarArticulo.TabIndex = 97;
+            this.btnLimpiarArticulo.UseVisualStyleBackColor = true;
+            this.btnLimpiarArticulo.Click += new System.EventHandler(this.btnLimpiarArticulo_Click);
+            // 
             // txt_Nombre
             // 
             this.txt_Nombre.FormattingEnabled = true;
@@ -196,6 +206,7 @@
             this.txt_Nombre.TabIndex = 96;
             this.txt_Nombre.SelectedIndexChanged += new System.EventHandler(this.txt_Nombre_SelectedIndexChanged);
             this.txt_Nombre.TextChanged += new System.EventHandler(this.txt_Nombre_TextChanged);
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // label14
             // 
@@ -659,16 +670,6 @@
             this.Nombre.Size = new System.Drawing.Size(53, 17);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
-            // 
-            // btnLimpiarArticulo
-            // 
-            this.btnLimpiarArticulo.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnLimpiarArticulo.Location = new System.Drawing.Point(541, 25);
-            this.btnLimpiarArticulo.Name = "btnLimpiarArticulo";
-            this.btnLimpiarArticulo.Size = new System.Drawing.Size(40, 28);
-            this.btnLimpiarArticulo.TabIndex = 97;
-            this.btnLimpiarArticulo.UseVisualStyleBackColor = true;
-            this.btnLimpiarArticulo.Click += new System.EventHandler(this.btnLimpiarArticulo_Click);
             // 
             // FrmVenta
             // 

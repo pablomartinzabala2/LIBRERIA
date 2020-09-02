@@ -354,10 +354,7 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtCantidad.Text =="")
-            {
-                return;
-            }
+            
             if (PuedeAgregar ==false )
             {
                 if (txtCodigo.Text !="")
@@ -367,6 +364,13 @@ namespace SistemaFact
                 PuedeAgregar = true;
                 return;
             }
+
+            if (txtCodigo.Text  == "")
+            {
+                Mensaje("Debe ingresar un articulo");
+                return;
+            }
+
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 if (txtCodigo.Text == "")
@@ -376,8 +380,7 @@ namespace SistemaFact
                 }
                 if (txtCantidad.Text == "")
                 {
-                    Mensaje("Debe ingresar una cantidad");
-                    return;
+                    txtCantidad.Text = "1";
                 }
                 Agregar();
             } 
@@ -626,7 +629,7 @@ namespace SistemaFact
                 {
                     PuedeAgregar = false;
                     txtCantidad.Focus();
-                    txtCantidad.Text = "1";
+                    //txtCantidad.Text = "1";
                     /*
                     Principal.NombreTablaSecundario = "Cantidad";
                     FrmCantidad form = new FrmCantidad();
@@ -1077,6 +1080,8 @@ namespace SistemaFact
                             Precio = Math.Round(Precio, 0);
                             txtDescuento.Text = Precio.ToString();
                         }
+                        PuedeAgregar = true;
+                        txtCantidad.Focus();
                     }
                 }
             }
@@ -1105,6 +1110,59 @@ namespace SistemaFact
             txtPrecio.Text = "";
             txt_Stock.Text = "";
             txt_CodigoBarra.Focus();
+        }
+
+        private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+           
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                PuedeAgregar = true;
+                if (txt_Nombre.SelectedIndex >0)
+                {
+                    Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                    cArticulo art = new Clases.cArticulo();
+                    DataTable trdo = art.GetArticuloxCodArt(CodArt);
+                    if (trdo.Rows.Count > 0)
+                    {
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        if (Operacion == 1)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        if (Operacion == 2)
+                        {
+                            txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                            Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                            Precio = Precio - 0.10 * Precio;
+                            txtDescuento.Text = Precio.ToString();
+                        }
+
+                        if (Operacion == 3)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                        if (txtPrecio.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtPrecio.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtPrecio.Text = Precio.ToString();
+                        }
+
+                        if (txtDescuento.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtDescuento.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtDescuento.Text = Precio.ToString();
+                        }
+                        txtCantidad.Focus();
+                    }
+                }
+            }
         }
     }
 }
