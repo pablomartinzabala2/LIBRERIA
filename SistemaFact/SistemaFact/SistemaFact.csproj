@@ -80,6 +80,8 @@
     <Compile Include="Clases\cDetalleCompra.cs" />
     <Compile Include="Clases\cFunciones.cs" />
     <Compile Include="Clases\cImpresora.cs" />
+    <Compile Include="Clases\cJuguete.cs" />
+    <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cRuta.cs" />
     <Compile Include="Clases\cVenta.cs" />
@@ -130,6 +132,12 @@
     <Compile Include="FrmAbmColores.Designer.cs">
       <DependentUpon>FrmAbmColores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmJuguete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmJuguete.Designer.cs">
+      <DependentUpon>FrmAbmJuguete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +149,12 @@
     </Compile>
     <Compile Include="FrmAbmTipoPrenda.Designer.cs">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmActualizarPrecioJuguete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActualizarPrecioJuguete.Designer.cs">
+      <DependentUpon>FrmActualizarPrecioJuguete.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAltaBasica.cs">
       <SubType>Form</SubType>
@@ -252,11 +266,17 @@
     <EmbeddedResource Include="FrmAbmColores.resx">
       <DependentUpon>FrmAbmColores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmJuguete.resx">
+      <DependentUpon>FrmAbmJuguete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTipoPrenda.resx">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActualizarPrecioJuguete.resx">
+      <DependentUpon>FrmActualizarPrecioJuguete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAltaBasica.resx">
       <DependentUpon>FrmAltaBasica.cs</DependentUpon>
@@ -411,6 +431,7 @@
   <ItemGroup>
     <Content Include="Iconos\add.ico" />
     <Content Include="Iconos\cancel.ico" />
+    <None Include="Iconos\filenew.ico" />
     <Content Include="Iconos\Logo.jpg" />
     <Content Include="Iconos\Logo2.jpg" />
     <Content Include="Iconos\zoom.ico" />

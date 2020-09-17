@@ -68,7 +68,7 @@ namespace SistemaFact
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
             string Val = "";
-            Val = "1;Consumidor Final";
+            Val = "1;Contado Efectivo";
             tb = fun.AgregarFilas(tb, Val);
             Val = "2;Tarjeta Credito";
             tb = fun.AgregarFilas(tb, Val);
@@ -781,6 +781,7 @@ namespace SistemaFact
             Double Descuento = 0;
             Double PorDescuento = 0;
             Double TotalConDescuento = 0;
+            string FormaPago = "";
 
             if (txtPordescuento.Text != "")
                 PorDescuento = Convert.ToDouble(txtPordescuento.Text);
@@ -821,11 +822,11 @@ namespace SistemaFact
                         }
                     }
                 }
-                
-                
+
+                FormaPago = GetFormaPago();
                 CodPresupuesto = pre.InsertarPresupuesto(con, Transaccion, Total,
                     Fecha
-                    , CodCliente, Descuento, PorDescuento, TotalConDescuento);
+                    , CodCliente, Descuento, PorDescuento, TotalConDescuento,FormaPago);
                 Principal.CodigoSenia = CodPresupuesto.ToString();
                 string NroPresupuesto ="0001-"+ GetNroPresupueto(CodPresupuesto.ToString());
                 pre.ActualizarNroPresupuesto(con, Transaccion, CodPresupuesto, NroPresupuesto);
@@ -855,6 +856,23 @@ namespace SistemaFact
                 Mensaje(exa.Message);
 
             }
+        }
+
+        public string GetFormaPago()
+        {
+            string tipo = "";
+            if (CmbTipoOperacion.SelectedIndex >0)
+            {
+                tipo = CmbTipoOperacion.Text;
+            }
+            if (CmbTarjeta.Visible ==true)
+            {
+                if (CmbTarjeta.SelectedIndex >0)
+                {
+                    tipo = tipo + ", Tarjeta " + CmbTarjeta.Text; 
+                }
+            }
+            return tipo;
         }
 
         public string GetNroPresupueto(string CodPresupuesto)

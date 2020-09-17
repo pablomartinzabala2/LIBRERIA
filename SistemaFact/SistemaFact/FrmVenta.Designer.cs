@@ -121,7 +121,7 @@
             this.CmbTipoOperacion.FormattingEnabled = true;
             this.CmbTipoOperacion.Location = new System.Drawing.Point(203, 19);
             this.CmbTipoOperacion.Name = "CmbTipoOperacion";
-            this.CmbTipoOperacion.Size = new System.Drawing.Size(345, 24);
+            this.CmbTipoOperacion.Size = new System.Drawing.Size(199, 24);
             this.CmbTipoOperacion.TabIndex = 83;
             this.CmbTipoOperacion.SelectedIndexChanged += new System.EventHandler(this.CmbTipoOperacion_SelectedIndexChanged);
             this.CmbTipoOperacion.Resize += new System.EventHandler(this.CmbTipoOperacion_Resize);

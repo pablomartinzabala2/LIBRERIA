@@ -339,6 +339,8 @@ namespace SistemaFact {
             
             private global::System.Data.DataColumn columnNroPresupuesto;
             
+            private global::System.Data.DataColumn columnFormaPago;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DataTable1DataTable() {
@@ -614,6 +616,14 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FormaPagoColumn {
+                get {
+                    return this.columnFormaPago;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -676,7 +686,8 @@ namespace SistemaFact {
                         decimal TotalConDescuento, 
                         string Cuit, 
                         string Direccion, 
-                        string NroPresupuesto) {
+                        string NroPresupuesto, 
+                        string FormaPago) {
                 DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -708,7 +719,8 @@ namespace SistemaFact {
                         TotalConDescuento,
                         Cuit,
                         Direccion,
-                        NroPresupuesto};
+                        NroPresupuesto,
+                        FormaPago};
                 rowDataTable1Row.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDataTable1Row);
                 return rowDataTable1Row;
@@ -772,6 +784,7 @@ namespace SistemaFact {
                 this.columnCuit = base.Columns["Cuit"];
                 this.columnDireccion = base.Columns["Direccion"];
                 this.columnNroPresupuesto = base.Columns["NroPresupuesto"];
+                this.columnFormaPago = base.Columns["FormaPago"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -837,6 +850,8 @@ namespace SistemaFact {
                 base.Columns.Add(this.columnDireccion);
                 this.columnNroPresupuesto = new global::System.Data.DataColumn("NroPresupuesto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNroPresupuesto);
+                this.columnFormaPago = new global::System.Data.DataColumn("FormaPago", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFormaPago);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCodPresupuesto,
                                 this.columnCodPresupuesto1,
@@ -871,6 +886,7 @@ namespace SistemaFact {
                 this.columnCuit.MaxLength = 30;
                 this.columnDireccion.MaxLength = 400;
                 this.columnNroPresupuesto.MaxLength = 20;
+                this.columnFormaPago.MaxLength = 400;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1463,6 +1479,22 @@ namespace SistemaFact {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FormaPago {
+                get {
+                    try {
+                        return ((string)(this[this.tableDataTable1.FormaPagoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FormaPago\' in table \'DataTable1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDataTable1.FormaPagoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
                 return this.IsNull(this.tableDataTable1.TotalColumn);
             }
@@ -1748,6 +1780,18 @@ namespace SistemaFact {
             public void SetNroPresupuestoNull() {
                 this[this.tableDataTable1.NroPresupuestoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFormaPagoNull() {
+                return this.IsNull(this.tableDataTable1.FormaPagoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFormaPagoNull() {
+                this[this.tableDataTable1.FormaPagoColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1939,6 +1983,7 @@ namespace SistemaFact.DataSet3TableAdapters {
             tableMapping.ColumnMappings.Add("Cuit", "Cuit");
             tableMapping.ColumnMappings.Add("Direccion", "Direccion");
             tableMapping.ColumnMappings.Add("NroPresupuesto", "NroPresupuesto");
+            tableMapping.ColumnMappings.Add("FormaPago", "FormaPago");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

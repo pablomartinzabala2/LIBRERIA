@@ -13,13 +13,13 @@ namespace SistemaFact
         /// </summary>
         [STAThread]
         static void Main()
-        {
+        {   
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new FrmIngreso());
-            //   Application.Run(new FrmVerReporteBarra());
-      //         Application.Run(new FrmCompra());
-               Application.Run(new Principal ());
+            //   Application.Run(new FrmActualizarPrecioJuguete());
+            //         Application.Run(new FrmCompra());
+            Application.Run(new Principal ());
             //  Application.Run(new FrmVerReporte());
 
         }

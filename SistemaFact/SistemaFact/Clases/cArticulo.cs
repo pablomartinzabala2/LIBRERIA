@@ -178,13 +178,13 @@ namespace SistemaFact.Clases
             return trdo;
         }
 
-        public DataTable GetDetalleArticulo(string Nombre, string CodigoBarra, string Codigo)
+        public DataTable GetDetalleArticulo(string Nombre, string CodigoBarra, string Codigo, string Tabla)
         {
             string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
             sql = sql + ",Costo,PrecioTarjeta,";
             sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
             sql = sql + ",PrecioEfectivo";
-            sql = sql + " from articulo a";
+            sql = sql + " from " + Tabla  + " a ";
             if (Nombre != "")
             {
                 sql = sql + " where a.Nombre like " + "'%" + Nombre + "%'";

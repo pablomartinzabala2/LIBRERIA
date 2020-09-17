@@ -24,9 +24,14 @@ namespace SistemaFact
 
         private void CargarGrilla(string Nombre,string CodigoBarra,string Codigo)
         {
+            string Tabla = "";
+            if (chkLibreria.Checked == true)
+                Tabla = "Articulo";
+            else
+                Tabla = "Juguete";
             cFunciones fun = new cFunciones();
             cArticulo art = new Clases.cArticulo();
-            DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo );
+            DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo,Tabla);
             trdo = fun.TablaaMiles(trdo, "PrecioEfectivo");
             trdo = fun.TablaaMiles(trdo, "PrecioTarjeta");
             trdo = fun.TablaaMiles(trdo, "Descuento");

@@ -186,5 +186,11 @@ namespace SistemaFact
             FrmAbmTarjeta frm = new SistemaFact.FrmAbmTarjeta();
             frm.Show();
         }
+
+        private void jugueteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmJuguete form = new SistemaFact.FrmAbmJuguete();
+            form.Show();
+        }
     }
 }

@@ -10,10 +10,10 @@ namespace SistemaFact.Clases
     public class cPresupuesto
     {
         public Int32 InsertarPresupuesto(SqlConnection con, SqlTransaction Transaccion, double Total, DateTime Fecha
-           , Int32? CodCliente, Double Descuento, Double PorDescuento, Double TotalConDescuento)
+           , Int32? CodCliente, Double Descuento, Double PorDescuento, Double TotalConDescuento,string FormaPago)
         {
             string sql = " insert into Presupuesto(Total,Fecha,CodCliente";
-            sql = sql + ", Descuento,  PorDescuento,TotalConDescuento)";
+            sql = sql + ", Descuento,  PorDescuento,TotalConDescuento,FormaPago)";
             sql = sql + " values (" + Total.ToString().Replace(",", ".");
             sql = sql + "," + "'" + Fecha.ToShortDateString() + "'";
             
@@ -25,6 +25,7 @@ namespace SistemaFact.Clases
             sql = sql + "," + Descuento.ToString().Replace(",", ".");
             sql = sql + "," + PorDescuento.ToString().Replace(",", ".");
             sql = sql + "," + TotalConDescuento.ToString().Replace(",", ".");
+            sql = sql + "," + "'" + FormaPago + "'";
             sql = sql + ")";
             
             return cDb.EjecutarEscalarTransaccion(con, Transaccion, sql);

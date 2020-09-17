@@ -183,7 +183,13 @@ namespace SistemaFact
                     Double Efectivo = Convert.ToDouble(txt_PrecioEfectivo.Text.Replace(".", ","));
                     txt_PrecioEfectivo.Text  = Math.Round(Efectivo, 0).ToString();
                 }
-                 
+
+                if (txt_Costo.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
+                    txt_Costo.Text = Math.Round(Costo, 0).ToString();
+                }
+
                 if (txt_PrecioTarjeta.Text != "")
                 {
                     Double Efectivo = Convert.ToDouble(txt_PrecioTarjeta.Text.Replace(".", ","));

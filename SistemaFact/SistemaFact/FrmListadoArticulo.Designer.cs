@@ -39,12 +39,14 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
+            this.chkLibreria = new System.Windows.Forms.CheckBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.chkLibreria);
             this.Grupo.Controls.Add(this.btnBuscar);
             this.Grupo.Controls.Add(this.txtCodigo);
             this.Grupo.Controls.Add(this.label4);
@@ -154,6 +156,18 @@
             this.Grilla.TabIndex = 0;
             this.Grilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grilla_CellContentClick);
             // 
+            // chkLibreria
+            // 
+            this.chkLibreria.AutoSize = true;
+            this.chkLibreria.Checked = true;
+            this.chkLibreria.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLibreria.Location = new System.Drawing.Point(816, 12);
+            this.chkLibreria.Name = "chkLibreria";
+            this.chkLibreria.Size = new System.Drawing.Size(75, 21);
+            this.chkLibreria.TabIndex = 81;
+            this.chkLibreria.Text = "Libreria";
+            this.chkLibreria.UseVisualStyleBackColor = true;
+            // 
             // FrmListadoArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +198,6 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.CheckBox chkLibreria;
     }
 }

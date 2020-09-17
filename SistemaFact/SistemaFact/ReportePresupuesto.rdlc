@@ -665,7 +665,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox25</rd:DefaultName>
         <Top>2.78824cm</Top>
-        <Left>1.09375cm</Left>
+        <Left>3.54938cm</Left>
         <Height>0.6cm</Height>
         <Width>3.77cm</Width>
         <ZIndex>12</ZIndex>
@@ -728,8 +728,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox28</rd:DefaultName>
-        <Top>1.96274cm</Top>
-        <Left>13.66182cm</Left>
+        <Top>0.66219cm</Top>
+        <Left>13.2872cm</Left>
         <Height>0.6cm</Height>
         <Width>3.71724cm</Width>
         <ZIndex>14</ZIndex>
@@ -950,21 +950,19 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!NroPresupuesto.Value, "DataSet1")</Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                </Style>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>NroPresupuesto</rd:DefaultName>
-        <Top>0.33615cm</Top>
-        <Left>13.27382cm</Left>
-        <Height>0.92604cm</Height>
-        <Width>5.59562cm</Width>
+        <Top>0.66219cm</Top>
+        <Left>17.11028cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.75937cm</Width>
         <ZIndex>23</ZIndex>
         <Style>
           <Border>
@@ -1051,7 +1049,7 @@
         <Top>3.45879cm</Top>
         <Left>3.94587cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.92523cm</Width>
+        <Width>2.9144cm</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>
@@ -1185,6 +1183,68 @@
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Textbox36">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>http://libreriajugueteriaverdemanzzana.com.ar/</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox28</rd:DefaultName>
+        <Top>4.64496cm</Top>
+        <Left>1.09375cm</Left>
+        <Height>0.6cm</Height>
+        <Width>8.68232cm</Width>
+        <ZIndex>35</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox37">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cel: 3513274072</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox28</rd:DefaultName>
+        <Top>3.45879cm</Top>
+        <Left>7.03666cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.9144cm</Width>
+        <ZIndex>36</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>13.51833cm</Height>
     <Style>
@@ -1361,7 +1421,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>Total</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1391,7 +1453,9 @@
               <TextRuns>
                 <TextRun>
                   <Value>=System.Math.Round(First(Fields!TotalConDescuento.Value, "DataSet1"), 0)</Value>
-                  <Style />
+                  <Style>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -1407,6 +1471,66 @@
             <Border>
               <Color>LightGrey</Color>
               <Style>Solid</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="FormaPago">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!FormaPago.Value, "DataSet1")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>FormaPago</rd:DefaultName>
+          <Top>4.69547cm</Top>
+          <Left>4.8387cm</Left>
+          <Height>0.6cm</Height>
+          <Width>6.83917cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox10">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Total</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>4.66901cm</Top>
+          <Left>1.09309cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.56922cm</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -1565,6 +1689,10 @@
         </Field>
         <Field Name="NroPresupuesto">
           <DataField>NroPresupuesto</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="FormaPago">
+          <DataField>FormaPago</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
