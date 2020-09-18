@@ -540,6 +540,7 @@ namespace SistemaFact
             txtPordescuento.Text = "";
             txtTotalDescuento.Text = "";
             txtCuit.Text = "";
+            txtObservacion.Text = "";
         }
 
         private void CmbTipoOperacion_Resize(object sender, EventArgs e)
@@ -745,7 +746,7 @@ namespace SistemaFact
 
         private void btnPresupuesto_Click(object sender, EventArgs e)
         {
-            if (txtApellido.Text == "")
+            if (txtNombre.Text  == "")
             {
 
                 if (chkSinCliente.Checked == false)

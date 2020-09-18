@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmListadoArticulo));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.chkLibreria = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,13 +40,16 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Grilla = new System.Windows.Forms.DataGridView();
-            this.chkLibreria = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.cmbMarca);
+            this.Grupo.Controls.Add(this.label5);
             this.Grupo.Controls.Add(this.chkLibreria);
             this.Grupo.Controls.Add(this.btnBuscar);
             this.Grupo.Controls.Add(this.txtCodigo);
@@ -64,10 +68,22 @@
             this.Grupo.TabStop = false;
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
             // 
+            // chkLibreria
+            // 
+            this.chkLibreria.AutoSize = true;
+            this.chkLibreria.Checked = true;
+            this.chkLibreria.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkLibreria.Location = new System.Drawing.Point(961, 10);
+            this.chkLibreria.Name = "chkLibreria";
+            this.chkLibreria.Size = new System.Drawing.Size(75, 21);
+            this.chkLibreria.TabIndex = 81;
+            this.chkLibreria.Text = "Libreria";
+            this.chkLibreria.UseVisualStyleBackColor = true;
+            // 
             // btnBuscar
             // 
             this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.Location = new System.Drawing.Point(779, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(924, 10);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(31, 26);
             this.btnBuscar.TabIndex = 80;
@@ -76,9 +92,9 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(598, 15);
+            this.txtCodigo.Location = new System.Drawing.Point(597, 12);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(175, 23);
+            this.txtCodigo.Size = new System.Drawing.Size(130, 23);
             this.txtCodigo.TabIndex = 61;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCodigo_KeyDown);
@@ -156,17 +172,23 @@
             this.Grilla.TabIndex = 0;
             this.Grilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grilla_CellContentClick);
             // 
-            // chkLibreria
+            // label5
             // 
-            this.chkLibreria.AutoSize = true;
-            this.chkLibreria.Checked = true;
-            this.chkLibreria.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLibreria.Location = new System.Drawing.Point(816, 12);
-            this.chkLibreria.Name = "chkLibreria";
-            this.chkLibreria.Size = new System.Drawing.Size(75, 21);
-            this.chkLibreria.TabIndex = 81;
-            this.chkLibreria.Text = "Libreria";
-            this.chkLibreria.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(733, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Marca";
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(795, 10);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(121, 24);
+            this.cmbMarca.TabIndex = 83;
             // 
             // FrmListadoArticulo
             // 
@@ -199,5 +221,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.CheckBox chkLibreria;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.Label label5;
     }
 }

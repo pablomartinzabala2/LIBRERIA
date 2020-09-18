@@ -72,6 +72,7 @@ namespace SistemaFact
             fun.LimpiarGenerico(this);
             txtPorEfectivo.Text = "70";
             txtPorTarjeta.Text = "100";
+            txt_Nombre.Focus();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -248,6 +249,96 @@ namespace SistemaFact
             FrmAltaBasica form = new FrmAltaBasica();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
+        }
+
+        private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Stock.Focus();
+            }
+        }
+
+        private void txt_Stock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_Codigo.Focus();
+        }
+
+        private void txt_CodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_Costo.Focus();
+        }
+
+        private void txt_Codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_CodigoBarra.Focus();
+        }
+
+        private void txt_Costo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_PrecioEfectivo.Focus();
+        }
+
+        private void txt_PrecioEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_PrecioTarjeta.Focus();
+        }
+
+        private void txt_PrecioTarjeta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                cmb_CodMarca.Focus();
+        }
+
+        private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_CodigoBarra.Text.Length > 5)
+            {
+                string CodigoBarra = txt_CodigoBarra.Text;
+                cJuguete art = new Clases.cJuguete();
+                DataTable trdo = art.GetArticulo("", CodigoBarra, "");
+                if (trdo.Rows.Count > 0)
+                {
+                    if (trdo.Rows[0]["CodArticulo"].ToString() != "")
+                    {
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
+                        txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                    }
+                }
+                else
+                {/*
+                    txtCodigo.Text = "";
+                    txt_Nombre.Text = "";
+                    txt_Stock.Text = "";
+                    txt_Costo.Text = "";
+                    txt_PrecioEfectivo.Text = "";
+                    txt_PrecioTarjeta.Text = "";
+                    txt_Codigo.Text = "";*/
+                }
+
+            }
+            if (txt_PrecioEfectivo.Text != "")
+            {
+                Double Efectivo = Convert.ToDouble(txt_PrecioEfectivo.Text.Replace(".", ","));
+                txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
+            }
+
+            if (txt_PrecioTarjeta.Text != "")
+            {
+                Double Efectivo = Convert.ToDouble(txt_PrecioTarjeta.Text.Replace(".", ","));
+                txt_PrecioTarjeta.Text = Math.Round(Efectivo, 0).ToString();
+            }
         }
     }
 }

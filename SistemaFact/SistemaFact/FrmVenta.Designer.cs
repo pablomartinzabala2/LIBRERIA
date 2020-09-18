@@ -86,6 +86,8 @@
             this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -512,6 +514,8 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtObservacion);
+            this.Grupo.Controls.Add(this.label17);
             this.Grupo.Controls.Add(this.label16);
             this.Grupo.Controls.Add(this.txtDireccion);
             this.Grupo.Controls.Add(this.label15);
@@ -651,7 +655,7 @@
             // 
             // txtCodCliente
             // 
-            this.txtCodCliente.Location = new System.Drawing.Point(413, 112);
+            this.txtCodCliente.Location = new System.Drawing.Point(565, 81);
             this.txtCodCliente.Name = "txtCodCliente";
             this.txtCodCliente.Size = new System.Drawing.Size(44, 23);
             this.txtCodCliente.TabIndex = 2;
@@ -675,6 +679,23 @@
             this.Nombre.Size = new System.Drawing.Size(53, 17);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(340, 110);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 17);
+            this.label17.TabIndex = 90;
+            this.label17.Text = "Observación";
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtObservacion.Location = new System.Drawing.Point(434, 107);
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(276, 23);
+            this.txtObservacion.TabIndex = 91;
             // 
             // FrmVenta
             // 
@@ -761,5 +782,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox txt_Nombre;
         private System.Windows.Forms.Button btnLimpiarArticulo;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.Label label17;
     }
 }

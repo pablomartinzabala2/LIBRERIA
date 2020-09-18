@@ -19,7 +19,16 @@ namespace SistemaFact
 
         private void FrmListadoArticulo_Load(object sender, EventArgs e)
         {
+            CargarMarcas();
             CargarGrilla("", "", "");
+        }
+
+        private void CargarMarcas()
+        {
+            cMarca marca = new cMarca();
+            DataTable trdo = marca.GetAll();
+            cFunciones fun = new Clases.cFunciones();
+            fun.LlenarComboDatatable(cmbMarca, trdo, "Nombre", "CodMarca");
         }
 
         private void CargarGrilla(string Nombre,string CodigoBarra,string Codigo)
@@ -29,9 +38,19 @@ namespace SistemaFact
                 Tabla = "Articulo";
             else
                 Tabla = "Juguete";
+            Int32? CodMarca = null;
+            if (cmbMarca.SelectedIndex > 0)
+                CodMarca = Convert.ToInt32(cmbMarca.SelectedValue);
+
             cFunciones fun = new cFunciones();
             cArticulo art = new Clases.cArticulo();
-            DataTable trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo,Tabla);
+            cJuguete jug = new cJuguete();
+            DataTable trdo = new DataTable();
+            if (Tabla =="Articulo")
+                 trdo = art.GetDetalleArticulo(Nombre,CodigoBarra,Codigo,Tabla);
+            if (Tabla == "Juguete")
+                trdo = jug.GetDetalleArticulo(Nombre, CodigoBarra, Codigo, CodMarca);
+
             trdo = fun.TablaaMiles(trdo, "PrecioEfectivo");
             trdo = fun.TablaaMiles(trdo, "PrecioTarjeta");
             trdo = fun.TablaaMiles(trdo, "Descuento");
@@ -81,7 +100,7 @@ namespace SistemaFact
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            CargarGrilla(txtDescripcion.Text, txtCodigoBarra.Text, txtCodigo.Text);
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)

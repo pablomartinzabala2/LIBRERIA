@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmJuguete));
-            this.BarraBotones = new System.Windows.Forms.ToolStrip();
-            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.btnEditar = new System.Windows.Forms.ToolStripButton();
-            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
-            this.btnAceptar = new System.Windows.Forms.ToolStripButton();
-            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.btnAbrir = new System.Windows.Forms.ToolStripButton();
-            this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
-            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.Grupo = new System.Windows.Forms.GroupBox();
             this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.cmb_CodMarca = new System.Windows.Forms.ComboBox();
@@ -63,109 +54,18 @@
             this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.BarraBotones.SuspendLayout();
+            this.BarraBotones = new System.Windows.Forms.ToolStrip();
+            this.btnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.btnEditar = new System.Windows.Forms.ToolStripButton();
+            this.btnEliminar = new System.Windows.Forms.ToolStripButton();
+            this.btnAceptar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.btnAbrir = new System.Windows.Forms.ToolStripButton();
+            this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
+            this.btnSalir = new System.Windows.Forms.ToolStripButton();
             this.Grupo.SuspendLayout();
+            this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // BarraBotones
-            // 
-            this.BarraBotones.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.BarraBotones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevo,
-            this.btnEditar,
-            this.btnEliminar,
-            this.btnAceptar,
-            this.btnCancelar,
-            this.btnAbrir,
-            this.btnIGregarColor,
-            this.btnSalir});
-            this.BarraBotones.Location = new System.Drawing.Point(0, 0);
-            this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(629, 39);
-            this.BarraBotones.TabIndex = 18;
-            this.BarraBotones.Text = "toolStrip1";
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(36, 36);
-            this.btnNuevo.Text = "nuevo";
-            this.btnNuevo.ToolTipText = "Nuevo";
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(36, 36);
-            this.btnEditar.Text = "toolStripButton2";
-            this.btnEditar.ToolTipText = "Modificar";
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(36, 36);
-            this.btnEliminar.Text = "toolStripButton3";
-            this.btnEliminar.ToolTipText = "Eliminar";
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
-            this.btnAceptar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(36, 36);
-            this.btnAceptar.Text = "Grabar";
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(36, 36);
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnAbrir
-            // 
-            this.btnAbrir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAbrir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrir.Image")));
-            this.btnAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAbrir.Name = "btnAbrir";
-            this.btnAbrir.Size = new System.Drawing.Size(36, 36);
-            this.btnAbrir.Text = "Abrir";
-            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
-            // 
-            // btnIGregarColor
-            // 
-            this.btnIGregarColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnIGregarColor.Image = ((System.Drawing.Image)(resources.GetObject("btnIGregarColor.Image")));
-            this.btnIGregarColor.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnIGregarColor.Name = "btnIGregarColor";
-            this.btnIGregarColor.Size = new System.Drawing.Size(36, 36);
-            this.btnIGregarColor.Text = "toolStripButton1";
-            this.btnIGregarColor.ToolTipText = "Imprimir";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(36, 36);
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // Grupo
             // 
@@ -300,6 +200,7 @@
             this.txt_PrecioTarjeta.Name = "txt_PrecioTarjeta";
             this.txt_PrecioTarjeta.Size = new System.Drawing.Size(132, 23);
             this.txt_PrecioTarjeta.TabIndex = 30;
+            this.txt_PrecioTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PrecioTarjeta_KeyPress);
             // 
             // label3
             // 
@@ -317,6 +218,7 @@
             this.txt_PrecioEfectivo.Name = "txt_PrecioEfectivo";
             this.txt_PrecioEfectivo.Size = new System.Drawing.Size(132, 23);
             this.txt_PrecioEfectivo.TabIndex = 28;
+            this.txt_PrecioEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PrecioEfectivo_KeyPress);
             // 
             // txt_Costo
             // 
@@ -324,6 +226,7 @@
             this.txt_Costo.Name = "txt_Costo";
             this.txt_Costo.Size = new System.Drawing.Size(132, 23);
             this.txt_Costo.TabIndex = 27;
+            this.txt_Costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Costo_KeyPress);
             // 
             // label2
             // 
@@ -340,6 +243,7 @@
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
+            this.txt_Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Codigo_KeyPress);
             // 
             // label1
             // 
@@ -373,6 +277,8 @@
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
+            this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
+            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
             // 
             // txt_Stock
             // 
@@ -380,6 +286,7 @@
             this.txt_Stock.Name = "txt_Stock";
             this.txt_Stock.Size = new System.Drawing.Size(132, 23);
             this.txt_Stock.TabIndex = 11;
+            this.txt_Stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Stock_KeyPress);
             // 
             // txt_Nombre
             // 
@@ -387,6 +294,7 @@
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
             this.txt_Nombre.TabIndex = 9;
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // label6
             // 
@@ -406,6 +314,106 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
+            // BarraBotones
+            // 
+            this.BarraBotones.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.BarraBotones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevo,
+            this.btnEditar,
+            this.btnEliminar,
+            this.btnAceptar,
+            this.btnCancelar,
+            this.btnAbrir,
+            this.btnIGregarColor,
+            this.btnSalir});
+            this.BarraBotones.Location = new System.Drawing.Point(0, 0);
+            this.BarraBotones.Name = "BarraBotones";
+            this.BarraBotones.Size = new System.Drawing.Size(629, 39);
+            this.BarraBotones.TabIndex = 18;
+            this.BarraBotones.Text = "toolStrip1";
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(36, 36);
+            this.btnNuevo.Text = "nuevo";
+            this.btnNuevo.ToolTipText = "Nuevo";
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(36, 36);
+            this.btnEditar.Text = "toolStripButton2";
+            this.btnEditar.ToolTipText = "Modificar";
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(36, 36);
+            this.btnEliminar.Text = "toolStripButton3";
+            this.btnEliminar.ToolTipText = "Eliminar";
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
+            this.btnAceptar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(36, 36);
+            this.btnAceptar.Text = "Grabar";
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(36, 36);
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAbrir
+            // 
+            this.btnAbrir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnAbrir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrir.Image")));
+            this.btnAbrir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbrir.Name = "btnAbrir";
+            this.btnAbrir.Size = new System.Drawing.Size(36, 36);
+            this.btnAbrir.Text = "Abrir";
+            this.btnAbrir.Click += new System.EventHandler(this.btnAbrir_Click);
+            // 
+            // btnIGregarColor
+            // 
+            this.btnIGregarColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnIGregarColor.Image = ((System.Drawing.Image)(resources.GetObject("btnIGregarColor.Image")));
+            this.btnIGregarColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnIGregarColor.Name = "btnIGregarColor";
+            this.btnIGregarColor.Size = new System.Drawing.Size(36, 36);
+            this.btnIGregarColor.Text = "toolStripButton1";
+            this.btnIGregarColor.ToolTipText = "Imprimir";
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(36, 36);
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // FrmAbmJuguete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,10 +424,10 @@
             this.Name = "FrmAbmJuguete";
             this.Text = "Formulario de juguetes";
             this.Load += new System.EventHandler(this.FrmAbmJuguete_Load);
-            this.BarraBotones.ResumeLayout(false);
-            this.BarraBotones.PerformLayout();
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
+            this.BarraBotones.ResumeLayout(false);
+            this.BarraBotones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
