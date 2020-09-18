@@ -34,6 +34,7 @@
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugueteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -56,7 +57,8 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.jugueteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jugueteríaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -67,7 +69,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.compraToolStripMenuItem,
-            this.ventaToolStripMenuItem});
+            this.ventaToolStripMenuItem,
+            this.jugueteríaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
@@ -108,6 +111,13 @@
             this.openToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.openToolStripMenuItem.Text = "Importar Lista";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenFile);
+            // 
+            // jugueteToolStripMenuItem
+            // 
+            this.jugueteToolStripMenuItem.Name = "jugueteToolStripMenuItem";
+            this.jugueteToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.jugueteToolStripMenuItem.Text = "Juguete";
+            this.jugueteToolStripMenuItem.Click += new System.EventHandler(this.jugueteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -279,12 +289,20 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // jugueteToolStripMenuItem
+            // jugueteríaToolStripMenuItem
             // 
-            this.jugueteToolStripMenuItem.Name = "jugueteToolStripMenuItem";
-            this.jugueteToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.jugueteToolStripMenuItem.Text = "Juguete";
-            this.jugueteToolStripMenuItem.Click += new System.EventHandler(this.jugueteToolStripMenuItem_Click);
+            this.jugueteríaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarToolStripMenuItem2});
+            this.jugueteríaToolStripMenuItem.Name = "jugueteríaToolStripMenuItem";
+            this.jugueteríaToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
+            this.jugueteríaToolStripMenuItem.Text = "Juguetería";
+            // 
+            // registrarToolStripMenuItem2
+            // 
+            this.registrarToolStripMenuItem2.Name = "registrarToolStripMenuItem2";
+            this.registrarToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem2.Text = "Registrar";
+            this.registrarToolStripMenuItem2.Click += new System.EventHandler(this.registrarToolStripMenuItem2_Click);
             // 
             // Principal
             // 
@@ -340,6 +358,8 @@
         private System.Windows.Forms.ToolStripMenuItem consultarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tarjetasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jugueteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jugueteríaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarToolStripMenuItem2;
     }
 }
 

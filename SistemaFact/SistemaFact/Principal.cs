@@ -192,5 +192,11 @@ namespace SistemaFact
             FrmAbmJuguete form = new SistemaFact.FrmAbmJuguete();
             form.Show();
         }
+
+        private void registrarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmVentaJuguetes frm = new FrmVentaJuguetes();
+            frm.Show();
+        }
     }
 }

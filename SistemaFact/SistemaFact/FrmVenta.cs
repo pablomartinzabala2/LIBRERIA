@@ -64,6 +64,7 @@ namespace SistemaFact
 
         private void CargarTipoOperacion()
         {
+            /*
             string Col = "Codigo;Nombre";
             DataTable tb = new DataTable();
             tb = fun.CrearTabla(Col);
@@ -74,6 +75,10 @@ namespace SistemaFact
             tb = fun.AgregarFilas(tb, Val);
             Val = "3;Tarjeta Débito";
             tb = fun.AgregarFilas(tb, Val);
+            fun.LlenarComboDatatable(CmbTipoOperacion, tb, "Nombre", "Codigo");
+            */
+            cTipoOperacion tipo = new cTipoOperacion();
+            DataTable tb = tipo.GetTipos();
             fun.LlenarComboDatatable(CmbTipoOperacion, tb, "Nombre", "Codigo");
             CmbTipoOperacion.SelectedIndex = 1;
         }

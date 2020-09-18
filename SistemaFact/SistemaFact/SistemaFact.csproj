@@ -84,6 +84,7 @@
     <Compile Include="Clases\cMarca.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cRuta.cs" />
+    <Compile Include="Clases\cTipoOperacion.cs" />
     <Compile Include="Clases\cVenta.cs" />
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -246,6 +247,12 @@
     <Compile Include="FrmVenta.Designer.cs">
       <DependentUpon>FrmVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmVentaJuguetes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentaJuguetes.Designer.cs">
+      <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmVenta.resx">
       <DependentUpon>FrmVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentaJuguetes.resx">
+      <DependentUpon>FrmVentaJuguetes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
