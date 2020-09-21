@@ -82,5 +82,18 @@ namespace SistemaFact.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
+        public void InsertarDetalleVentaJuguete(SqlConnection con, SqlTransaction Transaccion, Int32 CodVenta, double Cantidad, Double Precio,
+         Int32 CodArticulo, double Subtotal)
+        {
+            string sql = " insert into DetalleVenta(CodVenta,CodArticulo,Cantidad,Precio,Subtotal)";
+            sql = sql + " values (" + CodVenta.ToString();
+            sql = sql + "," + CodArticulo.ToString();
+            sql = sql + "," + Cantidad.ToString().Replace(",", ".");
+            sql = sql + "," + Precio.ToString().Replace(",", ".");
+            sql = sql + "," + Subtotal.ToString().Replace(",", ".");
+            sql = sql + ")";
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
     }
 }

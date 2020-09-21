@@ -35,23 +35,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioJugueteria = new System.Windows.Forms.RadioButton();
+            this.radioLibreria = new System.Windows.Forms.RadioButton();
             this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
-            this.txtPordescuento = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.txtTotalDescuento = new System.Windows.Forms.TextBox();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.txtCupon = new System.Windows.Forms.TextBox();
-            this.lblCupon = new System.Windows.Forms.Label();
-            this.lblTarjeta = new System.Windows.Forms.Label();
-            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
             this.btnBuscarArticulo = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.Grilla = new System.Windows.Forms.DataGridView();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -67,6 +61,17 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtPordescuento = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCupon = new System.Windows.Forms.TextBox();
+            this.lblCupon = new System.Windows.Forms.Label();
+            this.lblTarjeta = new System.Windows.Forms.Label();
+            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnGrabar = new System.Windows.Forms.Button();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
@@ -124,23 +129,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.radioJugueteria);
+            this.groupBox1.Controls.Add(this.radioLibreria);
             this.groupBox1.Controls.Add(this.btnLimpiarArticulo);
             this.groupBox1.Controls.Add(this.txt_Nombre);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtTotalConDescuento);
-            this.groupBox1.Controls.Add(this.txtPordescuento);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtTotalDescuento);
             this.groupBox1.Controls.Add(this.chkDescuento);
             this.groupBox1.Controls.Add(this.txtDescuento);
-            this.groupBox1.Controls.Add(this.txtCupon);
-            this.groupBox1.Controls.Add(this.lblCupon);
-            this.groupBox1.Controls.Add(this.lblTarjeta);
-            this.groupBox1.Controls.Add(this.CmbTarjeta);
             this.groupBox1.Controls.Add(this.btnBuscarArticulo);
-            this.groupBox1.Controls.Add(this.txtTotal);
-            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.Grilla);
             this.groupBox1.Controls.Add(this.txtPrecio);
@@ -159,10 +156,32 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(28, 65);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 383);
+            this.groupBox1.Size = new System.Drawing.Size(751, 359);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Información del juguete";
+            this.groupBox1.Text = "Información del Producto";
+            // 
+            // radioJugueteria
+            // 
+            this.radioJugueteria.AutoSize = true;
+            this.radioJugueteria.Location = new System.Drawing.Point(98, 120);
+            this.radioJugueteria.Name = "radioJugueteria";
+            this.radioJugueteria.Size = new System.Drawing.Size(93, 21);
+            this.radioJugueteria.TabIndex = 99;
+            this.radioJugueteria.Text = "Jugueteria";
+            this.radioJugueteria.UseVisualStyleBackColor = true;
+            // 
+            // radioLibreria
+            // 
+            this.radioLibreria.AutoSize = true;
+            this.radioLibreria.Checked = true;
+            this.radioLibreria.Location = new System.Drawing.Point(18, 120);
+            this.radioLibreria.Name = "radioLibreria";
+            this.radioLibreria.Size = new System.Drawing.Size(74, 21);
+            this.radioLibreria.TabIndex = 98;
+            this.radioLibreria.TabStop = true;
+            this.radioLibreria.Text = "Libreria";
+            this.radioLibreria.UseVisualStyleBackColor = true;
             // 
             // btnLimpiarArticulo
             // 
@@ -184,7 +203,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(610, 350);
+            this.label14.Location = new System.Drawing.Point(617, 393);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 17);
             this.label14.TabIndex = 95;
@@ -192,41 +211,25 @@
             // 
             // txtTotalConDescuento
             // 
-            this.txtTotalConDescuento.Location = new System.Drawing.Point(669, 347);
+            this.txtTotalConDescuento.Location = new System.Drawing.Point(700, 484);
             this.txtTotalConDescuento.Name = "txtTotalConDescuento";
-            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 23);
+            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 20);
             this.txtTotalConDescuento.TabIndex = 94;
-            // 
-            // txtPordescuento
-            // 
-            this.txtPordescuento.Location = new System.Drawing.Point(529, 320);
-            this.txtPordescuento.Name = "txtPordescuento";
-            this.txtPordescuento.Size = new System.Drawing.Size(69, 23);
-            this.txtPordescuento.TabIndex = 93;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(443, 350);
+            this.label13.Location = new System.Drawing.Point(450, 393);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(76, 17);
             this.label13.TabIndex = 92;
             this.label13.Text = "Descuento";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(431, 320);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 17);
-            this.label11.TabIndex = 91;
-            this.label11.Text = "% Descuento";
-            // 
             // txtTotalDescuento
             // 
-            this.txtTotalDescuento.Location = new System.Drawing.Point(529, 350);
+            this.txtTotalDescuento.Location = new System.Drawing.Point(540, 484);
             this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 23);
+            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 20);
             this.txtTotalDescuento.TabIndex = 90;
             // 
             // chkDescuento
@@ -246,40 +249,6 @@
             this.txtDescuento.Size = new System.Drawing.Size(79, 23);
             this.txtDescuento.TabIndex = 88;
             // 
-            // txtCupon
-            // 
-            this.txtCupon.Location = new System.Drawing.Point(305, 317);
-            this.txtCupon.Name = "txtCupon";
-            this.txtCupon.Size = new System.Drawing.Size(120, 23);
-            this.txtCupon.TabIndex = 86;
-            // 
-            // lblCupon
-            // 
-            this.lblCupon.AutoSize = true;
-            this.lblCupon.Location = new System.Drawing.Point(243, 323);
-            this.lblCupon.Name = "lblCupon";
-            this.lblCupon.Size = new System.Drawing.Size(49, 17);
-            this.lblCupon.TabIndex = 85;
-            this.lblCupon.Text = "Cupon";
-            // 
-            // lblTarjeta
-            // 
-            this.lblTarjeta.AutoSize = true;
-            this.lblTarjeta.Location = new System.Drawing.Point(3, 320);
-            this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
-            this.lblTarjeta.TabIndex = 84;
-            this.lblTarjeta.Text = "Tarjeta";
-            // 
-            // CmbTarjeta
-            // 
-            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTarjeta.FormattingEnabled = true;
-            this.CmbTarjeta.Location = new System.Drawing.Point(59, 317);
-            this.CmbTarjeta.Name = "CmbTarjeta";
-            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
-            this.CmbTarjeta.TabIndex = 83;
-            // 
             // btnBuscarArticulo
             // 
             this.btnBuscarArticulo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarArticulo.Image")));
@@ -288,22 +257,6 @@
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
             this.btnBuscarArticulo.UseVisualStyleBackColor = true;
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(669, 318);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(69, 23);
-            this.txtTotal.TabIndex = 56;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(604, 323);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Subtotal";
             // 
             // btnEliminar
             // 
@@ -318,7 +271,7 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(6, 125);
+            this.Grilla.Location = new System.Drawing.Point(9, 158);
             this.Grilla.Name = "Grilla";
             this.Grilla.ReadOnly = true;
             this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
@@ -326,7 +279,7 @@
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(732, 186);
+            this.Grilla.Size = new System.Drawing.Size(732, 163);
             this.Grilla.TabIndex = 56;
             // 
             // txtPrecio
@@ -370,6 +323,7 @@
             this.button2.Size = new System.Drawing.Size(40, 28);
             this.button2.TabIndex = 51;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txt_Codigo
             // 
@@ -422,7 +376,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(10, 94);
+            this.label9.Location = new System.Drawing.Point(15, 95);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 17);
             this.label9.TabIndex = 5;
@@ -437,13 +391,120 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Descripción";
             // 
+            // txtPordescuento
+            // 
+            this.txtPordescuento.Location = new System.Drawing.Point(540, 451);
+            this.txtPordescuento.Name = "txtPordescuento";
+            this.txtPordescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtPordescuento.TabIndex = 93;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(458, 451);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(70, 13);
+            this.label11.TabIndex = 91;
+            this.label11.Text = "% Descuento";
+            // 
+            // txtCupon
+            // 
+            this.txtCupon.Location = new System.Drawing.Point(332, 448);
+            this.txtCupon.Name = "txtCupon";
+            this.txtCupon.Size = new System.Drawing.Size(120, 20);
+            this.txtCupon.TabIndex = 86;
+            // 
+            // lblCupon
+            // 
+            this.lblCupon.AutoSize = true;
+            this.lblCupon.Location = new System.Drawing.Point(288, 451);
+            this.lblCupon.Name = "lblCupon";
+            this.lblCupon.Size = new System.Drawing.Size(38, 13);
+            this.lblCupon.TabIndex = 85;
+            this.lblCupon.Text = "Cupon";
+            // 
+            // lblTarjeta
+            // 
+            this.lblTarjeta.AutoSize = true;
+            this.lblTarjeta.Location = new System.Drawing.Point(38, 451);
+            this.lblTarjeta.Name = "lblTarjeta";
+            this.lblTarjeta.Size = new System.Drawing.Size(40, 13);
+            this.lblTarjeta.TabIndex = 84;
+            this.lblTarjeta.Text = "Tarjeta";
+            // 
+            // CmbTarjeta
+            // 
+            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTarjeta.FormattingEnabled = true;
+            this.CmbTarjeta.Location = new System.Drawing.Point(97, 451);
+            this.CmbTarjeta.Name = "CmbTarjeta";
+            this.CmbTarjeta.Size = new System.Drawing.Size(178, 21);
+            this.CmbTarjeta.TabIndex = 83;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(638, 451);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 58;
+            this.label1.Text = "Subtotal";
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(700, 510);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 94;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(700, 451);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(69, 20);
+            this.txtTotal.TabIndex = 95;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(639, 484);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 96;
+            this.label3.Text = "Total";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(442, 481);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 97;
+            this.label5.Text = "Total Descuento";
+            // 
             // FrmVentaJuguetes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 483);
+            this.ClientSize = new System.Drawing.Size(803, 594);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.btnGrabar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.txtTotalDescuento);
+            this.Controls.Add(this.CmbTarjeta);
+            this.Controls.Add(this.txtTotalConDescuento);
+            this.Controls.Add(this.lblTarjeta);
+            this.Controls.Add(this.lblCupon);
+            this.Controls.Add(this.txtCupon);
+            this.Controls.Add(this.txtPordescuento);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label1);
             this.Name = "FrmVentaJuguetes";
             this.Text = "FrmVentaJuguetes";
             this.Load += new System.EventHandler(this.FrmVentaJuguetes_Load);
@@ -453,6 +514,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -474,7 +536,6 @@
         private System.Windows.Forms.Label lblTarjeta;
         private System.Windows.Forms.ComboBox CmbTarjeta;
         private System.Windows.Forms.Button btnBuscarArticulo;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView Grilla;
@@ -496,5 +557,11 @@
         private System.Windows.Forms.ComboBox CmbTipoOperacion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox txtFecha;
+        private System.Windows.Forms.RadioButton radioJugueteria;
+        private System.Windows.Forms.RadioButton radioLibreria;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
     }
 }

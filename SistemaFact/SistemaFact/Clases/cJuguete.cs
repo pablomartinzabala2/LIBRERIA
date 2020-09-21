@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.SqlClient;
+
 namespace SistemaFact.Clases
 {
     public  class cJuguete
@@ -66,6 +68,24 @@ namespace SistemaFact.Clases
             sql = sql + " order by a.Nombre";
 
             return cDb.GetDatatable(sql);
+        }
+
+        public DataTable GetTodosJuguetes()
+        {
+            string sql = "select a.CodArticulo,a.Nombre ";
+            sql = sql + ",Costo,PrecioTarjeta";
+            sql = sql + ",PrecioEfectivo";
+            sql = sql + " from Juguete a";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
+
+        public void ActualizarStockResta(SqlConnection con, SqlTransaction Transaccion, Int32 CodArticulo, int Cantidad)
+        {
+            string sql = " update Juguete ";
+            sql = sql + " set Stock = isnull(Stock,0) - " + Cantidad.ToString();
+            sql = sql + " where CodArticulo=" + CodArticulo.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
     }
 }
