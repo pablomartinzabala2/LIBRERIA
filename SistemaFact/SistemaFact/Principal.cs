@@ -198,5 +198,15 @@ namespace SistemaFact
             FrmVentaJuguetes frm = new FrmVentaJuguetes();
             frm.Show();
         }
+
+        private void ventaRapidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmVentaJuguetes frm = new FrmVentaJuguetes();
+            frm.Show();        }
+
+        private void printPreviewToolStripButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
