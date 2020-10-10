@@ -114,7 +114,6 @@
             // 
             // cmb_CodMarca
             // 
-            this.cmb_CodMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_CodMarca.FormattingEnabled = true;
             this.cmb_CodMarca.Location = new System.Drawing.Point(120, 238);
             this.cmb_CodMarca.Name = "cmb_CodMarca";

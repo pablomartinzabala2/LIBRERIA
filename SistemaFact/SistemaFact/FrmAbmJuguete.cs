@@ -61,8 +61,21 @@ namespace SistemaFact
             Botonera(1);
             Grupo.Enabled = false;
             cFunciones fun = new cFunciones();
-            fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+            cMarca marca = new Clases.cMarca();
+            DataTable trdo = marca.GetAll();
+            fun.LlenarComboDatatable(cmb_CodMarca, trdo, "Nombre", "CodMarca");
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+            foreach (DataRow r in trdo.Rows)
+            {
+                coleccion.Add(r["Nombre"].ToString());
+            }
+            cmb_CodMarca.AutoCompleteCustomSource = coleccion;
+            cmb_CodMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cmb_CodMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cmb_CodMarca.SelectedIndex = -1;
         }
+
+       
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {

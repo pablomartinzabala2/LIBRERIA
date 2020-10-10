@@ -78,7 +78,29 @@ namespace SistemaFact
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
+            string msj = "Confirma eliminar el artículo ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
 
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                cFunciones fun = new cFunciones();
+                fun.EliminarGenerico("Articulo", "CodArticulo", txtCodigo.Text);
+                fun.LimpiarGenerico(this);
+                Botonera(1);
+                MessageBox.Show("Datos borrados correctamente");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se puede eliminar el producto, debe tener asociado ventas");
+                return;
+            }
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
