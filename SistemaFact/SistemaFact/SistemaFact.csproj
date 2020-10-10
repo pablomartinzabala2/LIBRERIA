@@ -139,6 +139,12 @@
     <Compile Include="FrmAbmJuguete.Designer.cs">
       <DependentUpon>FrmAbmJuguete.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmMarca.Designer.cs">
+      <DependentUpon>FrmAbmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmTarjeta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmJuguete.resx">
       <DependentUpon>FrmAbmJuguete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmMarca.resx">
+      <DependentUpon>FrmAbmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>

@@ -390,7 +390,7 @@
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
             this.Name = "FrmAbmArticulocs";
-            this.Text = "FrmAbmArticulocs";
+            this.Text = "Formulario de artículo de librería";
             this.Load += new System.EventHandler(this.FrmAbmArticulocs_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();

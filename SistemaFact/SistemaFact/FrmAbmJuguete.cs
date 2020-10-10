@@ -340,5 +340,32 @@ namespace SistemaFact
                 txt_PrecioTarjeta.Text = Math.Round(Efectivo, 0).ToString();
             }
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string msj = "Confirma eliminar la marca ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+            try
+            {
+                cFunciones fun = new cFunciones();
+                fun.EliminarGenerico("Juguete", "CodArticulo", txtCodigo.Text);
+                fun.LimpiarGenerico(this);
+                Botonera(1);
+                MessageBox.Show("Datos borrados correctamente");
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("No se puede eliminar el producto, debe tener asociado ventas");
+                return;
+            }
+        }
     }
 }

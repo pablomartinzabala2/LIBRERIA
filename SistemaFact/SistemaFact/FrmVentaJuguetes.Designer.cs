@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVentaJuguetes));
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
@@ -40,9 +44,7 @@
             this.btnLimpiarArticulo = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtTotalDescuento = new System.Windows.Forms.TextBox();
             this.chkDescuento = new System.Windows.Forms.CheckBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.btnBuscarArticulo = new System.Windows.Forms.Button();
@@ -61,21 +63,54 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.txtTotalDescuento = new System.Windows.Forms.TextBox();
+            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
+            this.txtTotalConDescuento = new System.Windows.Forms.TextBox();
+            this.lblTarjeta = new System.Windows.Forms.Label();
+            this.lblCupon = new System.Windows.Forms.Label();
+            this.txtCupon = new System.Windows.Forms.TextBox();
             this.txtPordescuento = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCupon = new System.Windows.Forms.TextBox();
-            this.lblCupon = new System.Windows.Forms.Label();
-            this.lblTarjeta = new System.Windows.Forms.Label();
-            this.CmbTarjeta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnGrabar = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(442, 481);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.TabIndex = 97;
+            this.label5.Text = "Total Descuento";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(639, 484);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.TabIndex = 96;
+            this.label3.Text = "Total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(700, 451);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(69, 20);
+            this.txtTotal.TabIndex = 95;
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(700, 510);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 94;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // groupBox2
             // 
@@ -199,6 +234,7 @@
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(502, 24);
             this.txt_Nombre.TabIndex = 96;
+            this.txt_Nombre.SelectedIndexChanged += new System.EventHandler(this.txt_Nombre_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -209,13 +245,6 @@
             this.label14.TabIndex = 95;
             this.label14.Text = "Total";
             // 
-            // txtTotalConDescuento
-            // 
-            this.txtTotalConDescuento.Location = new System.Drawing.Point(700, 484);
-            this.txtTotalConDescuento.Name = "txtTotalConDescuento";
-            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 20);
-            this.txtTotalConDescuento.TabIndex = 94;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -224,13 +253,6 @@
             this.label13.Size = new System.Drawing.Size(76, 17);
             this.label13.TabIndex = 92;
             this.label13.Text = "Descuento";
-            // 
-            // txtTotalDescuento
-            // 
-            this.txtTotalDescuento.Location = new System.Drawing.Point(540, 484);
-            this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 20);
-            this.txtTotalDescuento.TabIndex = 90;
             // 
             // chkDescuento
             // 
@@ -257,6 +279,7 @@
             this.btnBuscarArticulo.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarArticulo.TabIndex = 63;
             this.btnBuscarArticulo.UseVisualStyleBackColor = true;
+            this.btnBuscarArticulo.Click += new System.EventHandler(this.btnBuscarArticulo_Click);
             // 
             // btnEliminar
             // 
@@ -391,6 +414,54 @@
             this.label10.TabIndex = 3;
             this.label10.Text = "Descripción";
             // 
+            // txtTotalDescuento
+            // 
+            this.txtTotalDescuento.Location = new System.Drawing.Point(540, 484);
+            this.txtTotalDescuento.Name = "txtTotalDescuento";
+            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtTotalDescuento.TabIndex = 90;
+            // 
+            // CmbTarjeta
+            // 
+            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTarjeta.FormattingEnabled = true;
+            this.CmbTarjeta.Location = new System.Drawing.Point(97, 451);
+            this.CmbTarjeta.Name = "CmbTarjeta";
+            this.CmbTarjeta.Size = new System.Drawing.Size(178, 21);
+            this.CmbTarjeta.TabIndex = 83;
+            // 
+            // txtTotalConDescuento
+            // 
+            this.txtTotalConDescuento.Location = new System.Drawing.Point(700, 484);
+            this.txtTotalConDescuento.Name = "txtTotalConDescuento";
+            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtTotalConDescuento.TabIndex = 94;
+            // 
+            // lblTarjeta
+            // 
+            this.lblTarjeta.AutoSize = true;
+            this.lblTarjeta.Location = new System.Drawing.Point(38, 451);
+            this.lblTarjeta.Name = "lblTarjeta";
+            this.lblTarjeta.Size = new System.Drawing.Size(40, 13);
+            this.lblTarjeta.TabIndex = 84;
+            this.lblTarjeta.Text = "Tarjeta";
+            // 
+            // lblCupon
+            // 
+            this.lblCupon.AutoSize = true;
+            this.lblCupon.Location = new System.Drawing.Point(288, 451);
+            this.lblCupon.Name = "lblCupon";
+            this.lblCupon.Size = new System.Drawing.Size(38, 13);
+            this.lblCupon.TabIndex = 85;
+            this.lblCupon.Text = "Cupon";
+            // 
+            // txtCupon
+            // 
+            this.txtCupon.Location = new System.Drawing.Point(332, 448);
+            this.txtCupon.Name = "txtCupon";
+            this.txtCupon.Size = new System.Drawing.Size(120, 20);
+            this.txtCupon.TabIndex = 86;
+            // 
             // txtPordescuento
             // 
             this.txtPordescuento.Location = new System.Drawing.Point(540, 451);
@@ -407,40 +478,6 @@
             this.label11.TabIndex = 91;
             this.label11.Text = "% Descuento";
             // 
-            // txtCupon
-            // 
-            this.txtCupon.Location = new System.Drawing.Point(332, 448);
-            this.txtCupon.Name = "txtCupon";
-            this.txtCupon.Size = new System.Drawing.Size(120, 20);
-            this.txtCupon.TabIndex = 86;
-            // 
-            // lblCupon
-            // 
-            this.lblCupon.AutoSize = true;
-            this.lblCupon.Location = new System.Drawing.Point(288, 451);
-            this.lblCupon.Name = "lblCupon";
-            this.lblCupon.Size = new System.Drawing.Size(38, 13);
-            this.lblCupon.TabIndex = 85;
-            this.lblCupon.Text = "Cupon";
-            // 
-            // lblTarjeta
-            // 
-            this.lblTarjeta.AutoSize = true;
-            this.lblTarjeta.Location = new System.Drawing.Point(38, 451);
-            this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(40, 13);
-            this.lblTarjeta.TabIndex = 84;
-            this.lblTarjeta.Text = "Tarjeta";
-            // 
-            // CmbTarjeta
-            // 
-            this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTarjeta.FormattingEnabled = true;
-            this.CmbTarjeta.Location = new System.Drawing.Point(97, 451);
-            this.CmbTarjeta.Name = "CmbTarjeta";
-            this.CmbTarjeta.Size = new System.Drawing.Size(178, 21);
-            this.CmbTarjeta.TabIndex = 83;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -449,41 +486,6 @@
             this.label1.Size = new System.Drawing.Size(46, 13);
             this.label1.TabIndex = 58;
             this.label1.Text = "Subtotal";
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Location = new System.Drawing.Point(700, 510);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 94;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
-            // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(700, 451);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(69, 20);
-            this.txtTotal.TabIndex = 95;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(639, 484);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 96;
-            this.label3.Text = "Total";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(442, 481);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 97;
-            this.label5.Text = "Total Descuento";
             // 
             // FrmVentaJuguetes
             // 

@@ -14,6 +14,7 @@ namespace SistemaFact
     public partial class FrmVentaJuguetes : FormBase
     {
         Boolean PuedeAgregar = false;
+        Boolean Cargando = true;
         int Indice = 0;
         DataTable tbVenta;
         cFunciones fun;
@@ -157,6 +158,7 @@ namespace SistemaFact
             string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal;Indice;Libreria";
             tbVenta = fun.CrearTabla(Col);
             LlenarComboArticulo();
+            Cargando = false;
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
@@ -170,6 +172,8 @@ namespace SistemaFact
                 PuedeAgregar = true;
                 return;
             }
+
+         
 
             if (txtCodigo.Text == "")
             {
@@ -295,7 +299,8 @@ namespace SistemaFact
         {
             cFunciones fun = new cFunciones();
             cArticulo art = new cArticulo();
-            DataTable trdo = art.GetTodosArticulos();
+           // DataTable trdo = art.GetTodosArticulos();
+            DataTable trdo = art.GetTodosArticulosJuguetes();
             txt_Nombre.DataSource = trdo;
             txt_Nombre.ValueMember = "CodArticulo";
             txt_Nombre.DisplayMember = "Nombre";
@@ -304,12 +309,14 @@ namespace SistemaFact
             {
                 coleccion.Add(r["Nombre"].ToString());
             }
+            /*
             cJuguete jug = new cJuguete();
             DataTable tbJuguete = jug.GetTodosJuguetes();
             foreach (DataRow r in tbJuguete.Rows)
             {
                 coleccion.Add(r["Nombre"].ToString());
             }
+            */
             txt_Nombre.AutoCompleteCustomSource = coleccion;
             txt_Nombre.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             txt_Nombre.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -426,6 +433,116 @@ namespace SistemaFact
                 return;
             }
             Grabar();
+        }
+
+        private void txt_Nombre_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int b = 0;
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+            if (Cargando == false)
+            {
+                if (txt_Nombre.SelectedIndex > 0)
+                {              
+                    Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                    cArticulo art = new Clases.cArticulo();
+                    DataTable trdo = art.GetArticuloxCodArt(CodArt);
+                    if (trdo.Rows.Count > 0)
+                    {
+                        b = 1;
+                        radioLibreria.Checked = true;
+                        radioJugueteria.Checked = false;
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        if (Operacion == 1)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        if (Operacion == 2)
+                        {
+                            txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                            Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                            Precio = Precio - 0.10 * Precio;
+                            txtDescuento.Text = Precio.ToString();
+                        }
+
+                        if (Operacion == 3)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                        if (txtPrecio.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtPrecio.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtPrecio.Text = Precio.ToString();
+                        }
+
+                        if (txtDescuento.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtDescuento.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtDescuento.Text = Precio.ToString();
+                        }
+                        PuedeAgregar = true;
+                        txtCantidad.Focus();
+                    }
+                }
+                if (b ==0)
+                {
+                    //busco juguete
+                    radioLibreria.Checked = false;
+                    radioJugueteria.Checked = true;
+                    Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                    cJuguete jug = new cJuguete();
+                    DataTable trdo = jug.GetArticuloxCodArt(CodArt);
+                    if (trdo.Rows.Count > 0)
+                    {
+                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                        //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                        // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                        if (Operacion == 1)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                        if (Operacion == 2)
+                        {
+                            txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                            Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                            Precio = Precio - 0.10 * Precio;
+                            txtDescuento.Text = Precio.ToString();
+                        }
+
+                        if (Operacion == 3)
+                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                        if (txtPrecio.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtPrecio.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtPrecio.Text = Precio.ToString();
+                        }
+
+                        if (txtDescuento.Text != "")
+                        {
+                            Double Precio = Convert.ToDouble(txtDescuento.Text);
+                            Precio = Math.Round(Precio, 0);
+                            txtDescuento.Text = Precio.ToString();
+                        }
+                        PuedeAgregar = true;
+                        txtCantidad.Focus();
+                    }
+                }
+            }
+        }
+
+        private void btnBuscarArticulo_Click(object sender, EventArgs e)
+        {
+            if (txt_Nombre.SelectedIndex >0)
+            {
+                string xx = txt_Nombre.SelectedValue.ToString();
+            }
+                
         }
     }
 }

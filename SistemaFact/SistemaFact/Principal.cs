@@ -161,6 +161,7 @@ namespace SistemaFact
         {
             Principal.CodigoPrincipalAbm = null;
             FrmVenta frm = new SistemaFact.FrmVenta();
+            frm.MdiParent = this;
             frm.Show();
         }
 
@@ -207,6 +208,12 @@ namespace SistemaFact
         private void printPreviewToolStripButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmMarca form = new SistemaFact.FrmAbmMarca();
+            form.Show();
         }
     }
 }

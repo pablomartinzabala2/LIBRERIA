@@ -110,18 +110,22 @@ namespace SistemaFact.Clases
 
         public Int32  Existe(string Codigo,string CodigoBarra)
         {
+            int b = 0;
             Int32 CodArticulo = 0;
             string sql = "select CodArticulo";
             sql = sql + " from Articulo";
+            if (Codigo !="")
+            {
+                sql = sql + " where Codigo=" + "'" + Codigo + "'";
+                b = 1;
+            }
+
             if (CodigoBarra !="")
             {
-                sql = sql + " where CodigoBarra=" + "'" + CodigoBarra + "'";
+                if (b==0)
+                    sql = sql + " where CodigoBarra=" + "'" + CodigoBarra + "'";
             }
-            else
-            {
-                if (Codigo !="")
-                    sql = sql + " where Codigo=" + "'" + Codigo + "'";
-            }
+           
             DataTable trdo = cDb.GetDatatable(sql);
             if (trdo.Rows.Count > 0)
                 if (trdo.Rows[0]["CodArticulo"].ToString() != "")
@@ -219,6 +223,23 @@ namespace SistemaFact.Clases
             sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
             sql = sql + ",PrecioEfectivo";
             sql = sql + " from articulo a";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
+
+        public DataTable GetTodosArticulosJuguetes()
+        {
+            string sql = "select a.CodArticulo,a.Nombre ";
+            sql = sql + ",Costo,PrecioTarjeta,";
+            sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
+            sql = sql + ",PrecioEfectivo";
+            sql = sql + " from articulo a";
+            sql = sql + " Union ";
+            sql = "select j.CodArticulo,j.Nombre ";
+            sql = sql + ",Costo,PrecioTarjeta,";
+            sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
+            sql = sql + ",PrecioEfectivo";
+            sql = sql + " from Juguete j";
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
         }

@@ -19,7 +19,8 @@ namespace SistemaFact
 
         private void FormBase_Load(object sender, EventArgs e)
         {
-
+            // color de fondo 192; 255; 192
+            // fondo narajna PeachPuff
         }
 
         public void Mensaje(string msj)
