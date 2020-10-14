@@ -437,58 +437,65 @@ namespace SistemaFact
 
         private void txt_Nombre_SelectedIndexChanged(object sender, EventArgs e)
         {
+            Boolean EsJuguete = false;
+            if (radioJugueteria.Checked == true)
+                EsJuguete = true;
             int b = 0;
             int Operacion = 0;
             if (CmbTipoOperacion.SelectedIndex > 0)
                 Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
             if (Cargando == false)
             {
-                if (txt_Nombre.SelectedIndex > 0)
-                {              
-                    Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
-                    cArticulo art = new Clases.cArticulo();
-                    DataTable trdo = art.GetArticuloxCodArt(CodArt);
-                    if (trdo.Rows.Count > 0)
+                if (EsJuguete ==false)
+                {
+                    if (txt_Nombre.SelectedIndex > 0)
                     {
-                        b = 1;
-                        radioLibreria.Checked = true;
-                        radioJugueteria.Checked = false;
-                        txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
-                        //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
-                        txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
-                        // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
-                        txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                        if (Operacion == 1)
-                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
-                        if (Operacion == 2)
+                        Int32 CodArt = Convert.ToInt32(txt_Nombre.SelectedValue);
+                        cArticulo art = new Clases.cArticulo();
+                        DataTable trdo = art.GetArticuloxCodArt(CodArt);
+                        if (trdo.Rows.Count > 0)
                         {
-                            txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
-                            Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
-                            Precio = Precio - 0.10 * Precio;
-                            txtDescuento.Text = Precio.ToString();
-                        }
+                            b = 1;
+                            radioLibreria.Checked = true;
+                            radioJugueteria.Checked = false;
+                            txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                            //txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                            txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                            // txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
+                            txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+                            if (Operacion == 1)
+                                txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                            if (Operacion == 2)
+                            {
+                                txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                                Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                                Precio = Precio - 0.10 * Precio;
+                                txtDescuento.Text = Precio.ToString();
+                            }
 
-                        if (Operacion == 3)
-                            txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                            if (Operacion == 3)
+                                txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
 
-                        if (txtPrecio.Text != "")
-                        {
-                            Double Precio = Convert.ToDouble(txtPrecio.Text);
-                            Precio = Math.Round(Precio, 0);
-                            txtPrecio.Text = Precio.ToString();
-                        }
+                            if (txtPrecio.Text != "")
+                            {
+                                Double Precio = Convert.ToDouble(txtPrecio.Text);
+                                Precio = Math.Round(Precio, 0);
+                                txtPrecio.Text = Precio.ToString();
+                            }
 
-                        if (txtDescuento.Text != "")
-                        {
-                            Double Precio = Convert.ToDouble(txtDescuento.Text);
-                            Precio = Math.Round(Precio, 0);
-                            txtDescuento.Text = Precio.ToString();
+                            if (txtDescuento.Text != "")
+                            {
+                                Double Precio = Convert.ToDouble(txtDescuento.Text);
+                                Precio = Math.Round(Precio, 0);
+                                txtDescuento.Text = Precio.ToString();
+                            }
+                            PuedeAgregar = true;
+                            txtCantidad.Focus();
                         }
-                        PuedeAgregar = true;
-                        txtCantidad.Focus();
                     }
                 }
-                if (b ==0)
+                
+                if (EsJuguete==true)
                 {
                     //busco juguete
                     radioLibreria.Checked = false;
