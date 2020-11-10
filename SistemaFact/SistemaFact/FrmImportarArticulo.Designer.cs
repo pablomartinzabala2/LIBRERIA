@@ -51,6 +51,7 @@
             this.txtProceso.Name = "txtProceso";
             this.txtProceso.Size = new System.Drawing.Size(100, 26);
             this.txtProceso.TabIndex = 1;
+            this.txtProceso.TextChanged += new System.EventHandler(this.txtProceso_TextChanged);
             // 
             // btnAbrirImagen
             // 
@@ -68,6 +69,7 @@
             this.txt_Ruta.Name = "txt_Ruta";
             this.txt_Ruta.Size = new System.Drawing.Size(181, 26);
             this.txt_Ruta.TabIndex = 16;
+            this.txt_Ruta.TextChanged += new System.EventHandler(this.txt_Ruta_TextChanged);
             // 
             // FrmImportarArticulo
             // 

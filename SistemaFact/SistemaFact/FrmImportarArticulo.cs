@@ -201,5 +201,15 @@ namespace SistemaFact
                 System.Windows.Forms.MessageBox.Show("Error " + e.Message);
             }
         }
+
+        private void txtProceso_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_Ruta_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
