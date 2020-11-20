@@ -354,6 +354,7 @@
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
+            this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
             // 
             // label6
             // 

@@ -551,5 +551,78 @@ namespace SistemaFact
             }
                 
         }
+
+        private void txt_Codigo_TextChanged(object sender, EventArgs e)
+        {
+            string Codigo = txt_Codigo.Text;
+            if (Codigo.Length >3)
+            {
+                if (radioJugueteria.Checked ==true)
+                    BuscarJuguetexCodigo(Codigo);
+            }
+        }
+
+        private void BuscarJuguetexCodigo(string Codigo)
+        {
+            int b = 0;
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+            cJuguete jug = new cJuguete();
+            DataTable trdo = jug.GetJuguetexCodigo(Codigo);
+            if (trdo.Rows.Count >0)
+            {
+                b = 1;
+                txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                txt_Nombre.SelectedValue = trdo.Rows[0]["CodArticulo"].ToString();
+                txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+
+                if (Operacion == 1)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                if (Operacion == 2)
+                {
+                    txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                    Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                    Precio = Precio - 0.10 * Precio;
+                    txtDescuento.Text = Precio.ToString();
+                }
+
+                if (Operacion == 3)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                if (txtPrecio.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtPrecio.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtPrecio.Text = Precio.ToString();
+                }
+
+                if (txtDescuento.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtDescuento.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtDescuento.Text = Precio.ToString();
+                }
+
+                if (b == 1)
+                {
+                    PuedeAgregar = false;
+                    txtCantidad.Focus();
+                }
+            }
+            else
+            {
+                txtCodigo.Text = "";
+                if (txt_Nombre.Items.Count > 0)
+                    txt_Nombre.SelectedIndex = 0;
+                txt_CodigoBarra.Text = "";
+                txt_Nombre.Text = "";
+                txt_Stock.Text = "";
+                txtDescuento.Text = "";
+                txtPrecio.Text = "";
+            }
+        }
     }
 }

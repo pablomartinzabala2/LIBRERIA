@@ -11,9 +11,10 @@ namespace SistemaFact.Clases
         public static string GetConexion()
         {
             //casa
-          //  string cadena = "Data Source=DESKTOP-QKECIIE;Initial Catalog=LIBRERIA;Integrated Security=True";
+            // string cadena = "Data Source=DESKTOP-BI5616B\\SQLEXPRESS;Initial Catalog=LIBRERIA;Integrated Security=True";
+            string cadena = SistemaFact.Properties.Settings.Default.LIBRERIAConnectionString;
             //NTBK\SQLEXPRESS
-            string cadena = "Data Source=NTBK\\SQLEXPRESS;Initial Catalog=LIBRERIA;Integrated Security=True";
+            //  string cadena = "Data Source=NTBK\\SQLEXPRESS;Initial Catalog=LIBRERIA;Integrated Security=True";
             return cadena;
         }
     }

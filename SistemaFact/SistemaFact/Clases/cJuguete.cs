@@ -94,5 +94,13 @@ namespace SistemaFact.Clases
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
         }
+
+        public DataTable GetJuguetexCodigo(string  Codigo)
+        {
+            string sql = "select * from Juguete where Codigo=" + "'" + Codigo.ToString() + "'";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
+
     }
 }
