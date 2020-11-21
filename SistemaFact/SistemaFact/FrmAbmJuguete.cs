@@ -73,9 +73,8 @@ namespace SistemaFact
             cmb_CodMarca.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cmb_CodMarca.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cmb_CodMarca.SelectedIndex = -1;
+            CargarPorcentajes();
         }
-
-       
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -83,8 +82,8 @@ namespace SistemaFact
             Grupo.Enabled = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LimpiarGenerico(this);
-            txtPorEfectivo.Text = "70";
-            txtPorTarjeta.Text = "100";
+           // txtPorEfectivo.Text = "70";
+          //  txtPorTarjeta.Text = "100";
             txt_Nombre.Focus();
         }
 
@@ -379,6 +378,54 @@ namespace SistemaFact
                 MessageBox.Show("No se puede eliminar el producto, debe tener asociado ventas");
                 return;
             }
+        }
+
+        public void CargarPorcentajes()
+        {
+            cPorcentaje obj = new Clases.cPorcentaje();
+            DataTable trdo = obj.GetPorcentaje();
+            if (trdo.Rows.Count >0)
+            {    
+                txtPorEfectivo.Text = trdo.Rows[0]["PorEfeJuguete"].ToString();
+                if (txtPorEfectivo.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
+                    txtPorEfectivo.Text = Math.Round(Efectivo, 0).ToString();
+                }
+                txtPorTarjeta.Text = trdo.Rows[0]["PorTarJuguete"].ToString();
+                if (txtPorTarjeta.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
+                    txtPorTarjeta.Text = Math.Round(Efectivo, 0).ToString();
+                }
+            }
+        }
+
+        private void btnGrabarPorEfectivo_Click(object sender, EventArgs e)
+        {
+            if (txtPorEfectivo.Text =="")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }
+            Double Por = Convert.ToDouble(txtPorEfectivo.Text);
+            cPorcentaje obj = new cPorcentaje();
+            obj.PorEfeJuguete(Por);
+            Mensaje("Porcentaje actualizado");
+
+        }
+
+        private void btnGrabarPorTarjeta_Click(object sender, EventArgs e)
+        {    
+            if (txtPorTarjeta.Text == "")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }
+            Double Por = Convert.ToDouble(txtPorTarjeta.Text);
+            cPorcentaje obj = new cPorcentaje();
+            obj.PorTarJuguete(Por);
+            Mensaje("Porcentaje actualizado");
         }
     }
 }

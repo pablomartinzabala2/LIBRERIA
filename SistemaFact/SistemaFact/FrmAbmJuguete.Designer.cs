@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmJuguete));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnGrabarPorEfectivo = new System.Windows.Forms.Button();
             this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.cmb_CodMarca = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +72,8 @@
             // Grupo
             // 
             this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.Grupo.Controls.Add(this.btnGrabarPorTarjeta);
+            this.Grupo.Controls.Add(this.btnGrabarPorEfectivo);
             this.Grupo.Controls.Add(this.btnNuevaMarca);
             this.Grupo.Controls.Add(this.cmb_CodMarca);
             this.Grupo.Controls.Add(this.label10);
@@ -101,6 +105,16 @@
             this.Grupo.TabIndex = 19;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
+            // 
+            // btnGrabarPorEfectivo
+            // 
+            this.btnGrabarPorEfectivo.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(430, 170);
+            this.btnGrabarPorEfectivo.Name = "btnGrabarPorEfectivo";
+            this.btnGrabarPorEfectivo.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorEfectivo.TabIndex = 57;
+            this.btnGrabarPorEfectivo.UseVisualStyleBackColor = true;
+            this.btnGrabarPorEfectivo.Click += new System.EventHandler(this.btnGrabarPorEfectivo_Click);
             // 
             // btnNuevaMarca
             // 
@@ -414,6 +428,16 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnGrabarPorTarjeta
+            // 
+            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(430, 205);
+            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
+            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorTarjeta.TabIndex = 58;
+            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
+            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
+            // 
             // FrmAbmJuguete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,5 +493,7 @@
         private System.Windows.Forms.ComboBox cmb_CodMarca;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnNuevaMarca;
+        private System.Windows.Forms.Button btnGrabarPorEfectivo;
+        private System.Windows.Forms.Button btnGrabarPorTarjeta;
     }
 }

@@ -86,6 +86,7 @@
     <Compile Include="Clases\cImpresora.cs" />
     <Compile Include="Clases\cJuguete.cs" />
     <Compile Include="Clases\cMarca.cs" />
+    <Compile Include="Clases\cPorcentaje.cs" />
     <Compile Include="Clases\cPresupuesto.cs" />
     <Compile Include="Clases\cRuta.cs" />
     <Compile Include="Clases\cTipoOperacion.cs" />
@@ -457,6 +458,7 @@
     <None Include="Iconos\filenew.ico" />
     <Content Include="Iconos\Logo.jpg" />
     <Content Include="Iconos\Logo2.jpg" />
+    <Content Include="Iconos\ok.ico" />
     <Content Include="Iconos\zoom.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />
     <Content Include="Iconos\Folder.ico" />
