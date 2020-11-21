@@ -60,6 +60,8 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
+            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
+            this.btnGrabarPorEfectivo = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +69,8 @@
             // Grupo
             // 
             this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.Grupo.Controls.Add(this.btnGrabarPorTarjeta);
+            this.Grupo.Controls.Add(this.btnGrabarPorEfectivo);
             this.Grupo.Controls.Add(this.btnAplicarEfectivo);
             this.Grupo.Controls.Add(this.btnAplicarTarjeta);
             this.Grupo.Controls.Add(this.txtPorTarjeta);
@@ -382,6 +386,26 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // btnGrabarPorTarjeta
+            // 
+            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(430, 203);
+            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
+            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorTarjeta.TabIndex = 60;
+            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
+            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
+            // 
+            // btnGrabarPorEfectivo
+            // 
+            this.btnGrabarPorEfectivo.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(430, 168);
+            this.btnGrabarPorEfectivo.Name = "btnGrabarPorEfectivo";
+            this.btnGrabarPorEfectivo.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorEfectivo.TabIndex = 59;
+            this.btnGrabarPorEfectivo.UseVisualStyleBackColor = true;
+            this.btnGrabarPorEfectivo.Click += new System.EventHandler(this.btnGrabarPorEfectivo_Click);
+            // 
             // FrmAbmArticulocs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -434,5 +458,7 @@
         private System.Windows.Forms.TextBox txtPorEfectivo;
         private System.Windows.Forms.Button btnAplicarEfectivo;
         private System.Windows.Forms.Button btnAplicarTarjeta;
+        private System.Windows.Forms.Button btnGrabarPorTarjeta;
+        private System.Windows.Forms.Button btnGrabarPorEfectivo;
     }
 }

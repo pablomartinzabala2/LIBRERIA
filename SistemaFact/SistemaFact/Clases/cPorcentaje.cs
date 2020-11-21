@@ -26,5 +26,17 @@ namespace SistemaFact.Clases
             string sql = " Update Porcentaje set PorTarJuguete=" + Por.ToString().Replace(",", ".");
             cDb.Grabar(sql);
         }
+
+        public void PorEfeLibreria(Double Por)
+        {
+            string sql = " Update Porcentaje set PorEfeLibreria=" + Por.ToString().Replace(",", ".");
+            cDb.Grabar(sql);
+        }
+
+        public void PorTarLibreria(Double Por)
+        {
+            string sql = " Update Porcentaje set PorTarLibreria=" + Por.ToString().Replace(",", ".");
+            cDb.Grabar(sql);
+        }
     }
 }

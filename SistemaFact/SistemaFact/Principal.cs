@@ -215,5 +215,11 @@ namespace SistemaFact
             FrmAbmMarca form = new SistemaFact.FrmAbmMarca();
             form.Show();
         }
+
+        private void btnJuguete_Click(object sender, EventArgs e)
+        {
+            FrmAbmJuguete frm = new SistemaFact.FrmAbmJuguete();
+            frm.Show();
+        }
     }
 }

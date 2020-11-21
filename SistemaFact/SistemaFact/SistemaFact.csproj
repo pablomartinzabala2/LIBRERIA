@@ -459,6 +459,7 @@
     <Content Include="Iconos\Logo.jpg" />
     <Content Include="Iconos\Logo2.jpg" />
     <Content Include="Iconos\ok.ico" />
+    <Content Include="Iconos\toolbox.ico" />
     <Content Include="Iconos\zoom.ico" />
     <None Include="Iconos\CodigoBarra.jpg" />
     <Content Include="Iconos\Folder.ico" />

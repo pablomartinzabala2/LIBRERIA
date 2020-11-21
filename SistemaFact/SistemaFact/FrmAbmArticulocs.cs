@@ -24,8 +24,29 @@ namespace SistemaFact
             Botonera(1);
             Grupo.Enabled = false;
             cFunciones fun = new cFunciones();
-            
+            CargarPorcentajes();
             //txtM_Fecha.Text = DateTime.Now.ToShortDateString();
+        }
+
+        public void CargarPorcentajes()
+        {
+            cPorcentaje obj = new Clases.cPorcentaje();
+            DataTable trdo = obj.GetPorcentaje();
+            if (trdo.Rows.Count > 0)
+            {
+                txtPorEfectivo.Text = trdo.Rows[0]["PorEfeLibreria"].ToString();
+                if (txtPorEfectivo.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
+                    txtPorEfectivo.Text = Math.Round(Efectivo, 0).ToString();
+                }
+                txtPorTarjeta.Text = trdo.Rows[0]["PorTarLibreria"].ToString();
+                if (txtPorTarjeta.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
+                    txtPorTarjeta.Text = Math.Round(Efectivo, 0).ToString();
+                }
+            }
         }
 
         private void Botonera(int Jugada)
@@ -66,8 +87,6 @@ namespace SistemaFact
             Grupo.Enabled = true;
             Clases.cFunciones fun = new Clases.cFunciones();
             fun.LimpiarGenerico(this);
-            txtPorEfectivo.Text = "70";
-            txtPorTarjeta.Text = "100";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -450,6 +469,32 @@ namespace SistemaFact
         {
             if (e.KeyChar == 13)
                 calculartarjeta();
+        }
+
+        private void btnGrabarPorEfectivo_Click(object sender, EventArgs e)
+        {
+            if (txtPorEfectivo.Text == "")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }
+            Double Por = Convert.ToDouble(txtPorEfectivo.Text);
+            cPorcentaje obj = new cPorcentaje();
+            obj.PorEfeLibreria(Por);
+            Mensaje("Porcentaje actualizado");
+        }
+
+        private void btnGrabarPorTarjeta_Click(object sender, EventArgs e)
+        {
+            if (txtPorTarjeta.Text == "")
+            {
+                Mensaje("Debe ingresar un porcentaje");
+                return;
+            }
+            Double Por = Convert.ToDouble(txtPorTarjeta.Text);
+            cPorcentaje obj = new cPorcentaje();
+            obj.PorTarLibreria(Por);
+            Mensaje("Porcentaje actualizado");
         }
     }
 }
