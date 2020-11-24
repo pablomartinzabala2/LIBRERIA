@@ -80,30 +80,34 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.251F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(442, 481);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.Size = new System.Drawing.Size(96, 15);
             this.label5.TabIndex = 97;
             this.label5.Text = "Total Descuento";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(639, 484);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
+            this.label3.Size = new System.Drawing.Size(40, 17);
             this.label3.TabIndex = 96;
             this.label3.Text = "Total";
             // 
             // txtTotal
             // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(700, 451);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(69, 20);
+            this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 95;
             // 
             // btnGrabar
             // 
+            this.btnGrabar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrabar.Location = new System.Drawing.Point(700, 510);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
@@ -327,6 +331,7 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
+            this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
             this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label4
@@ -417,74 +422,85 @@
             // 
             // txtTotalDescuento
             // 
+            this.txtTotalDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalDescuento.Location = new System.Drawing.Point(540, 484);
             this.txtTotalDescuento.Name = "txtTotalDescuento";
-            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtTotalDescuento.Size = new System.Drawing.Size(69, 23);
             this.txtTotalDescuento.TabIndex = 90;
+            this.txtTotalDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTotalDescuento_KeyPress);
             // 
             // CmbTarjeta
             // 
             this.CmbTarjeta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CmbTarjeta.FormattingEnabled = true;
             this.CmbTarjeta.Location = new System.Drawing.Point(97, 451);
             this.CmbTarjeta.Name = "CmbTarjeta";
-            this.CmbTarjeta.Size = new System.Drawing.Size(178, 21);
+            this.CmbTarjeta.Size = new System.Drawing.Size(178, 24);
             this.CmbTarjeta.TabIndex = 83;
             // 
             // txtTotalConDescuento
             // 
+            this.txtTotalConDescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalConDescuento.Location = new System.Drawing.Point(700, 484);
             this.txtTotalConDescuento.Name = "txtTotalConDescuento";
-            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtTotalConDescuento.Size = new System.Drawing.Size(69, 23);
             this.txtTotalConDescuento.TabIndex = 94;
             // 
             // lblTarjeta
             // 
             this.lblTarjeta.AutoSize = true;
+            this.lblTarjeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTarjeta.Location = new System.Drawing.Point(38, 451);
             this.lblTarjeta.Name = "lblTarjeta";
-            this.lblTarjeta.Size = new System.Drawing.Size(40, 13);
+            this.lblTarjeta.Size = new System.Drawing.Size(53, 17);
             this.lblTarjeta.TabIndex = 84;
             this.lblTarjeta.Text = "Tarjeta";
             // 
             // lblCupon
             // 
             this.lblCupon.AutoSize = true;
-            this.lblCupon.Location = new System.Drawing.Point(288, 451);
+            this.lblCupon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCupon.Location = new System.Drawing.Point(43, 479);
             this.lblCupon.Name = "lblCupon";
-            this.lblCupon.Size = new System.Drawing.Size(38, 13);
+            this.lblCupon.Size = new System.Drawing.Size(49, 17);
             this.lblCupon.TabIndex = 85;
             this.lblCupon.Text = "Cupon";
             // 
             // txtCupon
             // 
-            this.txtCupon.Location = new System.Drawing.Point(332, 448);
+            this.txtCupon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCupon.Location = new System.Drawing.Point(97, 484);
             this.txtCupon.Name = "txtCupon";
-            this.txtCupon.Size = new System.Drawing.Size(120, 20);
+            this.txtCupon.Size = new System.Drawing.Size(178, 23);
             this.txtCupon.TabIndex = 86;
             // 
             // txtPordescuento
             // 
+            this.txtPordescuento.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPordescuento.Location = new System.Drawing.Point(540, 451);
             this.txtPordescuento.Name = "txtPordescuento";
-            this.txtPordescuento.Size = new System.Drawing.Size(69, 20);
+            this.txtPordescuento.Size = new System.Drawing.Size(69, 23);
             this.txtPordescuento.TabIndex = 93;
+            this.txtPordescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPordescuento_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(458, 451);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(70, 13);
+            this.label11.Size = new System.Drawing.Size(92, 17);
             this.label11.TabIndex = 91;
             this.label11.Text = "% Descuento";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(638, 451);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.Size = new System.Drawing.Size(60, 17);
             this.label1.TabIndex = 58;
             this.label1.Text = "Subtotal";
             // 

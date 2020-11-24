@@ -243,5 +243,12 @@ namespace SistemaFact.Clases
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
         }
+
+        public DataTable GetArticuloxCodigo(string Codigo)
+        {
+            string sql = "select * from Articulo where Codigo=" + "'" + Codigo.ToString() + "'";
+            DataTable trdo = cDb.GetDatatable(sql);
+            return trdo;
+        }
     }
 }

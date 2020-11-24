@@ -162,7 +162,7 @@ namespace SistemaFact
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {
+{
             if (PuedeAgregar == false)
             {
                 if (txtCodigo.Text != "")
@@ -557,8 +557,10 @@ namespace SistemaFact
             string Codigo = txt_Codigo.Text;
             if (Codigo.Length >3)
             {
-                if (radioJugueteria.Checked ==true)
+                if (radioJugueteria.Checked == true)
                     BuscarJuguetexCodigo(Codigo);
+                else
+                    BuscarLibreriaxCodigo(Codigo);
             }
         }
 
@@ -608,20 +610,140 @@ namespace SistemaFact
 
                 if (b == 1)
                 {
-                    PuedeAgregar = false;
+                    PuedeAgregar = true;
                     txtCantidad.Focus();
                 }
             }
             else
             {
                 txtCodigo.Text = "";
-                if (txt_Nombre.Items.Count > 0)
-                    txt_Nombre.SelectedIndex = 0;
+             //   if (txt_Nombre.Items.Count > 0)
+             //       txt_Nombre.SelectedIndex = 0;
                 txt_CodigoBarra.Text = "";
                 txt_Nombre.Text = "";
                 txt_Stock.Text = "";
                 txtDescuento.Text = "";
                 txtPrecio.Text = "";
+                //txtCantidad.Text = "";
+            }
+        }
+
+        private void txtCantidad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BuscarLibreriaxCodigo(string Codigo)
+        {
+            int b = 0;
+            int Operacion = 0;
+            if (CmbTipoOperacion.SelectedIndex > 0)
+                Operacion = Convert.ToInt32(CmbTipoOperacion.SelectedValue);
+            cArticulo art = new Clases.cArticulo();
+            DataTable trdo = art.GetArticuloxCodigo(Codigo);
+            if (trdo.Rows.Count > 0)
+            {
+                b = 1;
+                txtCodigo.Text = trdo.Rows[0]["CodArticulo"].ToString();
+                txt_Nombre.SelectedValue = trdo.Rows[0]["CodArticulo"].ToString();
+                txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
+                txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
+                txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
+
+                if (Operacion == 1)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+                if (Operacion == 2)
+                {
+                    txtPrecio.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                    Double Precio = Convert.ToDouble(trdo.Rows[0]["PrecioTarjeta"].ToString());
+                    Precio = Precio - 0.10 * Precio;
+                    txtDescuento.Text = Precio.ToString();
+                }
+
+                if (Operacion == 3)
+                    txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
+
+                if (txtPrecio.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtPrecio.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtPrecio.Text = Precio.ToString();
+                }
+
+                if (txtDescuento.Text != "")
+                {
+                    Double Precio = Convert.ToDouble(txtDescuento.Text);
+                    Precio = Math.Round(Precio, 0);
+                    txtDescuento.Text = Precio.ToString();
+                }
+
+                if (b == 1)
+                {
+                    PuedeAgregar = true;
+                    txtCantidad.Focus();
+                }
+            }
+            else
+            {
+                txtCodigo.Text = "";
+                //   if (txt_Nombre.Items.Count > 0)
+                //       txt_Nombre.SelectedIndex = 0;
+                txt_CodigoBarra.Text = "";
+                txt_Nombre.Text = "";
+                txt_Stock.Text = "";
+                txtDescuento.Text = "";
+                txtPrecio.Text = "";
+                //txtCantidad.Text = "";
+            }
+        }
+
+        private void txtPordescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (tbVenta.Rows.Count < 1)
+                {
+                    Mensaje("Debe ingresar artículos");
+                    return;
+                }
+                if (txtPordescuento.Text == "")
+                {
+                    Mensaje("Debe ingresar un porcentaje de descueneto para continuar");
+                    return;
+                }
+                Double Total = Convert.ToDouble(txtTotal.Text);
+                Double Por = Convert.ToDouble(txtPordescuento.Text);
+                Double Des = Total * Por / 100;
+                Des = Math.Round(Des, 0);
+                txtTotalDescuento.Text = Des.ToString();
+                Double TotalConDescuento = Total - Des;
+                txtTotalConDescuento.Text = TotalConDescuento.ToString();
+            }
+        }
+
+        private void txtTotalDescuento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                if (tbVenta.Rows.Count < 1)
+                {
+                    Mensaje("Debe ingresar artículos");
+                    return;
+                }
+                if (txtTotalDescuento.Text == "")
+                {
+                    Mensaje("Debe ingresar descueneto para continuar");
+                    return;
+                }
+                Double Total = Convert.ToDouble(txtTotal.Text);
+                Double Por = 0;
+                Double Des = Convert.ToDouble(txtTotalDescuento.Text);
+                Des = Math.Round(Des, 0);
+                Por = Des * 100 / Total;
+                Por = Math.Round(Por, 0);
+                txtPordescuento.Text = Por.ToString();
+                Double TotalConDescuento = Total - Des;
+                txtTotalConDescuento.Text = TotalConDescuento.ToString();
             }
         }
     }
