@@ -115,7 +115,10 @@ namespace SistemaFact
 
         private void FrmListadoArticulo_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == Convert.ToChar(Keys.Subtract))
+            {
 
+            }
         }
 
         private void FrmListadoArticulo_KeyDown(object sender, KeyEventArgs e)

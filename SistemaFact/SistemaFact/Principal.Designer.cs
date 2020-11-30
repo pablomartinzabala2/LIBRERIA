@@ -47,6 +47,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.btnJuguete = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,7 +58,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnJuguete = new System.Windows.Forms.ToolStripButton();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -219,6 +219,16 @@
             this.newToolStripButton.Text = "Artículos";
             this.newToolStripButton.Click += new System.EventHandler(this.ShowNewForm);
             // 
+            // btnJuguete
+            // 
+            this.btnJuguete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnJuguete.Image")));
+            this.btnJuguete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnJuguete.Name = "btnJuguete";
+            this.btnJuguete.Size = new System.Drawing.Size(36, 36);
+            this.btnJuguete.Text = "Juguetes";
+            this.btnJuguete.Click += new System.EventHandler(this.btnJuguete_Click);
+            // 
             // openToolStripButton
             // 
             this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -293,16 +303,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // btnJuguete
-            // 
-            this.btnJuguete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnJuguete.Image")));
-            this.btnJuguete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnJuguete.Name = "btnJuguete";
-            this.btnJuguete.Size = new System.Drawing.Size(36, 36);
-            this.btnJuguete.Text = "toolStripButton1";
-            this.btnJuguete.Click += new System.EventHandler(this.btnJuguete_Click);
             // 
             // Principal
             // 
