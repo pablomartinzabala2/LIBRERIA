@@ -20,7 +20,7 @@ namespace SistemaFact
             //   Application.Run(new FrmActualizarPrecioJuguete());
             //         Application.Run(new FrmCompra());
             Application.Run(new Principal ());
-            //  Application.Run(new FrmVerReporte());
+           //   Application.Run(new FrmActualizarPrecioJuguete());
 
         }
     }

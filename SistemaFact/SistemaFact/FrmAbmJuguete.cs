@@ -115,8 +115,8 @@ namespace SistemaFact
             }
 
             Mensaje("Datos grabados correctamente");
-            txtPorEfectivo.Text = "";
-            txtPorTarjeta.Text = "";
+           // txtPorEfectivo.Text = "";
+         //   txtPorTarjeta.Text = "";
             Botonera(1);
             fun.LimpiarGenerico(this);
 
@@ -292,7 +292,12 @@ namespace SistemaFact
         private void txt_Costo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
                 txt_PrecioEfectivo.Focus();
+                CalcularEfectivo();
+                calculartarjeta();
+            }
+               
         }
 
         private void txt_PrecioEfectivo_KeyPress(object sender, KeyPressEventArgs e)

@@ -150,8 +150,8 @@ namespace SistemaFact
             }
                 
             Mensaje("Datos grabados correctamente");
-            txtPorEfectivo.Text = "";
-            txtPorTarjeta.Text = "";
+         //   txtPorEfectivo.Text = "";
+         //   txtPorTarjeta.Text = "";
             Botonera(1);
             fun.LimpiarGenerico(this);
             

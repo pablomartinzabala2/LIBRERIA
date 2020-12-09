@@ -28,20 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Lista = new System.Windows.Forms.CheckedListBox();
             this.btnTodos = new System.Windows.Forms.Button();
             this.btnNinguno = new System.Windows.Forms.Button();
             this.btnAplicar = new System.Windows.Forms.Button();
+            this.Lista = new System.Windows.Forms.CheckedListBox();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // Lista
-            // 
-            this.Lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lista.FormattingEnabled = true;
-            this.Lista.Location = new System.Drawing.Point(12, 41);
-            this.Lista.Name = "Lista";
-            this.Lista.Size = new System.Drawing.Size(253, 238);
-            this.Lista.TabIndex = 0;
             // 
             // btnTodos
             // 
@@ -68,7 +60,7 @@
             // btnAplicar
             // 
             this.btnAplicar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAplicar.Location = new System.Drawing.Point(271, 41);
+            this.btnAplicar.Location = new System.Drawing.Point(271, 78);
             this.btnAplicar.Name = "btnAplicar";
             this.btnAplicar.Size = new System.Drawing.Size(95, 23);
             this.btnAplicar.TabIndex = 3;
@@ -76,11 +68,29 @@
             this.btnAplicar.UseVisualStyleBackColor = true;
             this.btnAplicar.Click += new System.EventHandler(this.btnAplicar_Click);
             // 
+            // Lista
+            // 
+            this.Lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lista.FormattingEnabled = true;
+            this.Lista.Location = new System.Drawing.Point(12, 41);
+            this.Lista.Name = "Lista";
+            this.Lista.Size = new System.Drawing.Size(253, 238);
+            this.Lista.TabIndex = 0;
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.Location = new System.Drawing.Point(271, 52);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.Size = new System.Drawing.Size(100, 20);
+            this.txtPorcentaje.TabIndex = 4;
+            this.txtPorcentaje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorcentaje_KeyPress);
+            // 
             // FrmActualizarPrecioJuguete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 328);
+            this.Controls.Add(this.txtPorcentaje);
             this.Controls.Add(this.btnAplicar);
             this.Controls.Add(this.btnNinguno);
             this.Controls.Add(this.btnTodos);
@@ -89,14 +99,15 @@
             this.Text = "FrmActualizarPrecioJuguete";
             this.Load += new System.EventHandler(this.FrmActualizarPrecioJuguete_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckedListBox Lista;
         private System.Windows.Forms.Button btnTodos;
         private System.Windows.Forms.Button btnNinguno;
         private System.Windows.Forms.Button btnAplicar;
+        private System.Windows.Forms.CheckedListBox Lista;
+        private System.Windows.Forms.TextBox txtPorcentaje;
     }
 }
