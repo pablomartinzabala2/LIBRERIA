@@ -58,6 +58,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.actualizarPreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -83,7 +84,8 @@
             this.openToolStripMenuItem,
             this.jugueteToolStripMenuItem,
             this.tarjetasToolStripMenuItem,
-            this.marcasToolStripMenuItem});
+            this.marcasToolStripMenuItem,
+            this.actualizarPreciosToolStripMenuItem});
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.fileMenu.Name = "fileMenu";
             this.fileMenu.Size = new System.Drawing.Size(60, 20);
@@ -304,6 +306,13 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // actualizarPreciosToolStripMenuItem
+            // 
+            this.actualizarPreciosToolStripMenuItem.Name = "actualizarPreciosToolStripMenuItem";
+            this.actualizarPreciosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.actualizarPreciosToolStripMenuItem.Text = "Actualizar Precios";
+            this.actualizarPreciosToolStripMenuItem.Click += new System.EventHandler(this.actualizarPreciosToolStripMenuItem_Click);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -359,6 +368,7 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem marcasToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton btnJuguete;
+        private System.Windows.Forms.ToolStripMenuItem actualizarPreciosToolStripMenuItem;
     }
 }
 

@@ -102,5 +102,13 @@ namespace SistemaFact.Clases
             return trdo;
         }
 
+        public void ActualizarPrecioxMarca(Int32 CodMarca,int Por)
+        {   //PrecioTarjeta
+            string sql = "update Juguete set PrecioEfectivo= PrecioEfectivo + " + Por + " * PrecioEfectivo /100";
+            sql = sql + " , PrecioTarjeta= PrecioTarjeta + " + Por + " * PrecioTarjeta /100"; 
+            sql = sql + " where CodMarca=" + CodMarca.ToString();
+            cDb.Grabar(sql);
+        }
+
     }
 }

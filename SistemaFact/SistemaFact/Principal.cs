@@ -43,7 +43,6 @@ namespace SistemaFact
         {
             FrmAbmArticulocs childForm = new FrmAbmArticulocs();
             childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
             childForm.Show();
         }
 
@@ -219,6 +218,13 @@ namespace SistemaFact
         private void btnJuguete_Click(object sender, EventArgs e)
         {
             FrmAbmJuguete frm = new SistemaFact.FrmAbmJuguete();
+            frm.Show();
+        }
+
+        private void actualizarPreciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //FrmActualizarPrecioJuguete
+            FrmActualizarPrecioJuguete frm = new SistemaFact.FrmActualizarPrecioJuguete();
             frm.Show();
         }
     }
