@@ -12,6 +12,7 @@ namespace SistemaFact
 {
     public partial class Principal : Form
     {
+        public static Int32? CodigodePresupuesto;
         public static int CantidadArticulo;
         private int childFormNumber = 0;
         //nombre del campo id
@@ -225,6 +226,12 @@ namespace SistemaFact
         {
             //FrmActualizarPrecioJuguete
             FrmActualizarPrecioJuguete frm = new SistemaFact.FrmActualizarPrecioJuguete();
+            frm.Show();
+        }
+
+        private void consultarPresupuestoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmListadoPresupuesto frm = new FrmListadoPresupuesto();
             frm.Show();
         }
     }

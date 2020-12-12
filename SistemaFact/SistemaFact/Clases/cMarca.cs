@@ -10,7 +10,7 @@ namespace SistemaFact.Clases
     {
         public DataTable GetAll()
         {
-            string sql = "select * from Marca";
+            string sql = "select * from Marca order by Nombre";
             return cDb.GetDatatable(sql);
         }
     }
