@@ -159,6 +159,7 @@ namespace SistemaFact
 
         private void registrarToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            Principal.CodigodePresupuesto = null;
             Principal.CodigoPrincipalAbm = null;
             FrmVenta frm = new SistemaFact.FrmVenta();
             frm.MdiParent = this;

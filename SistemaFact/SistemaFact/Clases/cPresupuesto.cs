@@ -61,6 +61,17 @@ namespace SistemaFact.Clases
             sql = sql + " from Presupuesto p"; 
             sql = sql + " where p.Fecha>=" + "'" + FechaDesde.ToShortDateString() + "'";
             sql = sql + " and p.Fecha <=" + "'" + FechaHasta.ToShortDateString() + "'";
+            sql = sql + " order by p.CodPresupuesto Desc";
+            return cDb.GetDatatable(sql);
+        }
+
+        public DataTable GetPresupuestoxCod(Int32 CodPresupuesto)
+        {
+            string sql = " select * ";
+            sql = sql + " from Presupuesto p,DetallePresupuesto d,Articulo a";
+            sql = sql + " where p.CodPresupuesto = d.CodPresupuesto";
+            sql = sql + " and d.CodArticulo=a.CodArticulo";
+            sql = sql + " and p.CodPresupuesto =" + CodPresupuesto.ToString();
             return cDb.GetDatatable(sql);
         }
     }

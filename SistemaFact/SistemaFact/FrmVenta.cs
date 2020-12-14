@@ -40,6 +40,11 @@ namespace SistemaFact
                     Int32 CodVenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
                     BuscarVenta(CodVenta);
                 }
+            if (Principal.CodigodePresupuesto!=null)
+            {
+                Int32 CodPresupuesto = Convert.ToInt32(Principal.CodigodePresupuesto);
+                BuscarPresupuesto(CodPresupuesto);
+            }
             Cargando = false;
         }
 
@@ -1186,6 +1191,54 @@ namespace SistemaFact
                         txtCantidad.Focus();
                     }
                 }
+            }
+        }
+
+        private void BuscarPresupuesto(Int32 CodPresupuesto)
+        {   //string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
+            cPresupuesto prep = new cPresupuesto();
+            DataTable trdo = prep.GetPresupuestoxCod(CodPresupuesto);
+            string CodArticulo = "";
+            string Nombre = "";
+            string Precio = "";
+            string Cantidad = "";
+            string Subtotal = "";
+            string Val = "";
+            if (trdo.Rows.Count > 0)
+            {/*
+                if (trdo.Rows[0]["CodTarjeta"].ToString() != "")
+                {
+                    CmbTarjeta.SelectedValue = trdo.Rows[0]["CodTarjeta"].ToString();
+                    txtCupon.Text = trdo.Rows[0]["Cupon"].ToString();
+                    CmbTarjeta.Visible = true;
+                    txtCupon.Visible = true;
+                }
+                */
+                if (trdo.Rows[0]["CodCliente"].ToString() != "")
+                {
+                    Int32 CodCli = Convert.ToInt32(trdo.Rows[0]["CodCliente"].ToString());
+                    BuscarCliente(CodCli);
+                }
+                for (int i = 0; i < trdo.Rows.Count; i++)
+                {
+                    CodArticulo = trdo.Rows[i]["CodArticulo"].ToString();
+                    Nombre = trdo.Rows[i]["Nombre"].ToString();
+                    Precio = trdo.Rows[i]["Precio"].ToString();
+                    Cantidad = trdo.Rows[i]["Cantidad"].ToString();
+                    Subtotal = trdo.Rows[i]["Subtotal"].ToString();
+                    Val = CodArticulo + ";" + Nombre;
+                    Val = Val + ";" + Precio + ";" + Cantidad;
+                    Val = Val + ";" + Subtotal;
+                    tbVenta = fun.AgregarFilas(tbVenta, Val);
+                }
+                Grilla.DataSource = tbVenta;
+                Grilla.Columns[0].Visible = false;
+                Grilla.Columns[5].Visible = false;
+                Grilla.Columns[1].Width = 370;
+                Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
+                txtTotal.Text = Total.ToString();
+                btnGrabar.Enabled = false;
+                btnCancelar.Enabled = false;
             }
         }
     }

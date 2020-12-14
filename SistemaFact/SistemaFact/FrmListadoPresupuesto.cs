@@ -49,8 +49,13 @@ namespace SistemaFact
             if (Grilla.CurrentRow ==null)
             {
                 Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            else
+            {
                 Principal.CodigodePresupuesto = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
                 FrmVenta frm = new FrmVenta();
+                frm.Show();
                 this.Close();
             }
         }
