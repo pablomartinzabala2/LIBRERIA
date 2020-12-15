@@ -1237,6 +1237,7 @@ namespace SistemaFact
                 Grilla.Columns[1].Width = 370;
                 Double Total = fun.TotalizarColumna(tbVenta, "Subtotal");
                 txtTotal.Text = Total.ToString();
+                txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
                 btnGrabar.Enabled = false;
                 btnCancelar.Enabled = false;
             }
