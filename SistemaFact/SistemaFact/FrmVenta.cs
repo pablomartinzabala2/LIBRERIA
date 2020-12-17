@@ -753,12 +753,8 @@ namespace SistemaFact
         {
             if (txtNombre.Text  == "")
             {
-
-                if (chkSinCliente.Checked == false)
-                {
-                    Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
-                    return;
-                }
+                Mensaje("Debe ingresar un nombre");
+                return;
             }
             if (tbVenta.Rows.Count <1)
             {
@@ -802,17 +798,12 @@ namespace SistemaFact
 
             if (txtTotalConDescuento.Text != "")
                 TotalConDescuento = Convert.ToDouble(txtTotalConDescuento.Text);
-            if (chkSinCliente.Checked == true)
-            {
-                //cCliente cli = new Clases.cCliente();
-                CodCliente = cli.GetCodClienteNulo();
-            }
+           
             // string Col = "CodArticulo;Nombre;Precio;Cantidad;Subtotal";
             cPresupuesto pre = new cPresupuesto();
             try
             {
-                if(chkSinCliente.Checked==false)
-                {
+               
                     if (txtNroDocumento.Text != "" && txtApellido.Text != "")
                     {
                         if (txtCodCliente.Text == "")
@@ -824,16 +815,7 @@ namespace SistemaFact
                         }
 
                     }
-                    else
-                    {
-                        if (chkSinCliente.Checked == false)
-                        {
-                            Mensaje("Debe tildar la opcion sin registrar cliente para continuar");
-                            return;
-                        }
-                    }
-                }
-
+                   
                 FormaPago = GetFormaPago();
                 CodPresupuesto = pre.InsertarPresupuesto(con, Transaccion, Total,
                     Fecha

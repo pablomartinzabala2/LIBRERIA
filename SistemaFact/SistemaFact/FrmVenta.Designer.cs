@@ -77,7 +77,6 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtCuit = new System.Windows.Forms.TextBox();
-            this.chkSinCliente = new System.Windows.Forms.CheckBox();
             this.txtNroDocumento = new System.Windows.Forms.TextBox();
             this.cmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -520,7 +519,6 @@
             this.Grupo.Controls.Add(this.txtDireccion);
             this.Grupo.Controls.Add(this.label15);
             this.Grupo.Controls.Add(this.txtCuit);
-            this.Grupo.Controls.Add(this.chkSinCliente);
             this.Grupo.Controls.Add(this.txtNroDocumento);
             this.Grupo.Controls.Add(this.cmbTipoDoc);
             this.Grupo.Controls.Add(this.btnBuscar);
@@ -592,19 +590,6 @@
             this.txtCuit.TextChanged += new System.EventHandler(this.txtCuit_TextChanged);
             this.txtCuit.Enter += new System.EventHandler(this.txtCuit_Enter);
             this.txtCuit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCuit_KeyPress);
-            // 
-            // chkSinCliente
-            // 
-            this.chkSinCliente.AutoSize = true;
-            this.chkSinCliente.Checked = true;
-            this.chkSinCliente.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkSinCliente.Location = new System.Drawing.Point(88, 114);
-            this.chkSinCliente.Name = "chkSinCliente";
-            this.chkSinCliente.Size = new System.Drawing.Size(149, 21);
-            this.chkSinCliente.TabIndex = 85;
-            this.chkSinCliente.Text = "Sin registrar cliente";
-            this.chkSinCliente.UseVisualStyleBackColor = true;
-            this.chkSinCliente.CheckedChanged += new System.EventHandler(this.chkSinCliente_CheckedChanged);
             // 
             // txtNroDocumento
             // 
@@ -726,7 +711,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Grupo;
-        private System.Windows.Forms.CheckBox chkSinCliente;
         private System.Windows.Forms.TextBox txtNroDocumento;
         private System.Windows.Forms.ComboBox cmbTipoDoc;
         private System.Windows.Forms.Label label12;
