@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,13 +53,14 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txt_Nombre = new System.Windows.Forms.ComboBox();
+            this.btnAbmJuguete = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnAbmJuguete);
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.btnCancelar);
             this.Grupo.Controls.Add(this.txtDescuento);
@@ -89,6 +92,16 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.FormattingEnabled = true;
+            this.txt_Nombre.Location = new System.Drawing.Point(108, 62);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(381, 24);
+            this.txt_Nombre.TabIndex = 63;
+            this.txt_Nombre.SelectedValueChanged += new System.EventHandler(this.txt_Nombre_SelectedValueChanged);
+            this.txt_Nombre.RightToLeftChanged += new System.EventHandler(this.txt_Nombre_RightToLeftChanged);
             // 
             // btnCancelar
             // 
@@ -286,15 +299,15 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // txt_Nombre
+            // btnAbmJuguete
             // 
-            this.txt_Nombre.FormattingEnabled = true;
-            this.txt_Nombre.Location = new System.Drawing.Point(108, 62);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(381, 24);
-            this.txt_Nombre.TabIndex = 63;
-            this.txt_Nombre.SelectedValueChanged += new System.EventHandler(this.txt_Nombre_SelectedValueChanged);
-            this.txt_Nombre.RightToLeftChanged += new System.EventHandler(this.txt_Nombre_RightToLeftChanged);
+            this.btnAbmJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmJuguete.Image")));
+            this.btnAbmJuguete.Location = new System.Drawing.Point(587, 27);
+            this.btnAbmJuguete.Name = "btnAbmJuguete";
+            this.btnAbmJuguete.Size = new System.Drawing.Size(40, 28);
+            this.btnAbmJuguete.TabIndex = 64;
+            this.btnAbmJuguete.UseVisualStyleBackColor = true;
+            this.btnAbmJuguete.Click += new System.EventHandler(this.btnAbmJuguete_Click);
             // 
             // FrmCompra
             // 
@@ -338,5 +351,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox txt_Nombre;
+        private System.Windows.Forms.Button btnAbmJuguete;
     }
 }

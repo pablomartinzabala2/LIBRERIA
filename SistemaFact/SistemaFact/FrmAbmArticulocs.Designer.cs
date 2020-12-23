@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmArticulocs));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
+            this.btnGrabarPorEfectivo = new System.Windows.Forms.Button();
             this.btnAplicarEfectivo = new System.Windows.Forms.Button();
             this.btnAplicarTarjeta = new System.Windows.Forms.Button();
             this.txtPorTarjeta = new System.Windows.Forms.TextBox();
@@ -60,8 +62,6 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
-            this.btnGrabarPorEfectivo = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,26 @@
             this.Grupo.TabIndex = 18;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
+            // 
+            // btnGrabarPorTarjeta
+            // 
+            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(430, 203);
+            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
+            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorTarjeta.TabIndex = 60;
+            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
+            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
+            // 
+            // btnGrabarPorEfectivo
+            // 
+            this.btnGrabarPorEfectivo.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(430, 168);
+            this.btnGrabarPorEfectivo.Name = "btnGrabarPorEfectivo";
+            this.btnGrabarPorEfectivo.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorEfectivo.TabIndex = 59;
+            this.btnGrabarPorEfectivo.UseVisualStyleBackColor = true;
+            this.btnGrabarPorEfectivo.Click += new System.EventHandler(this.btnGrabarPorEfectivo_Click);
             // 
             // btnAplicarEfectivo
             // 
@@ -191,6 +211,7 @@
             this.txt_PrecioEfectivo.Name = "txt_PrecioEfectivo";
             this.txt_PrecioEfectivo.Size = new System.Drawing.Size(132, 23);
             this.txt_PrecioEfectivo.TabIndex = 28;
+            this.txt_PrecioEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_PrecioEfectivo_KeyPress);
             // 
             // txt_Costo
             // 
@@ -198,6 +219,7 @@
             this.txt_Costo.Name = "txt_Costo";
             this.txt_Costo.Size = new System.Drawing.Size(132, 23);
             this.txt_Costo.TabIndex = 27;
+            this.txt_Costo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Costo_KeyPress);
             // 
             // label2
             // 
@@ -215,6 +237,7 @@
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
             this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
+            this.txt_Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Codigo_KeyPress);
             // 
             // label1
             // 
@@ -249,6 +272,7 @@
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
             this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
+            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
             // 
             // txt_Stock
             // 
@@ -257,6 +281,7 @@
             this.txt_Stock.Size = new System.Drawing.Size(132, 23);
             this.txt_Stock.TabIndex = 11;
             this.txt_Stock.TextChanged += new System.EventHandler(this.txt_Stock_TextChanged);
+            this.txt_Stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Stock_KeyPress);
             // 
             // txt_Nombre
             // 
@@ -264,6 +289,7 @@
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(482, 23);
             this.txt_Nombre.TabIndex = 9;
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // label6
             // 
@@ -385,26 +411,6 @@
             this.btnSalir.Size = new System.Drawing.Size(36, 36);
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnGrabarPorTarjeta
-            // 
-            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(430, 203);
-            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
-            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarPorTarjeta.TabIndex = 60;
-            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
-            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
-            // 
-            // btnGrabarPorEfectivo
-            // 
-            this.btnGrabarPorEfectivo.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(430, 168);
-            this.btnGrabarPorEfectivo.Name = "btnGrabarPorEfectivo";
-            this.btnGrabarPorEfectivo.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarPorEfectivo.TabIndex = 59;
-            this.btnGrabarPorEfectivo.UseVisualStyleBackColor = true;
-            this.btnGrabarPorEfectivo.Click += new System.EventHandler(this.btnGrabarPorEfectivo_Click);
             // 
             // FrmAbmArticulocs
             // 

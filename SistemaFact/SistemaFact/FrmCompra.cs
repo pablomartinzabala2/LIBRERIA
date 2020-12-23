@@ -358,5 +358,17 @@ namespace SistemaFact
                 }
             }
         }
+
+        private void btnAbmJuguete_Click(object sender, EventArgs e)
+        {
+            FrmAbmArticulocs form = new FrmAbmArticulocs();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LlenarComboArticulo();
+        }
     }
 }

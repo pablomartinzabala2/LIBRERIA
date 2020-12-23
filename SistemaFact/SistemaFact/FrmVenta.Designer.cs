@@ -598,6 +598,7 @@
             this.txtNroDocumento.Size = new System.Drawing.Size(175, 23);
             this.txtNroDocumento.TabIndex = 83;
             this.txtNroDocumento.TextChanged += new System.EventHandler(this.txtNroDocumento_TextChanged);
+            this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
             // 
             // cmbTipoDoc
             // 

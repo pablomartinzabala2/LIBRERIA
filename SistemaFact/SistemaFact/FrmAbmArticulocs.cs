@@ -496,5 +496,53 @@ namespace SistemaFact
             obj.PorTarLibreria(Por);
             Mensaje("Porcentaje actualizado");
         }
+
+        private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Stock.Focus();
+            }
+        }
+
+        private void txt_Stock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Codigo.Focus();
+            }
+        }
+
+        private void txt_Codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_CodigoBarra.Focus();
+            }
+        }
+
+        private void txt_CodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Costo.Focus();
+            }
+        }
+
+        private void txt_Costo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_PrecioEfectivo.Focus();
+            }
+        }
+
+        private void txt_PrecioEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_PrecioTarjeta.Focus();
+            }
+        }
     }
 }

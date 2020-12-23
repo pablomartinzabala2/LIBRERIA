@@ -1224,5 +1224,11 @@ namespace SistemaFact
                 btnCancelar.Enabled = false;
             }
         }
+
+        private void txtNroDocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txtCuit.Focus();
+        }
     }
 }
