@@ -544,6 +544,7 @@
             this.txtObservacion.Name = "txtObservacion";
             this.txtObservacion.Size = new System.Drawing.Size(276, 23);
             this.txtObservacion.TabIndex = 91;
+            this.txtObservacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtObservacion_KeyPress);
             // 
             // label17
             // 
@@ -571,6 +572,7 @@
             this.txtDireccion.Size = new System.Drawing.Size(259, 23);
             this.txtDireccion.TabIndex = 88;
             this.txtDireccion.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtDireccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDireccion_KeyPress);
             // 
             // label15
             // 
@@ -637,6 +639,7 @@
             this.txtTelefono.Size = new System.Drawing.Size(123, 23);
             this.txtTelefono.TabIndex = 2;
             this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTelefono_KeyPress);
             // 
             // label3
             // 
@@ -655,6 +658,7 @@
             this.txtApellido.Size = new System.Drawing.Size(276, 23);
             this.txtApellido.TabIndex = 2;
             this.txtApellido.TextChanged += new System.EventHandler(this.txtApellido_TextChanged);
+            this.txtApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApellido_KeyPress);
             // 
             // txtCodCliente
             // 

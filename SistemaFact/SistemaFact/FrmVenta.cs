@@ -1230,5 +1230,37 @@ namespace SistemaFact
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
                 txtCuit.Focus();
         }
+
+        private void txtApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtDireccion.Focus();
+            }
+        }
+
+        private void txtDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtTelefono.Focus();
+            }
+        }
+
+        private void txtTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txtObservacion.Focus();
+            }
+        }
+
+        private void txtObservacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                txt_CodigoBarra.Focus();
+            }
+        }
     }
 }
