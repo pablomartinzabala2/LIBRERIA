@@ -28,7 +28,8 @@ namespace SistemaFact
 
         private void FrmVenta_Load(object sender, EventArgs e)
         {
-           // insert into cliente(apellido, nombre, clientenulo)
+            // insert into cliente(apellido, nombre, clientenulo)
+           
           //values('', '', 1)
             Principal.CodigoSenia = "1";
             fun = new Clases.cFunciones();
@@ -46,6 +47,7 @@ namespace SistemaFact
                 BuscarPresupuesto(CodPresupuesto);
             }
             Cargando = false;
+            txtNroDocumento.Focus();
         }
 
         public void Inicializar()
@@ -364,25 +366,26 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            /*
             if (PuedeAgregar ==false )
-            {
-                if (txtCodigo.Text !="")
+            {   
+                if (txtCodigo.Text   !="")
                 {
                     txt_Nombre.SelectedValue = txtCodigo.Text;
                 }
                 PuedeAgregar = true;
                 return;
             }
-
-            if (txtCodigo.Text  == "")
-            {
-                Mensaje("Debe ingresar un articulo");
-                return;
-            }
-
+            */
+          
+            
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
+                if (txtCodigo.Text == "")
+                {
+                    Mensaje("Debe ingresar un articulo");
+                    return;
+                }
                 if (txtCodigo.Text == "")
                 {
                     Mensaje("Debe ingresar un articulo");
@@ -804,7 +807,7 @@ namespace SistemaFact
             try
             {
                
-                    if (txtNroDocumento.Text != "" && txtApellido.Text != "")
+                    if (txtNombre.Text !="")
                     {
                         if (txtCodCliente.Text == "")
                             CodCliente = GrabarCliente(con, Transaccion);

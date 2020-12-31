@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnAbmJuguete = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -53,13 +54,18 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnAbmJuguete = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnLimpiar);
+            this.Grupo.Controls.Add(this.label12);
+            this.Grupo.Controls.Add(this.txtFecha);
             this.Grupo.Controls.Add(this.btnAbmJuguete);
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.btnCancelar);
@@ -92,6 +98,16 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
+            // 
+            // btnAbmJuguete
+            // 
+            this.btnAbmJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmJuguete.Image")));
+            this.btnAbmJuguete.Location = new System.Drawing.Point(629, 30);
+            this.btnAbmJuguete.Name = "btnAbmJuguete";
+            this.btnAbmJuguete.Size = new System.Drawing.Size(40, 28);
+            this.btnAbmJuguete.TabIndex = 64;
+            this.btnAbmJuguete.UseVisualStyleBackColor = true;
+            this.btnAbmJuguete.Click += new System.EventHandler(this.btnAbmJuguete_Click);
             // 
             // txt_Nombre
             // 
@@ -224,7 +240,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(541, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(689, 22);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 28);
             this.btnBuscar.TabIndex = 50;
@@ -251,7 +267,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(495, 30);
+            this.txtCodigo.Location = new System.Drawing.Point(729, 22);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(41, 23);
             this.txtCodigo.TabIndex = 23;
@@ -299,15 +315,33 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // btnAbmJuguete
+            // label12
             // 
-            this.btnAbmJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmJuguete.Image")));
-            this.btnAbmJuguete.Location = new System.Drawing.Point(587, 27);
-            this.btnAbmJuguete.Name = "btnAbmJuguete";
-            this.btnAbmJuguete.Size = new System.Drawing.Size(40, 28);
-            this.btnAbmJuguete.TabIndex = 64;
-            this.btnAbmJuguete.UseVisualStyleBackColor = true;
-            this.btnAbmJuguete.Click += new System.EventHandler(this.btnAbmJuguete_Click);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(498, 36);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 17);
+            this.label12.TabIndex = 83;
+            this.label12.Text = "Fecha";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(550, 33);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(73, 23);
+            this.txtFecha.TabIndex = 82;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnLimpiar.Location = new System.Drawing.Point(495, 62);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(40, 28);
+            this.btnLimpiar.TabIndex = 84;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // FrmCompra
             // 
@@ -352,5 +386,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox txt_Nombre;
         private System.Windows.Forms.Button btnAbmJuguete;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox txtFecha;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

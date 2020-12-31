@@ -103,7 +103,7 @@
             this.groupBox2.Location = new System.Drawing.Point(21, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(701, 48);
-            this.groupBox2.TabIndex = 21;
+            this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tipo de Operación";
             // 
@@ -184,7 +184,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 213);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(751, 341);
-            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información del artículo";
             // 
@@ -452,7 +452,7 @@
             this.txt_CodigoBarra.Location = new System.Drawing.Point(357, 33);
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
-            this.txt_CodigoBarra.TabIndex = 1;
+            this.txt_CodigoBarra.TabIndex = 2;
             this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
             this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
             // 
@@ -533,7 +533,7 @@
             this.Grupo.Location = new System.Drawing.Point(12, 57);
             this.Grupo.Name = "Grupo";
             this.Grupo.Size = new System.Drawing.Size(738, 150);
-            this.Grupo.TabIndex = 17;
+            this.Grupo.TabIndex = 1;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del cliente";
             // 
@@ -598,7 +598,7 @@
             this.txtNroDocumento.Location = new System.Drawing.Point(92, 23);
             this.txtNroDocumento.Name = "txtNroDocumento";
             this.txtNroDocumento.Size = new System.Drawing.Size(175, 23);
-            this.txtNroDocumento.TabIndex = 83;
+            this.txtNroDocumento.TabIndex = 1;
             this.txtNroDocumento.TextChanged += new System.EventHandler(this.txtNroDocumento_TextChanged);
             this.txtNroDocumento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNroDocumento_KeyPress);
             // 
@@ -674,7 +674,7 @@
             this.txtNombre.Location = new System.Drawing.Point(92, 49);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(259, 23);
-            this.txtNombre.TabIndex = 2;
+            this.txtNombre.TabIndex = 1;
             this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 

@@ -27,6 +27,8 @@ namespace SistemaFact
             string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal";
             tbCompra = fun.CrearTabla(Col);
             LlenarComboArticulo();
+            DateTime Fecha = DateTime.Now;
+            txtFecha.Text = Fecha.ToShortDateString();
             // (2x +4)/10 =4 
             
 
@@ -173,6 +175,12 @@ namespace SistemaFact
 
         private void btnGrabar_Click(object sender, EventArgs e)
         {
+            if (fun.ValidarFecha (txtFecha.Text)==false)
+            {
+                Mensaje("Debe ingresar una fecha correcta para continuar");
+                return;
+            }
+
             SqlTransaction Transaccion;
             SqlConnection con = new SqlConnection(cConexion.GetConexion());
             con.Open();
@@ -199,7 +207,7 @@ namespace SistemaFact
 
         public Int32 GrabarCompra(SqlConnection con, SqlTransaction Transaccion)
         {
-            DateTime Fecha = DateTime.Now;
+            DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
             cCompra compra = new Clases.cCompra();
             Double Total = fun.ToDouble(txtTotal.Text);
             return compra.GrabarCompra(con, Transaccion, Fecha,Total);
@@ -369,6 +377,11 @@ namespace SistemaFact
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             LlenarComboArticulo();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txt_Nombre.SelectedIndex = -1;
         }
     }
 }
