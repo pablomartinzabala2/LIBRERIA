@@ -250,5 +250,13 @@ namespace SistemaFact.Clases
             DataTable trdo = cDb.GetDatatable(sql);
             return trdo;
         }
+
+        public void ActualizarCosto(SqlConnection con, SqlTransaction Transaccion,
+          Int32 CodArticulo, Double Costo)
+        {
+            string sql = "Update Articulo set Costo = " + Costo.ToString().Replace(",", ".");
+            sql = sql + " where CodArticulo =" + CodArticulo.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
     }
 }

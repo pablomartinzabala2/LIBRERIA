@@ -30,11 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.cmbProveedor = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.btnAbmJuguete = new System.Windows.Forms.Button();
             this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,23 +57,20 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.cmbProveedor);
+            this.Grupo.Controls.Add(this.label9);
             this.Grupo.Controls.Add(this.btnLimpiar);
             this.Grupo.Controls.Add(this.label12);
             this.Grupo.Controls.Add(this.txtFecha);
             this.Grupo.Controls.Add(this.btnAbmJuguete);
             this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.btnCancelar);
-            this.Grupo.Controls.Add(this.txtDescuento);
-            this.Grupo.Controls.Add(this.label7);
             this.Grupo.Controls.Add(this.btnGrabar);
             this.Grupo.Controls.Add(this.txtTotal);
             this.Grupo.Controls.Add(this.label5);
@@ -99,6 +99,52 @@
             this.Grupo.Text = "Información del artículo";
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
             // 
+            // cmbProveedor
+            // 
+            this.cmbProveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProveedor.FormattingEnabled = true;
+            this.cmbProveedor.Location = new System.Drawing.Point(523, 62);
+            this.cmbProveedor.Name = "cmbProveedor";
+            this.cmbProveedor.Size = new System.Drawing.Size(206, 24);
+            this.cmbProveedor.TabIndex = 86;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(453, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 17);
+            this.label9.TabIndex = 85;
+            this.label9.Text = "Proveedor";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnLimpiar.Location = new System.Drawing.Point(753, 59);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(40, 28);
+            this.btnLimpiar.TabIndex = 84;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(498, 36);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 17);
+            this.label12.TabIndex = 83;
+            this.label12.Text = "Fecha";
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(550, 33);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(73, 23);
+            this.txtFecha.TabIndex = 82;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
+            // 
             // btnAbmJuguete
             // 
             this.btnAbmJuguete.Image = ((System.Drawing.Image)(resources.GetObject("btnAbmJuguete.Image")));
@@ -114,7 +160,7 @@
             this.txt_Nombre.FormattingEnabled = true;
             this.txt_Nombre.Location = new System.Drawing.Point(108, 62);
             this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(381, 24);
+            this.txt_Nombre.Size = new System.Drawing.Size(339, 24);
             this.txt_Nombre.TabIndex = 63;
             this.txt_Nombre.SelectedValueChanged += new System.EventHandler(this.txt_Nombre_SelectedValueChanged);
             this.txt_Nombre.RightToLeftChanged += new System.EventHandler(this.txt_Nombre_RightToLeftChanged);
@@ -128,22 +174,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // txtDescuento
-            // 
-            this.txtDescuento.Location = new System.Drawing.Point(541, 91);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.Size = new System.Drawing.Size(82, 23);
-            this.txtDescuento.TabIndex = 61;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(459, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 17);
-            this.label7.TabIndex = 60;
-            this.label7.Text = "Descuento";
             // 
             // btnGrabar
             // 
@@ -174,7 +204,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(675, 86);
+            this.btnEliminar.Location = new System.Drawing.Point(514, 88);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
@@ -231,7 +261,7 @@
             // button1
             // 
             this.button1.Image = global::SistemaFact.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(629, 86);
+            this.button1.Location = new System.Drawing.Point(468, 88);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 51;
@@ -315,34 +345,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(498, 36);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 17);
-            this.label12.TabIndex = 83;
-            this.label12.Text = "Fecha";
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(550, 33);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(73, 23);
-            this.txtFecha.TabIndex = 82;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnLimpiar.Location = new System.Drawing.Point(495, 62);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(40, 28);
-            this.btnLimpiar.TabIndex = 84;
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,13 +383,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnGrabar;
-        private System.Windows.Forms.TextBox txtDescuento;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox txt_Nombre;
         private System.Windows.Forms.Button btnAbmJuguete;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.ComboBox cmbProveedor;
+        private System.Windows.Forms.Label label9;
     }
 }

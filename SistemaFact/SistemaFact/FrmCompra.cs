@@ -29,9 +29,7 @@ namespace SistemaFact
             LlenarComboArticulo();
             DateTime Fecha = DateTime.Now;
             txtFecha.Text = Fecha.ToShortDateString();
-            // (2x +4)/10 =4 
-            
-
+            fun.LlenarCombo(cmbProveedor, "Proveedor", "Nombre", "CodProveedor");
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
@@ -208,9 +206,13 @@ namespace SistemaFact
         public Int32 GrabarCompra(SqlConnection con, SqlTransaction Transaccion)
         {
             DateTime Fecha = Convert.ToDateTime(txtFecha.Text);
+            Int32? CodProveedor = null;
+            if (cmbProveedor.SelectedIndex > 0)
+                CodProveedor = Convert.ToInt32(cmbProveedor.SelectedValue);
+
             cCompra compra = new Clases.cCompra();
             Double Total = fun.ToDouble(txtTotal.Text);
-            return compra.GrabarCompra(con, Transaccion, Fecha,Total);
+            return compra.GrabarCompra(con, Transaccion, Fecha, Total, CodProveedor);
         }
 
         public void GrabarDetalleCompra(SqlConnection con, SqlTransaction Transaccion,Int32 CodCompra)
@@ -233,7 +235,7 @@ namespace SistemaFact
                 Descueneto = fun.ToDouble(tbCompra.Rows[i]["Descuento"].ToString());
                 Subtotal = fun.ToDouble (tbCompra.Rows[i]["Subtotal"].ToString());
                 detalle.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
-               
+                art.ActualizarCosto(con, Transaccion, CodArticulo, Costo);
             }
         }
 
