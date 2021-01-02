@@ -192,7 +192,7 @@
             this.Controls.Add(this.BarraBotones);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmAbmTarjeta";
-            this.Text = "FrmAbmTarjeta";
+            this.Text = "Formulario de tarjetas";
             this.Load += new System.EventHandler(this.FrmAbmTarjeta_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();

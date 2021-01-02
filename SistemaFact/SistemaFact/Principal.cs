@@ -235,5 +235,11 @@ namespace SistemaFact
             FrmListadoPresupuesto frm = new FrmListadoPresupuesto();
             frm.Show();
         }
+
+        private void proveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmProveedor form = new SistemaFact.FrmAbmProveedor();
+            form.Show();
+        }
     }
 }
