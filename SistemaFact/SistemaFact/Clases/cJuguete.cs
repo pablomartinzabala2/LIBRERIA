@@ -110,5 +110,21 @@ namespace SistemaFact.Clases
             cDb.Grabar(sql);
         }
 
+        public DataTable GetJuguetes()
+        {
+            string sql = "select j.CodArticulo,j.Nombre";
+            sql = sql + " from Juguete j";
+            sql = sql + " order by j.Nombre ";
+            return cDb.GetDatatable(sql);
+        }
+
+        public void ActualizarCosto(SqlConnection con, SqlTransaction Transaccion,
+         Int32 CodArticulo, Double Costo)
+        {
+            string sql = "Update Juguete set Costo = " + Costo.ToString().Replace(",", ".");
+            sql = sql + " where CodArticulo =" + CodArticulo.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
     }
 }

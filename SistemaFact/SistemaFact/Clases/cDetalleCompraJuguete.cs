@@ -7,12 +7,12 @@ using System.Data.SqlClient;
 using System.Data;
 namespace SistemaFact.Clases
 {
-    public  class cDetalleCompra
+    public  class cDetalleCompraJuguete
     {
-        public void Insertar(SqlConnection con, SqlTransaction Transaccion,Int32 CodCompra,Int32 CodArticulo,
-            int Cantidad,Double Costo, Double Descuento, Double Subtotal)
+        public void Insertar(SqlConnection con, SqlTransaction Transaccion, Int32 CodCompra, Int32 CodArticulo,
+          int Cantidad, Double Costo, Double Descuento, Double Subtotal)
         {
-            string sql = "insert into DetalleCompra(";
+            string sql = "insert into DetalleCompraJuguete(";
             sql = sql + "CodCompra,CodArticulo,Cantidad,Costo,";
             sql = sql + "Descuento,Subtotal";
             sql = sql + ")";
@@ -29,27 +29,10 @@ namespace SistemaFact.Clases
         public DataTable GetDetallexId(Int32 CodCompra)
         {
             string sql = "select d.*,a.Nombre ";
-            sql = sql + " from DetalleCompra d,Articulo a";
+            sql = sql + " from DetalleCompraJuguete d,Juguete a";
             sql = sql + " where d.CodArticulo = a.CodArticulo";
             sql = sql + " and CodCompra=" + CodCompra.ToString();
             return cDb.GetDatatable(sql);
         }
-
-        public DataTable GetDetalleCompleto(Int32 CodCompra)
-        {
-            string sql = "select d.CodArticulo,a.Nombre";
-            sql = sql + ",d.Cantidad,d.Costo,d.SubTotal";
-            sql = sql + " from DetalleCompra d, Articulo a";
-            sql = sql + " where d.CodArticulo=a.CodArticulo";
-            sql = sql + " and CodCompra=" + CodCompra.ToString();
-            sql = sql + " union ";
-            sql = sql + "select d.CodArticulo,a.Nombre";
-            sql = sql + ",d.Cantidad,d.Costo,d.SubTotal";
-            sql = sql + " from DetalleCompraJuguete d, Articulo a";
-            sql = sql + " where d.CodArticulo=a.CodArticulo";
-            sql = sql + " and CodCompra=" + CodCompra.ToString();
-            return cDb.GetDatatable(sql);
-        }
-        
     }
 }

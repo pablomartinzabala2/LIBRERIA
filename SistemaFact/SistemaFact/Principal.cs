@@ -12,6 +12,7 @@ namespace SistemaFact
 {
     public partial class Principal : Form
     {
+        public static Int32? CodPrincipalCompra;
         public static Int32? CodigodePresupuesto;
         public static int CantidadArticulo;
         private int childFormNumber = 0;
@@ -146,6 +147,7 @@ namespace SistemaFact
 
         private void registrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Principal.CodPrincipalCompra = null; 
             FrmCompra frm = new FrmCompra();
             frm.MdiParent = this;
             frm.Show();

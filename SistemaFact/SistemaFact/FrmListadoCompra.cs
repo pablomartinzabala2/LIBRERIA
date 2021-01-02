@@ -39,6 +39,19 @@ namespace SistemaFact
             cCompra compra = new Clases.cCompra();
             DataTable trdo = compra.GetComprasxFecha(FechaDesde, FechaHasta);
             Grilla.DataSource = trdo;
+            fun.AnchoColumnas(Grilla, "0;50;50");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Grilla.CurrentRow ==null)
+            {
+                Mensaje("Dee seleccionar un registro");
+                return;
+            }
+            Principal.CodPrincipalCompra = Convert.ToInt32(Grilla.CurrentRow.Cells[0].Value.ToString());
+            FrmCompra frm = new FrmCompra();
+            frm.ShowDialog();
         }
     }
 }

@@ -82,6 +82,7 @@
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cDb.cs" />
     <Compile Include="Clases\cDetalleCompra.cs" />
+    <Compile Include="Clases\cDetalleCompraJuguete.cs" />
     <Compile Include="Clases\cFunciones.cs" />
     <Compile Include="Clases\cImpresora.cs" />
     <Compile Include="Clases\cJuguete.cs" />
@@ -210,6 +211,12 @@
     <Compile Include="FrmCompra.Designer.cs">
       <DependentUpon>FrmCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCompraJuguete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompraJuguete.Designer.cs">
+      <DependentUpon>FrmCompraJuguete.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmConfigurarImpresora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -331,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCompra.resx">
       <DependentUpon>FrmCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompraJuguete.resx">
+      <DependentUpon>FrmCompraJuguete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfigurarImpresora.resx">
       <DependentUpon>FrmConfigurarImpresora.cs</DependentUpon>

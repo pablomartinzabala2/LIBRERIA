@@ -1,6 +1,6 @@
 ﻿namespace SistemaFact
 {
-    partial class FrmCompra
+    partial class FrmCompraJuguete
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompraJuguete));
             this.Grupo = new System.Windows.Forms.GroupBox();
-            this.txtNombreJuguete = new System.Windows.Forms.TextBox();
-            this.chkLibreria = new System.Windows.Forms.CheckBox();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.btnAbmJuguete = new System.Windows.Forms.Button();
-            this.txt_Nombre = new System.Windows.Forms.ComboBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGrabar = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -59,21 +56,20 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
-            this.Grupo.Controls.Add(this.txtNombreJuguete);
-            this.Grupo.Controls.Add(this.chkLibreria);
+            this.Grupo.Controls.Add(this.textBox1);
             this.Grupo.Controls.Add(this.cmbProveedor);
             this.Grupo.Controls.Add(this.label9);
             this.Grupo.Controls.Add(this.btnLimpiar);
             this.Grupo.Controls.Add(this.label12);
             this.Grupo.Controls.Add(this.txtFecha);
             this.Grupo.Controls.Add(this.btnAbmJuguete);
-            this.Grupo.Controls.Add(this.txt_Nombre);
             this.Grupo.Controls.Add(this.btnCancelar);
             this.Grupo.Controls.Add(this.btnGrabar);
             this.Grupo.Controls.Add(this.txtTotal);
@@ -95,34 +91,12 @@
             this.Grupo.Controls.Add(this.label6);
             this.Grupo.Controls.Add(this.label4);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(12, 12);
+            this.Grupo.Location = new System.Drawing.Point(5, 22);
             this.Grupo.Name = "Grupo";
             this.Grupo.Size = new System.Drawing.Size(810, 486);
-            this.Grupo.TabIndex = 19;
+            this.Grupo.TabIndex = 20;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
-            this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
-            // 
-            // txtNombreJuguete
-            // 
-            this.txtNombreJuguete.Location = new System.Drawing.Point(108, 64);
-            this.txtNombreJuguete.Name = "txtNombreJuguete";
-            this.txtNombreJuguete.Size = new System.Drawing.Size(339, 23);
-            this.txtNombreJuguete.TabIndex = 88;
-            this.txtNombreJuguete.Visible = false;
-            // 
-            // chkLibreria
-            // 
-            this.chkLibreria.AutoSize = true;
-            this.chkLibreria.Checked = true;
-            this.chkLibreria.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLibreria.Location = new System.Drawing.Point(560, 94);
-            this.chkLibreria.Name = "chkLibreria";
-            this.chkLibreria.Size = new System.Drawing.Size(95, 21);
-            this.chkLibreria.TabIndex = 87;
-            this.chkLibreria.Text = "checkBox1";
-            this.chkLibreria.UseVisualStyleBackColor = true;
-            this.chkLibreria.Click += new System.EventHandler(this.chkLibreria_Click);
             // 
             // cmbProveedor
             // 
@@ -150,7 +124,6 @@
             this.btnLimpiar.Size = new System.Drawing.Size(40, 28);
             this.btnLimpiar.TabIndex = 84;
             this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // label12
             // 
@@ -178,17 +151,6 @@
             this.btnAbmJuguete.Size = new System.Drawing.Size(40, 28);
             this.btnAbmJuguete.TabIndex = 64;
             this.btnAbmJuguete.UseVisualStyleBackColor = true;
-            this.btnAbmJuguete.Click += new System.EventHandler(this.btnAbmJuguete_Click);
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.FormattingEnabled = true;
-            this.txt_Nombre.Location = new System.Drawing.Point(108, 62);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(339, 24);
-            this.txt_Nombre.TabIndex = 63;
-            this.txt_Nombre.SelectedValueChanged += new System.EventHandler(this.txt_Nombre_SelectedValueChanged);
-            this.txt_Nombre.RightToLeftChanged += new System.EventHandler(this.txt_Nombre_RightToLeftChanged);
             // 
             // btnCancelar
             // 
@@ -198,7 +160,6 @@
             this.btnCancelar.TabIndex = 62;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGrabar
             // 
@@ -208,7 +169,6 @@
             this.btnGrabar.TabIndex = 59;
             this.btnGrabar.Text = "Grabar";
             this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // txtTotal
             // 
@@ -234,7 +194,6 @@
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // Grilla
             // 
@@ -255,7 +214,6 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(79, 23);
             this.txtPrecio.TabIndex = 55;
-            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label3
             // 
@@ -272,7 +230,6 @@
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
-            this.txtCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCantidad_KeyPress);
             // 
             // label2
             // 
@@ -291,7 +248,6 @@
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 51;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnBuscar
             // 
@@ -301,7 +257,6 @@
             this.btnBuscar.TabIndex = 50;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Visible = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txt_Codigo
             // 
@@ -309,7 +264,6 @@
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
             this.txt_Codigo.TabIndex = 25;
-            this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
             // 
             // label1
             // 
@@ -343,7 +297,6 @@
             this.txt_CodigoBarra.Name = "txt_CodigoBarra";
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
-            this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
             // 
             // txt_Stock
             // 
@@ -370,15 +323,22 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // FrmCompra
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(339, 232);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(132, 23);
+            this.textBox1.TabIndex = 87;
+            // 
+            // FrmCompraJuguete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 510);
+            this.ClientSize = new System.Drawing.Size(821, 531);
             this.Controls.Add(this.Grupo);
-            this.Name = "FrmCompra";
-            this.Text = "Compra de artículos";
-            this.Load += new System.EventHandler(this.FrmCompra_Load);
+            this.Name = "FrmCompraJuguete";
+            this.Text = "FrmCompraJuguete";
+            this.Load += new System.EventHandler(this.FrmCompraJuguete_Load);
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
@@ -389,6 +349,24 @@
         #endregion
 
         private System.Windows.Forms.GroupBox Grupo;
+        private System.Windows.Forms.ComboBox cmbProveedor;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox txtFecha;
+        private System.Windows.Forms.Button btnAbmJuguete;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGrabar;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.DataGridView Grilla;
+        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCantidad;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txt_Codigo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodigo;
@@ -397,26 +375,6 @@
         private System.Windows.Forms.TextBox txt_Stock;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtPrecio;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCantidad;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView Grilla;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.Button btnGrabar;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.ComboBox txt_Nombre;
-        private System.Windows.Forms.Button btnAbmJuguete;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.ComboBox cmbProveedor;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.CheckBox chkLibreria;
-        private System.Windows.Forms.TextBox txtNombreJuguete;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
