@@ -59,12 +59,14 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnNuevoProveedor = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnNuevoProveedor);
             this.Grupo.Controls.Add(this.txtNombreJuguete);
             this.Grupo.Controls.Add(this.chkLibreria);
             this.Grupo.Controls.Add(this.cmbProveedor);
@@ -130,7 +132,7 @@
             this.cmbProveedor.FormattingEnabled = true;
             this.cmbProveedor.Location = new System.Drawing.Point(523, 62);
             this.cmbProveedor.Name = "cmbProveedor";
-            this.cmbProveedor.Size = new System.Drawing.Size(206, 24);
+            this.cmbProveedor.Size = new System.Drawing.Size(182, 24);
             this.cmbProveedor.TabIndex = 86;
             // 
             // label9
@@ -144,11 +146,12 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnLimpiar.Location = new System.Drawing.Point(753, 59);
+            this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
+            this.btnLimpiar.Location = new System.Drawing.Point(757, 59);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(40, 28);
             this.btnLimpiar.TabIndex = 84;
+            this.btnLimpiar.TabStop = false;
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
@@ -370,6 +373,16 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
+            // btnNuevoProveedor
+            // 
+            this.btnNuevoProveedor.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnNuevoProveedor.Location = new System.Drawing.Point(711, 59);
+            this.btnNuevoProveedor.Name = "btnNuevoProveedor";
+            this.btnNuevoProveedor.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevoProveedor.TabIndex = 89;
+            this.btnNuevoProveedor.UseVisualStyleBackColor = true;
+            this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,5 +431,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chkLibreria;
         private System.Windows.Forms.TextBox txtNombreJuguete;
+        private System.Windows.Forms.Button btnNuevoProveedor;
     }
 }

@@ -463,6 +463,17 @@ namespace SistemaFact
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
             LlenarComboArticulo();
+            if (Principal.CampoIdSecundarioGenerado != "")
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                switch (Principal.NombreTablaSecundario)
+                {
+                    case "Proveedor":
+                        fun.LlenarCombo(cmbProveedor , "Proveedor", "Nombre", "CodProveedor");
+                        cmbProveedor.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                }
+            }
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -496,6 +507,17 @@ namespace SistemaFact
             txtTotal.Text = Total.ToString();
             btnCancelar.Visible = false;
             btnGrabar.Visible = false;
+        }
+
+        private void btnNuevoProveedor_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodProveedor";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Proveedor";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            form.ShowDialog();
         }
     }
 }
