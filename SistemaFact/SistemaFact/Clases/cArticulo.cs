@@ -258,5 +258,16 @@ namespace SistemaFact.Clases
             sql = sql + " where CodArticulo =" + CodArticulo.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
+
+        public void ActualizarPrecio(Int32 CodArticulo,Double Por)
+        {
+            string sql = "update Articulo ";
+            sql = sql + " set PrecioEfectivo = isnull(PrecioEfectivo,0) + isnull(PrecioEfectivo,0) * " + Por.ToString().Replace(",", ".") + " / 100";
+            sql = sql + " , PrecioTarjeta = isnull(PrecioTarjeta,0) + isnull(PrecioTarjeta,0) * " + Por.ToString().Replace(",", ".") + " / 100";
+            sql = sql + " where CodArticulo=" + CodArticulo.ToString();
+            cDb.Grabar(sql);
+        }
+
+
     }
 }

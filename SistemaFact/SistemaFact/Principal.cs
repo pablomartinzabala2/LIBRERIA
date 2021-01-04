@@ -243,5 +243,11 @@ namespace SistemaFact
             FrmAbmProveedor form = new SistemaFact.FrmAbmProveedor();
             form.Show();
         }
+
+        private void actualizarPrecioLibreriaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmActualizarLibreria frm = new FrmActualizarLibreria();
+            frm.Show();
+        }
     }
 }

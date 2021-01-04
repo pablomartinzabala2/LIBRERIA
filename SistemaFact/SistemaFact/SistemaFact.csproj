@@ -169,6 +169,12 @@
     <Compile Include="FrmAbmTipoPrenda.Designer.cs">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmActualizarLibreria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmActualizarLibreria.Designer.cs">
+      <DependentUpon>FrmActualizarLibreria.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmActualizarPrecioJuguete.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTipoPrenda.resx">
       <DependentUpon>FrmAbmTipoPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmActualizarLibreria.resx">
+      <DependentUpon>FrmActualizarLibreria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmActualizarPrecioJuguete.resx">
       <DependentUpon>FrmActualizarPrecioJuguete.cs</DependentUpon>
