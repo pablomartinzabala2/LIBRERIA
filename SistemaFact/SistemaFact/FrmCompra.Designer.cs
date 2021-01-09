@@ -30,6 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompra));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txtTarjeta = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtEfectivo = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtPorGlobalTarjeta = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtPorGlobalEfectivo = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPorTar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtPorEfe = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnNuevoProveedor = new System.Windows.Forms.Button();
             this.txtNombreJuguete = new System.Windows.Forms.TextBox();
             this.chkLibreria = new System.Windows.Forms.CheckBox();
             this.cmbProveedor = new System.Windows.Forms.ComboBox();
@@ -59,13 +72,24 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnNuevoProveedor = new System.Windows.Forms.Button();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.txtTarjeta);
+            this.Grupo.Controls.Add(this.label14);
+            this.Grupo.Controls.Add(this.txtEfectivo);
+            this.Grupo.Controls.Add(this.label15);
+            this.Grupo.Controls.Add(this.txtPorGlobalTarjeta);
+            this.Grupo.Controls.Add(this.label11);
+            this.Grupo.Controls.Add(this.txtPorGlobalEfectivo);
+            this.Grupo.Controls.Add(this.label13);
+            this.Grupo.Controls.Add(this.txtPorTar);
+            this.Grupo.Controls.Add(this.label7);
+            this.Grupo.Controls.Add(this.txtPorEfe);
+            this.Grupo.Controls.Add(this.label10);
             this.Grupo.Controls.Add(this.btnNuevoProveedor);
             this.Grupo.Controls.Add(this.txtNombreJuguete);
             this.Grupo.Controls.Add(this.chkLibreria);
@@ -99,11 +123,117 @@
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Grupo.Location = new System.Drawing.Point(12, 12);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(810, 486);
+            this.Grupo.Size = new System.Drawing.Size(889, 486);
             this.Grupo.TabIndex = 19;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             this.Grupo.Enter += new System.EventHandler(this.Grupo_Enter);
+            // 
+            // txtTarjeta
+            // 
+            this.txtTarjeta.Location = new System.Drawing.Point(692, 91);
+            this.txtTarjeta.Name = "txtTarjeta";
+            this.txtTarjeta.Size = new System.Drawing.Size(79, 23);
+            this.txtTarjeta.TabIndex = 101;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(627, 91);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(53, 17);
+            this.label14.TabIndex = 100;
+            this.label14.Text = "Tarjeta";
+            // 
+            // txtEfectivo
+            // 
+            this.txtEfectivo.Location = new System.Drawing.Point(545, 88);
+            this.txtEfectivo.Name = "txtEfectivo";
+            this.txtEfectivo.Size = new System.Drawing.Size(80, 23);
+            this.txtEfectivo.TabIndex = 99;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(465, 91);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 17);
+            this.label15.TabIndex = 98;
+            this.label15.Text = "Efectivo";
+            // 
+            // txtPorGlobalTarjeta
+            // 
+            this.txtPorGlobalTarjeta.Location = new System.Drawing.Point(580, 117);
+            this.txtPorGlobalTarjeta.Name = "txtPorGlobalTarjeta";
+            this.txtPorGlobalTarjeta.Size = new System.Drawing.Size(79, 23);
+            this.txtPorGlobalTarjeta.TabIndex = 97;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(505, 120);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(69, 17);
+            this.label11.TabIndex = 96;
+            this.label11.Text = "% Tarjeta";
+            // 
+            // txtPorGlobalEfectivo
+            // 
+            this.txtPorGlobalEfectivo.Location = new System.Drawing.Point(423, 117);
+            this.txtPorGlobalEfectivo.Name = "txtPorGlobalEfectivo";
+            this.txtPorGlobalEfectivo.Size = new System.Drawing.Size(80, 23);
+            this.txtPorGlobalEfectivo.TabIndex = 95;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(343, 120);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(74, 17);
+            this.label13.TabIndex = 94;
+            this.label13.Text = "% Efectivo";
+            // 
+            // txtPorTar
+            // 
+            this.txtPorTar.Location = new System.Drawing.Point(263, 120);
+            this.txtPorTar.Name = "txtPorTar";
+            this.txtPorTar.Size = new System.Drawing.Size(79, 23);
+            this.txtPorTar.TabIndex = 93;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(188, 123);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 17);
+            this.label7.TabIndex = 92;
+            this.label7.Text = "% Tarjeta";
+            // 
+            // txtPorEfe
+            // 
+            this.txtPorEfe.Location = new System.Drawing.Point(106, 120);
+            this.txtPorEfe.Name = "txtPorEfe";
+            this.txtPorEfe.Size = new System.Drawing.Size(80, 23);
+            this.txtPorEfe.TabIndex = 91;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(26, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 17);
+            this.label10.TabIndex = 90;
+            this.label10.Text = "% Efectivo";
+            // 
+            // btnNuevoProveedor
+            // 
+            this.btnNuevoProveedor.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnNuevoProveedor.Location = new System.Drawing.Point(711, 59);
+            this.btnNuevoProveedor.Name = "btnNuevoProveedor";
+            this.btnNuevoProveedor.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevoProveedor.TabIndex = 89;
+            this.btnNuevoProveedor.UseVisualStyleBackColor = true;
+            this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
             // 
             // txtNombreJuguete
             // 
@@ -116,13 +246,14 @@
             // chkLibreria
             // 
             this.chkLibreria.AutoSize = true;
+            this.chkLibreria.CausesValidation = false;
             this.chkLibreria.Checked = true;
             this.chkLibreria.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkLibreria.Location = new System.Drawing.Point(560, 94);
+            this.chkLibreria.Location = new System.Drawing.Point(675, 32);
             this.chkLibreria.Name = "chkLibreria";
-            this.chkLibreria.Size = new System.Drawing.Size(95, 21);
+            this.chkLibreria.Size = new System.Drawing.Size(75, 21);
             this.chkLibreria.TabIndex = 87;
-            this.chkLibreria.Text = "checkBox1";
+            this.chkLibreria.Text = "Libreria";
             this.chkLibreria.UseVisualStyleBackColor = true;
             this.chkLibreria.Click += new System.EventHandler(this.chkLibreria_Click);
             // 
@@ -195,7 +326,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(648, 457);
+            this.btnCancelar.Location = new System.Drawing.Point(727, 463);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 62;
@@ -205,7 +336,7 @@
             // 
             // btnGrabar
             // 
-            this.btnGrabar.Location = new System.Drawing.Point(729, 457);
+            this.btnGrabar.Location = new System.Drawing.Point(808, 463);
             this.btnGrabar.Name = "btnGrabar";
             this.btnGrabar.Size = new System.Drawing.Size(75, 23);
             this.btnGrabar.TabIndex = 59;
@@ -215,7 +346,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(735, 417);
+            this.txtTotal.Location = new System.Drawing.Point(808, 417);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(69, 23);
             this.txtTotal.TabIndex = 56;
@@ -223,7 +354,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(689, 423);
+            this.label5.Location = new System.Drawing.Point(762, 423);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 58;
@@ -232,7 +363,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Image = global::SistemaFact.Properties.Resources.cancel;
-            this.btnEliminar.Location = new System.Drawing.Point(514, 88);
+            this.btnEliminar.Location = new System.Drawing.Point(838, 83);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(40, 28);
             this.btnEliminar.TabIndex = 57;
@@ -242,15 +373,16 @@
             // Grilla
             // 
             this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(10, 120);
+            this.Grilla.Location = new System.Drawing.Point(10, 154);
             this.Grilla.Name = "Grilla";
             this.Grilla.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.Grilla.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Grilla.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
             this.Grilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Grilla.Size = new System.Drawing.Size(794, 291);
+            this.Grilla.Size = new System.Drawing.Size(868, 257);
             this.Grilla.TabIndex = 56;
+            this.Grilla.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grilla_CellContentClick);
             // 
             // txtPrecio
             // 
@@ -265,9 +397,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(335, 94);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.Size = new System.Drawing.Size(44, 17);
             this.label3.TabIndex = 54;
-            this.label3.Text = "Precio";
+            this.label3.Text = "Costo";
             // 
             // txtCantidad
             // 
@@ -289,7 +421,7 @@
             // button1
             // 
             this.button1.Image = global::SistemaFact.Properties.Resources.add;
-            this.button1.Location = new System.Drawing.Point(468, 88);
+            this.button1.Location = new System.Drawing.Point(792, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 51;
@@ -298,7 +430,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(689, 22);
+            this.btnBuscar.Location = new System.Drawing.Point(514, -1);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(40, 28);
             this.btnBuscar.TabIndex = 50;
@@ -311,8 +443,9 @@
             this.txt_Codigo.Location = new System.Drawing.Point(108, 33);
             this.txt_Codigo.Name = "txt_Codigo";
             this.txt_Codigo.Size = new System.Drawing.Size(132, 23);
-            this.txt_Codigo.TabIndex = 25;
+            this.txt_Codigo.TabIndex = 1;
             this.txt_Codigo.TextChanged += new System.EventHandler(this.txt_Codigo_TextChanged);
+            this.txt_Codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Codigo_KeyPress);
             // 
             // label1
             // 
@@ -325,7 +458,7 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(729, 22);
+            this.txtCodigo.Location = new System.Drawing.Point(560, 0);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(41, 23);
             this.txtCodigo.TabIndex = 23;
@@ -347,6 +480,7 @@
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 15;
             this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
+            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
             // 
             // txt_Stock
             // 
@@ -373,21 +507,11 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // btnNuevoProveedor
-            // 
-            this.btnNuevoProveedor.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnNuevoProveedor.Location = new System.Drawing.Point(711, 59);
-            this.btnNuevoProveedor.Name = "btnNuevoProveedor";
-            this.btnNuevoProveedor.Size = new System.Drawing.Size(40, 28);
-            this.btnNuevoProveedor.TabIndex = 89;
-            this.btnNuevoProveedor.UseVisualStyleBackColor = true;
-            this.btnNuevoProveedor.Click += new System.EventHandler(this.btnNuevoProveedor_Click);
-            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 510);
+            this.ClientSize = new System.Drawing.Size(901, 510);
             this.Controls.Add(this.Grupo);
             this.Name = "FrmCompra";
             this.Text = "Compra de artículos";
@@ -432,5 +556,17 @@
         private System.Windows.Forms.CheckBox chkLibreria;
         private System.Windows.Forms.TextBox txtNombreJuguete;
         private System.Windows.Forms.Button btnNuevoProveedor;
+        private System.Windows.Forms.TextBox txtPorTar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtPorEfe;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtPorGlobalTarjeta;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtPorGlobalEfectivo;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtTarjeta;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtEfectivo;
+        private System.Windows.Forms.Label label15;
     }
 }

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmJuguete));
             this.Grupo = new System.Windows.Forms.GroupBox();
+            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
             this.btnGrabarPorEfectivo = new System.Windows.Forms.Button();
             this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.cmb_CodMarca = new System.Windows.Forms.ComboBox();
@@ -64,7 +65,10 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnIGregarColor = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.btnGrabarPorTarjeta = new System.Windows.Forms.Button();
+            this.txt_PorTar = new System.Windows.Forms.TextBox();
+            this.txt_PorEfe = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             this.BarraBotones.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +76,10 @@
             // Grupo
             // 
             this.Grupo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.Grupo.Controls.Add(this.txt_PorTar);
+            this.Grupo.Controls.Add(this.txt_PorEfe);
+            this.Grupo.Controls.Add(this.label11);
+            this.Grupo.Controls.Add(this.label12);
             this.Grupo.Controls.Add(this.btnGrabarPorTarjeta);
             this.Grupo.Controls.Add(this.btnGrabarPorEfectivo);
             this.Grupo.Controls.Add(this.btnNuevaMarca);
@@ -106,10 +114,20 @@
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información del artículo";
             // 
+            // btnGrabarPorTarjeta
+            // 
+            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
+            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(563, 202);
+            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
+            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
+            this.btnGrabarPorTarjeta.TabIndex = 58;
+            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
+            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
+            // 
             // btnGrabarPorEfectivo
             // 
             this.btnGrabarPorEfectivo.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(430, 170);
+            this.btnGrabarPorEfectivo.Location = new System.Drawing.Point(563, 167);
             this.btnGrabarPorEfectivo.Name = "btnGrabarPorEfectivo";
             this.btnGrabarPorEfectivo.Size = new System.Drawing.Size(40, 28);
             this.btnGrabarPorEfectivo.TabIndex = 57;
@@ -146,7 +164,7 @@
             // btnAplicarEfectivo
             // 
             this.btnAplicarEfectivo.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAplicarEfectivo.Location = new System.Drawing.Point(384, 170);
+            this.btnAplicarEfectivo.Location = new System.Drawing.Point(517, 167);
             this.btnAplicarEfectivo.Name = "btnAplicarEfectivo";
             this.btnAplicarEfectivo.Size = new System.Drawing.Size(40, 28);
             this.btnAplicarEfectivo.TabIndex = 53;
@@ -156,7 +174,7 @@
             // btnAplicarTarjeta
             // 
             this.btnAplicarTarjeta.Image = global::SistemaFact.Properties.Resources.add;
-            this.btnAplicarTarjeta.Location = new System.Drawing.Point(384, 205);
+            this.btnAplicarTarjeta.Location = new System.Drawing.Point(517, 202);
             this.btnAplicarTarjeta.Name = "btnAplicarTarjeta";
             this.btnAplicarTarjeta.Size = new System.Drawing.Size(40, 28);
             this.btnAplicarTarjeta.TabIndex = 52;
@@ -166,7 +184,7 @@
             // txtPorTarjeta
             // 
             this.txtPorTarjeta.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.txtPorTarjeta.Location = new System.Drawing.Point(331, 205);
+            this.txtPorTarjeta.Location = new System.Drawing.Point(464, 202);
             this.txtPorTarjeta.Name = "txtPorTarjeta";
             this.txtPorTarjeta.Size = new System.Drawing.Size(47, 23);
             this.txtPorTarjeta.TabIndex = 35;
@@ -174,7 +192,7 @@
             // txtPorEfectivo
             // 
             this.txtPorEfectivo.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.txtPorEfectivo.Location = new System.Drawing.Point(331, 176);
+            this.txtPorEfectivo.Location = new System.Drawing.Point(464, 173);
             this.txtPorEfectivo.Name = "txtPorEfectivo";
             this.txtPorEfectivo.Size = new System.Drawing.Size(47, 23);
             this.txtPorEfectivo.TabIndex = 34;
@@ -182,7 +200,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(258, 179);
+            this.label9.Location = new System.Drawing.Point(391, 176);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 17);
             this.label9.TabIndex = 33;
@@ -191,7 +209,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(258, 205);
+            this.label7.Location = new System.Drawing.Point(391, 202);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 17);
             this.label7.TabIndex = 32;
@@ -428,15 +446,39 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // btnGrabarPorTarjeta
+            // txt_PorTar
             // 
-            this.btnGrabarPorTarjeta.Image = global::SistemaFact.Properties.Resources.page_add;
-            this.btnGrabarPorTarjeta.Location = new System.Drawing.Point(430, 205);
-            this.btnGrabarPorTarjeta.Name = "btnGrabarPorTarjeta";
-            this.btnGrabarPorTarjeta.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarPorTarjeta.TabIndex = 58;
-            this.btnGrabarPorTarjeta.UseVisualStyleBackColor = true;
-            this.btnGrabarPorTarjeta.Click += new System.EventHandler(this.btnGrabarPorTarjeta_Click);
+            this.txt_PorTar.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txt_PorTar.Location = new System.Drawing.Point(331, 201);
+            this.txt_PorTar.Name = "txt_PorTar";
+            this.txt_PorTar.Size = new System.Drawing.Size(47, 23);
+            this.txt_PorTar.TabIndex = 68;
+            // 
+            // txt_PorEfe
+            // 
+            this.txt_PorEfe.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.txt_PorEfe.Location = new System.Drawing.Point(331, 172);
+            this.txt_PorEfe.Name = "txt_PorEfe";
+            this.txt_PorEfe.Size = new System.Drawing.Size(47, 23);
+            this.txt_PorEfe.TabIndex = 67;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(258, 172);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(67, 17);
+            this.label11.TabIndex = 66;
+            this.label11.Text = "Aplicar %";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(258, 201);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(67, 17);
+            this.label12.TabIndex = 65;
+            this.label12.Text = "Aplicar %";
             // 
             // FrmAbmJuguete
             // 
@@ -495,5 +537,9 @@
         private System.Windows.Forms.Button btnNuevaMarca;
         private System.Windows.Forms.Button btnGrabarPorEfectivo;
         private System.Windows.Forms.Button btnGrabarPorTarjeta;
+        private System.Windows.Forms.TextBox txt_PorTar;
+        private System.Windows.Forms.TextBox txt_PorEfe;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

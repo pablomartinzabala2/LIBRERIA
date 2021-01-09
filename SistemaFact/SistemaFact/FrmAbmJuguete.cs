@@ -195,13 +195,21 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un Costo");
                 return;
             }
-            if (txtPorEfectivo.Text == "")
+            if (txtPorEfectivo.Text == "" && txt_PorEfe.Text =="")
             {
                 Mensaje("Debe ingresar un porcentaje");
                 return;
             }
             Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-            Double Por = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
+            Double Por = 0;
+            if (txt_PorEfe.Text !="")
+            {
+                Por = Convert.ToDouble(txt_PorEfe.Text.Replace(",", "."));
+            }
+            else
+            {
+                Por = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
+            }
             Double Efectivo = Costo + Costo * (Por / 100);
             Efectivo = Math.Round(Efectivo, 0);
             txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
@@ -214,14 +222,25 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un Costo");
                 return;
             }
-            if (txtPorTarjeta.Text == "")
+            if (txtPorTarjeta.Text == "" && txt_PorTar.Text =="")
             {
                 Mensaje("Debe ingresar un porcentaje");
                 return;
             }
 
-            Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
+            Double Costo = 0;
+            if (txt_Costo.Text != "")
+                Costo = Convert.ToDouble(txt_Costo.Text);
+
             Double Por = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
+            if (txt_PorTar.Text != "")
+            {
+                Por = Convert.ToDouble(txt_PorTar.Text.Replace(",", "."));
+            }
+            else
+            {
+                Por = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
+            }
             Double Tarjeta = Costo + Costo * (Por / 100);
             Tarjeta = Math.Round(Tarjeta, 0);
             txt_PrecioTarjeta.Text = Math.Round(Tarjeta, 0).ToString();
@@ -314,11 +333,12 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             if (txt_CodigoBarra.Text.Length > 5)
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cJuguete art = new Clases.cJuguete();
-                DataTable trdo = art.GetArticulo("", CodigoBarra, "");
+                DataTable trdo = art.GetJuguetexCodBarra(CodigoBarra);
                 if (trdo.Rows.Count > 0)
                 {
                     if (trdo.Rows[0]["CodArticulo"].ToString() != "")
@@ -331,6 +351,17 @@ namespace SistemaFact
                         txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
                         txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                         txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                        txt_PorEfe.Text = trdo.Rows[0]["PorEfe"].ToString();
+                        txt_PorTar.Text = trdo.Rows[0]["PorTar"].ToString();
+                        if (txt_PorEfe.Text !="")
+                        {
+                            txt_PorEfe.Text = fun.SepararDecimales(txt_PorEfe.Text);
+                        }
+                         
+                        if (txt_PorTar.Text != "")
+                        {
+                            txt_PorTar.Text = fun.SepararDecimales(txt_PorTar.Text);
+                        }
                     }
                 }
                 else

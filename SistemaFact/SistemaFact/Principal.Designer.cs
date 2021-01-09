@@ -38,6 +38,7 @@
             this.tarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarPreciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualizarPrecioLibreriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.actualizarPrecioLibreriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -143,6 +143,13 @@
             this.actualizarPreciosToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.actualizarPreciosToolStripMenuItem.Text = "Actualizar Precios Jugueteria";
             this.actualizarPreciosToolStripMenuItem.Click += new System.EventHandler(this.actualizarPreciosToolStripMenuItem_Click);
+            // 
+            // actualizarPrecioLibreriaToolStripMenuItem
+            // 
+            this.actualizarPrecioLibreriaToolStripMenuItem.Name = "actualizarPrecioLibreriaToolStripMenuItem";
+            this.actualizarPrecioLibreriaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.actualizarPrecioLibreriaToolStripMenuItem.Text = "Actualizar Precio Libreria";
+            this.actualizarPrecioLibreriaToolStripMenuItem.Click += new System.EventHandler(this.actualizarPrecioLibreriaToolStripMenuItem_Click);
             // 
             // proveedorToolStripMenuItem
             // 
@@ -265,7 +272,7 @@
             this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.openToolStripButton.Text = "OpenListado de Precios";
+            this.openToolStripButton.Text = "Listado de Precios";
             this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // saveToolStripButton
@@ -275,7 +282,7 @@
             this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.saveToolStripButton.Text = "SaveCopia de Seguridad";
+            this.saveToolStripButton.Text = "Copia de Seguridad";
             this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // toolStripSeparator1
@@ -290,7 +297,6 @@
             this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.printToolStripButton.Name = "printToolStripButton";
             this.printToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.printToolStripButton.Text = "Print";
             // 
             // printPreviewToolStripButton
             // 
@@ -299,7 +305,6 @@
             this.printPreviewToolStripButton.ImageTransparentColor = System.Drawing.Color.Black;
             this.printPreviewToolStripButton.Name = "printPreviewToolStripButton";
             this.printPreviewToolStripButton.Size = new System.Drawing.Size(36, 36);
-            this.printPreviewToolStripButton.Text = "Print Preview";
             this.printPreviewToolStripButton.Click += new System.EventHandler(this.printPreviewToolStripButton_Click);
             // 
             // toolStripSeparator2
@@ -332,13 +337,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // actualizarPrecioLibreriaToolStripMenuItem
-            // 
-            this.actualizarPrecioLibreriaToolStripMenuItem.Name = "actualizarPrecioLibreriaToolStripMenuItem";
-            this.actualizarPrecioLibreriaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.actualizarPrecioLibreriaToolStripMenuItem.Text = "Actualizar Precio Libreria";
-            this.actualizarPrecioLibreriaToolStripMenuItem.Click += new System.EventHandler(this.actualizarPrecioLibreriaToolStripMenuItem_Click);
             // 
             // Principal
             // 

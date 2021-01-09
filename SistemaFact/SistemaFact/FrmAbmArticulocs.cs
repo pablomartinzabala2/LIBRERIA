@@ -301,11 +301,12 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_TextChanged(object sender, EventArgs e)
         {
+            cFunciones fun = new cFunciones();
             if (txt_CodigoBarra.Text.Length  >5)
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cArticulo art = new cArticulo();
-                DataTable trdo = art.GetArticulo("", CodigoBarra,"");
+                DataTable trdo = art.GetArticuloxCodigoBarra(CodigoBarra);
                 if (trdo.Rows.Count >0)
                 {
                     if (trdo.Rows[0]["CodArticulo"].ToString() != "")
@@ -318,6 +319,22 @@ namespace SistemaFact
                         txt_Costo.Text = trdo.Rows[0]["Costo"].ToString();
                         txt_PrecioEfectivo.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
                         txt_PrecioTarjeta.Text = trdo.Rows[0]["PrecioTarjeta"].ToString();
+                        txt_PorEfe.Text  = trdo.Rows[0]["PorEfe"].ToString();
+                        txt_PorTar.Text = trdo.Rows[0]["PorTar"].ToString();
+                        if (txt_Costo.Text !="")
+                        {
+                            txt_Costo.Text = fun.SepararDecimales(txt_Costo.Text);
+                        }
+
+                        if (txt_PorTar.Text !="")
+                        {
+                            txt_PorTar.Text = fun.SepararDecimales(txt_PorTar.Text);
+                        }
+                         
+                        if (txt_PorEfe.Text != "")
+                        {
+                            txt_PorEfe.Text = fun.SepararDecimales(txt_PorEfe.Text);
+                        }
                     }
                 }
                 else
@@ -420,13 +437,19 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un Costo");
                 return;
             }
-            if (txtPorEfectivo.Text == "")
+            if (txtPorEfectivo.Text == "" && txt_PorEfe.Text =="" )
             {
-                Mensaje("Debe ingresar un porcentaje");
+                Mensaje("Debe ingresar un porcentaje de efectivo");
                 return;
             }
             Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-            Double Por = Convert.ToDouble(txtPorEfectivo.Text.Replace(".", ","));
+            Double PorEfe = 0;
+            if (txt_PorEfe.Text != "")
+                PorEfe = Convert.ToDouble(txt_PorEfe.Text);
+            else
+                PorEfe = Convert.ToDouble(txtPorEfectivo.Text);
+
+            Double Por = Convert.ToDouble(PorEfe.ToString ().Replace(".", ","));
             Double Efectivo = Costo + Costo * (Por / 100);
             Efectivo = Math.Round(Efectivo, 0);
             txt_PrecioEfectivo.Text = Math.Round(Efectivo, 0).ToString();
@@ -444,14 +467,24 @@ namespace SistemaFact
                 Mensaje("Debe ingresar un Costo");
                 return;
             }
-            if (txtPorTarjeta.Text == "")
+            if (txtPorTarjeta.Text == "" && txt_PorTar.Text =="")
             {
                 Mensaje("Debe ingresar un porcentaje");
                 return;
             }
 
+            Double PorTar = 0;
+            if (txt_PorTar.Text !="")
+            {
+                PorTar = Convert.ToDouble(txt_PorTar.Text);
+            }
+            else
+            {
+                PorTar = Convert.ToDouble(txtPorTarjeta.Text);
+            }
+
             Double Costo = Convert.ToDouble(txt_Costo.Text.Replace(".", ","));
-            Double Por = Convert.ToDouble(txtPorTarjeta.Text.Replace(".", ","));
+            Double Por = Convert.ToDouble(PorTar.ToString ().Replace(".", ","));
             Double Tarjeta = Costo + Costo * (Por / 100);
             Tarjeta = Math.Round(Tarjeta, 0);
             txt_PrecioTarjeta.Text = Math.Round(Tarjeta, 0).ToString();
@@ -533,6 +566,8 @@ namespace SistemaFact
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
+                CalcularEfectivo();
+                calculartarjeta();
                 txt_PrecioEfectivo.Focus();
             }
         }
@@ -543,6 +578,18 @@ namespace SistemaFact
             {
                 txt_PrecioTarjeta.Focus();
             }
+        }
+
+        private void txt_PorEfe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_PorTar.Focus();
+        }
+
+        private void txt_PorTar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+                txt_Costo.Focus();
         }
     }
 }

@@ -126,5 +126,42 @@ namespace SistemaFact.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
+        public DataTable GetJuguetexCodBarra(string CodigoBarra)
+        {
+            string sql = "select * from juguete a";
+            sql = sql + " where a.CodigoBarra=" + "'" + CodigoBarra + "'";
+            return cDb.GetDatatable(sql);
+        }
+
+        public void ActualizarPorcentajes(SqlConnection con, SqlTransaction Transaccion, Int32 CodArticulo, Double PorEfe, Double PorTar)
+        {
+            string sql = "update juguete ";
+            string var = "";
+            if (PorEfe > 0)
+                var = "1";
+            else
+                var = "0";
+            if (PorTar > 0)
+                var = var + "1";
+            else
+                var = var + "0";
+            switch (var)
+            {
+                case "10":
+                    sql = sql + " set PorEfe =" + PorEfe.ToString().Replace(",", ".");
+                    break;
+                case "11":
+                    sql = sql + " set PorEfe =" + PorEfe.ToString().Replace(",", ".");
+                    sql = sql + " , PorTar =" + PorTar.ToString().Replace(",", ".");
+                    break;
+                case "01":
+                    sql = sql + " set PorTar =" + PorTar.ToString().Replace(",", ".");
+                    break;
+
+            }
+            sql = sql + " where CodArticulo=" + CodArticulo.ToString();
+            cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
     }
 }

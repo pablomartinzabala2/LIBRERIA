@@ -24,7 +24,7 @@ namespace SistemaFact
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             fun = new Clases.cFunciones();
-            string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Subtotal;Libreria";
+            string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Efectivo;Tarjeta;Subtotal;Libreria;PorEfe;PorTar";
             tbCompra = fun.CrearTabla(Col);
            
             DateTime Fecha = DateTime.Now;
@@ -39,7 +39,52 @@ namespace SistemaFact
             {
                 LlenarComboArticulo();
             }
+            txtCodigo.Focus();
+            CargarPorcentajesLibreria();
 
+        }
+
+        public void CargarPorcentajesLibreria()
+        {  
+            cPorcentaje obj = new Clases.cPorcentaje();
+            DataTable trdo = obj.GetPorcentaje();
+            if (trdo.Rows.Count > 0)
+            {
+                txtPorGlobalEfectivo.Text = trdo.Rows[0]["PorEfeLibreria"].ToString();
+                if (txtPorGlobalEfectivo.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorGlobalEfectivo.Text.Replace(".", ","));
+                    txtPorGlobalEfectivo.Text = Math.Round(Efectivo, 0).ToString();
+                }
+                txtPorGlobalTarjeta.Text = trdo.Rows[0]["PorTarLibreria"].ToString();
+                if (txtPorGlobalTarjeta.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorGlobalTarjeta.Text.Replace(".", ","));
+                    txtPorGlobalTarjeta.Text = Math.Round(Efectivo, 0).ToString();
+                }
+            }
+        }
+
+        public void CargarPorcentajesJuguetes()
+        {
+            cPorcentaje obj = new Clases.cPorcentaje();
+            DataTable trdo = obj.GetPorcentaje();
+            if (trdo.Rows.Count > 0)
+            {
+                txtPorGlobalEfectivo.Text = trdo.Rows[0]["PorEfeJuguete"].ToString();
+                if (txtPorGlobalEfectivo.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorGlobalEfectivo.Text.Replace(".", ","));
+                    txtPorGlobalEfectivo.Text = Math.Round(Efectivo, 0).ToString();
+                }
+
+                txtPorGlobalTarjeta.Text = trdo.Rows[0]["PorTarJuguete"].ToString();
+                if (txtPorGlobalTarjeta.Text != "")
+                {
+                    Double Efectivo = Convert.ToDouble(txtPorGlobalTarjeta.Text.Replace(".", ","));
+                    txtPorGlobalTarjeta.Text = Math.Round(Efectivo, 0).ToString();
+                }
+            }
         }
 
         private void txt_Codigo_TextChanged(object sender, EventArgs e)
@@ -96,7 +141,7 @@ namespace SistemaFact
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cArticulo art = new cArticulo();
-                DataTable trdo = art.GetArticulo("", CodigoBarra, "");
+                DataTable trdo = art.GetArticuloxCodigoBarra(CodigoBarra);
                 if (trdo.Rows.Count > 0)
                     if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                     {
@@ -108,9 +153,23 @@ namespace SistemaFact
                         txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                         txtPrecio.Text = trdo.Rows[0]["Costo"].ToString();
                         txtPrecio.Text = trdo.Rows[0]["Costo"].ToString();
+                        txtPorEfe.Text = trdo.Rows[0]["PorEfe"].ToString();
+                        txtPorTar.Text = trdo.Rows[0]["PorTar"].ToString();
                         if (txtPrecio.Text != "")
                         {
                             txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
+                            Double Costo = Convert.ToDouble(trdo.Rows[0]["Costo"].ToString());
+                            CalcularPrecioTarjetaEfectivo(Costo);
+                        }
+
+                        if (txtPorEfe.Text != "")
+                        {
+                            txtPorEfe.Text = fun.SepararDecimales(txtPorEfe.Text);
+                        }
+
+                        if (txtPorTar.Text != "")
+                        {
+                            txtPorTar.Text = fun.SepararDecimales(txtPorTar.Text);
                         }
                     }
                 if (b == 1)
@@ -129,7 +188,7 @@ namespace SistemaFact
             {
                 string CodigoBarra = txt_CodigoBarra.Text;
                 cJuguete art = new Clases.cJuguete();
-                DataTable trdo = art.GetArticulo("", CodigoBarra, "");
+                DataTable trdo = art.GetJuguetexCodBarra(CodigoBarra);
                 if (trdo.Rows.Count > 0)
                     if (trdo.Rows[0]["CodArticulo"].ToString() != "")
                     {
@@ -140,9 +199,20 @@ namespace SistemaFact
                         txt_Codigo.Text = trdo.Rows[0]["Codigo"].ToString();
                         txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
                         txtPrecio.Text = trdo.Rows[0]["Costo"].ToString();
+                        txtPorEfe.Text = trdo.Rows[0]["PorEfe"].ToString();
+                        txtPorTar.Text = trdo.Rows[0]["PorTar"].ToString();
                         if (txtPrecio.Text !="")
                         {
                             txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
+                        }
+                        if (txtPorEfe.Text != "")
+                        {
+                            txtPorEfe.Text = fun.SepararDecimales(txtPorEfe.Text);
+                        }
+
+                        if (txtPorTar.Text != "")
+                        {
+                            txtPorTar.Text = fun.SepararDecimales(txtPorTar.Text);
                         }
                     }
                 if (b == 1)
@@ -201,19 +271,74 @@ namespace SistemaFact
             Int32 Cantidad = Convert.ToInt32(txtCantidad.Text);
             Double Precio = fun.ToDouble(txtPrecio.Text);
             Double Descuento = 0;
+            Double Efectivo = 0;
+            Double Tarjeta = 0;
+            if (txtEfectivo.Text != "")
+                Efectivo = Convert.ToDouble(txtEfectivo.Text);
+            if (txtTarjeta.Text != "")
+                Tarjeta = Convert.ToDouble(txtTarjeta.Text);
+            Double PorEfe = 0;
+            Double PorTar = 0;
+
+            if (txtPorEfe.Text != "")
+                PorEfe = Convert.ToDouble(txtPorEfe.Text);
+
+            if (txtPorTar.Text != "")
+                PorTar = Convert.ToDouble(txtPorTar.Text);
 
             Double SubTotal = Cantidad * Precio;
             string Val = Codigo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Precio.ToString();
             Val = Val + ";" + Descuento.ToString();
+            Val = Val + ";" + Efectivo.ToString().Replace(",", ".");
+            Val = Val + ";" + Tarjeta.ToString().Replace(",", ".");
             Val = Val + ";" + SubTotal;
             Val = Val + ";" + Libreria;
+            Val = Val + ";" + PorEfe;
+            Val = Val + ";" + PorTar;
             tbCompra = fun.AgregarFilas(tbCompra, Val);
             Grilla.DataSource = tbCompra;
             CalcularTotal();
             LimpiarArticulo();
-            fun.AnchoColumnas(Grilla, "0;40;15;15;15;15");
+            fun.AnchoColumnas(Grilla, "0;40;10;10;0;10;10;10;0;5;5");
+        }
+
+        private void CalcularPrecioTarjetaEfectivo(Double Costo)
+        {
+            Double PorEfe = 0;
+            Double PorTar = 0;
+            Double Efectivo = 0;
+            Double Tarjeta = 0;
+
+            if (txtPorEfe.Text != "")
+            {
+                PorEfe = Convert.ToDouble(txtPorEfe.Text);
+            }
+            else
+            {
+                if (txtPorGlobalEfectivo.Text !="")
+                {
+                    PorEfe = Convert.ToDouble(txtPorGlobalEfectivo.Text);
+                }
+            }
+              
+            if (txtPorTar.Text != "")
+            {
+                PorTar  = Convert.ToDouble(txtPorTar.Text);
+            }
+            else
+            {
+                if (txtPorGlobalTarjeta.Text != "")
+                {
+                    PorTar = Convert.ToDouble(txtPorGlobalTarjeta.Text);
+                }
+            }
+            Efectivo = Costo + Costo * PorEfe  / 100;
+            Tarjeta  = Costo + Costo * PorTar  / 100;
+            txtEfectivo.Text = Efectivo.ToString();
+            txtTarjeta.Text = Tarjeta.ToString();
+
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -292,6 +417,9 @@ namespace SistemaFact
             Double Descueneto = 0;
             Double Subtotal = 0;
             int Libreria = 0;
+            Double PorEfe = 0;
+            Double PorTar = 0;
+
             cJuguete jug = new Clases.cJuguete();
             cArticulo objArt = new cArticulo();
             cDetalleCompra detalle = new cDetalleCompra();
@@ -307,15 +435,29 @@ namespace SistemaFact
                 Costo = fun.ToDouble(tbCompra.Rows[i]["Precio"].ToString());
                 Descueneto = fun.ToDouble(tbCompra.Rows[i]["Descuento"].ToString());
                 Subtotal = fun.ToDouble (tbCompra.Rows[i]["Subtotal"].ToString());
+                if (tbCompra.Rows[i]["PorEfe"].ToString()!="0")
+                {
+                    PorEfe = Convert.ToDouble(tbCompra.Rows[i]["PorEfe"].ToString());
+                }
+
+                if (tbCompra.Rows[i]["PorTar"].ToString() != "0")
+                {
+                    PorTar = Convert.ToDouble(tbCompra.Rows[i]["PorTar"].ToString());
+                }
+
                 if (Libreria ==1)
                 {
                     detalle.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
                     art.ActualizarCosto(con, Transaccion, CodArticulo, Costo);
+                    if (PorEfe > 0 || PorTar > 0)
+                        art.ActualizarPorcentajes(con, Transaccion, CodArticulo, PorEfe, PorTar);
                 }
                 if (Libreria ==0)
                 {
                     jug.ActualizarCosto(con, Transaccion, CodArticulo, Costo);
                     detalleJug.Insertar(con, Transaccion, CodCompra, CodArticulo, Cantidad, Costo, Descueneto, Subtotal);
+                    if (PorEfe > 0 || PorTar > 0)
+                        jug.ActualizarPorcentajes(con, Transaccion, CodArticulo, PorEfe, PorTar);
                 }
                 
             }
@@ -330,7 +472,10 @@ namespace SistemaFact
             txtCantidad.Text = "";
             txt_Stock.Text = "";
             txtPrecio.Text = "";
-            
+            txtEfectivo.Text = "";
+            txtTarjeta.Text = "";
+            txtPorEfe.Text = "";
+            txtPorTar.Text = "";
         }
 
         private void LimpiarGrilla()
@@ -373,11 +518,17 @@ namespace SistemaFact
         }
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
-        {  
+        {  /*
             if (PuedeAgregar == false)
             {
                 PuedeAgregar = true;
                 return;
+            }
+            */
+            if (txtPrecio.Text != "")
+            {
+                Double Costo = Convert.ToDouble(txtPrecio.Text);
+                CalcularPrecioTarjetaEfectivo(Costo);
             }
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -455,9 +606,19 @@ namespace SistemaFact
 
         private void btnAbmJuguete_Click(object sender, EventArgs e)
         {
-            FrmAbmArticulocs form = new FrmAbmArticulocs();
-            form.FormClosing += new FormClosingEventHandler(form_FormClosing);
-            form.ShowDialog();
+            if (chkLibreria.Checked==true)
+            {
+                FrmAbmArticulocs form = new FrmAbmArticulocs();
+                form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+                form.ShowDialog();
+            }
+            else
+            {
+                FrmAbmJuguete  form = new FrmAbmJuguete();
+                form.FormClosing += new FormClosingEventHandler(form_FormClosing);
+                form.ShowDialog();
+            }
+            
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -487,11 +648,13 @@ namespace SistemaFact
             {
                 txtNombreJuguete.Visible = false;
                 txt_Nombre.Visible = true;
+                CargarPorcentajesLibreria();
             }
             else
             {
                 txtNombreJuguete.Visible = true ;
                 txt_Nombre.Visible = false ;
+                CargarPorcentajesJuguetes();
             }
         }
 
@@ -518,6 +681,27 @@ namespace SistemaFact
             FrmAltaBasica form = new FrmAltaBasica();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
+        }
+
+        private void Grilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_Codigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_CodigoBarra.Focus();
+            }
+        }
+
+        private void txt_CodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Nombre.Focus();
+            }
         }
     }
 }
