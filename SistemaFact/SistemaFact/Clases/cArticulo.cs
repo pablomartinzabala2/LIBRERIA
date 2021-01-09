@@ -259,11 +259,12 @@ namespace SistemaFact.Clases
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
         }
 
-        public void ActualizarPrecio(Int32 CodArticulo,Double Por)
+        public void ActualizarMontosArticulos (Int32 CodArticulo,Double Costo,Double ImporteEfectivo,Double ImporteTarjeta)
         {
             string sql = "update Articulo ";
-            sql = sql + " set PrecioEfectivo = isnull(PrecioEfectivo,0) + isnull(PrecioEfectivo,0) * " + Por.ToString().Replace(",", ".") + " / 100";
-            sql = sql + " , PrecioTarjeta = isnull(PrecioTarjeta,0) + isnull(PrecioTarjeta,0) * " + Por.ToString().Replace(",", ".") + " / 100";
+            sql = sql + " set Costo =" + Costo.ToString().Replace(",", ".");
+            sql = sql + ", PrecioEfectivo=" + ImporteEfectivo.ToString().Replace(",", ".");
+            sql = sql + ", PrecioTarjeta=" + ImporteTarjeta.ToString().Replace(",", ".");
             sql = sql + " where CodArticulo=" + CodArticulo.ToString();
             cDb.Grabar(sql);
         }
@@ -274,6 +275,8 @@ namespace SistemaFact.Clases
             sql = sql + " where a.CodigoBarra =" + "'" + CodigoBarra + "'";
             return cDb.GetDatatable(sql);
         }
+
+        
 
         public void ActualizarPorcentajes(SqlConnection con, SqlTransaction Transaccion,Int32 CodArticulo,Double PorEfe,Double PorTar)
         {
@@ -303,6 +306,18 @@ namespace SistemaFact.Clases
             }
             sql = sql + " where CodArticulo=" + CodArticulo.ToString();
             cDb.EjecutarNonQueryTransaccion(con, Transaccion, sql);
+        }
+
+        public DataTable GetArticuloxNombre(string Nombre)
+        {
+            string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
+            sql = sql + ",Costo,PrecioEfectivo,PrecioTarjeta,a.PorEfe,a.PorTar";
+            sql = sql + " from articulo a";
+            if (Nombre != "")
+            {
+                sql = sql + " where a.Nombre like " + "'%" + Nombre + "%'";
+            }
+            return cDb.GetDatatable(sql);
         }
 
 
