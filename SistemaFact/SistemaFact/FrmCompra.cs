@@ -155,12 +155,13 @@ namespace SistemaFact
                         txtPrecio.Text = trdo.Rows[0]["Costo"].ToString();
                         txtPorEfe.Text = trdo.Rows[0]["PorEfe"].ToString();
                         txtPorTar.Text = trdo.Rows[0]["PorTar"].ToString();
-                        if (txtPrecio.Text != "")
+                        if (trdo.Rows[0]["Costo"].ToString()!="")
                         {
-                            txtPrecio.Text = fun.SepararDecimales(txtPrecio.Text);
-                            Double Costo = Convert.ToDouble(trdo.Rows[0]["Costo"].ToString());
+                            Double Costo = Math.Round(Convert.ToDouble(trdo.Rows[0]["Costo"]), 0);
+                            txtPrecio.Text = Costo.ToString();
                             CalcularPrecioTarjetaEfectivo(Costo);
                         }
+                        
 
                         if (txtPorEfe.Text != "")
                         {
@@ -175,7 +176,7 @@ namespace SistemaFact
                 if (b == 1)
                 {
                     PuedeAgregar = false;
-                    txtCantidad.Text = "1";
+                    txtCantidad.Text = "";
                     txtCantidad.Focus();
                 }
             }
@@ -287,6 +288,8 @@ namespace SistemaFact
                 PorTar = Convert.ToDouble(txtPorTar.Text);
 
             Double SubTotal = Cantidad * Precio;
+            Tarjeta = Tarjeta * Cantidad;
+            Efectivo = Efectivo * Cantidad;
             string Val = Codigo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Precio.ToString();
@@ -302,6 +305,7 @@ namespace SistemaFact
             CalcularTotal();
             LimpiarArticulo();
             fun.AnchoColumnas(Grilla, "0;40;10;10;0;10;10;10;0;5;5");
+            txt_Codigo.Focus();
         }
 
         private void CalcularPrecioTarjetaEfectivo(Double Costo)
@@ -336,6 +340,8 @@ namespace SistemaFact
             }
             Efectivo = Costo + Costo * PorEfe  / 100;
             Tarjeta  = Costo + Costo * PorTar  / 100;
+            Efectivo = Math.Round(Efectivo, 0);
+            Tarjeta = Math.Round(Tarjeta, 0);
             txtEfectivo.Text = Efectivo.ToString();
             txtTarjeta.Text = Tarjeta.ToString();
 
@@ -525,14 +531,20 @@ namespace SistemaFact
                 return;
             }
             */
-            if (txtPrecio.Text != "")
+            if (txtCantidad.Text =="")
             {
-                Double Costo = Convert.ToDouble(txtPrecio.Text);
-                CalcularPrecioTarjetaEfectivo(Costo);
+                return;
             }
+          
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                Agregar();
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
+                //Agregar();
+                txtPrecio.Focus();
             }
                 
         }
@@ -563,6 +575,11 @@ namespace SistemaFact
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
                 Agregar();
             }
         }
@@ -598,7 +615,7 @@ namespace SistemaFact
                 if (b == 1)
                 {
                     PuedeAgregar = false;
-                    txtCantidad.Text = "1";
+                    txtCantidad.Text = "";
                     txtCantidad.Focus();
                 }
             }
@@ -701,6 +718,59 @@ namespace SistemaFact
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
                 txt_Nombre.Focus();
+            }
+        }
+
+        private void txtPorEfe_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtPorTar.Focus();
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
+            }
+        }
+
+        private void txtPorTar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtCantidad.Focus();
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
+            }
+        }
+
+        private void txtPorGlobalEfectivo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtPorGlobalTarjeta.Focus();
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
+            }
+        }
+
+        private void txtPorGlobalTarjeta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txtCantidad.Focus();
+                if (txtPrecio.Text != "")
+                {
+                    Double Costo = Convert.ToDouble(txtPrecio.Text);
+                    Costo = Math.Round(Costo, 0);
+                    CalcularPrecioTarjetaEfectivo(Costo);
+                }
             }
         }
     }

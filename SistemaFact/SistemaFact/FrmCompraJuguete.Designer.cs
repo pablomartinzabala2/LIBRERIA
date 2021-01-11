@@ -56,14 +56,12 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
-            this.Grupo.Controls.Add(this.textBox1);
             this.Grupo.Controls.Add(this.cmbProveedor);
             this.Grupo.Controls.Add(this.label9);
             this.Grupo.Controls.Add(this.btnLimpiar);
@@ -323,13 +321,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(339, 232);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 23);
-            this.textBox1.TabIndex = 87;
-            // 
             // FrmCompraJuguete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +366,5 @@
         private System.Windows.Forms.TextBox txt_Stock;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }

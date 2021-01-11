@@ -72,12 +72,16 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.SuspendLayout();
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.label17);
+            this.Grupo.Controls.Add(this.label16);
             this.Grupo.Controls.Add(this.txtTarjeta);
             this.Grupo.Controls.Add(this.label14);
             this.Grupo.Controls.Add(this.txtEfectivo);
@@ -131,7 +135,7 @@
             // 
             // txtTarjeta
             // 
-            this.txtTarjeta.Location = new System.Drawing.Point(692, 91);
+            this.txtTarjeta.Location = new System.Drawing.Point(707, 88);
             this.txtTarjeta.Name = "txtTarjeta";
             this.txtTarjeta.Size = new System.Drawing.Size(79, 23);
             this.txtTarjeta.TabIndex = 101;
@@ -155,7 +159,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(465, 91);
+            this.label15.Location = new System.Drawing.Point(481, 91);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 17);
             this.label15.TabIndex = 98;
@@ -163,15 +167,16 @@
             // 
             // txtPorGlobalTarjeta
             // 
-            this.txtPorGlobalTarjeta.Location = new System.Drawing.Point(580, 117);
+            this.txtPorGlobalTarjeta.Location = new System.Drawing.Point(707, 117);
             this.txtPorGlobalTarjeta.Name = "txtPorGlobalTarjeta";
             this.txtPorGlobalTarjeta.Size = new System.Drawing.Size(79, 23);
             this.txtPorGlobalTarjeta.TabIndex = 97;
+            this.txtPorGlobalTarjeta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorGlobalTarjeta_KeyPress);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(505, 120);
+            this.label11.Location = new System.Drawing.Point(627, 117);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(69, 17);
             this.label11.TabIndex = 96;
@@ -179,15 +184,16 @@
             // 
             // txtPorGlobalEfectivo
             // 
-            this.txtPorGlobalEfectivo.Location = new System.Drawing.Point(423, 117);
+            this.txtPorGlobalEfectivo.Location = new System.Drawing.Point(543, 117);
             this.txtPorGlobalEfectivo.Name = "txtPorGlobalEfectivo";
             this.txtPorGlobalEfectivo.Size = new System.Drawing.Size(80, 23);
             this.txtPorGlobalEfectivo.TabIndex = 95;
+            this.txtPorGlobalEfectivo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorGlobalEfectivo_KeyPress);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(343, 120);
+            this.label13.Location = new System.Drawing.Point(465, 120);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(74, 17);
             this.label13.TabIndex = 94;
@@ -195,15 +201,16 @@
             // 
             // txtPorTar
             // 
-            this.txtPorTar.Location = new System.Drawing.Point(263, 120);
+            this.txtPorTar.Location = new System.Drawing.Point(250, 120);
             this.txtPorTar.Name = "txtPorTar";
             this.txtPorTar.Size = new System.Drawing.Size(79, 23);
             this.txtPorTar.TabIndex = 93;
+            this.txtPorTar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorTar_KeyPress);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(188, 123);
+            this.label7.Location = new System.Drawing.Point(183, 123);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(69, 17);
             this.label7.TabIndex = 92;
@@ -211,10 +218,11 @@
             // 
             // txtPorEfe
             // 
-            this.txtPorEfe.Location = new System.Drawing.Point(106, 120);
+            this.txtPorEfe.Location = new System.Drawing.Point(106, 123);
             this.txtPorEfe.Name = "txtPorEfe";
             this.txtPorEfe.Size = new System.Drawing.Size(80, 23);
             this.txtPorEfe.TabIndex = 91;
+            this.txtPorEfe.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPorEfe_KeyPress);
             // 
             // label10
             // 
@@ -403,7 +411,7 @@
             // 
             // txtCantidad
             // 
-            this.txtCantidad.Location = new System.Drawing.Point(249, 91);
+            this.txtCantidad.Location = new System.Drawing.Point(250, 91);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.Size = new System.Drawing.Size(80, 23);
             this.txtCantidad.TabIndex = 53;
@@ -507,6 +515,24 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Descripción";
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(789, 120);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 17);
+            this.label16.TabIndex = 102;
+            this.label16.Text = "General";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(335, 123);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 17);
+            this.label17.TabIndex = 103;
+            this.label17.Text = "Individual";
+            // 
             // FrmCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,5 +594,7 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtEfectivo;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }
