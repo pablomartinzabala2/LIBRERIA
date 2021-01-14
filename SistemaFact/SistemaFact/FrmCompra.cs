@@ -16,6 +16,7 @@ namespace SistemaFact
         cFunciones fun;
         DataTable tbCompra;
         Boolean PuedeAgregar;
+        int Indice;
         public FrmCompra()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace SistemaFact
         private void FrmCompra_Load(object sender, EventArgs e)
         {
             fun = new Clases.cFunciones();
-            string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Efectivo;Tarjeta;Subtotal;Libreria;PorEfe;PorTar";
+            string Col = "CodArticulo;Nombre;Cantidad;Precio;Descuento;Efectivo;Tarjeta;Subtotal;Libreria;PorEfe;PorTar;Indice";
             tbCompra = fun.CrearTabla(Col);
            
             DateTime Fecha = DateTime.Now;
@@ -41,7 +42,7 @@ namespace SistemaFact
             }
             txtCodigo.Focus();
             CargarPorcentajesLibreria();
-
+            Indice = 0;
         }
 
         public void CargarPorcentajesLibreria()
@@ -219,7 +220,7 @@ namespace SistemaFact
                 if (b == 1)
                 {
                     PuedeAgregar = false;
-                    txtCantidad.Text = "1";
+                    txtCantidad.Text = "";
                     txtCantidad.Focus();
                 }
             }
@@ -286,10 +287,8 @@ namespace SistemaFact
 
             if (txtPorTar.Text != "")
                 PorTar = Convert.ToDouble(txtPorTar.Text);
-
+            Indice = Indice + 1;
             Double SubTotal = Cantidad * Precio;
-            Tarjeta = Tarjeta * Cantidad;
-            Efectivo = Efectivo * Cantidad;
             string Val = Codigo + ";" + Nombre;
             Val = Val + ";" + Cantidad.ToString();
             Val = Val + ";" + Precio.ToString();
@@ -300,12 +299,15 @@ namespace SistemaFact
             Val = Val + ";" + Libreria;
             Val = Val + ";" + PorEfe;
             Val = Val + ";" + PorTar;
+            Val = Val + ";" + Indice.ToString();
             tbCompra = fun.AgregarFilas(tbCompra, Val);
             Grilla.DataSource = tbCompra;
             CalcularTotal();
             LimpiarArticulo();
-            fun.AnchoColumnas(Grilla, "0;40;10;10;0;10;10;10;0;5;5");
+            fun.AnchoColumnas(Grilla, "0;40;10;10;0;10;10;10;0;5;5;0");
             txt_Codigo.Focus();
+            if (tbCompra.Rows.Count > 1)
+                Grilla.Sort(Grilla.Columns[11], ListSortDirection.Descending);
         }
 
         private void CalcularPrecioTarjetaEfectivo(Double Costo)
@@ -488,6 +490,7 @@ namespace SistemaFact
         {
             tbCompra.Clear();
             Grilla.DataSource = tbCompra;
+            Indice = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -580,7 +583,8 @@ namespace SistemaFact
                     Double Costo = Convert.ToDouble(txtPrecio.Text);
                     CalcularPrecioTarjetaEfectivo(Costo);
                 }
-                Agregar();
+                //  Agregar();
+                txtPorEfe.Focus();
             }
         }
 
@@ -719,6 +723,10 @@ namespace SistemaFact
             {
                 txt_Nombre.Focus();
             }
+            if (e.KeyChar == Convert.ToChar (Keys.Subtract))
+            {
+                txt_CodigoBarra.Text = "";
+            }
         }
 
         private void txtPorEfe_KeyPress(object sender, KeyPressEventArgs e)
@@ -738,12 +746,12 @@ namespace SistemaFact
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
-                txtCantidad.Focus();
                 if (txtPrecio.Text != "")
                 {
                     Double Costo = Convert.ToDouble(txtPrecio.Text);
                     CalcularPrecioTarjetaEfectivo(Costo);
                 }
+                Agregar();
             }
         }
 
