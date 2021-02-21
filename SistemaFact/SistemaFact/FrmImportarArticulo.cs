@@ -119,7 +119,7 @@ namespace SistemaFact
                         case 3:
                            Nombre = (string)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             break;
-                        case 10:
+                        case 6:
                             if ((range.Cells[rCnt, cCnt] as Excel.Range).Value2 != null)
                                 Costo  = (Double)(range.Cells[rCnt, cCnt] as Excel.Range).Value2;
                             else

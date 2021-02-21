@@ -366,7 +366,7 @@ namespace SistemaFact
 
         private void txtCantidad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            /*
+            
             if (PuedeAgregar ==false )
             {   
                 if (txtCodigo.Text   !="")
@@ -376,7 +376,7 @@ namespace SistemaFact
                 PuedeAgregar = true;
                 return;
             }
-            */
+            
           
             
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
@@ -395,7 +395,7 @@ namespace SistemaFact
                 {
                     txtCantidad.Text = "1";
                 }
-                Agregar();
+                txtPrecio.Focus();
             } 
         }
 
@@ -610,7 +610,7 @@ namespace SistemaFact
                 txt_CodigoBarra.Text = trdo.Rows[0]["CodigoBarra"].ToString();
                 txt_Nombre.Text = trdo.Rows[0]["Nombre"].ToString();
                 txt_Stock.Text = trdo.Rows[0]["Stock"].ToString();
-                
+                PuedeAgregar = false;    
                 
                 if (Operacion ==1)
                     txtPrecio.Text = trdo.Rows[0]["PrecioEfectivo"].ToString();
@@ -1113,7 +1113,10 @@ namespace SistemaFact
 
         private void txt_CodigoBarra_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+               // txt_Nombre.Focus();
+            }
         }
 
         private void btnLimpiarArticulo_Click(object sender, EventArgs e)
@@ -1263,6 +1266,22 @@ namespace SistemaFact
             if (e.KeyChar == 13)
             {
                 txt_CodigoBarra.Focus();
+            }
+        }
+
+        private void txtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Agregar();
+            }
+        }
+
+        private void txt_CodigoBarra_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                txt_Nombre.Focus();
             }
         }
     }

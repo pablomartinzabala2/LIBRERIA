@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVenta));
+            this.btnPresupuesto = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbTipoOperacion = new System.Windows.Forms.ComboBox();
@@ -67,9 +68,6 @@
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.btnPresupuesto = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGrabar = new System.Windows.Forms.Button();
             this.Grupo = new System.Windows.Forms.GroupBox();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -87,11 +85,23 @@
             this.txtCodCliente = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnGrabar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.Grupo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnPresupuesto
+            // 
+            this.btnPresupuesto.Location = new System.Drawing.Point(494, 560);
+            this.btnPresupuesto.Name = "btnPresupuesto";
+            this.btnPresupuesto.Size = new System.Drawing.Size(75, 23);
+            this.btnPresupuesto.TabIndex = 90;
+            this.btnPresupuesto.Text = "Presupuesto";
+            this.btnPresupuesto.UseVisualStyleBackColor = true;
+            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
             // 
             // groupBox2
             // 
@@ -373,6 +383,7 @@
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(79, 23);
             this.txtPrecio.TabIndex = 55;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label2
             // 
@@ -454,7 +465,7 @@
             this.txt_CodigoBarra.Size = new System.Drawing.Size(132, 23);
             this.txt_CodigoBarra.TabIndex = 2;
             this.txt_CodigoBarra.TextChanged += new System.EventHandler(this.txt_CodigoBarra_TextChanged);
-            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress);
+            this.txt_CodigoBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_CodigoBarra_KeyPress_1);
             // 
             // txt_Stock
             // 
@@ -480,36 +491,6 @@
             this.label10.Size = new System.Drawing.Size(82, 17);
             this.label10.TabIndex = 3;
             this.label10.Text = "Descripción";
-            // 
-            // btnPresupuesto
-            // 
-            this.btnPresupuesto.Location = new System.Drawing.Point(494, 560);
-            this.btnPresupuesto.Name = "btnPresupuesto";
-            this.btnPresupuesto.Size = new System.Drawing.Size(75, 23);
-            this.btnPresupuesto.TabIndex = 90;
-            this.btnPresupuesto.Text = "Presupuesto";
-            this.btnPresupuesto.UseVisualStyleBackColor = true;
-            this.btnPresupuesto.Click += new System.EventHandler(this.btnPresupuesto_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(579, 560);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 62;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnGrabar
-            // 
-            this.btnGrabar.Location = new System.Drawing.Point(660, 560);
-            this.btnGrabar.Name = "btnGrabar";
-            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
-            this.btnGrabar.TabIndex = 59;
-            this.btnGrabar.Text = "Grabar";
-            this.btnGrabar.UseVisualStyleBackColor = true;
-            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // Grupo
             // 
@@ -686,6 +667,26 @@
             this.Nombre.Size = new System.Drawing.Size(53, 17);
             this.Nombre.TabIndex = 0;
             this.Nombre.Text = "Nombe";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(579, 560);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 62;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnGrabar
+            // 
+            this.btnGrabar.Location = new System.Drawing.Point(660, 560);
+            this.btnGrabar.Name = "btnGrabar";
+            this.btnGrabar.Size = new System.Drawing.Size(75, 23);
+            this.btnGrabar.TabIndex = 59;
+            this.btnGrabar.Text = "Grabar";
+            this.btnGrabar.UseVisualStyleBackColor = true;
+            this.btnGrabar.Click += new System.EventHandler(this.btnGrabar_Click);
             // 
             // FrmVenta
             // 

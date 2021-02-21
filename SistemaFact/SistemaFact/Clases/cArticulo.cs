@@ -69,7 +69,7 @@ namespace SistemaFact.Clases
             Double? PrecioTarjeta = null;
             if (Costo !=null)
             {
-                PrecioEfectivo = Costo + Costo * 0.7;
+                PrecioEfectivo = Costo + Costo * 0.8;
                 PrecioTarjeta = Costo + Costo * 1.0;
             }
             string sql = "insert into Articulo(Nombre,Codigo,CodigoBarra,Costo,PrecioEfectivo,PrecioTarjeta)";
@@ -186,7 +186,7 @@ namespace SistemaFact.Clases
         {
             string sql = "select a.CodArticulo, a.Codigo,a.CodigoBarra,a.Nombre, a.stock ";
             sql = sql + ",Costo,PrecioTarjeta,";
-            sql = sql + "(PrecioTarjeta - 0.10*PrecioTarjeta) as Descuento ";
+            sql = sql + "(Costo + 0.9*Costo) as Descuento ";
             sql = sql + ",PrecioEfectivo";
             sql = sql + " from " + Tabla  + " a ";
             if (Nombre != "")
